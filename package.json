@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/panoply/liquify/master/packages/schema"
+    "url": "https://github.com/panoply/liquify-schema"
   },
   "bugs": {
-    "url": "https://github.com/panoply/liquify/issues"
+    "url": "https://github.com/panoply/liquify-schema/issues"
   },
   "scripts": {
     "generate": "node ./generate.cjs",
