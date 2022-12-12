@@ -1,0 +1,125 @@
+{
+  "type": "object",
+  "title": "Liquid Language Settings",
+  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of a `prettify` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
+  "properties": {
+    "liquid.engine": {
+      "type": "string",
+      "default": "shopify",
+      "enum": ["standard", "shopify", "11ty", "jekyll"],
+      "markdownDescription": "./descriptions/vscode/engine.md"
+    },
+    "liquid.completion.tags": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/tags.md"
+    },
+    "liquid.completion.objects": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/objects.md"
+    },
+    "liquid.completion.properties": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/properties.md"
+    },
+    "liquid.completion.filters": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/filters.md"
+    },
+    "liquid.completion.operators": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/operators.md"
+    },
+    "liquid.completion.sections": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/sections.md"
+    },
+    "liquid.completion.schema": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/schema.md"
+    },
+    "liquid.validate.schema": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/validate/schema.md"
+    },
+    "liquid.hover.tags": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/hover/schema.md"
+    },
+    "liquid.hover.filters": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/hover/schema.md"
+    },
+    "liquid.hover.schema": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/hover/schema.md"
+    },
+    "liquid.config.baseUrl": {
+      "type": "string",
+      "markdownDescription": "The `liquid.config.baseUrl` option can be used to define a **relative** directory path for resolving config files. The option will only work in projects that use `.liquidrc` files or define rules on a package.json `prettify` field."
+    },
+    "liquid.settings.target": {
+      "type": "string",
+      "default": "workspace",
+      "markdownDescription": "The configuration preferences to use. This option defaults to `workspace`. It is **highly discouraged** to target `user` settings and could lead to unexpected issues outside of Liquid projects. The `workspace` default will write to the `.vscode/settings.json` relative to project root.",
+      "enum": ["workspace", "user"]
+    },
+    "liquid.format.enable": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/format/enable.md"
+    },
+    "liquid.format.ignore": {
+      "type": "array",
+      "markdownDescription": "./descriptions/vscode/format/ignore.md",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "liquid.format.wrap": {
+      "injectObject": "./prettify.json#wrap"
+    },
+    "liquid.format.indentSize": {
+      "injectObject": "./prettify.json#indentSize"
+    },
+    "liquid.format.commentIndent": {
+      "injectObject": "./prettify.json#commentIndent"
+    },
+    "liquid.format.preserveLine": {
+      "injectObject": "./prettify.json#preserveLine"
+    },
+    "liquid.format.preserveComment": {
+      "injectObject": "./prettify.json#preserveComment"
+    },
+    "liquid.format.endNewLine": {
+      "injectObject": "./prettify.json#endNewLine"
+    },
+    "liquid.format.crlf": {
+      "injectObject": "./prettify.json#crlf"
+    },
+    "liquid.format.markup": {
+      "injectObject": "./prettify.json#markup"
+    },
+    "liquid.format.script": {
+      "injectObject": "./prettify.json#script"
+    },
+    "liquid.format.style": {
+      "injectObject": "./prettify.json#style"
+    },
+    "liquid.format.json": {
+      "injectObject": "./prettify.json#json"
+    }
+  }
+}

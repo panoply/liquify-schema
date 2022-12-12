@@ -1,0 +1,6 @@
+{
+  "$schema": "../package/shopify/templates.json",
+  "name": "Some Template",
+  "sections": {},
+  "order": ["some_sections"]
+}

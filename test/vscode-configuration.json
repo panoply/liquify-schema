@@ -1,0 +1,4 @@
+{
+  "$schema": "../package/vscode/configuration.json",
+  "liquid.format.markup": {}
+}
