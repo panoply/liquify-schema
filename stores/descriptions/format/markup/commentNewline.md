@@ -18,7 +18,7 @@ Liquid line type comments are currently not supported by this rule. Only block t
 
 _Below is an example of how this rule works if it's enabled, ie: `true`. Notice how the HTML type (`<!-- -->`) comment tag immediately follows the `<li>` node, When applying beautification, a new line will be inserted. The HTML comment tag that already has a new line above it will not be touched._
 
-```liquid
+```html
 
 <ul>
  <li>Hello</li>
