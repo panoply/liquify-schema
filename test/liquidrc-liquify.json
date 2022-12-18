@@ -1,9 +1,11 @@
 {
-  "$schema": "../cdn/liquidrc.json",
+  "$schema": "../package/liquidrc.json",
   "engine": "shopify",
-  "paths": {
-    "include": "ast/includes",
-    "render": "ast/includes"
+  "files": {
+    "locales": "path/en.json",
+    "settings": "path/to/settings_schema.json",
+    "snippets": "path/to/snippets/*.liquid",
+    "sections": "path/to/sections/*.liquid"
   },
   "validate": {
     "attributeValues": true,
