@@ -3,12 +3,214 @@
   "$id": "shopify-section-schema",
   "version": 1.1,
   "definitions": {
+    "languages": {
+      "type": "object",
+      "description": "Locales",
+      "properties": {
+        "af": {
+          "type": "string",
+          "description": "Afrikaans (Afrikaans)"
+        },
+        "ar": {
+          "type": "string",
+          "description": "Arabic (العربية)"
+        },
+        "az": {
+          "type": "string",
+          "description": "Azerbaijani (Azərbaycan­lı)"
+        },
+        "be": {
+          "type": "string",
+          "description": "Belarusian (беларуская)"
+        },
+        "bg": {
+          "type": "string",
+          "description": "Bulgarian (български)"
+        },
+        "bs": {
+          "type": "string",
+          "description": "Bosnian (bosanski/босански)"
+        },
+        "cs": {
+          "type": "string",
+          "description": "Czech (čeština)"
+        },
+        "cy": {
+          "type": "string",
+          "description": "Welsh (Cymraeg)"
+        },
+        "da": {
+          "type": "string",
+          "description": "Danish (dansk)"
+        },
+        "de": {
+          "type": "string",
+          "description": "German (Deutsch)"
+        },
+        "el": {
+          "type": "string",
+          "description": "Greek (ελληνικά)"
+        },
+        "en": {
+          "type": "string",
+          "description": "English"
+        },
+        "es": {
+          "type": "string",
+          "description": "Spanish (español)"
+        },
+        "et": {
+          "type": "string",
+          "description": "Estonian (eesti)"
+        },
+        "fa": {
+          "type": "string",
+          "description": "Persian (فارسى)"
+        },
+        "fi": {
+          "type": "string",
+          "description": "Finnish (suomi)"
+        },
+        "fr": {
+          "type": "string",
+          "description": "French (français)"
+        },
+        "fy": {
+          "type": "string",
+          "description": "Frisian (Frysk)"
+        },
+        "he": {
+          "type": "string",
+          "description": "Hebrew (עברית)"
+        },
+        "hr": {
+          "type": "string",
+          "description": "Croatian (hrvatski)"
+        },
+        "hi": {
+          "type": "string",
+          "description": "Hindi (हिंदी)"
+        },
+        "hu": {
+          "type": "string",
+          "description": "Hungarian (magyar)"
+        },
+        "id": {
+          "type": "string",
+          "description": "Indonesian (Bahasa Indonesia)"
+        },
+        "is": {
+          "type": "string",
+          "description": "Icelandic (íslenska)"
+        },
+        "lv": {
+          "type": "string",
+          "description": "Latvian (latviešu)"
+        },
+        "nl": {
+          "type": "string",
+          "description": "Dutch (Nederlands)"
+        },
+        "no": {
+          "type": "string",
+          "description": "Norwegian (norsk)"
+        },
+        "it": {
+          "type": "string",
+          "description": "Italian (italiano)"
+        },
+        "ja": {
+          "type": "string",
+          "description": "Japanese (日本語)"
+        },
+        "ko": {
+          "type": "string",
+          "description": "Korean (한국어/韓國語)"
+        },
+        "lb": {
+          "type": "string",
+          "description": "Luxembourgish (Lëtzebuergesch)"
+        },
+        "lt": {
+          "type": "string",
+          "description": "Lithuanian (lietuvių)"
+        },
+        "mk": {
+          "type": "string",
+          "description": "Macedonian (македонски јазик)"
+        },
+        "pa": {
+          "type": "string",
+          "description": "Punjabi (ਪੰਜਾਬੀ)"
+        },
+        "pl": {
+          "type": "string",
+          "description": "Polish (polski)"
+        },
+        "pt": {
+          "type": "string",
+          "description": "Portuguese (Português)"
+        },
+        "ro": {
+          "type": "string",
+          "description": "Romanian (română)"
+        },
+        "ru": {
+          "type": "string",
+          "description": "Russian (русский)"
+        },
+        "si": {
+          "type": "string",
+          "description": "Sinhala (සිංහල)"
+        },
+        "sl": {
+          "type": "string",
+          "description": "Albanian (shqipe)"
+        },
+        "sk": {
+          "type": "string",
+          "description": "Slovak (slovenčina)"
+        },
+        "sq": {
+          "type": "string",
+          "description": "Slovenian (slovenski)"
+        },
+        "sv": {
+          "type": "string",
+          "description": "Swedish (svenska)"
+        },
+        "ta": {
+          "type": "string",
+          "description": "Tamil (தமிழ்)"
+        },
+        "th": {
+          "type": "string",
+          "description": "Thai (ไทย)"
+        },
+        "tr": {
+          "type": "string",
+          "description": "Turkish (Türkçe)"
+        },
+        "zh": {
+          "type": "string",
+          "description": "Chinese (中文)"
+        },
+        "uk": {
+          "type": "string",
+          "description": "Ukrainian (українська)"
+        },
+        "vi": {
+          "type": "string",
+          "description": "Vietnamese (Tiếng Việt/㗂越)"
+        }
+      }
+    },
     "content": {
       "required": ["content"],
       "type": "object",
       "properties": {
         "content": {
-          "type": "string",
+          "type": ["string", "object"],
           "title": "Content",
           "description": "Textual content for the header title."
         }
@@ -18,9 +220,17 @@
       "type": "object",
       "properties": {
         "placeholder": {
-          "type": "string",
           "title": "Placeholder",
-          "description": "A placeholder value"
+          "description": "A placeholder value",
+          "default": "",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/languages"
+            }
+          ]
         }
       }
     },
@@ -46,18 +256,53 @@
             "type": "object",
             "required": ["value", "label"],
             "additionalProperties": false,
+            "defaultSnippets": [
+              {
+                "label": "Options",
+                "description": "Takes an array of value/label definitions for each option in the drop-down.",
+                "body": {
+                  "value": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+                }
+              },
+              {
+                "label": "Options with group",
+                "description": "Takes an array of value/label definitions for each option in the drop-down with an optional attribute you can add to each option to create option groups in the drop-down",
+                "body": {
+                  "value": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "group": "$3"
+                }
+              }
+            ],
             "properties": {
               "value": {
                 "type": "string",
                 "description": "The value of the select options. This will be used as the output"
               },
               "label": {
-                "type": ["string", "object"],
-                "description": "A label to render to the theme editor"
+                "title": "Label",
+                "description": "A label to render to the theme editor",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/languages"
+                  }
+                ]
               },
               "group": {
-                "type": "string",
-                "description": "An optional attribute you can add to each option to create option groups in the drop-down."
+                "title": "Group",
+                "description": "An optional attribute you can add to each option to create option groups in the drop-down.",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/languages"
+                  }
+                ]
               }
             }
           }
@@ -78,21 +323,25 @@
         "min": {
           "type": "number",
           "title": "Min",
-          "minimum": 0,
-          "maximum": 100,
           "description": "The minimum number of steps"
         },
         "max": {
           "type": "number",
           "title": "Max",
-          "maximum": 9999,
           "description": "The maximum number of steps"
         },
         "unit": {
-          "type": "string",
-          "title": "Max",
-          "maxLength": 3,
-          "description": "The unit of measure label. For example, you could use sec for seconds, or px for pixels."
+          "title": "Unit",
+          "description": "The unit of measure label. For example, you could use sec for seconds, or px for pixels.",
+          "default": "",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/languages"
+            }
+          ]
         }
       }
     },
@@ -108,15 +357,44 @@
             "type": "object",
             "required": ["value", "label"],
             "additionalProperties": false,
+            "defaultSnippets": [
+              {
+                "label": "Radio Options",
+                "description": "Value and label definitions",
+                "body": {
+                  "value": "$1",
+                  "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3"
+                }
+              }
+            ],
             "properties": {
               "value": {
                 "type": "string"
               },
               "label": {
-                "type": "string"
+                "title": "Label",
+                "description": "Radio Label",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/languages"
+                  }
+                ]
               }
             }
           }
+        }
+      }
+    },
+    "color": {
+      "type": "object",
+      "format": "color",
+      "properties": {
+        "default": {
+          "type": "string",
+          "format": "color"
         }
       }
     },
@@ -136,18 +414,276 @@
           }
         },
         "placeholder": {
-          "type": "string",
-          "title": "Placeholder",
-          "description": "A placeholder value"
+          "$ref": "#/definitions/languages"
         }
       }
     },
     "settings": {
       "type": "array",
+      "markdownDescription": "./descriptions/sections/settings/settings.md",
       "items": {
         "required": ["type"],
         "type": "object",
-        "description": "Lists all settings that are available for this theme section",
+        "defaultSnippets": [
+          {
+            "label": "Text",
+            "markdownDescription": "./descriptions/sections/input/text.md",
+            "body": {
+              "type": "text",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "Textarea",
+            "markdownDescription": "./descriptions/sections/input/textarea.md",
+            "body": {
+              "type": "text",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "Number",
+            "markdownDescription": "./descriptions/sections/input/number.md",
+            "body": {
+              "type": "number",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "^$3",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "Checkbox",
+            "markdownDescription": "./descriptions/sections/input/checkbox.md",
+            "body": {
+              "type": "checkbox",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "^${3|true,false|}",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "Select",
+            "markdownDescription": "./descriptions/sections/input/select.md",
+            "body": {
+              "type": "select",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$4",
+              "info": "$5",
+              "options": ["^$3"]
+            }
+          },
+          {
+            "label": "Radio",
+            "markdownDescription": "./descriptions/sections/input/radio.md",
+            "body": {
+              "type": "radio",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$4",
+              "info": "$5",
+              "options": ["^$3"]
+            }
+          },
+          {
+            "label": "Range",
+            "markdownDescription": "./descriptions/sections/input/range.md",
+            "body": {
+              "type": "range",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "min": "^$3",
+              "max": "^$4",
+              "step": "^$5",
+              "unit": "$6",
+              "default": "^$7"
+            }
+          },
+          {
+            "label": "Article",
+            "markdownDescription": "./descriptions/sections/input/article.md",
+            "body": {
+              "type": "article",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$1"
+            }
+          },
+          {
+            "label": "Blog",
+            "markdownDescription": "./descriptions/sections/input/blog.md",
+            "body": {
+              "type": "blog",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Collection",
+            "markdownDescription": "./descriptions/sections/input/collection.md",
+            "body": {
+              "type": "collection",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Collection List",
+            "markdownDescription": "./descriptions/sections/input/collection_list.md",
+            "body": {
+              "type": "collection_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "limit": "^$3"
+            }
+          },
+          {
+            "label": "Color",
+            "markdownDescription": "./descriptions/sections/input/color.md",
+            "body": {
+              "type": "color",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3"
+            }
+          },
+          {
+            "label": "Color Background",
+            "markdownDescription": "./descriptions/sections/input/color_background.md",
+            "body": {
+              "type": "color_background",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3"
+            }
+          },
+          {
+            "label": "Font Picker",
+            "markdownDescription": "./descriptions/sections/input/font_picker.md",
+            "body": {
+              "type": "font_picker",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3"
+            }
+          },
+          {
+            "label": "HTML",
+            "markdownDescription": "./descriptions/sections/input/html.md",
+            "body": {
+              "type": "html",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3"
+            }
+          },
+          {
+            "label": "Image Picker",
+            "markdownDescription": "./descriptions/sections/input/image_picker.md",
+            "body": {
+              "type": "image_picker",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Inline Richtext",
+            "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
+            "body": {
+              "type": "inline_richtext",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Link List",
+            "markdownDescription": "./descriptions/sections/input/link_list.md",
+            "body": {
+              "type": "link_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Liquid",
+            "markdownDescription": "./descriptions/sections/input/liquid.md",
+            "body": {
+              "type": "liquid",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Page",
+            "markdownDescription": "./descriptions/sections/input/page.md",
+            "body": {
+              "type": "page",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Product",
+            "markdownDescription": "./descriptions/sections/input/product.md",
+            "body": {
+              "type": "product",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Product List",
+            "markdownDescription": "./descriptions/sections/input/product_list.md",
+            "body": {
+              "type": "product_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "limit": "^$3"
+            }
+          },
+          {
+            "label": "Richtext",
+            "markdownDescription": "./descriptions/sections/input/richtext.md",
+            "body": {
+              "type": "richtext",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "URL",
+            "markdownDescription": "./descriptions/sections/input/url.md",
+            "body": {
+              "type": "url",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Video",
+            "markdownDescription": "./descriptions/sections/input/video.md",
+            "body": {
+              "type": "video",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+            }
+          },
+          {
+            "label": "Video URL",
+            "markdownDescription": "./descriptions/sections/input/video_url.md",
+            "body": {
+              "type": "video_url",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "accepts": ["^3"]
+            }
+          }
+        ],
         "properties": {
           "type": {
             "type": "string",
@@ -157,137 +693,137 @@
               {
                 "enum": ["text"],
                 "title": "Single-line text fields",
-                "description": "A setting of type text is used for capturing short strings, such as URLs, social media usernames, sales banner text, etc."
+                "markdownDescription": "./descriptions/sections/input/text.md"
               },
               {
                 "enum": ["textarea"],
                 "title": "Multi-line text areas",
-                "description": "A setting of type textarea is used for capturing larger blocks of text, such as embed codes."
+                "markdownDescription": "./descriptions/sections/input/textarea.md"
               },
               {
                 "enum": ["image_picker"],
-                "title": "Image",
-                "description": "Merchants can use a setting of type \"image_picker\" to upload assets such as logo images, favicons, and slideshow images."
+                "title": "Image Picker",
+                "markdownDescription": "./descriptions/sections/input/image_picker.md"
               },
               {
                 "enum": ["radio"],
-                "title": "Radio button",
-                "description": "A setting of type radio is used for presenting mutually exclusive options to the merchant, for example, selecting the alignment of the logo."
+                "title": "Radio Button",
+                "markdownDescription": "./descriptions/sections/input/radio.md"
               },
               {
                 "enum": ["select"],
                 "title": "Selection drop-down",
-                "description": "A setting of type select is used for presenting a large number of options to the merchant, for example, selecting the number of products to show on the product page."
+                "markdownDescription": "./descriptions/sections/input/select.md"
               },
               {
                 "enum": ["checkbox"],
                 "title": "Checkbox",
-                "description": "A setting of type checkbox is used for toggling preferences on or off, for example, showing or hiding elements on a page. \n\n The values of checkboxes are always forced to be 1. Hidden fields are inserted by Shopify in the theme editor that is generated for each checkbox, to allow for false values to be submitted appropriately."
+                "markdownDescription": "./descriptions/sections/input/checkbox.md"
               },
               {
                 "enum": ["number"],
                 "title": "Number",
-                "description": "A setting of type number outputs a single number field. In addition to the standard attributes of an input setting, number type settings have the following attribut"
+                "markdownDescription": "./descriptions/sections/input/number.md"
               },
               {
                 "enum": ["range"],
                 "title": "Range",
-                "description": "The range input setting lets you add a slider that selects from a range of values. For example, merchants can use the range slider to select a font size for text, or to set the spacing between elements. You must set minimum and maximum values for the slider, and optionally a unit of measure such as pixels, seconds, or percentage."
+                "markdownDescription": "./descriptions/sections/input/range.md"
               },
               {
                 "enum": ["color"],
-                "title": "Color picker",
-                "description": "Settings of type color present a color picker to the merchant."
+                "title": "Color Picker",
+                "markdownDescription": "./descriptions/sections/input/color.md"
               },
               {
                 "enum": ["font_picker"],
-                "title": "Font picker",
-                "description": "Settings of type font_picker generate a drop-down menu that is automatically filled with fonts from Shopify's font library. The library includes web-safe fonts, a selection of Google Fonts, and fonts licensed from Monotype."
+                "title": "Font Picker",
+                "markdownDescription": "./descriptions/sections/input/font_picker.md"
               },
               {
                 "enum": ["collection"],
                 "title": "Collections drop-down",
-                "description": "Settings of type collection generate a drop-down that is automatically filled with the names of all the collections in the store. The output of the option the merchant selects from the drop-down is the handle of the collection."
+                "markdownDescription": "./descriptions/sections/input/collection.md"
               },
               {
                 "enum": ["collection_list"],
                 "title": "Collection List",
-                "description": "A setting of type `collection_list` outputs a collection picker field that's automatically populated with the available collections for the store. You can use these fields to capture multiple collections, such as a group of collections to feature on the homepage."
+                "markdownDescription": "./descriptions/sections/input/collection_list.md"
               },
               {
                 "enum": ["product"],
                 "title": "Products drop-down",
-                "description": "Settings of type product generate a drop-down that is automatically filled with the names of all the products in the store. The output of the option the merchant selects from the drop-down is the handle of the product."
+                "markdownDescription": "./descriptions/sections/input/product.md"
               },
               {
                 "enum": ["product_list"],
                 "title": "Products drop-down",
-                "description": "A setting of type product_list outputs a product picker field that's automatically populated with the available products for the store. You can use these fields to capture multiple products, such as a group of products to feature on the homepage."
+                "markdownDescription": "./descriptions/sections/input/product_list.md"
               },
               {
                 "enum": ["blog"],
                 "title": "Blogs drop-down",
-                "description": "Settings of type blog generate a drop-down that is automatically filled with the names of all the blogs in the store. The output of the option the merchant selects from the drop-down is the handle of the blog."
+                "markdownDescription": "./descriptions/sections/input/blog.md"
               },
               {
                 "enum": ["page"],
                 "title": "Pages drop-down",
-                "description": "Settings of type page generate a drop-down that is automatically filled with the names of all pages in the store. The output of the option the merchant selects from the drop-down is the handle of the page."
+                "markdownDescription": "./descriptions/sections/input/page.md"
               },
               {
                 "enum": ["link_list"],
                 "title": "Link lists drop-down",
-                "description": "Settings of type link_list generate a drop-down that is automatically filled with the names of all the menus in the store. The output of the option the merchant selects from the drop-down is the handle of the link list menu.\n\nlink_list settings accept an optional default parameter, which can be set to main-menu or footer."
+                "markdownDescription": "./descriptions/sections/input/link_list.md"
               },
               {
                 "enum": ["url"],
                 "title": "URL",
-                "description": "A url setting lets merchants link to one of the following resources using a picker in the theme editor"
+                "markdownDescription": "./descriptions/sections/input/url.md"
               },
               {
                 "enum": ["richtext"],
                 "title": "RichText",
-                "description": "You can use richtext settings to allow text content with basic formatting. Supported formatting options are bold, italic, underline, links, and paragraphs."
+                "markdownDescription": "./descriptions/sections/input/richtext.md"
               },
               {
                 "enum": ["inline_richtext"],
                 "title": "Inline RichText",
-                "description": "A setting of type inline_richtext outputs HTML markup that isn't wrapped in paragraph tags (<p>). The setting includes the following basic formatting options:"
+                "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
               },
               {
                 "enum": ["html"],
                 "title": "HTML",
-                "description": "An html setting lets merchants add custom HTML code which renders as content for a block. Unclosed tags are automatically closed when settings are saved."
+                "markdownDescription": "./descriptions/sections/input/html.md"
               },
               {
                 "enum": ["article"],
                 "title": "Article",
-                "description": "You can use article settings to reference articles in a Shopify store. Articles function in much the same way as page or product settings, in that they return the handle for the referenced object which can be retrieved with a global variable (in this case, articles)."
+                "markdownDescription": "./descriptions/sections/input/article.md"
               },
               {
                 "enum": ["header"],
                 "title": "Header",
-                "description": "Use settings of type header to add a styled header into the sidebar for informational purposes."
+                "markdownDescription": "./descriptions/sections/input/header.md"
               },
               {
                 "enum": ["paragraph"],
                 "title": "Paragraph",
-                "description": "A setting of type paragraph outputs a text element to help you better describe your input settings"
+                "markdownDescription": "./descriptions/sections/input/paragraph.md"
               },
               {
                 "enum": ["liquid"],
                 "title": "Liquid",
-                "description": "A setting of type liquid outputs a multi-line text field that accepts HTML and limited Liquid markup. You can use these fields to capture custom blocks of HTML and Liquid content, such as a product-specific message. Merchants can also use a liquid setting to add the code needed to integrate certain types of apps into your theme."
+                "markdownDescription": "./descriptions/sections/input/liquid.md"
               },
               {
                 "enum": ["video"],
                 "title": "Video",
-                "description": "A setting of type video outputs a video picker that's automatically populated with the available videos from the Files section of the Shopify admin. The merchant also has the option to upload new videos."
+                "markdownDescription": "./descriptions/sections/input/video.md"
               },
               {
                 "enum": ["video_url"],
                 "title": "Video URL",
-                "description": "A setting of type video_url outputs a URL entry field. In addition to the standard attributes of an input setting."
+                "markdownDescription": "./descriptions/sections/input/video_url.md"
               }
             ]
           }
@@ -336,19 +872,36 @@
               "description": "The unique name for this setting. The id is exposed to the liquid templates via the settings object. It must only contain alphanumeric characters, underscores, and dashes."
             },
             "label": {
-              "type": "string",
               "title": "Label",
-              "description": "A label for this setting."
+              "description": "A label for this setting.",
+              "default": "",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/languages"
+                }
+              ]
             },
             "default": {
-              "type": ["number", "string", "boolean"],
+              "type": ["string", "number", "boolean"],
               "title": "Default",
+              "default": "",
               "description": "A value to which the setting can default."
             },
             "info": {
               "title": "Info",
-              "type": "string",
-              "description": "Additional information about the setting. Use sparingly, as it's better to use only informative labels whenever you can."
+              "description": "Additional information about the setting. Use sparingly, as it's better to use only informative labels whenever you can.",
+              "default": "",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/languages"
+                }
+              ]
             }
           },
           "allOf": [
@@ -364,6 +917,20 @@
               },
               "then": {
                 "$ref": "#/definitions/range"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "color"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/color"
               }
             },
             {
@@ -411,7 +978,6 @@
                 "$ref": "#/definitions/limit"
               }
             },
-
             {
               "if": {
                 "required": ["type"],
@@ -470,15 +1036,41 @@
     "blocks": {
       "type": "array",
       "title": "Blocks",
-      "description": "Blocks are containers of settings and content which can be added, removed, and reordered within a section.",
+      "markdownDescription": "./descriptions/sections/settings/blocks.md",
       "items": {
         "type": "object",
         "required": ["name", "type"],
+        "defaultSnippets": [
+          {
+            "label": "Block",
+            "body": {
+              "name": "$1",
+              "type": "$2",
+              "settings": ["^$3"]
+            }
+          },
+          {
+            "label": "Block with Limit",
+            "body": {
+              "name": "$1",
+              "type": "$2",
+              "limit": "^$3",
+              "settings": ["^$4"]
+            }
+          }
+        ],
         "properties": {
           "name": {
-            "type": "string",
-            "title": "Block Type",
-            "description": "The block name which is used as the merchants label"
+            "title": "Block Name",
+            "description": "The block name which is used as the merchants label",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/definitions/languages"
+              }
+            ]
           },
           "type": {
             "type": "string",
@@ -496,47 +1088,74 @@
           }
         }
       }
-    }
-  },
-  "type": "object",
-  "title": "Shopify Section Schema",
-  "description": "Shopify schema store reference for the schema Liquid tag used in Shopify themes.",
-  "additionalProperties": false,
-  "required": ["name"],
-  "properties": {
-    "name": {
-      "title": "Name",
-      "description": "The name attribute determines the section title that is shown in the theme editor.",
-      "type": "string"
     },
-    "class": {
-      "title": "Class",
-      "description": "When Shopify renders a section, it’s wrapped in an HTML element with a class of shopify-section. You can add to that class here.",
-      "type": "string"
+    "default": {
+      "type": "array",
+      "title": "Default",
+      "markdownDescription": "./descriptions/sections/settings/default.md",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "title": "Name",
+            "description": "The default name, which will show in the Add section portion of the theme editor.",
+            "type": ["string", "object"]
+          },
+          "settings": {
+            "type": "object",
+            "title": "Settings",
+            "description": "A list of default values for any settings you might want to populate. Each entry should include the setting name and the value."
+          },
+          "blocks": {
+            "type": "array",
+            "description": "A list of default blocks that you might want to include. Each entry should be an object with attributes of type and settings. The type attribute value should reflect the type of the block that you want to include, and the settings object should be in the same format as the settings attribute above.",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
     },
-    "tag": {
-      "title": "Tag",
-      "description": "By default, when Shopify renders a section, it's wrapped in a <div> element with a unique id attribute.\n\nIf you don’t want to use a <div>, then you can specify which kind of HTML element to use with the tag attribute.",
-      "type": "string",
-      "enum": [
-        "article",
-        "aside",
-        "div",
-        "footer",
-        "header",
-        "section"
-      ]
-    },
-    "max_blocks": {
-      "title": "Limit",
-      "description": "There’s a limit of 50 blocks per section. You can specify a lower limit with the max_blocks attribute.",
-      "type": "number",
-      "minimum": 1,
-      "maximum": 50
+    "presets": {
+      "type": "array",
+      "title": "Presets",
+      "markdownDescription": "./descriptions/sections/settings/presets.md",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "title": "Name",
+            "description": "The preset name, which will show in the Add section portion of the theme editor.",
+            "default": "",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/definitions/languages"
+              }
+            ]
+          },
+          "settings": {
+            "type": "object",
+            "title": "Settings",
+            "description": "A list of default values for any settings you might want to populate. Each entry should include the setting name and the value."
+          },
+          "blocks": {
+            "type": "array",
+            "description": "A list of default blocks that you might want to include. Each entry should be an object with attributes of type and settings. The type attribute value should reflect the type of the block that you want to include, and the settings object should be in the same format as the settings attribute above.",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
     },
     "templates": {
       "title": "Templates",
-      "description": "You can restrict a section to certain templates by specifying those templates through the templates attribute. This attribute accepts a list of strings that represent the page type",
+      "markdownDescription": "./descriptions/sections/settings/templates.md",
       "type": "array",
       "uniqueItems": true,
       "items": {
@@ -565,9 +1184,262 @@
         ]
       }
     },
+    "locales": {
+      "type": "object",
+      "title": "Locales",
+      "markdownDescription": "./descriptions/sections/settings/locales.md",
+      "properties": {
+        "af": {
+          "type": "object",
+          "description": "Afrikaans (Afrikaans)"
+        },
+        "ar": {
+          "type": "object",
+          "description": "Arabic (العربية)"
+        },
+        "az": {
+          "type": "object",
+          "description": "Azerbaijani (Azərbaycan­lı)"
+        },
+        "be": {
+          "type": "object",
+          "description": "Belarusian (беларуская)"
+        },
+        "bg": {
+          "type": "object",
+          "description": "Bulgarian (български)"
+        },
+        "bs": {
+          "type": "object",
+          "description": "Bosnian (bosanski/босански)"
+        },
+        "cs": {
+          "type": "object",
+          "description": "Czech (čeština)"
+        },
+        "cy": {
+          "type": "object",
+          "description": "Welsh (Cymraeg)"
+        },
+        "da": {
+          "type": "object",
+          "description": "Danish (dansk)"
+        },
+        "de": {
+          "type": "object",
+          "description": "German (Deutsch)"
+        },
+        "el": {
+          "type": "object",
+          "description": "Greek (ελληνικά)"
+        },
+        "en": {
+          "type": "object",
+          "description": "English"
+        },
+        "es": {
+          "type": "object",
+          "description": "Spanish (español)"
+        },
+        "et": {
+          "type": "object",
+          "description": "Estonian (eesti)"
+        },
+        "fa": {
+          "type": "object",
+          "description": "Persian (فارسى)"
+        },
+        "fi": {
+          "type": "object",
+          "description": "Finnish (suomi)"
+        },
+        "fr": {
+          "type": "object",
+          "description": "French (français)"
+        },
+        "fy": {
+          "type": "object",
+          "description": "Frisian (Frysk)"
+        },
+        "he": {
+          "type": "object",
+          "description": "Hebrew (עברית)"
+        },
+        "hr": {
+          "type": "object",
+          "description": "Croatian (hrvatski)"
+        },
+        "hi": {
+          "type": "object",
+          "description": "Hindi (हिंदी)"
+        },
+        "hu": {
+          "type": "object",
+          "description": "Hungarian (magyar)"
+        },
+        "id": {
+          "type": "object",
+          "description": "Indonesian (Bahasa Indonesia)"
+        },
+        "is": {
+          "type": "object",
+          "description": "Icelandic (íslenska)"
+        },
+        "lv": {
+          "type": "object",
+          "description": "Latvian (latviešu)"
+        },
+        "nl": {
+          "type": "object",
+          "description": "Dutch (Nederlands)"
+        },
+        "no": {
+          "type": "object",
+          "description": "Norwegian (norsk)"
+        },
+        "it": {
+          "type": "object",
+          "description": "Italian (italiano)"
+        },
+        "ja": {
+          "type": "object",
+          "description": "Japanese (日本語)"
+        },
+        "ko": {
+          "type": "object",
+          "description": "Korean (한국어/韓國語)"
+        },
+        "lb": {
+          "type": "object",
+          "description": "Luxembourgish (Lëtzebuergesch)"
+        },
+        "lt": {
+          "type": "object",
+          "description": "Lithuanian (lietuvių)"
+        },
+        "mk": {
+          "type": "object",
+          "description": "Macedonian (македонски јазик)"
+        },
+        "pa": {
+          "type": "object",
+          "description": "Punjabi (ਪੰਜਾਬੀ)"
+        },
+        "pl": {
+          "type": "object",
+          "description": "Polish (polski)"
+        },
+        "pt": {
+          "type": "object",
+          "description": "Portuguese (Português)"
+        },
+        "ro": {
+          "type": "object",
+          "description": "Romanian (română)"
+        },
+        "ru": {
+          "type": "object",
+          "description": "Russian (русский)"
+        },
+        "si": {
+          "type": "object",
+          "description": "Sinhala (සිංහල)"
+        },
+        "sl": {
+          "type": "object",
+          "description": "Albanian (shqipe)"
+        },
+        "sk": {
+          "type": "object",
+          "description": "Slovak (slovenčina)"
+        },
+        "sq": {
+          "type": "object",
+          "description": "Slovenian (slovenski)"
+        },
+        "sv": {
+          "type": "object",
+          "description": "Swedish (svenska)"
+        },
+        "ta": {
+          "type": "object",
+          "description": "Tamil (தமிழ்)"
+        },
+        "th": {
+          "type": "object",
+          "description": "Thai (ไทย)"
+        },
+        "tr": {
+          "type": "object",
+          "description": "Turkish (Türkçe)"
+        },
+        "zh": {
+          "type": "object",
+          "description": "Chinese (中文)"
+        },
+        "uk": {
+          "type": "object",
+          "description": "Ukrainian (українська)"
+        },
+        "vi": {
+          "type": "object",
+          "description": "Vietnamese (Tiếng Việt/㗂越)"
+        }
+      }
+    },
+    "tag": {
+      "title": "Tag",
+      "markdownDescription": "./descriptions/sections/settings/tag.md",
+      "type": "string",
+      "enum": [
+        "article",
+        "aside",
+        "div",
+        "footer",
+        "header",
+        "section"
+      ]
+    }
+  },
+  "type": "object",
+  "title": "Shopify Section Schema",
+  "description": "Shopify schema store reference for the schema Liquid tag used in Shopify themes.",
+  "additionalProperties": false,
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "title": "Name",
+      "markdownDescription": "./descriptions/sections/settings/name.md",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/definitions/languages"
+        }
+      ]
+    },
+    "class": {
+      "title": "Class",
+      "markdownDescription": "./descriptions/sections/settings/class.md",
+      "type": "string"
+    },
+    "tag": {
+      "$ref": "#/definitions/tag"
+    },
+    "max_blocks": {
+      "title": "Limit",
+      "markdownDescription": "./descriptions/sections/settings/max_blocks.md",
+      "type": "number",
+      "minimum": 1,
+      "maximum": 50
+    },
+    "templates": {
+      "$ref": "#/definitions/templates"
+    },
     "limit": {
       "title": "Limit",
-      "description": "By default, there's no limit to how many times a section can be added to a template. You can specify a limit of 1 or 2 with the limit attribute.",
+      "markdownDescription": "./descriptions/sections/settings/limit.md",
       "type": "number"
     },
     "settings": {
@@ -577,65 +1449,13 @@
       "$ref": "#/definitions/blocks"
     },
     "presets": {
-      "type": "array",
-      "title": "Presets",
-      "description": "Presets are default configurations of sections that enable merchants to easily add a section to a JSON template through the theme editor. Presets aren't related to theme styles that are defined in `settings_data.json` files.",
-      "items": {
-        "type": "object",
-        "required": ["name"],
-        "properties": {
-          "name": {
-            "title": "Name",
-            "description": "The preset name, which will show in the Add section portion of the theme editor.",
-            "type": "string"
-          },
-          "settings": {
-            "type": "object",
-            "title": "Settings",
-            "description": "A list of default values for any settings you might want to populate. Each entry should include the setting name and the value."
-          },
-          "blocks": {
-            "type": "array",
-            "description": "A list of default blocks that you might want to include. Each entry should be an object with attributes of type and settings. The type attribute value should reflect the type of the block that you want to include, and the settings object should be in the same format as the settings attribute above.",
-            "items": {
-              "type": "object"
-            }
-          }
-        }
-      }
+      "$ref": "#/definitions/presets"
     },
-    "defaults": {
-      "type": "array",
-      "title": "Defaults",
-      "description": "If you statically render a section, then you can define a default configuration with the default object, which has the same attributes as the preset object.",
-      "items": {
-        "type": "object",
-        "required": ["name"],
-        "properties": {
-          "name": {
-            "title": "Name",
-            "description": "The default name, which will show in the Add section portion of the theme editor.",
-            "type": "string"
-          },
-          "settings": {
-            "type": "object",
-            "title": "Settings",
-            "description": "A list of default values for any settings you might want to populate. Each entry should include the setting name and the value."
-          },
-          "blocks": {
-            "type": "array",
-            "description": "A list of default blocks that you might want to include. Each entry should be an object with attributes of type and settings. The type attribute value should reflect the type of the block that you want to include, and the settings object should be in the same format as the settings attribute above.",
-            "items": {
-              "type": "object"
-            }
-          }
-        }
-      }
+    "default": {
+      "$ref": "#/definitions/default"
     },
     "locales": {
-      "type": "object",
-      "title": "Locales",
-      "description": "Sections can provide their own set of translated strings through the `locales` object. This is separate from the `locales` directory of the theme, which makes it a useful feature for sections that are meant to be installed on multiple themes or shops."
+      "$ref": "#/definitions/locales"
     }
   }
 }
