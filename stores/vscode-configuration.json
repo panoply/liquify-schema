@@ -1,13 +1,43 @@
 {
-  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "title": "Liquid Language Settings",
   "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of a `prettify` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
+  "type": "object",
   "properties": {
     "liquid.engine": {
       "type": "string",
       "default": "shopify",
       "enum": ["standard", "shopify", "11ty", "jekyll"],
       "markdownDescription": "./descriptions/vscode/engine.md"
+    },
+    "liquid.files": {
+      "type": "object",
+      "properties": {
+        "locales": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/locales.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "snippets": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/snippets.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "settings": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/settings.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        }
+      }
     },
     "liquid.completion.tags": {
       "type": "boolean",
@@ -75,51 +105,81 @@
       "enum": ["workspace", "user"]
     },
     "liquid.format.enable": {
-      "type": "boolean",
-      "default": true,
-      "markdownDescription": "./descriptions/vscode/format/enable.md"
-    },
-    "liquid.format.ignore": {
-      "type": "array",
-      "markdownDescription": "./descriptions/vscode/format/ignore.md",
-      "items": [
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "liquid.format.wrap": {
-      "injectObject": "./prettify.json#wrap"
-    },
-    "liquid.format.indentSize": {
-      "injectObject": "./prettify.json#indentSize"
-    },
-    "liquid.format.commentIndent": {
-      "injectObject": "./prettify.json#commentIndent"
-    },
-    "liquid.format.preserveLine": {
-      "injectObject": "./prettify.json#preserveLine"
-    },
-    "liquid.format.preserveComment": {
-      "injectObject": "./prettify.json#preserveComment"
-    },
-    "liquid.format.endNewLine": {
-      "injectObject": "./prettify.json#endNewLine"
-    },
-    "liquid.format.crlf": {
-      "injectObject": "./prettify.json#crlf"
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.enable.md"
     },
     "liquid.format.markup": {
-      "injectObject": "./prettify.json#markup"
-    },
-    "liquid.format.script": {
-      "injectObject": "./prettify.json#script"
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.markup.md"
     },
     "liquid.format.style": {
-      "injectObject": "./prettify.json#style"
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.style.md"
+    },
+    "liquid.format.script": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.script.md"
     },
     "liquid.format.json": {
-      "injectObject": "./prettify.json#json"
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.json.md"
+    },
+    "liquid.format.wrap": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.wrap.md"
+    },
+    "liquid.format.indentSize": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.indentSize.md"
+    },
+    "liquid.format.endNewLine": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.endNewLine.md"
+    },
+    "liquid.format.crlf": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.crlf.md"
+    },
+    "liquid.format.commentIndent": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.commentIndent.md"
+    },
+    "liquid.format.preserveLine": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.preserveLine.md"
+    },
+    "liquid.format.preserveComment": {
+      "deprecationMessage": "./descriptions/vscode/deprecated/format.preserveComment.md"
+    },
+    "liquid.format.ignore": {
+      "injectObject": "./prettify.json#ignore"
+    },
+    "liquid.format.rules": {
+      "type": "object",
+      "properties": {
+        "endNewLine": {
+          "injectObject": "./prettify.json#endNewLine"
+        },
+        "wrap": {
+          "injectObject": "./prettify.json#wrap"
+        },
+        "indentSize": {
+          "injectObject": "./prettify.json#indentSize"
+        },
+        "preserveLine": {
+          "injectObject": "./prettify.json#preserveLine"
+        },
+        "useTabs": {
+          "injectObject": "./prettify.json#useTabs"
+        },
+        "crlf": {
+          "injectObject": "./prettify.json#crlf"
+        },
+        "liquid": {
+          "injectObject": "./prettify.json#liquid"
+        },
+        "markup": {
+          "injectObject": "./prettify.json#markup"
+        },
+        "script": {
+          "injectObject": "./prettify.json#script"
+        },
+        "style": {
+          "injectObject": "./prettify.json#style"
+        },
+        "json": {
+          "injectObject": "./prettify.json#json"
+        }
+      }
     }
   }
 }
