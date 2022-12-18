@@ -11,7 +11,7 @@ const stores = join(cwd, 'stores');
 /**
  * Obtains Markdown Descriptions
  */
-const markdown = /(?<="markdownDescription":\s")\.\/.*(?=")/g;
+const markdown = /(?<="(markdownDescription|deprecationMessage)":\s")\.\/.*(?=")/g;
 
 /**
  * Capture Object Injection
