@@ -9,12 +9,45 @@
       "injectObject": "./vscode-configuration.json#liquid.engine"
     },
     "files": {
-      "injectObject": "./vscode-configuration.json#liquid.files"
+      "type": "object",
+      "properties": {
+        "locales": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/locales.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "snippets": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/snippets.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "settings": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/settings.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "sections": {
+          "type": ["array", "string"],
+          "markdownDescription": "./descriptions/vscode/files/sections.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        }
+      }
     },
     "format": {
       "injectObject": "./prettify.json"
     },
-
     "ignore": {
       "deprecationMessage": "./descriptions/format/deprecated/structure.md"
     },
