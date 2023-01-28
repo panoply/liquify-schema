@@ -1,32 +1,27 @@
 {
   "$schema": "../package/shopify/sections.json",
-  "settings": [
+
+  "blocks": [
     {
-      "type": "range",
-      "id": "some_id",
-      "label": "Some Id",
-      "min": 20,
-      "max": 20,
-      "step": 1,
-      "unit": "foo",
-      "default": "foo"
-    },
-    {
-      "type": "select",
-      "id": "some_id",
-      "label": "Some Id",
-      "default": "some_value",
-      "info": "Some information",
-      "options": [
+      "name": "my_block",
+      "type": "xxx",
+      "settings": [
         {
-          "value": "some_value",
-          "label": "Some Value"
-        },
-        {
-          "value": "another_value",
-          "label": "Another Value"
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "sv": "",
+            "en": ""
+          }
         }
       ]
     }
-  ]
+  ],
+  "templates": ["index"],
+  "locales": {
+    "fy": {
+      ""
+    }
+  }
+
 }

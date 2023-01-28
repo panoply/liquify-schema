@@ -14,11 +14,6 @@
       "default": 0,
       "markdownDescription": "./descriptions/format/global/wrap.md"
     },
-    "useTabs": {
-      "type": "boolean",
-      "default": false,
-      "markdownDescription": "./descriptions/format/global/useTabs.md"
-    },
     "indentSize": {
       "type": "number",
       "default": 2,
@@ -29,10 +24,10 @@
       "default": 3,
       "markdownDescription": "./descriptions/format/global/preserveLine.md"
     },
-    "endNewLine": {
+    "endNewline": {
       "type": "boolean",
       "default": false,
-      "markdownDescription": "./descriptions/format/global/endNewLine.md"
+      "markdownDescription": "./descriptions/format/global/endNewline.md"
     },
     "crlf": {
       "type": "boolean",
@@ -86,6 +81,7 @@
               "if",
               "raw",
               "tablerow",
+              "liquid",
               "unless",
               "schema",
               "style",
@@ -94,6 +90,11 @@
               "javascript"
             ]
           }
+        },
+        "indentAttributes": {
+          "default": false,
+          "type": "boolean",
+          "markdownDescription": "./descriptions/format/liquid/indentAttributes.md"
         },
         "lineBreakSeparator": {
           "default": "default",
@@ -174,6 +175,11 @@
           "default": false,
           "markdownDescription": "./descriptions/format/liquid/commentNewline.md"
         },
+        "delimiterForce": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/markup/delimiterForce.md"
+        },
         "forceLeadAttribute": {
           "type": "boolean",
           "default": false,
@@ -189,15 +195,20 @@
           "default": false,
           "markdownDescription": "./descriptions/format/markup/forceAttribute.md"
         },
-        "ignoreScripts": {
+        "ignoreJS": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/markup/ignoreScripts.md"
+          "markdownDescription": "./descriptions/format/markup/ignoreJS.md"
         },
-        "ignoreStyles": {
+        "ignoreJSON": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/markup/ignoreStyles.md"
+          "markdownDescription": "./descriptions/format/markup/ignoreJSON.md"
+        },
+        "ignoreCSS": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/markup/ignoreCSS.md"
         },
         "preserveText": {
           "type": "boolean",
@@ -225,7 +236,6 @@
           "markdownDescription": "./descriptions/format/markup/quoteConvert.md",
           "enum": ["none", "double", "single"]
         },
-
         "delimiterTrims": {
           "deprecationMessage": "./descriptions/format/deprecated/liquid.md"
         },
@@ -371,6 +381,11 @@
       "additionalProperties": false,
       "markdownDescription": "Beautification rules for the following _style_ languages:\n\n- **CSS**\n- **SCSS**\n- **\n- **SASS**\n- **LESS**\n\n. Options provided here will also be applied to the following markup embedded language blocks.",
       "properties": {
+        "atRuleSpace": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/style/atRuleSpace.md"
+        },
         "commentNewline": {
           "type": "boolean",
           "default": false,

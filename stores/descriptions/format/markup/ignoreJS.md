@@ -2,7 +2,7 @@
 
 &nbsp;💁🏽‍♀️&nbsp;&nbsp;&nbsp;Recommended setting is `false`
 
-#### Ignore Scripts
+#### Ignore JS
 
 Whether or not to format regions of code that are identified to be JavaScript. Tags such as `<script>` and `{% javascript %}` can contain JavaScript and by default beautification is applied using the `script` rules. When ignored (ie: `true`) Prettify will not apply formatting to these regions.
 
