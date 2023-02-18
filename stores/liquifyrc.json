@@ -434,9 +434,9 @@
     },
     "format": {
       "type": "object",
-      "title": "Prettify Beautification",
-      "description": "Formatting rules and options passed to Prettify",
-      "injectProperties": "./prettify.json"
+      "title": "Æsthetic Beautification",
+      "description": "Formatting rules and options passed to Æsthetic",
+      "injectProperties": "./esthetic.json"
     },
     "specs": {
       "type": "object",

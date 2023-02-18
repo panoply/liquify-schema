@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$comment": "This JSON Schema describes the data references found at https://github.com/Shopify/theme-liquid-docs",
+  "definitions": {
+    "access": {
+      "type": "object",
+      "properties": {
+        "global": {
+          "type": "boolean"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "object": {
+                "type": "string"
+              },
+              "property": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "template": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "syntax": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "raw_liquid": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "boolean"
+          },
+          "display_type": {
+            "type": "string"
+          },
+          "show_data_tab": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "json_data": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "handle": {
+          "type": "string"
+        },
+        "data_from_file": {
+          "type": "string"
+        }
+      }
+    },
+    "return_type": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "array_value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "properties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "deprecated": {
+            "type": "boolean"
+          },
+          "deprecation_reason": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "examples": {
+            "$ref": "#/definitions/examples"
+          },
+          "return_type": {
+            "$ref": "#/definitions/access"
+          }
+        }
+      }
+    }
+  },
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "access": {
+        "$ref": "#/definitions/access"
+      },
+      "deprecated": {
+        "type": "boolean"
+      },
+      "deprecation_reason": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "summary": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "properties": {
+        "$ref": "#/definitions/properties"
+      },
+      "examples": {
+        "$ref": "#/definitions/examples"
+      },
+      "json_data": {
+        "$ref": "#/definitions/json_data"
+      },
+      "return_type": {
+        "$ref": "#/definitions/return_type"
+      }
+    }
+  }
+}

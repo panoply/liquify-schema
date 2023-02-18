@@ -80,7 +80,7 @@ _Below is an example of how this rule works if set to `outputs` which will apply
 
 ---
 
-#### 👎 &nbsp;&nbsp; `strip`
+#### 👎 &nbsp;&nbsp; `never`
 
 _Below is an example of how this rule works if set to `strip` which will remove all occurrences of trims from Liquid tokens. Notice how the all tags and output object token trims are removed  **after** formatting._
 
@@ -101,9 +101,9 @@ _Below is an example of how this rule works if set to `strip` which will remove 
 
 ---
 
-#### 👎 👎 &nbsp;&nbsp; `force`
+#### 👎 👎 &nbsp;&nbsp; `always`
 
-_Below is an example of how this rule works if set to `force` which will apply trims to all Liquid tokens. You should maybe avoid using this option unless you are completely sure it will not cause issues when Liquid code is rendered in your project_
+_Below is an example of how this rule works if set to `always` which will apply trims to all Liquid tokens. You should maybe avoid using this option unless you are completely sure it will not cause issues when Liquid code is rendered in your project_
 
 ```liquid
 

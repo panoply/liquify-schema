@@ -26,7 +26,7 @@ _Below is an example of how this rule works and you've set the following Liquid 
 
 #### Example
 
-*Using the above example configuration whenever Prettify encounters a `{% capture %}` or `{% unless %}` tag region it will be skipped from formatting. It is important to note that ignored tags will not apply indentation, so it is up to you to refine the ignore tag yourself.*
+*Using the above example configuration whenever Æsthetic encounters a `{% capture %}` or `{% unless %}` tag region it will be skipped from formatting. It is important to note that ignored tags will not apply indentation, so it is up to you to refine the ignore tag yourself.*
 
 ```liquid
 

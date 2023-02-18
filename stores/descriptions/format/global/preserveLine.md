@@ -12,7 +12,7 @@ This is a global option and it will be used for markup, json, styles and scripts
 
 #### Example
 
-_Below is we instructed to Prettify to preserve only `1` empty line. Notice how before formatting the code has several empty newlines but after formatting only a single line is retained_.
+_Below is we instructed to Æsthetic to preserve only `1` empty line. Notice how before formatting the code has several empty newlines but after formatting only a single line is retained_.
 
 ```html
 

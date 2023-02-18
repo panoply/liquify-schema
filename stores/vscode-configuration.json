@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "title": "Liquid Language Settings",
-  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of a `prettify` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
+  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of a `esthetic` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
   "type": "object",
   "properties": {
     "liquid.engine": {
@@ -12,10 +12,12 @@
     },
     "liquid.files.locales": {
       "type": "string",
+      "default": "",
       "markdownDescription": "./descriptions/vscode/files/locales.md"
     },
     "liquid.files.settings": {
       "type": "string",
+      "default": "",
       "markdownDescription": "./descriptions/vscode/files/settings.md"
     },
     "liquid.files.snippets": {
@@ -139,40 +141,43 @@
       "deprecationMessage": "./descriptions/vscode/deprecated/format.preserveComment.md"
     },
     "liquid.format.ignore": {
-      "injectObject": "./prettify.json#ignore"
+      "injectObject": "./esthetic.json#ignore"
     },
     "liquid.format.rules": {
       "type": "object",
       "properties": {
         "endNewline": {
-          "injectObject": "./prettify.json#endNewline"
+          "injectObject": "./esthetic.json#endNewline"
         },
         "wrap": {
-          "injectObject": "./prettify.json#wrap"
+          "injectObject": "./esthetic.json#wrap"
         },
         "indentSize": {
-          "injectObject": "./prettify.json#indentSize"
+          "injectObject": "./esthetic.json#indentSize"
         },
         "preserveLine": {
-          "injectObject": "./prettify.json#preserveLine"
+          "injectObject": "./esthetic.json#preserveLine"
         },
         "crlf": {
-          "injectObject": "./prettify.json#crlf"
+          "injectObject": "./esthetic.json#crlf"
+        },
+        "preset": {
+          "injectObject": "./esthetic.json#preset"
         },
         "liquid": {
-          "injectObject": "./prettify.json#liquid"
+          "injectObject": "./esthetic.json#liquid"
         },
         "markup": {
-          "injectObject": "./prettify.json#markup"
+          "injectObject": "./esthetic.json#markup"
         },
         "script": {
-          "injectObject": "./prettify.json#script"
+          "injectObject": "./esthetic.json#script"
         },
         "style": {
-          "injectObject": "./prettify.json#style"
+          "injectObject": "./esthetic.json#style"
         },
         "json": {
-          "injectObject": "./prettify.json#json"
+          "injectObject": "./esthetic.json#json"
         }
       }
     }

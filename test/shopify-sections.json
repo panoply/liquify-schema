@@ -1,6 +1,5 @@
 {
   "$schema": "../package/shopify/sections.json",
-
   "blocks": [
     {
       "name": "my_block",

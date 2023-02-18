@@ -22,6 +22,10 @@ When referencing a schema, it is assumed that your text editor supports JSON `$s
 
 > Replace the `{store}` portion with the appropriate Schema Store [below](#schema-stores).
 
+### Internal Usage
+
+Using the module within the workspace points `main` in the root package.json to the `/package` directory.
+
 # Stores
 
 Below the available schema stores provided in this module.
@@ -32,11 +36,11 @@ Below the available schema stores provided in this module.
 
 JSON Schema used for providing intellisense features in `.liquidrc`, `.liquidrc.json` files. The stores are also used in vscode workspace settings via the `liquid.*` property.
 
-### [Prettify](https://unpkg.com/@liquify/schema/prettify.json)
+### [Æsthetic](https://unpkg.com/@liquify/schema/esthetic.json)
 
-`https://unpkg.com/@liquify/schema/prettify.json`
+`https://unpkg.com/@liquify/schema/Æsthetic.json`
 
-JSON Schema used for providing intellisense features for `.prettifyrc` files but also on the `format` property in the `.liquidrc` file. The stores are also used for on the package.json `prettify` field and vscode workspace settings via the `liquid.format.*` property.
+JSON Schema used for providing intellisense features for `.Æstheticrc` files but also on the `format` property in the `.liquidrc` file. The stores are also used for on the package.json `Æsthetic` field and vscode workspace settings via the `liquid.format.*` property.
 
 ### [Shopify Templates](https://unpkg.com/@liquify/schema/shopify/templates.json)
 
@@ -67,6 +71,19 @@ JSON Schema used for providing intellisense features within `settings_data.json`
 `https://unpkg.com/@liquify/schema/vscode/configuration.json`
 
 JSON Schema used for providing intellisense features within vscode workspace and user settings. The stores are injected into the [vscode-liquid](https://github.com/panoply/vscode-liquid) extension `configuration` field of the containing package.json file.
+
+### [Theme Liquid Docs](https://unpkg.com/@liquify/schema/theme-docs)
+
+JSON Schema used for the data references available in the [theme-liquid-docs](https://github.com/Shopify/theme-liquid-docs) repository.
+
+**Supported**
+
+- [Objects](https://unpkg.com/@liquify/schema/theme-docs/objects.json)
+
+**TODO**
+
+- Filters
+- Tags
 
 # Contributing
 

@@ -38,7 +38,7 @@
       }
     },
     "format": {
-      "injectObject": "./prettify.json"
+      "injectObject": "./esthetic.json"
     },
     "ignore": {
       "deprecationMessage": "./descriptions/format/deprecated/structure.md"

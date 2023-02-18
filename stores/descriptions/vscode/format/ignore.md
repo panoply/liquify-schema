@@ -5,10 +5,10 @@ A glob pattern list of file's and/or directories to be ignored from formatting. 
 
 **Tip**
 
-You can also leverage inline ignore comments. Place a Prettify ignore comment at the top of files you wish to exclude from beautification, for example:
+You can also leverage inline ignore comments. Place a Æsthetic ignore comment at the top of files you wish to exclude from beautification, for example:
 
 ```html
 
-<!-- @prettify-ignore -->
+<!-- @Æsthetic-ignore -->
 
 ```

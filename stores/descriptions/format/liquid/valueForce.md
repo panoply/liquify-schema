@@ -66,9 +66,9 @@ _Setting this rule to wrap will force attributes when an attribute value contain
 _Example Rules_
 
 ```js
-import prettify from '@liquify/prettify';
+import Æsthetic from '@liquify/Æsthetic';
 
-prettify.options({
+Æsthetic.options({
   wrap: 80,
   markup: {
     valueForce: 'wrap'
@@ -106,7 +106,7 @@ prettify.options({
 
 #### 👍 &nbsp;&nbsp; `newline`
 
-_Setting this rule to newline will force attributes when an attribute value with a Liquid expressions contains a newline character. The newline character is a signal to Prettify that the all attributes and the value should be forced. The rule will only ever be invoked when a newline is provided, it does not matter where in the value string._
+_Setting this rule to newline will force attributes when an attribute value with a Liquid expressions contains a newline character. The newline character is a signal to Æsthetic that the all attributes and the value should be forced. The rule will only ever be invoked when a newline is provided, it does not matter where in the value string._
 
 ```liquid
 

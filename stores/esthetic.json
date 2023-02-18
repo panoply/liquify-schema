@@ -34,6 +34,17 @@
       "default": false,
       "markdownDescription": "./descriptions/format/global/crlf.md"
     },
+    "preset": {
+      "enum": [
+        "none",
+        "recommended",
+        "warrington",
+        "strict",
+        "shopify"
+      ],
+      "default": "none",
+      "markdownDescription": "./descriptions/format/global/preset.md"
+    },
     "liquid": {
       "type": "object",
       "additionalProperties": false,
@@ -45,11 +56,22 @@
             "preserve",
             "tags",
             "outputs",
-            "strip",
-            "force"
+            "never",
+            "always"
           ],
           "default": "preserve",
           "markdownDescription": "./descriptions/format/liquid/delimiterTrims.md"
+        },
+        "delimiterPlacement": {
+          "type": "string",
+          "enum": [
+            "preserve",
+            "inline",
+            "consistent",
+            "force"
+          ],
+          "default": "none",
+          "markdownDescription": "./descriptions/format/liquid/delimiterPlacement.md"
         },
         "commentIndent": {
           "type": "boolean",
@@ -60,6 +82,26 @@
           "type": "boolean",
           "default": false,
           "markdownDescription": "./descriptions/format/liquid/commentNewline.md"
+        },
+        "correct": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/liquid/correct.md"
+        },
+        "forceArgumentWrap": {
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "./descriptions/format/liquid/forceArgumentWrap.md"
+        },
+        "forceFilterWrap": {
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "./descriptions/format/liquid/forceFilterWrap.md"
+        },
+        "forceLeadArgument": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "./descriptions/format/liquid/forceLeadArgument.md"
         },
         "ignoreTagList": {
           "type": "array",
@@ -100,7 +142,7 @@
           "default": "default",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/lineBreakSeparator.md",
-          "enum": ["default", "before", "after"]
+          "enum": ["before", "after"]
         },
         "normalizeSpacing": {
           "default": true,
@@ -219,6 +261,16 @@
           "type": "boolean",
           "default": false,
           "markdownDescription": "./descriptions/format/markup/selfCloseSpace.md"
+        },
+        "selfCloseSVG": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/markup/selfCloseSVG.md"
+        },
+        "stripAttributeLines": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/markup/stripAttributeLines.md"
         },
         "preserveComment": {
           "type": "boolean",

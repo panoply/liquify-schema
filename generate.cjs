@@ -89,7 +89,7 @@ function mapContent () {
      * Ensure we are only traversing JSON files.
      */
     const items = [
-      'prettify.json',
+      'esthetic.json',
       'liquidrc.json',
       'shopify-sections.json',
       'shopify-locales.json',
@@ -97,7 +97,8 @@ function mapContent () {
       'shopify-templates.json',
       'shopify-settings_schema.json',
       'specifications.json',
-      'vscode-configuration.json'
+      'vscode-configuration.json',
+      'theme-docs_objects.json'
     ];
 
     /* -------------------------------------------- */
@@ -228,26 +229,38 @@ function mapContent () {
        */
       const minify = JSON.stringify(JSON.parse(json), 0);
 
-      /**
-       * Obtain snake cased JSON file names
-       */
-      const snakes = file.match(/^\w+-/);
+      if (file.startsWith('theme-docs')) {
 
-      /**
-       * Rename and Re-path files using snake-case format.
-       * These files will be output into their own directory
-       */
-      if (snakes !== null) {
-
-        const dirName = join(cwd, 'package', snakes[0].slice(0, snakes[0].indexOf('-')));
-        const name = file.replace(snakes[0], snakes[0].replace('-', '/'));
+        const dirName = join(cwd, 'package', 'theme-docs');
+        const name = file.split('_').filter(Boolean);
 
         if (!existsSync(dirName)) mkdirSync(dirName);
 
-        writeFileSync(join(cwd, 'package', name), minify);
+        writeFileSync(join(cwd, 'package', 'theme-docs', name[name.length - 1]), minify);
 
       } else {
-        writeFileSync(join(cwd, 'package', file), minify);
+
+        /**
+         * Obtain snake cased JSON file names
+         */
+        const snakes = file.match(/^\w+-/);
+
+        /**
+         * Rename and Re-path files using snake-case format.
+         * These files will be output into their own directory
+         */
+        if (snakes !== null) {
+
+          const dirName = join(cwd, 'package', snakes[0].slice(0, snakes[0].indexOf('-')));
+          const name = file.replace(snakes[0], snakes[0].replace('-', '/'));
+
+          if (!existsSync(dirName)) mkdirSync(dirName);
+
+          writeFileSync(join(cwd, 'package', name), minify);
+
+        } else {
+          writeFileSync(join(cwd, 'package', file), minify);
+        }
       }
 
     }

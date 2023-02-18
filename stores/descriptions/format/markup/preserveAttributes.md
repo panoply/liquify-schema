@@ -8,7 +8,7 @@ Whether or not markup tags should have their insides preserved, ie: attributes. 
 
 #### Tip
 
-If you're working with a JavaScript framework that implements a data-attribute development based architecture (like Alpine or Angular) which requires a build-step then this rule _might_ help prevent Prettify augmenting code or failing when it encounters otherwise invalid structures not supported or recognized by official markup based language specifications.
+If you're working with a JavaScript framework that implements a data-attribute development based architecture (like Alpine or Angular) which requires a build-step then this rule _might_ help prevent Æsthetic augmenting code or failing when it encounters otherwise invalid structures not supported or recognized by official markup based language specifications.
 
 #
 

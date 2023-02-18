@@ -16,7 +16,7 @@ This rule is typically a matter of preference and widely adopted structural patt
 
 #### 👍 &nbsp;&nbsp; Enabled
 
-_This is an example when this rule is enabled (ie: `true`). Notice how **before** formatting each class selector immediately proceeds the last closing brace `}` character, whereas **after** formatting the selector class names have a new line inserted. When this rule is disabled, Prettify will not assert a break as per the **disabled** example below._
+_This is an example when this rule is enabled (ie: `true`). Notice how **before** formatting each class selector immediately proceeds the last closing brace `}` character, whereas **after** formatting the selector class names have a new line inserted. When this rule is disabled, Æsthetic will not assert a break as per the **disabled** example below._
 
 ```css
 
@@ -54,7 +54,7 @@ _This is an example when this rule is enabled (ie: `true`). Notice how **before*
 
 #### 👎 👎 &nbsp;&nbsp; Disabled
 
-_Below is an example when this option is disabled (ie: `false`) which is the default setting. Though the recommendation is to enable this rule, Prettify does not assume intent and instead assumes new line breaks in accordance with the `preserveLine` value you've set. In the below example there no difference **before** and **after** formatting, the code structure is respected and no new lines are added._
+_Below is an example when this option is disabled (ie: `false`) which is the default setting. Though the recommendation is to enable this rule, Æsthetic does not assume intent and instead assumes new line breaks in accordance with the `preserveLine` value you've set. In the below example there no difference **before** and **after** formatting, the code structure is respected and no new lines are added._
 
 ```css
 
