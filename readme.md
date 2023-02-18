@@ -38,7 +38,7 @@ JSON Schema used for providing intellisense features in `.liquidrc`, `.liquidrc.
 
 ### [Æsthetic](https://unpkg.com/@liquify/schema/esthetic.json)
 
-`https://unpkg.com/@liquify/schema/Æsthetic.json`
+`https://unpkg.com/@liquify/schema/esthetic.json`
 
 JSON Schema used for providing intellisense features for `.Æstheticrc` files but also on the `format` property in the `.liquidrc` file. The stores are also used for on the package.json `Æsthetic` field and vscode workspace settings via the `liquid.format.*` property.
 
@@ -74,11 +74,9 @@ JSON Schema used for providing intellisense features within vscode workspace and
 
 ### [Theme Liquid Docs](https://unpkg.com/@liquify/schema/theme-docs)
 
+- `https://unpkg.com/@liquify/theme-docs/objects.json`
+
 JSON Schema used for the data references available in the [theme-liquid-docs](https://github.com/Shopify/theme-liquid-docs) repository.
-
-**Supported**
-
-- [Objects](https://unpkg.com/@liquify/schema/theme-docs/objects.json)
 
 **TODO**
 
