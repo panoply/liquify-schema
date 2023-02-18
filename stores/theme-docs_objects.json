@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$comment": "This JSON Schema describes the data references found at https://github.com/Shopify/theme-liquid-docs",
+  "$comment": "This JSON Schema describes the object data references of https://github.com/Shopify/theme-liquid-docs",
   "definitions": {
     "access": {
       "type": "object",
