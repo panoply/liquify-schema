@@ -120,7 +120,7 @@
             "$ref": "#/definitions/examples"
           },
           "return_type": {
-            "$ref": "#/definitions/access"
+            "$ref": "#/definitions/return_type"
           }
         }
       }
