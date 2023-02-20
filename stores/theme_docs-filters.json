@@ -1,4 +1,128 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$comment": "This JSON Schema describes the filters data references of https://github.com/Shopify/theme-liquid-docs"
+  "$comment": "This JSON Schema describes the filters data references of https://github.com/Shopify/theme-liquid-docs",
+  "definitions": {
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "syntax": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "raw_liquid": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "boolean"
+          },
+          "display_type": {
+            "type": "string"
+          },
+          "show_data_tab": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "return_type": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "array_value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string",
+        "description": "Denotes the scope in which this filter can be exposed."
+      },
+      "deprecated": {
+        "type": "boolean",
+        "description": "Whether or not the filter is deprecated"
+      },
+      "deprecation_reason": {
+        "type": "string",
+        "description": "The reason for deprecation"
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the filter"
+      },
+      "summary": {
+        "type": "string",
+        "description": "A dshort summary or the filter"
+      },
+      "syntax": {
+        "type": "string",
+        "description": "An implied syntax structure fo the filter"
+      },
+      "name": {
+        "type": "string",
+        "description": "The filters name identifier"
+      },
+      "parameters": {
+        "$ref": "#/definitions/parameters",
+        "description": "A list of filter parameters (if any)"
+      },
+      "examples": {
+        "$ref": "#/definitions/examples",
+        "description": "Code examples which depict sample usage."
+      },
+      "return_type": {
+        "$ref": "#/definitions/return_type",
+        "description": "The returning type applied by the filter."
+      }
+    }
+  }
 }

@@ -98,7 +98,8 @@ function mapContent () {
       'shopify-settings_schema.json',
       'specifications.json',
       'vscode-configuration.json',
-      'theme-docs_objects.json'
+      'theme-docs_objects.json',
+      'theme-docs_filters.json'
     ];
 
     /* -------------------------------------------- */

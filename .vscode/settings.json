@@ -1,0 +1,12 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["theme-docs-objects.json"],
+      "url": "./stores/theme_docs-objects.json"
+    },
+    {
+      "fileMatch": ["theme-docs-filters.json"],
+      "url": "./stores/theme_docs-filters.json"
+    }
+  ]
+}

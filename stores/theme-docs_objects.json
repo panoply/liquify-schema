@@ -131,22 +131,28 @@
     "type": "object",
     "properties": {
       "access": {
-        "$ref": "#/definitions/access"
+        "$ref": "#/definitions/access",
+        "description": "Access information of the object"
       },
       "deprecated": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "Whether or not the object is deprecated"
       },
       "deprecation_reason": {
-        "type": "string"
+        "type": "string",
+        "description": "The reason for deprecation"
       },
       "description": {
-        "type": "string"
+        "type": "string",
+        "description": "A description of the object"
       },
       "summary": {
-        "type": "string"
+        "type": "string",
+        "description": "A short summary of the object"
       },
       "name": {
-        "type": "string"
+        "type": "string",
+        "description": "The actual object name identifier"
       },
       "properties": {
         "$ref": "#/definitions/properties"

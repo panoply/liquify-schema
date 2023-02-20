@@ -75,12 +75,12 @@ JSON Schema used for providing intellisense features within vscode workspace and
 ### [Theme Liquid Docs](https://unpkg.com/@liquify/schema/theme-docs)
 
 - `https://unpkg.com/@liquify/theme-docs/objects.json`
+- `https://unpkg.com/@liquify/theme-docs/filters.json`
 
 JSON Schema used for the data references available in the [theme-liquid-docs](https://github.com/Shopify/theme-liquid-docs) repository.
 
 **TODO**
 
-- Filters
 - Tags
 
 # Contributing
