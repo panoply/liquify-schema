@@ -98,8 +98,8 @@ function mapContent () {
       'shopify-settings_schema.json',
       'specifications.json',
       'vscode-configuration.json',
-      'theme-docs_objects.json',
-      'theme-docs_filters.json'
+      'theme-docs-objects.json',
+      'theme-docs-filters.json'
     ];
 
     /* -------------------------------------------- */
@@ -233,7 +233,7 @@ function mapContent () {
       if (file.startsWith('theme-docs')) {
 
         const dirName = join(cwd, 'package', 'theme-docs');
-        const name = file.split('_').filter(Boolean);
+        const name = file.split('-').filter(Boolean);
 
         if (!existsSync(dirName)) mkdirSync(dirName);
 
