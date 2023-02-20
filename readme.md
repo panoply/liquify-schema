@@ -1,8 +1,11 @@
 # @liquify/schema
 
-This module contains [JSON Schema Stores](https://json-schema.org/) which are used by the [Liquify](https://liquify.dev) IDE extension. This package is available on the npm registry for modules consumed by the [Liquify](https://liquify.dev) text editor.
+This module contains [JSON Schema Stores](https://json-schema.org/) which are used by the [Liquify](https://liquify.dev) IDE extension. This package is available on the npm registry for modules consumed within the project.
 
-**The schema stores developed for the Shopify Liquid variation require that you ask permission before using. Unless you have consent, you cannot implement the structures into your projects without first consulting the project maintainer.**
+**The [sections](#shopify-sections) schema store that was written for the Shopify Liquid variation is not MIT. Please ask permission before using, borrowing logic and/or adapting it into your projects. Unless you have consent, you cannot implement the structures.**
+
+> **Note**&nbsp;
+> This only applies to the section schema store - all other schemas are MIT.
 
 ### Why?
 
@@ -32,50 +35,52 @@ Below the available schema stores provided in this module.
 
 ### [Liquidrc](https://unpkg.com/@liquify/schema/liquidrc.json)
 
-`https://unpkg.com/@liquify/schema/liquidrc.json`
+- [`https://unpkg.com/@liquify/schema/liquidrc.json`](https://unpkg.com/@liquify/schema/liquidrc.json)
 
 JSON Schema used for providing intellisense features in `.liquidrc`, `.liquidrc.json` files. The stores are also used in vscode workspace settings via the `liquid.*` property.
 
 ### [Æsthetic](https://unpkg.com/@liquify/schema/esthetic.json)
 
-`https://unpkg.com/@liquify/schema/esthetic.json`
+- [`https://unpkg.com/@liquify/schema/esthetic.json`](https://unpkg.com/@liquify/schema/esthetic.json)
 
-JSON Schema used for providing intellisense features for `.Æstheticrc` files but also on the `format` property in the `.liquidrc` file. The stores are also used for on the package.json `Æsthetic` field and vscode workspace settings via the `liquid.format.*` property.
+JSON Schema used for providing intellisense features for `.esthetic` files but also on the `format` property in the `.liquidrc` file. The stores are also used for on the package.json `esthetic` field and vscode workspace settings via the `liquid.format.*` property.
 
 ### [Shopify Templates](https://unpkg.com/@liquify/schema/shopify/templates.json)
 
-`https://unpkg.com/@liquify/schema/shopify/settings_schema.json`
+- [`https://unpkg.com/@liquify/schema/shopify/settings_schema.json`](https://unpkg.com/@liquify/schema/shopify/templates.json)
 
 JSON Schema used for providing intellisense features for Shopify OS 2.0 template files. The stores are for Shopify theme environments.
 
 ### [Shopify Sections](https://unpkg.com/@liquify/schema/shopify/sections.json)
 
-`https://unpkg.com/@liquify/schema/shopify/sections.json`
+- [`https://unpkg.com/@liquify/schema/shopify/sections.json`](https://unpkg.com/@liquify/schema/shopify/sections.json)
 
 JSON Schema used for providing intellisense features within the Liquify [Liquid Language Server](#) package. The stores are passed to `{% schema %}` embedded regions of the Shopify Liquid variation.
 
 ### [Shopify Settings Schema](https://unpkg.com/@liquify/schema/shopify/settings_schema.json)
 
-`https://unpkg.com/@liquify/schema/shopify/settings_schema.json`
+- [`https://unpkg.com/@liquify/schema/shopify/settings_schema.json`](https://unpkg.com/@liquify/schema/shopify/settings_schema.json)
 
 JSON Schema used for providing intellisense features within `settings_schema.json` files. The stores are for Shopify theme environments.
 
+**PLEASE ASK BEFORE USING**
+
 ### [Shopify Settings Data](https://unpkg.com/@liquify/schema/shopify/settings_data.json)
 
-`https://unpkg.com/@liquify/schema/shopify/settings_data.json`
+- [`https://unpkg.com/@liquify/schema/shopify/settings_data.json`](https://unpkg.com/@liquify/schema/shopify/settings_data.json)
 
 JSON Schema used for providing intellisense features within `settings_data.json` files. The stores are for Shopify theme environments.
 
 ### [VSCode Configuration](https://unpkg.com/@liquify/schema/vscode/configuration.json)
 
-`https://unpkg.com/@liquify/schema/vscode/configuration.json`
+- [`https://unpkg.com/@liquify/schema/vscode/configuration.json`](https://unpkg.com/@liquify/schema/vscode/configuration.json)
 
 JSON Schema used for providing intellisense features within vscode workspace and user settings. The stores are injected into the [vscode-liquid](https://github.com/panoply/vscode-liquid) extension `configuration` field of the containing package.json file.
 
-### [Theme Liquid Docs](https://unpkg.com/@liquify/schema/theme-docs)
+### [Theme Liquid Docs](https://unpkg.com/browse/@liquify/schema@0.1.0/theme-docs/)
 
-- `https://unpkg.com/@liquify/theme-docs/objects.json`
-- `https://unpkg.com/@liquify/theme-docs/filters.json`
+- [`https://unpkg.com/@liquify/theme-docs/objects.json`](https://unpkg.com/@liquify/theme-docs/objects.json)
+- [`https://unpkg.com/@liquify/theme-docs/filters.json`](https://unpkg.com/@liquify/theme-docs/filters.json)
 
 JSON Schema used for the data references available in the [theme-liquid-docs](https://github.com/Shopify/theme-liquid-docs) repository.
 
@@ -85,7 +90,7 @@ JSON Schema used for the data references available in the [theme-liquid-docs](ht
 
 # Contributing
 
-The stores are written using [Draft 7](http://json-schema.org/draft-07/schema) of the JSON Schema specification. The `markdownDescription` field links to Markdown files contained in the [stores/descriptions](#) directory. Descriptions and generated and injected when running `pnpm build` and are rendered in hover and completion descriptions.
+The stores are written using [Draft 7](http://json-schema.org/draft-07/schema) of the JSON Schema specification. The `markdownDescription` field links to Markdown files contained in the [stores/descriptions](https://github.com/panoply/liquify-schema/tree/master/stores/descriptions) directory. Descriptions and generated and injected when running `pnpm build` and are rendered in hover and completion descriptions.
 
 ### Publishing
 
@@ -93,8 +98,8 @@ The distributed package is published to the NPM Registry in an isolated manner. 
 
 ### Testing
 
-The [test](#) directory links to **generated** stores in the `package` directory. The containing [test/live](#) directory is where stores are tested against CDN linked variations.
+The [test](https://github.com/panoply/liquify-schema/tree/master/test) directory links to **generated** stores in the `package` directory. The containing [test/live](https://github.com/panoply/liquify-schema/tree/master/test/live) directory is where stores are tested against CDN linked variations.
 
 ## Author
 
-🥛 [Νίκος Σαβίδης](mailto:nicos@gmx.com) <img align="right" src="https://img.shields.io/badge/-@sisselsiv-1DA1F2?logo=twitter&logoColor=fff" />
+🥛 [Νίκος Σαβίδης](mailto:n.savvidis@gmx.com) <img align="right" src="https://img.shields.io/badge/-@niksavvidis-1DA1F2?logo=twitter&logoColor=fff" />
