@@ -1399,6 +1399,104 @@
         "header",
         "section"
       ]
+    },
+    "enabled_on": {
+      "title": "Enabled On",
+      "markdownDescription": "./descriptions/sections/settings/enabled_on.md",
+      "type": "object",
+      "properties": {
+        "templates": {
+          "title": "Templates",
+          "description": "A list of the template page types where the section can be used.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "*",
+              "404",
+              "article",
+              "blog",
+              "cart",
+              "collection",
+              "list-collections",
+              "customers/account",
+              "customers/activate_account",
+              "customers/addresses",
+              "customers/login",
+              "customers/order",
+              "customers/register",
+              "customers/reset_password",
+              "gift_card",
+              "index",
+              "page",
+              "password",
+              "policy",
+              "product",
+              "search"
+            ]
+          }
+        },
+        "groups": {
+          "title": "Groups",
+          "description": "A list of the section groups where the section can be used.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["header", "footer", "aside"]
+          }
+        }
+      }
+    },
+    "disabled_on": {
+      "title": "Disabled On",
+      "markdownDescription": "./descriptions/sections/settings/disabled_on.md",
+      "type": "object",
+      "properties": {
+        "templates": {
+          "title": "Templates",
+          "description": "A list of the template page types where the section can't be used.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "*",
+              "404",
+              "article",
+              "blog",
+              "cart",
+              "collection",
+              "list-collections",
+              "customers/account",
+              "customers/activate_account",
+              "customers/addresses",
+              "customers/login",
+              "customers/order",
+              "customers/register",
+              "customers/reset_password",
+              "gift_card",
+              "index",
+              "page",
+              "password",
+              "policy",
+              "product",
+              "search"
+            ]
+          }
+        },
+        "groups": {
+          "title": "Groups",
+          "description": "A list of the section groups where the section can't be used.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["*", "header", "footer", "aside"]
+          }
+        }
+      }
     }
   },
   "type": "object",
@@ -1426,6 +1524,12 @@
     },
     "tag": {
       "$ref": "#/definitions/tag"
+    },
+    "enabled_on": {
+      "$ref": "#/definitions/enabled_on"
+    },
+    "disabled_on": {
+      "$ref": "#/definitions/disabled_on"
     },
     "max_blocks": {
       "title": "Limit",
