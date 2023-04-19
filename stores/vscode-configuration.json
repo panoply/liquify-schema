@@ -141,7 +141,10 @@
       "deprecationMessage": "./descriptions/vscode/deprecated/format.preserveComment.md"
     },
     "liquid.format.ignore": {
-      "injectObject": "./esthetic.json#ignore"
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "liquid.format.rules": {
       "type": "object",
@@ -152,8 +155,14 @@
         "wrap": {
           "injectObject": "./esthetic.json#wrap"
         },
+        "wrapFraction": {
+          "injectObject": "./esthetic.json#wrapFraction"
+        },
         "indentSize": {
           "injectObject": "./esthetic.json#indentSize"
+        },
+        "indentChar": {
+          "injectObject": "./esthetic.json#indentChar"
         },
         "preserveLine": {
           "injectObject": "./esthetic.json#preserveLine"

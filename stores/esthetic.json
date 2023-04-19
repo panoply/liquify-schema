@@ -35,6 +35,11 @@
       "default": 2,
       "markdownDescription": "./descriptions/format/global/indentSize.md"
     },
+    "indentChar": {
+      "type": "string",
+      "default": " ",
+      "markdownDescription": "./descriptions/format/global/indentChar.md"
+    },
     "indentLevel": {
       "type": "number",
       "default": 0,
