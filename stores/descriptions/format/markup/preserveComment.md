@@ -1,7 +1,6 @@
-&nbsp;⚙️&nbsp;&nbsp;&nbsp;**Default** `false`
-
-&nbsp;💁🏽‍♀️&nbsp;&nbsp;&nbsp;Recommended setting is `false`
-
-#### Preserve Comment
+### Preserve Comment
 
 Preserve the inner contents of HTML comments.
+
+
+[Æsthetic Documentation](https://æsthetic.dev/rules/markup/preserveComment/)
