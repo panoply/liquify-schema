@@ -1,23 +1,44 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "properties": {
-    "ignore": {
-      "type": "array",
-      "markdownDescription": "./descriptions/vscode/format/ignore.md",
-      "items": {
-        "uniqueItems": true,
-        "type": "string"
-      }
-    },
     "wrap": {
       "type": "number",
       "default": 0,
       "markdownDescription": "./descriptions/format/global/wrap.md"
     },
+    "wrapFraction": {
+      "type": "number",
+      "default": 0,
+      "markdownDescription": "./descriptions/format/global/wrapFraction.md"
+    },
+    "language": {
+      "enum": [
+        "auto",
+        "text",
+        "html",
+        "liquid",
+        "javascript",
+        "jsx",
+        "typescript",
+        "tsx",
+        "json",
+        "css",
+        "scss",
+        "less",
+        "xml"
+      ],
+      "default": "auto",
+      "markdownDescription": "./descriptions/format/global/language.md"
+    },
     "indentSize": {
       "type": "number",
       "default": 2,
       "markdownDescription": "./descriptions/format/global/indentSize.md"
+    },
+    "indentLevel": {
+      "type": "number",
+      "default": 0,
+      "markdownDescription": "./descriptions/format/global/indentLevel.md"
     },
     "preserveLine": {
       "type": "number",
@@ -36,13 +57,13 @@
     },
     "preset": {
       "enum": [
-        "none",
+        "default",
         "recommended",
         "warrington",
         "strict",
         "shopify"
       ],
-      "default": "none",
+      "default": "default",
       "markdownDescription": "./descriptions/format/global/preset.md"
     },
     "liquid": {
@@ -57,7 +78,8 @@
             "tags",
             "outputs",
             "never",
-            "always"
+            "always",
+            "multiline"
           ],
           "default": "preserve",
           "markdownDescription": "./descriptions/format/liquid/delimiterTrims.md"
@@ -68,7 +90,8 @@
             "preserve",
             "inline",
             "consistent",
-            "force"
+            "force",
+            "force-multiline"
           ],
           "default": "none",
           "markdownDescription": "./descriptions/format/liquid/delimiterPlacement.md"
@@ -83,25 +106,45 @@
           "default": false,
           "markdownDescription": "./descriptions/format/liquid/commentNewline.md"
         },
-        "correct": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "./descriptions/format/liquid/correct.md"
-        },
-        "forceArgumentWrap": {
+        "forceArgument": {
           "type": "number",
           "default": 0,
-          "markdownDescription": "./descriptions/format/liquid/forceArgumentWrap.md"
+          "markdownDescription": "./descriptions/format/liquid/forceArgument.md"
         },
-        "forceFilterWrap": {
+        "forceFilter": {
           "type": "number",
           "default": 0,
-          "markdownDescription": "./descriptions/format/liquid/forceFilterWrap.md"
+          "markdownDescription": "./descriptions/format/liquid/forceFilter.md"
         },
-        "forceLeadArgument": {
-          "type": "boolean",
-          "default": true,
-          "markdownDescription": "./descriptions/format/liquid/forceLeadArgument.md"
+        "dedentTagList": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "./descriptions/format/liquid/dedentTagList.md",
+          "items": {
+            "type": "string",
+            "additionalItems": true,
+            "uniqueItems": true,
+            "not": {
+              "enum": ["comment"]
+            },
+            "enum": [
+              "form",
+              "paginate",
+              "capture",
+              "case",
+              "for",
+              "if",
+              "raw",
+              "tablerow",
+              "liquid",
+              "unless",
+              "schema",
+              "style",
+              "script",
+              "stylesheet",
+              "javascript"
+            ]
+          }
         },
         "ignoreTagList": {
           "type": "array",
@@ -133,10 +176,10 @@
             ]
           }
         },
-        "indentAttributes": {
+        "indentAttribute": {
           "default": false,
           "type": "boolean",
-          "markdownDescription": "./descriptions/format/liquid/indentAttributes.md"
+          "markdownDescription": "./descriptions/format/liquid/indentAttribute.md"
         },
         "lineBreakSeparator": {
           "default": "default",
@@ -154,23 +197,16 @@
           "default": false,
           "markdownDescription": "./descriptions/format/liquid/preserveComment.md"
         },
+        "preserveInternal": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/liquid/preserveInternal.md"
+        },
         "quoteConvert": {
           "default": "none",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/quoteConvert.md",
           "enum": ["none", "double", "single"]
-        },
-        "valueForce": {
-          "default": "intent",
-          "type": "string",
-          "markdownDescription": "./descriptions/format/liquid/valueForce.md",
-          "enum": [
-            "intent",
-            "wrap",
-            "newline",
-            "always",
-            "never"
-          ]
         }
       }
     },
@@ -179,11 +215,6 @@
       "additionalProperties": false,
       "markdownDescription": "Beautification rules applied to the following markup languages:\n\n- **HTML**\n- **Liquid**\n- **XML**\n- **XHTML**",
       "properties": {
-        "correct": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "./descriptions/format/markup/correct.md"
-        },
         "attributeCasing": {
           "type": "string",
           "default": "preserve",
@@ -196,36 +227,35 @@
           ]
         },
         "attributeSort": {
-          "type": "boolean",
+          "type": ["boolean", "array"],
           "default": false,
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "boolean"
+            }
+          ],
           "markdownDescription": "./descriptions/format/markup/attributeSort.md"
-        },
-        "attributeSortList": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "markdownDescription": "./descriptions/format/markup/attributeSortList.md"
         },
         "commentIndent": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/liquid/commentIndent.md"
+          "markdownDescription": "./descriptions/format/markup/commentIndent.md"
         },
         "commentNewline": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/liquid/commentNewline.md"
+          "markdownDescription": "./descriptions/format/markup/commentNewline.md"
         },
-        "delimiterForce": {
+        "delimiterTerminus": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/markup/delimiterForce.md"
-        },
-        "forceLeadAttribute": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "./descriptions/format/markup/forceLeadAttribute.md"
+          "markdownDescription": "./descriptions/format/markup/delimiterTerminus.md"
         },
         "forceIndent": {
           "type": "boolean",
@@ -236,6 +266,18 @@
           "type": ["boolean", "number"],
           "default": false,
           "markdownDescription": "./descriptions/format/markup/forceAttribute.md"
+        },
+        "lineBreakValue": {
+          "enum": [
+            "preserve",
+            "align",
+            "indent",
+            "force-preserve",
+            "force-align",
+            "force-indent"
+          ],
+          "default": "preserve",
+          "markdownDescription": "./descriptions/format/markup/lineBreakValue.md"
         },
         "ignoreJS": {
           "type": "boolean",
@@ -277,10 +319,10 @@
           "default": false,
           "markdownDescription": "./descriptions/format/markup/preserveComment.md"
         },
-        "preserveAttributes": {
+        "preserveAttribute": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/markup/preserveAttributes.md"
+          "markdownDescription": "./descriptions/format/markup/preserveAttribute.md"
         },
         "quoteConvert": {
           "default": "none",
