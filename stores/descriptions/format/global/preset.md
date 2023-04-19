@@ -1,35 +1,34 @@
-&nbsp;⚙️&nbsp;&nbsp;&nbsp;**Default** `0`
+### Preset
 
-&nbsp;💁🏽‍♀️&nbsp;&nbsp;&nbsp;Recommended setting is `0`
-
-#### Preset
-
-The `preset` rule is a global option that will set a different **default** ruleset style guide. Using the `preset` rule will assign formatting rules from which Æsthetic will default. There are 4 different preset options.
+A preset ruleset style guide to use. This will assign rules according to a set of defaults to produce a certain beautification result.
 
 #### Note
 
-If this rule is `undefined` it will default to using `none` which is least obtrusive formatting style.
+_If this rule is `undefined` it will default to using `default` which is least obtrusive formatting style._
 
-#
+### Options
 
----
+#### 👎 &nbsp;&nbsp; `default`
 
-#### 👎 &nbsp;&nbsp; `none`
-
-This is the default style guide ruleset. It is least obtrusive preset option.
+This is the **default** and the most unobtrusive. Formatting will use a preservationist based technique with this preset mode.
 
 #### 👍 👍 &nbsp;&nbsp; `recommended`
 
-This style guide is typically suited for most cases, it sets Æsthetic to use the common rules.
+This style guide is typically suited for most cases, it will apply a base set of rules aligned with the Æsthetic approach.
 
 #### 👍 &nbsp;&nbsp; `warrington`
 
-Warrington style is a custom preset option is more refined than `recommended` and less rigid than `strict`. It is a great preset to use when working in teams.
+This style guide preset is best suited for developers and specifically teams working with Shopify themes. The preset was curated by the talented [David Warrington](https://ellodave.dev/).
 
 #### 👍 &nbsp;&nbsp; `strict`
 
-This is a strict rule preset and typically more suited for experienced developers who write clean and refined code. Definitely not for everybody.
+This is a strict ruleset curated by the projects author [Panoply](https://github.com/panoply).
 
 #### 🤡 &nbsp;&nbsp; `shopify`
 
-This preset will replicate the output you'd get using the Shopify Liquid Prettier Plugin.
+Replicates the Prettier style of formatting. If you've used the Shopify Liquid Prettier Plugin and enjoy that beautification style using this preset will produce the same results.
+
+
+---
+
+[Æsthetic Documentation](https://æsthetic.dev/rules/global/preset/)

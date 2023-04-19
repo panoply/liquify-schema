@@ -1,11 +1,5 @@
-&nbsp;⚙️&nbsp;&nbsp;&nbsp;**Default** `false`
+### End Newline
 
-&nbsp;💁🏽‍♀️&nbsp;&nbsp;&nbsp;Recommended setting is `true`
+Whether or not files should end with an empty newline. When this rule is `undefined` or omitted then Æsthetic will look for an `.editorconfig` file and use definitions inferred within.
 
-#### End Newline
-
-Whether or not files should end with an empty newline.
-
-#### Note
-
-When this rule is undefined or omitted then the Text Editor settings will be used, in vscode that is `*.endWithNewline` where `*` is a language name.  If an `.editorconfig` file is found present in root, those rules will be applied in **precedence** over your Text Editor settings.
+[Æsthetic Documentation](https://æsthetic.dev/rules/global/endNewline/)
