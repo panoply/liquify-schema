@@ -1,5 +1,3 @@
-### Comment Indent
-
 Applies single indentation to containing content of HTML comments.
 
 

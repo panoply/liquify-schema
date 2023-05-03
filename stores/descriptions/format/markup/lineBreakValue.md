@@ -1,8 +1,6 @@
-### Line Break Value
-
 Attribute value handling applied when values span multiple lines.
 
-### Options
+**Options**
 
 - preserve
 - align

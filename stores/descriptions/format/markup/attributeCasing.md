@@ -1,8 +1,6 @@
-### Attribute Casing
-
 How markup attribute names and value casing should be processed. This defaults to `preserve` which will leave casing intact and _typically_ the best option to use.
 
-### Options
+**Options**
 
 This rule defaults to using `preserve` which will leave attribute names and values intact.
 

@@ -1,5 +1,3 @@
-### Language
-
 The name of the language provided. This option can be omitted when using Æsthetic within text editors as languages are automatically assigned based on file.
 
 Æsthetic supports parse, format and language detection capabilities for the following languages:
@@ -14,7 +12,6 @@ The name of the language provided. This option can be omitted when using Æsthet
 - [TypeScript](https://www.typescriptlang.org/)
 - [JSX](https://facebook.github.io/jsx/)
 - [TSX](https://www.typescriptlang.org/docs/handbook/jsx.html)
-
 
 
 [Æsthetic Documentation](https://æsthetic.dev/rules/global/language/)

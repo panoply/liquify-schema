@@ -1,5 +1,3 @@
-### Preserve Comment
-
 Preserve the inner contents of HTML comments.
 
 
