@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "@liquify/eslint-config": "workspace:1.1.0",
-    "@liquify/prettier-config": "workspace:1.0.1"
+    "@liquify/eslint-config": "workspace:*",
+    "@liquify/prettier-config": "workspace:*"
   }
 }
