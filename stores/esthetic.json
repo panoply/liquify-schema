@@ -353,12 +353,6 @@
       "type": "object",
       "markdownDescription": "Beautification rules for the following _script_ languages:\n\n- **JavaScript**\n- **TypeScript**\n\n Options provided here will also be applied to following markup embedded language blocks.",
       "properties": {
-        "correct": {
-          "type": "boolean",
-          "default": false,
-          "title": "Fix Sloppy Code",
-          "markdownDescription": "Automatically attempts to correct some sloppiness in code. Use this option with care, it may wreak havoc in some cases."
-        },
         "braceAllman": {
           "type": "boolean",
           "default": false,
@@ -376,6 +370,16 @@
           "default": false,
           "title": "Brace Padding",
           "markdownDescription": "Inserts a space after the start of a container and before the end of the container if the contents of that container are not indented; such as: conditions, function arguments, and escaped sequences of template strings"
+        },
+        "commentIndent": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/script/commentIndent.md"
+        },
+        "commentNewline": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/script/commentNewline.md"
         },
         "caseSpace": {
           "type": "boolean",
@@ -443,6 +447,11 @@
           "default": false,
           "markdownDescription": "**_OBJECT SORT_**\n\n_This option will alphabetically sort object properties (keys). This can be an expensive operation when dealing with large objects with over 2k properties._\n\n---\n#### Disabled&nbsp;&nbsp;&nbsp;👍\nWhen disabled, ie: `false` properties will not be sorted.\n```js\n\n{\n  e: \"5\",\n  b: \"2\",\n  d: \"4\",\n  a: \"1\",\n  f: \"6\",\n  c: \"3\"\n}\n\n\n```\n\n---\n\n#### Enabled&nbsp;&nbsp;&nbsp;👎\nWhen set to `true` all properties are alphanumerically sorted\n```js\n\n{\n  a: \"1\",\n  b: \"2\",\n  c: \"3\",\n  d: \"4\",\n  e: \"5\",\n  f: \"6\"\n}\n\n\n```"
         },
+        "preserveComment": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/script/preserveComment.md"
+        },
         "quoteConvert": {
           "default": "none",
           "title": "Convert Quotes",
@@ -490,6 +499,11 @@
           "default": false,
           "markdownDescription": "This will determine whether comments should always start at position `0` of each line or if comments should be indented according to the code."
         },
+        "commentIndent": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/style/commentIndent.md"
+        },
         "correct": {
           "type": "boolean",
           "default": false,
@@ -514,6 +528,11 @@
           "type": "boolean",
           "default": false,
           "markdownDescription": "./descriptions/format/style/noLeadZero.md"
+        },
+        "preserveComment": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/style/preserveComment.md"
         },
         "quoteConvert": {
           "default": "none",
