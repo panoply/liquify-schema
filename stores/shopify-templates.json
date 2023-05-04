@@ -93,7 +93,28 @@
     }
   },
   "type": "object",
+  "additionalProperties": false,
+  "required": ["sections", "order"],
   "description": "JSON templates are data files that store a list of sections to be rendered, and their associated settings. Merchants can add, remove, and reorder these sections using the theme editor.",
+  "defaultSnippets": [
+    {
+      "label": "JSON Template",
+      "markdownDescription": "./descriptions/template/snippet.md",
+      "body": {
+        "name": "${1:Template Name}",
+        "${6|layout,wrapper|}": "$7",
+        "sections": {
+          "$2": {
+            "type": "$3",
+            "settings": {
+              "$4": "$5"
+            }
+          }
+        },
+        "order": ["$2"]
+      }
+    }
+  ],
   "properties": {
     "name": {
       "$ref": "#/definitions/name"
