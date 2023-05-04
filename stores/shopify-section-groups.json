@@ -1,0 +1,130 @@
+{
+  "title": "Shopify Section Groups ~ Sections Everywhere",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "type": {
+      "type": "string",
+      "markdownDescription": "./descriptions/section-groups/settings/type.md",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["header", "footer", "aside"]
+        },
+        {
+          "pattern": "custom\\.\\w+",
+          "type": "string"
+        }
+      ]
+    },
+    "name": {
+      "type": "string",
+      "markdownDescription": "./descriptions/section-groups/settings/name.md",
+      "maxLength": 50
+    },
+    "order": {
+      "type": "array",
+      "markdownDescription": "./descriptions/section-groups/settings/order.md",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "object",
+      "maxProperties": 25,
+      "markdownDescription": "./descriptions/section-groups/settings/sections.md",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The filename of the section file to render, without the extension."
+          },
+          "id": {
+            "type": "string",
+            "description": "A unique ID for the section. Accepts only alphanumeric characters."
+          },
+          "disabled": {
+            "type": "boolean",
+            "default": false,
+            "markdownDescription": "./descriptions/section-groups/input/disabled.md"
+          },
+          "settings": {
+            "type": "object",
+            "description": "Settings as defined in the schema of the section or the block.",
+            "additionalProperties": true
+          },
+          "block_order": {
+            "type": "array",
+            "maxItems": 50,
+            "markdownDescription": "./descriptions/section-groups/input/block_order.md",
+            "items": {
+              "type": "string"
+            }
+          },
+          "blocks": {
+            "type": "object",
+            "description": "Settings as defined in the schema of the section or the block.",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["type"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "The type of block to render, as defined in the schema of the section file."
+                },
+                "disabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "When true, the block is not rendered but can still be customized in the theme editor. Is false by default."
+                },
+                "settings": {
+                  "type": "object",
+                  "description": "Settings as defined in the schema of the section or the block.",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "name", "sections", "order"],
+  "description": "A section group is a JSON data file that stores a list of sections and app blocks to be rendered, and their associated settings. Merchants can add sections to the section group, as well as remove and reorder them, in the theme editor.",
+  "defaultSnippets": [
+    {
+      "label": "Section Group",
+      "markdownDescription": "./descriptions/section-groups/snippet/group.md",
+      "body": {
+        "type": "${1|header,footer,aside,custom.|}$2",
+        "name": "$3",
+        "sections": {
+          "$4": {
+            "type": "$4",
+            "settings": {
+              "$5": "$6"
+            }
+          }
+        },
+        "order": ["$4"]
+      }
+    }
+  ],
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/type"
+    },
+    "name": {
+      "$ref": "#/definitions/name"
+    },
+    "sections": {
+      "$ref": "#/definitions/sections"
+    },
+    "order": {
+      "$ref": "#/definitions/order"
+    }
+  }
+}
