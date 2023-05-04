@@ -1,0 +1,12 @@
+{
+  "$schema": "../package/shopify/section-groups.json",
+  "name": "header",
+  "type": "aside",
+  "sections": {
+    "foo-section": {
+      "settings": {
+        "xxx": true
+      }
+    }
+  }
+}

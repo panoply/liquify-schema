@@ -5,6 +5,9 @@
       "type": "article",
       "id": "xxx_hel",
       "label": "xx_hel"
+    },
+    {
+      "type": "inline_richtext"
     }
   ]
 }

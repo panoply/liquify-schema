@@ -1,11 +1,10 @@
 {
-  "$schema": "../package/shopify/templates.json",
+  "$schema": "../stores/shopify-templates.json",
 
   "name": "Some Template",
   "sections": {
-    "foo": {
-      "id": "dddd",
-      "blocks": {}
+    "some-section": {
+      "settings": {}
     }
   },
   "layout": "",
