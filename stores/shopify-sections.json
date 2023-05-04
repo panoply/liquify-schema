@@ -511,7 +511,7 @@
             "body": {
               "type": "article",
               "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$1"
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
             }
           },
           {
@@ -833,7 +833,6 @@
           "type": "object",
           "properties": {
             "type": {
-              "markdownDescription": "./descriptions/sections/standard/type.md",
               "enum": [
                 "text",
                 "textarea",
