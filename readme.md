@@ -51,11 +51,23 @@ JSON Schema used for providing intellisense features for `.esthetic` files but a
 
 JSON Schema used for providing intellisense features for Shopify OS 2.0 template files. The stores are for Shopify theme environments.
 
+**LICENSE IS IMPOSED ~ USAGE REQUIRES PERMISSION**
+
 ### [Shopify Sections](https://unpkg.com/@liquify/schema/shopify/sections.json)
 
 - [`https://unpkg.com/@liquify/schema/shopify/sections.json`](https://unpkg.com/@liquify/schema/shopify/sections.json)
 
 JSON Schema used for providing intellisense features within the Liquify [Liquid Language Server](#) package. The stores are passed to `{% schema %}` embedded regions of the Shopify Liquid variation.
+
+**LICENSE IS IMPOSED ~ USAGE REQUIRES PERMISSION**
+
+### [Shopify Section Groups](https://unpkg.com/@liquify/schema/shopify/section-groups.json)
+
+- [`https://unpkg.com/@liquify/schema/shopify/section-groups.json`](https://unpkg.com/@liquify/schema/shopify/section-groups.json)
+
+JSON Schema used for providing intellisense features for Shopify Section Groups. The stores are for Shopify theme environments.
+
+**LICENSE IS IMPOSED ~ USAGE REQUIRES PERMISSION**
 
 ### [Shopify Settings Schema](https://unpkg.com/@liquify/schema/shopify/settings_schema.json)
 
@@ -63,13 +75,15 @@ JSON Schema used for providing intellisense features within the Liquify [Liquid 
 
 JSON Schema used for providing intellisense features within `settings_schema.json` files. The stores are for Shopify theme environments.
 
-**PLEASE ASK BEFORE USING**
+**LICENSE IS IMPOSED ~ USAGE REQUIRES PERMISSION**
 
 ### [Shopify Settings Data](https://unpkg.com/@liquify/schema/shopify/settings_data.json)
 
 - [`https://unpkg.com/@liquify/schema/shopify/settings_data.json`](https://unpkg.com/@liquify/schema/shopify/settings_data.json)
 
 JSON Schema used for providing intellisense features within `settings_data.json` files. The stores are for Shopify theme environments.
+
+**LICENSE IS IMPOSED ~ USAGE REQUIRES PERMISSION**
 
 ### [VSCode Configuration](https://unpkg.com/@liquify/schema/vscode/configuration.json)
 
