@@ -205,209 +205,6 @@
         }
       }
     },
-    "locales": {
-      "type": "object",
-      "title": "Locales",
-      "markdownDescription": "./descriptions/sections/settings/locales.md",
-      "properties": {
-        "af": {
-          "type": "object",
-          "description": "Afrikaans (Afrikaans)"
-        },
-        "ar": {
-          "type": "object",
-          "description": "Arabic (العربية)"
-        },
-        "az": {
-          "type": "object",
-          "description": "Azerbaijani (Azərbaycan­lı)"
-        },
-        "be": {
-          "type": "object",
-          "description": "Belarusian (беларуская)"
-        },
-        "bg": {
-          "type": "object",
-          "description": "Bulgarian (български)"
-        },
-        "bs": {
-          "type": "object",
-          "description": "Bosnian (bosanski/босански)"
-        },
-        "cs": {
-          "type": "object",
-          "description": "Czech (čeština)"
-        },
-        "cy": {
-          "type": "object",
-          "description": "Welsh (Cymraeg)"
-        },
-        "da": {
-          "type": "object",
-          "description": "Danish (dansk)"
-        },
-        "de": {
-          "type": "object",
-          "description": "German (Deutsch)"
-        },
-        "el": {
-          "type": "object",
-          "description": "Greek (ελληνικά)"
-        },
-        "en": {
-          "type": "object",
-          "description": "English"
-        },
-        "es": {
-          "type": "object",
-          "description": "Spanish (español)"
-        },
-        "et": {
-          "type": "object",
-          "description": "Estonian (eesti)"
-        },
-        "fa": {
-          "type": "object",
-          "description": "Persian (فارسى)"
-        },
-        "fi": {
-          "type": "object",
-          "description": "Finnish (suomi)"
-        },
-        "fr": {
-          "type": "object",
-          "description": "French (français)"
-        },
-        "fy": {
-          "type": "object",
-          "description": "Frisian (Frysk)"
-        },
-        "he": {
-          "type": "object",
-          "description": "Hebrew (עברית)"
-        },
-        "hr": {
-          "type": "object",
-          "description": "Croatian (hrvatski)"
-        },
-        "hi": {
-          "type": "object",
-          "description": "Hindi (हिंदी)"
-        },
-        "hu": {
-          "type": "object",
-          "description": "Hungarian (magyar)"
-        },
-        "id": {
-          "type": "object",
-          "description": "Indonesian (Bahasa Indonesia)"
-        },
-        "is": {
-          "type": "object",
-          "description": "Icelandic (íslenska)"
-        },
-        "lv": {
-          "type": "object",
-          "description": "Latvian (latviešu)"
-        },
-        "nl": {
-          "type": "object",
-          "description": "Dutch (Nederlands)"
-        },
-        "no": {
-          "type": "object",
-          "description": "Norwegian (norsk)"
-        },
-        "it": {
-          "type": "object",
-          "description": "Italian (italiano)"
-        },
-        "ja": {
-          "type": "object",
-          "description": "Japanese (日本語)"
-        },
-        "ko": {
-          "type": "object",
-          "description": "Korean (한국어/韓國語)"
-        },
-        "lb": {
-          "type": "object",
-          "description": "Luxembourgish (Lëtzebuergesch)"
-        },
-        "lt": {
-          "type": "object",
-          "description": "Lithuanian (lietuvių)"
-        },
-        "mk": {
-          "type": "object",
-          "description": "Macedonian (македонски јазик)"
-        },
-        "pa": {
-          "type": "object",
-          "description": "Punjabi (ਪੰਜਾਬੀ)"
-        },
-        "pl": {
-          "type": "object",
-          "description": "Polish (polski)"
-        },
-        "pt": {
-          "type": "object",
-          "description": "Portuguese (Português)"
-        },
-        "ro": {
-          "type": "object",
-          "description": "Romanian (română)"
-        },
-        "ru": {
-          "type": "object",
-          "description": "Russian (русский)"
-        },
-        "si": {
-          "type": "object",
-          "description": "Sinhala (සිංහල)"
-        },
-        "sl": {
-          "type": "object",
-          "description": "Albanian (shqipe)"
-        },
-        "sk": {
-          "type": "object",
-          "description": "Slovak (slovenčina)"
-        },
-        "sq": {
-          "type": "object",
-          "description": "Slovenian (slovenski)"
-        },
-        "sv": {
-          "type": "object",
-          "description": "Swedish (svenska)"
-        },
-        "ta": {
-          "type": "object",
-          "description": "Tamil (தமிழ்)"
-        },
-        "th": {
-          "type": "object",
-          "description": "Thai (ไทย)"
-        },
-        "tr": {
-          "type": "object",
-          "description": "Turkish (Türkçe)"
-        },
-        "zh": {
-          "type": "object",
-          "description": "Chinese (中文)"
-        },
-        "uk": {
-          "type": "object",
-          "description": "Ukrainian (українська)"
-        },
-        "vi": {
-          "type": "object",
-          "description": "Vietnamese (Tiếng Việt/㗂越)"
-        }
-      }
-    },
     "content": {
       "required": ["content"],
       "type": "object",
@@ -625,8 +422,8 @@
       "type": "array",
       "markdownDescription": "./descriptions/sections/settings/settings.md",
       "items": {
-        "required": ["type"],
         "type": "object",
+        "required": ["type"],
         "defaultSnippets": [
           {
             "label": "Text",
@@ -1034,9 +831,9 @@
         "if": {
           "required": ["type"],
           "type": "object",
-          "markdownDescription": "./descriptions/sections/standard/type.md",
           "properties": {
             "type": {
+              "markdownDescription": "./descriptions/sections/standard/type.md",
               "enum": [
                 "text",
                 "textarea",
@@ -1072,6 +869,7 @@
           "properties": {
             "id": {
               "type": "string",
+              "default": "",
               "markdownDescription": "./descriptions/sections/standard/id.md"
             },
             "label": {
@@ -1382,6 +1180,209 @@
           "product",
           "search"
         ]
+      }
+    },
+    "locales": {
+      "type": "object",
+      "title": "Locales",
+      "markdownDescription": "./descriptions/sections/settings/locales.md",
+      "properties": {
+        "af": {
+          "type": "object",
+          "description": "Afrikaans (Afrikaans)"
+        },
+        "ar": {
+          "type": "object",
+          "description": "Arabic (العربية)"
+        },
+        "az": {
+          "type": "object",
+          "description": "Azerbaijani (Azərbaycan­lı)"
+        },
+        "be": {
+          "type": "object",
+          "description": "Belarusian (беларуская)"
+        },
+        "bg": {
+          "type": "object",
+          "description": "Bulgarian (български)"
+        },
+        "bs": {
+          "type": "object",
+          "description": "Bosnian (bosanski/босански)"
+        },
+        "cs": {
+          "type": "object",
+          "description": "Czech (čeština)"
+        },
+        "cy": {
+          "type": "object",
+          "description": "Welsh (Cymraeg)"
+        },
+        "da": {
+          "type": "object",
+          "description": "Danish (dansk)"
+        },
+        "de": {
+          "type": "object",
+          "description": "German (Deutsch)"
+        },
+        "el": {
+          "type": "object",
+          "description": "Greek (ελληνικά)"
+        },
+        "en": {
+          "type": "object",
+          "description": "English"
+        },
+        "es": {
+          "type": "object",
+          "description": "Spanish (español)"
+        },
+        "et": {
+          "type": "object",
+          "description": "Estonian (eesti)"
+        },
+        "fa": {
+          "type": "object",
+          "description": "Persian (فارسى)"
+        },
+        "fi": {
+          "type": "object",
+          "description": "Finnish (suomi)"
+        },
+        "fr": {
+          "type": "object",
+          "description": "French (français)"
+        },
+        "fy": {
+          "type": "object",
+          "description": "Frisian (Frysk)"
+        },
+        "he": {
+          "type": "object",
+          "description": "Hebrew (עברית)"
+        },
+        "hr": {
+          "type": "object",
+          "description": "Croatian (hrvatski)"
+        },
+        "hi": {
+          "type": "object",
+          "description": "Hindi (हिंदी)"
+        },
+        "hu": {
+          "type": "object",
+          "description": "Hungarian (magyar)"
+        },
+        "id": {
+          "type": "object",
+          "description": "Indonesian (Bahasa Indonesia)"
+        },
+        "is": {
+          "type": "object",
+          "description": "Icelandic (íslenska)"
+        },
+        "lv": {
+          "type": "object",
+          "description": "Latvian (latviešu)"
+        },
+        "nl": {
+          "type": "object",
+          "description": "Dutch (Nederlands)"
+        },
+        "no": {
+          "type": "object",
+          "description": "Norwegian (norsk)"
+        },
+        "it": {
+          "type": "object",
+          "description": "Italian (italiano)"
+        },
+        "ja": {
+          "type": "object",
+          "description": "Japanese (日本語)"
+        },
+        "ko": {
+          "type": "object",
+          "description": "Korean (한국어/韓國語)"
+        },
+        "lb": {
+          "type": "object",
+          "description": "Luxembourgish (Lëtzebuergesch)"
+        },
+        "lt": {
+          "type": "object",
+          "description": "Lithuanian (lietuvių)"
+        },
+        "mk": {
+          "type": "object",
+          "description": "Macedonian (македонски јазик)"
+        },
+        "pa": {
+          "type": "object",
+          "description": "Punjabi (ਪੰਜਾਬੀ)"
+        },
+        "pl": {
+          "type": "object",
+          "description": "Polish (polski)"
+        },
+        "pt": {
+          "type": "object",
+          "description": "Portuguese (Português)"
+        },
+        "ro": {
+          "type": "object",
+          "description": "Romanian (română)"
+        },
+        "ru": {
+          "type": "object",
+          "description": "Russian (русский)"
+        },
+        "si": {
+          "type": "object",
+          "description": "Sinhala (සිංහල)"
+        },
+        "sl": {
+          "type": "object",
+          "description": "Albanian (shqipe)"
+        },
+        "sk": {
+          "type": "object",
+          "description": "Slovak (slovenčina)"
+        },
+        "sq": {
+          "type": "object",
+          "description": "Slovenian (slovenski)"
+        },
+        "sv": {
+          "type": "object",
+          "description": "Swedish (svenska)"
+        },
+        "ta": {
+          "type": "object",
+          "description": "Tamil (தமிழ்)"
+        },
+        "th": {
+          "type": "object",
+          "description": "Thai (ไทย)"
+        },
+        "tr": {
+          "type": "object",
+          "description": "Turkish (Türkçe)"
+        },
+        "zh": {
+          "type": "object",
+          "description": "Chinese (中文)"
+        },
+        "uk": {
+          "type": "object",
+          "description": "Ukrainian (українська)"
+        },
+        "vi": {
+          "type": "object",
+          "description": "Vietnamese (Tiếng Việt/㗂越)"
+        }
       }
     },
     "tag": {

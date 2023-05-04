@@ -1,26 +1,10 @@
 {
   "$schema": "../package/shopify/sections.json",
-  "blocks": [
+  "settings": [
     {
-      "name": "my_block",
-      "type": "xxx",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": {
-            "sv": "",
-            "en": ""
-          }
-        }
-      ]
+      "type": "article",
+      "id": "xxx_hel",
+      "label": "xx_hel"
     }
-  ],
-  "templates": ["index"],
-  "locales": {
-    "fy": {
-      ""
-    }
-  }
-
+  ]
 }

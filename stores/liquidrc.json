@@ -38,52 +38,56 @@
       }
     },
     "format": {
-      "ignore": {
-        "type": ["array"],
-        "markdownDescription": "./descriptions/vscode/format/ignore.md",
-        "items": {
-          "uniqueItems": true,
-          "type": "string"
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ignore": {
+          "type": ["array"],
+          "markdownDescription": "./descriptions/vscode/format/ignore.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "endNewline": {
+          "injectObject": "./esthetic.json#endNewline"
+        },
+        "wrap": {
+          "injectObject": "./esthetic.json#wrap"
+        },
+        "wrapFraction": {
+          "injectObject": "./esthetic.json#wrapFraction"
+        },
+        "indentSize": {
+          "injectObject": "./esthetic.json#indentSize"
+        },
+        "indentChar": {
+          "injectObject": "./esthetic.json#indentChar"
+        },
+        "preserveLine": {
+          "injectObject": "./esthetic.json#preserveLine"
+        },
+        "crlf": {
+          "injectObject": "./esthetic.json#crlf"
+        },
+        "preset": {
+          "injectObject": "./esthetic.json#preset"
+        },
+        "liquid": {
+          "injectObject": "./esthetic.json#liquid"
+        },
+        "markup": {
+          "injectObject": "./esthetic.json#markup"
+        },
+        "script": {
+          "injectObject": "./esthetic.json#script"
+        },
+        "style": {
+          "injectObject": "./esthetic.json#style"
+        },
+        "json": {
+          "injectObject": "./esthetic.json#json"
         }
-      },
-      "endNewline": {
-        "injectObject": "./esthetic.json#endNewline"
-      },
-      "wrap": {
-        "injectObject": "./esthetic.json#wrap"
-      },
-      "wrapFraction": {
-        "injectObject": "./esthetic.json#wrapFraction"
-      },
-      "indentSize": {
-        "injectObject": "./esthetic.json#indentSize"
-      },
-      "indentChar": {
-        "injectObject": "./esthetic.json#indentChar"
-      },
-      "preserveLine": {
-        "injectObject": "./esthetic.json#preserveLine"
-      },
-      "crlf": {
-        "injectObject": "./esthetic.json#crlf"
-      },
-      "preset": {
-        "injectObject": "./esthetic.json#preset"
-      },
-      "liquid": {
-        "injectObject": "./esthetic.json#liquid"
-      },
-      "markup": {
-        "injectObject": "./esthetic.json#markup"
-      },
-      "script": {
-        "injectObject": "./esthetic.json#script"
-      },
-      "style": {
-        "injectObject": "./esthetic.json#style"
-      },
-      "json": {
-        "injectObject": "./esthetic.json#json"
       }
     },
     "ignore": {

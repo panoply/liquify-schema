@@ -45,7 +45,7 @@ const replace = /(?<=")injectProperties(?=")/g;
 function readMarkdownFile (file) {
 
   const read = readFileSync(join(stores, file), { encoding: 'utf8' });
-  const stringify = JSON.stringify(read + '\n#', 0).trim();
+  const stringify = JSON.stringify(read, 0).trim();
 
   return stringify;
 
