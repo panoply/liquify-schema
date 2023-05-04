@@ -98,6 +98,7 @@ function mapContent () {
       'esthetic.json',
       'liquidrc.json',
       'shopify-sections.json',
+      'shopify-section-groups.json',
       'shopify-locales.json',
       'shopify-settings_data.json',
       'shopify-templates.json',
