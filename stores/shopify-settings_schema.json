@@ -52,30 +52,602 @@
         }
       }
     },
+    "content": {
+      "required": ["content"],
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": ["string"],
+          "title": "Content",
+          "description": "Textual content for the header title."
+        },
+        "info": {
+          "title": "Info",
+          "description": "Addition Information"
+        }
+      }
+    },
+    "placeholder": {
+      "type": "object",
+      "properties": {
+        "placeholder": {
+          "title": "Placeholder",
+          "description": "A placeholder value",
+          "default": "",
+          "oneOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "limit": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "title": "Limit",
+          "description": "The maximum number of items that the merchant can select. The default limit, and the maximum limit you can set, is 50.",
+          "maximum": 50
+        }
+      }
+    },
+    "select": {
+      "required": ["options"],
+      "properties": {
+        "options": {
+          "type": "array",
+          "title": "Select Options",
+          "description": "Takes an array of value/label definitions for each option in the drop-down",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "additionalProperties": false,
+            "defaultSnippets": [
+              {
+                "label": "Options",
+                "description": "Takes an array of value/label definitions for each option in the drop-down.",
+                "body": {
+                  "value": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+                }
+              },
+              {
+                "label": "Options with group",
+                "description": "Takes an array of value/label definitions for each option in the drop-down with an optional attribute you can add to each option to create option groups in the drop-down",
+                "body": {
+                  "value": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "group": "$3"
+                }
+              }
+            ],
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The value of the select options. This will be used as the output"
+              },
+              "label": {
+                "title": "Label",
+                "description": "A label to render to the theme editor",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "group": {
+                "title": "Group",
+                "description": "An optional attribute you can add to each option to create option groups in the drop-down.",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "range": {
+      "required": ["min", "max", "step"],
+      "type": "object",
+      "properties": {
+        "step": {
+          "type": "number",
+          "title": "Step",
+          "minimum": 0.1,
+          "default": 1,
+          "description": "The step refers to the step count for the slider values. For example, if you set the step to 5, then the range slider will count by fives. By default, the step is set to 1."
+        },
+        "min": {
+          "type": "number",
+          "title": "Min",
+          "description": "The minimum number of steps"
+        },
+        "max": {
+          "type": "number",
+          "title": "Max",
+          "description": "The maximum number of steps"
+        },
+        "unit": {
+          "title": "Unit",
+          "description": "The unit of measure label. For example, you could use sec for seconds, or px for pixels.",
+          "default": "",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/languages"
+            }
+          ]
+        }
+      }
+    },
+    "radio": {
+      "required": ["options"],
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "title": "Radio Options",
+          "description": "Takes an array of value/label definitions",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "additionalProperties": false,
+            "defaultSnippets": [
+              {
+                "label": "Radio Options",
+                "description": "Value and label definitions",
+                "body": {
+                  "value": "$1",
+                  "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3"
+                }
+              }
+            ],
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "label": {
+                "title": "Label",
+                "description": "Radio Label",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "color_scheme_group": {
+      "required": ["min", "max", "step"],
+      "type": "object",
+      "properties": {
+        "definition": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "label": "Header",
+                "description": "./descriptions/sections/input/header.md",
+                "body": {
+                  "type": "header",
+                  "content": "$1",
+                  "info": "$2"
+                }
+              },
+              {
+                "label": "Color",
+                "description": "./descriptions/sections/input/color.md",
+                "body": {
+                  "id": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "info": "$3"
+                }
+              },
+              {
+                "label": "Color Background",
+                "description": "./descriptions/sections/input/color_background.md",
+                "body": {
+                  "id": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "info": "$3"
+                }
+              }
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "Name of the type of setting.",
+                "oneOf": [
+                  {
+                    "enum": ["header"],
+                    "markdownDescription": "./descriptions/sections/input/header.md"
+                  },
+                  {
+                    "enum": ["color"],
+                    "title": "Multi-line text areas",
+                    "markdownDescription": "./descriptions/sections/input/color.md"
+                  },
+                  {
+                    "enum": ["color_background"],
+                    "title": "Image Picker",
+                    "markdownDescription": "./descriptions/sections/input/color_background.md"
+                  }
+                ]
+              }
+            },
+            "if": {
+              "required": ["type"],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": ["color", "color_background"]
+                }
+              }
+            },
+            "then": {
+              "required": ["id", "label"],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "default": "",
+                  "markdownDescription": "./descriptions/sections/standard/id.md"
+                },
+                "label": {
+                  "markdownDescription": "./descriptions/sections/standard/label.md",
+                  "default": "",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "default": {
+                  "type": ["string", "number", "boolean"],
+                  "default": "",
+                  "markdownDescription": "./descriptions/sections/standard/default.md"
+                },
+                "info": {
+                  "markdownDescription": "./descriptions/sections/standard/info.md",
+                  "default": "",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            },
+            "else": {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": ["header"]
+                  }
+                }
+              },
+              "then": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/content"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "role": {
+          "type": "object",
+          "additionalProperties": true,
+          "markdownDescription": "./descriptions/sections/properties/color_scheme_group:role.md"
+        }
+      }
+    },
     "settings": {
       "type": "array",
-      "description": "Format options or rules applied to a custom set of defined tags",
+      "markdownDescription": "./descriptions/sections/settings/settings.md",
       "items": {
         "type": "object",
+        "required": ["type"],
+        "defaultSnippets": [
+          {
+            "label": "Text",
+            "markdownDescription": "./descriptions/sections/input/text.md",
+            "body": {
+              "type": "text",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "Textarea",
+            "markdownDescription": "./descriptions/sections/input/textarea.md",
+            "body": {
+              "type": "text",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "Number",
+            "markdownDescription": "./descriptions/sections/input/number.md",
+            "body": {
+              "type": "number",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "^$3",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "Checkbox",
+            "markdownDescription": "./descriptions/sections/input/checkbox.md",
+            "body": {
+              "type": "checkbox",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "^${3|true,false|}",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "Select",
+            "markdownDescription": "./descriptions/sections/input/select.md",
+            "body": {
+              "type": "select",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$4",
+              "info": "$5",
+              "options": ["^$3"]
+            }
+          },
+          {
+            "label": "Radio",
+            "markdownDescription": "./descriptions/sections/input/radio.md",
+            "body": {
+              "type": "radio",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$4",
+              "info": "$5",
+              "options": ["^$3"]
+            }
+          },
+          {
+            "label": "Range",
+            "markdownDescription": "./descriptions/sections/input/range.md",
+            "body": {
+              "type": "range",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "min": "^$3",
+              "max": "^$4",
+              "step": "^$5",
+              "unit": "$6",
+              "default": "^$7"
+            }
+          },
+          {
+            "label": "Color Scheme Group",
+            "markdownDescription": "./descriptions/sections/input/color_scheme_group.md",
+            "body": {
+              "type": "color_scheme_group",
+              "id": "$1",
+              "definition": [],
+              "role": {}
+            }
+          }
+        ],
         "properties": {
           "type": {
-            "description": "The type",
+            "type": "string",
+            "title": "Type",
+            "description": "Name of the type of setting.",
             "oneOf": [
               {
-                "enum": ["header"],
-                "description": "Converts single quotes to double quotes"
-              },
-              {
-                "enum": ["paragraph"],
-                "description": "Ignores this option"
-              },
-              {
                 "enum": ["text"],
-                "description": "Converts double quotes to single quotes"
+                "title": "Single-line text fields",
+                "markdownDescription": "./descriptions/sections/input/text.md"
               },
               {
                 "enum": ["textarea"],
-                "description": "Converts double quotes to single quotes"
+                "title": "Multi-line text areas",
+                "markdownDescription": "./descriptions/sections/input/textarea.md"
+              },
+              {
+                "enum": ["image_picker"],
+                "title": "Image Picker",
+                "markdownDescription": "./descriptions/sections/input/image_picker.md"
+              },
+              {
+                "enum": ["radio"],
+                "title": "Radio Button",
+                "markdownDescription": "./descriptions/sections/input/radio.md"
+              },
+              {
+                "enum": ["select"],
+                "title": "Selection drop-down",
+                "markdownDescription": "./descriptions/sections/input/select.md"
+              },
+              {
+                "enum": ["checkbox"],
+                "title": "Checkbox",
+                "markdownDescription": "./descriptions/sections/input/checkbox.md"
+              },
+              {
+                "enum": ["number"],
+                "title": "Number",
+                "markdownDescription": "./descriptions/sections/input/number.md"
+              },
+              {
+                "enum": ["range"],
+                "title": "Range",
+                "markdownDescription": "./descriptions/sections/input/range.md"
+              },
+              {
+                "enum": ["color_scheme_group"],
+                "title": "Color Picker",
+                "markdownDescription": "./descriptions/sections/input/color_scheme_group.md"
+              }
+            ]
+          }
+        },
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": [
+                "text",
+                "textarea",
+                "radio",
+                "select",
+                "checkbox",
+                "number",
+                "range",
+                "color_scheme_group"
+              ]
+            }
+          }
+        },
+        "then": {
+          "required": ["id", "label"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "default": "",
+              "markdownDescription": "./descriptions/sections/standard/id.md"
+            },
+            "label": {
+              "markdownDescription": "./descriptions/sections/standard/label.md",
+              "default": "",
+              "oneOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "default": {
+              "type": ["string", "number", "boolean"],
+              "default": "",
+              "markdownDescription": "./descriptions/sections/standard/default.md"
+            },
+            "info": {
+              "markdownDescription": "./descriptions/sections/standard/info.md",
+              "default": "",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/languages"
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "range"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "color_scheme_group"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/color_scheme_group"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "select"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/select"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "radio"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/radio"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": ["text", "textarea"]
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/placeholder"
+              }
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "required": ["type"],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": ["header", "paragraph"]
+              }
+            }
+          },
+          "then": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/content"
               }
             ]
           }
