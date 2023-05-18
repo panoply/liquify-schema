@@ -179,9 +179,6 @@
           "oneOf": [
             {
               "type": "string"
-            },
-            {
-              "$ref": "#/definitions/languages"
             }
           ]
         }
@@ -554,9 +551,6 @@
               "oneOf": [
                 {
                   "type": "string"
-                },
-                {
-                  "$ref": "#/definitions/languages"
                 }
               ]
             }
