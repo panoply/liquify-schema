@@ -553,6 +553,16 @@
             }
           },
           {
+            "label": "Color Scheme",
+            "markdownDescription": "./descriptions/sections/input/color_scheme.md",
+            "body": {
+              "type": "color_scheme",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3"
+            }
+          },
+          {
             "label": "Color Background",
             "markdownDescription": "./descriptions/sections/input/color_background.md",
             "body": {
@@ -736,6 +746,16 @@
                 "markdownDescription": "./descriptions/sections/input/color.md"
               },
               {
+                "enum": ["color_scheme"],
+                "title": "Color Scheme",
+                "markdownDescription": "./descriptions/sections/input/color_scheme.md"
+              },
+              {
+                "enum": ["color_background"],
+                "title": "Color Background",
+                "markdownDescription": "./descriptions/sections/input/color_background.md"
+              },
+              {
                 "enum": ["font_picker"],
                 "title": "Font Picker",
                 "markdownDescription": "./descriptions/sections/input/font_picker.md"
@@ -843,6 +863,8 @@
                 "number",
                 "range",
                 "color",
+                "color_background",
+                "color_scheme",
                 "font_picker",
                 "collection",
                 "collection_list",
@@ -922,7 +944,11 @@
                 "type": "object",
                 "properties": {
                   "type": {
-                    "const": "color"
+                    "const": [
+                      "color",
+                      "color_scheme",
+                      "color_background"
+                    ]
                   }
                 }
               },
