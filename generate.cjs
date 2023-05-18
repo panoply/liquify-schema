@@ -76,7 +76,7 @@ function importMarkdown (json) {
       /**
        * Execute markdown injection
        */
-      json = json.replace('"' + filePath + '"', stringifyMarkdown);
+      json = json.replace(new RegExp('"' + filePath + '"', 'g'), stringifyMarkdown);
 
     }
   }
