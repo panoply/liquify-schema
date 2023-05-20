@@ -1,27 +1,24 @@
 {
   "$schema": "../package/vscode/configuration.json",
-
   // ENGINE
-
   "liquid.engine": "shopify",
-
   // CONFIG FILE BASE URL
-
   "liquid.config.baseUrl": "",
-
   // SETTINGS TARGET
-
   "liquid.settings.target": "user",
-
   // FILES
-
-  "liquid.files.locales": [],
-  "liquid.files.sections": [],
-  "liquid.files.settings": [],
-  "liquid.files.snippets": [],
-
+  "liquid.files.11ty": {
+    "data": [],
+    "includes": [],
+    "layouts": []
+  },
+  "liquid.files.shopify": {
+    "locales": "",
+    "settings": "",
+    "sections": [],
+    "snippets": []
+  },
   // COMPLETIONS
-
   "liquid.completion.filters": true,
   "liquid.completion.objects": true,
   "liquid.completion.operators": true,
@@ -29,61 +26,46 @@
   "liquid.completion.schema": true,
   "liquid.completion.sections": true,
   "liquid.completion.tags": true,
-
   // HOVERS
-
   "liquid.hover.filters": true,
   "liquid.hover.schema": true,
   "liquid.hover.tags": true,
-
   // VALIDATIONS
-
   "liquid.validate.schema": true,
-
   // DEPRECATED
-
   "liquid.format.commentIndent": false,
   "liquid.format.wrap": 0,
   "liquid.format.crlf": false,
   "liquid.format.endNewLine": false,
   "liquid.format.indentSize": 2,
   "liquid.format.preserveLine": 3,
-
   "liquid.format.markup": {},
   "liquid.format.style": {},
   "liquid.format.script": {},
   "liquid.format.json": {},
-
   // FORMATTING
-
   "liquid.format.ignore": [],
   "liquid.format.rules": {
-
     // GLOBALS
-
     "wrap": 0,
     "crlf": false,
     "useTabs": false,
     "endNewLine": false,
     "indentSize": 2,
     "preserveLine": 3,
-
     // LIQUID FORMATTING
-
     "liquid": {
       "commentIndent": false,
       "commentNewline": false,
       "delimiterTrims": "preserve",
-      "ignoreTagList": ["tag"],
-      "lineBreakSeparator": "default",
+      "ignoreTagList": [],
+      "lineBreakSeparator": "before",
       "normalizeSpacing": true,
       "preserveComment": false,
       "quoteConvert": "single",
       "valueForce": "intent"
     },
-
     // MARKUP FORMATTING
-
     "markup": {
       "attributeCasing": "preserve",
       "attributeSort": false,
@@ -101,18 +83,13 @@
       "preserveText": true,
       "quoteConvert": "double",
       "selfCloseSpace": false,
-
       // DEPRECATED LIQUID RULES
-
       "delimiterTrims": "preserve",
       "lineBreakSeparator": "default",
       "normalizeSpacing": true,
       "valueForce": "intent"
-
     },
-
     // JSON FORMATTING
-
     "json": {
       "arrayFormat": "indent",
       "braceAllman": true,
@@ -120,9 +97,7 @@
       "objectIndent": "indent",
       "objectSort": false
     },
-
     // STYLE FORMATTING
-
     "style": {
       "classPadding": false,
       "commentNewline": false,
@@ -132,9 +107,7 @@
       "sortProperties": false,
       "sortSelectors": false
     },
-
     // SCRIPT FORMATTING
-
     "script": {
       "arrayFormat": "indent",
       "braceAllman": false,
