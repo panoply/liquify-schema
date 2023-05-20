@@ -3,125 +3,202 @@
   "title": "VSCode Liquid Extension",
   "description": "This file is used to control settings for the vscode-liquid extension.",
   "type": "object",
-  "additionalProperties": false,
-  "properties": {
+  "additionalProperties": true,
+  "definitions": {
     "engine": {
-      "injectObject": "./vscode-configuration.json#liquid.engine"
-    },
-    "files": {
       "type": "object",
       "properties": {
-        "locales": {
+        "engine": {
           "type": "string",
-          "markdownDescription": "./descriptions/vscode/files/locales.md"
+          "default": "shopify",
+          "enum": ["standard", "shopify", "11ty", "jekyll"],
+          "markdownDescription": "./descriptions/vscode/engine.md"
         },
-        "settings": {
-          "type": "string",
-          "markdownDescription": "./descriptions/vscode/files/settings.md"
+        "files": {
+          "markdownDescription": "./descriptions/vscode/files.md"
         },
-        "snippets": {
-          "type": "array",
-          "markdownDescription": "./descriptions/vscode/files/snippets.md",
-          "items": {
-            "uniqueItems": true,
-            "type": "string"
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ignore": {
+              "type": ["array"],
+              "markdownDescription": "./descriptions/vscode/format/ignore.md",
+              "items": {
+                "uniqueItems": true,
+                "type": "string"
+              }
+            },
+            "endNewline": {
+              "injectObject": "./esthetic.json#endNewline"
+            },
+            "wrap": {
+              "injectObject": "./esthetic.json#wrap"
+            },
+            "wrapFraction": {
+              "injectObject": "./esthetic.json#wrapFraction"
+            },
+            "indentSize": {
+              "injectObject": "./esthetic.json#indentSize"
+            },
+            "indentChar": {
+              "injectObject": "./esthetic.json#indentChar"
+            },
+            "preserveLine": {
+              "injectObject": "./esthetic.json#preserveLine"
+            },
+            "crlf": {
+              "injectObject": "./esthetic.json#crlf"
+            },
+            "preset": {
+              "injectObject": "./esthetic.json#preset"
+            },
+            "liquid": {
+              "injectObject": "./esthetic.json#liquid"
+            },
+            "markup": {
+              "injectObject": "./esthetic.json#markup"
+            },
+            "script": {
+              "injectObject": "./esthetic.json#script"
+            },
+            "style": {
+              "injectObject": "./esthetic.json#style"
+            },
+            "json": {
+              "injectObject": "./esthetic.json#json"
+            }
           }
         },
-        "sections": {
-          "type": ["array", "string"],
-          "markdownDescription": "./descriptions/vscode/files/sections.md",
-          "items": {
-            "uniqueItems": true,
-            "type": "string"
-          }
-        }
-      }
-    },
-    "format": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
         "ignore": {
-          "type": ["array"],
-          "markdownDescription": "./descriptions/vscode/format/ignore.md",
-          "items": {
-            "uniqueItems": true,
-            "type": "string"
-          }
-        },
-        "endNewline": {
-          "injectObject": "./esthetic.json#endNewline"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "wrap": {
-          "injectObject": "./esthetic.json#wrap"
-        },
-        "wrapFraction": {
-          "injectObject": "./esthetic.json#wrapFraction"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "indentSize": {
-          "injectObject": "./esthetic.json#indentSize"
-        },
-        "indentChar": {
-          "injectObject": "./esthetic.json#indentChar"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "preserveLine": {
-          "injectObject": "./esthetic.json#preserveLine"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
+        },
+        "endNewLine": {
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "crlf": {
-          "injectObject": "./esthetic.json#crlf"
-        },
-        "preset": {
-          "injectObject": "./esthetic.json#preset"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "liquid": {
-          "injectObject": "./esthetic.json#liquid"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "markup": {
-          "injectObject": "./esthetic.json#markup"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "script": {
-          "injectObject": "./esthetic.json#script"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "style": {
-          "injectObject": "./esthetic.json#style"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         },
         "json": {
-          "injectObject": "./esthetic.json#json"
+          "deprecationMessage": "./descriptions/format/deprecated/structure.md"
         }
-      }
-    },
-    "ignore": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "wrap": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "indentSize": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "preserveLine": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "endNewLine": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "crlf": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "liquid": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "markup": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "script": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "style": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
-    },
-    "json": {
-      "deprecationMessage": "./descriptions/format/deprecated/structure.md"
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["engine"],
+            "type": "object",
+            "properties": {
+              "engine": {
+                "const": "shopify"
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "files": {
+                "type": "object",
+                "properties": {
+                  "locales": {
+                    "type": "string",
+                    "markdownDescription": "./descriptions/vscode/files/shopify/locales.md"
+                  },
+                  "settings": {
+                    "type": "string",
+                    "markdownDescription": "./descriptions/vscode/files/shopify/settings.md"
+                  },
+                  "snippets": {
+                    "type": "array",
+                    "markdownDescription": "./descriptions/vscode/files/shopify/snippets.md",
+                    "items": {
+                      "uniqueItems": true,
+                      "type": "string"
+                    }
+                  },
+                  "sections": {
+                    "type": ["array", "string"],
+                    "markdownDescription": "./descriptions/vscode/files/shopify/sections.md",
+                    "items": {
+                      "uniqueItems": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": ["engine"],
+            "type": "object",
+            "properties": {
+              "engine": {
+                "const": "11ty"
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "files": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "markdownDescription": "./descriptions/vscode/files/11ty/data.md",
+                    "items": {
+                      "uniqueItems": true,
+                      "type": "string"
+                    }
+                  },
+                  "includes": {
+                    "type": "array",
+                    "markdownDescription": "./descriptions/vscode/files/11ty/includes.md",
+                    "items": {
+                      "uniqueItems": true,
+                      "type": "string"
+                    }
+                  },
+                  "layouts": {
+                    "type": "array",
+                    "markdownDescription": "./descriptions/vscode/files/11ty/layouts.md",
+                    "items": {
+                      "uniqueItems": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     }
-  }
+  },
+  "$ref": "#/definitions/engine"
 }
