@@ -1,8 +1,10 @@
 {
-  "$schema": "https://unpkg.com/@liquify/schema-stores/package/liquidrc.json",
+  "$schema": "../package",
   "engine": "",
   "updated": "",
   "filters": {},
   "objects": {},
-  "tags": {}
+  "tags": {
+    "test": {}
+  }
 }
