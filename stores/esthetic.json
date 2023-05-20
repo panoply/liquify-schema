@@ -187,7 +187,7 @@
           "markdownDescription": "./descriptions/format/liquid/indentAttribute.md"
         },
         "lineBreakSeparator": {
-          "default": "default",
+          "default": "after",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/lineBreakSeparator.md",
           "enum": ["before", "after"]
@@ -258,8 +258,8 @@
           "markdownDescription": "./descriptions/format/markup/commentNewline.md"
         },
         "delimiterTerminus": {
-          "type": "boolean",
-          "default": false,
+          "enum": ["inline", "force", "adapt"],
+          "default": "inline",
           "markdownDescription": "./descriptions/format/markup/delimiterTerminus.md"
         },
         "forceIndent": {
