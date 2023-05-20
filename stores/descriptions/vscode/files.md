@@ -1,0 +1,1 @@
+An object of which holds path references to external files used within current workspace. The files structure will differ depending on the Liquid engine specified.
