@@ -10,30 +10,66 @@
       "enum": ["standard", "shopify", "11ty", "jekyll"],
       "markdownDescription": "./descriptions/vscode/engine.md"
     },
-    "liquid.files.locales": {
-      "type": "string",
-      "default": "",
-      "markdownDescription": "./descriptions/vscode/files/locales.md"
-    },
-    "liquid.files.settings": {
-      "type": "string",
-      "default": "",
-      "markdownDescription": "./descriptions/vscode/files/settings.md"
-    },
-    "liquid.files.snippets": {
-      "type": "array",
-      "markdownDescription": "./descriptions/vscode/files/snippets.md",
-      "items": {
-        "uniqueItems": true,
-        "type": "string"
+    "liquid.files.shopify": {
+      "type": "object",
+      "additionalProperties": false,
+      "markdownDescription": "[11ty](https://shopify.dev) file references.",
+      "properties": {
+        "locales": {
+          "type": "string",
+          "markdownDescription": "./descriptions/vscode/files/shopify/locales.md"
+        },
+        "settings": {
+          "type": "string",
+          "markdownDescription": "./descriptions/vscode/files/shopify/settings.md"
+        },
+        "snippets": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/shopify/snippets.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "sections": {
+          "type": ["array", "string"],
+          "markdownDescription": "./descriptions/vscode/files/shopify/sections.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        }
       }
     },
-    "liquid.files.sections": {
-      "type": ["array", "string"],
-      "markdownDescription": "./descriptions/vscode/files/sections.md",
-      "items": {
-        "uniqueItems": true,
-        "type": "string"
+    "liquid.files.11ty": {
+      "type": "object",
+      "additionalProperties": false,
+      "markdownDescription": "[11ty](https://11ty.dev) file references.",
+      "properties": {
+        "data": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/11ty/data.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "includes": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/11ty/includes.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "layouts": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/files/11ty/layouts.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        }
       }
     },
     "liquid.completion.tags": {
