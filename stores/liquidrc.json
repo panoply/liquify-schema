@@ -117,10 +117,10 @@
           },
           "then": {
             "type": "object",
-            "additionalProperties": false,
             "properties": {
               "files": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                   "locales": {
                     "type": "string",
