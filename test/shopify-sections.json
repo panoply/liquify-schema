@@ -1,4 +1,15 @@
 {
   "$schema": "../package/shopify/sections.json",
-  "settings":
+
+  "settings": [
+    {
+      ""
+    }
+    {
+      "type": "image_picker",
+      "id": "foo_bar",
+      "label": "Foo Bar",
+      "info": ""
+    }
+  ]
 }

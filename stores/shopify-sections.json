@@ -698,7 +698,7 @@
           "type": {
             "type": "string",
             "title": "Type",
-            "description": "Name of the type of setting.",
+            "markdownDescription": "./descriptions/sections/settings/type.md",
             "oneOf": [
               {
                 "enum": ["text"],
