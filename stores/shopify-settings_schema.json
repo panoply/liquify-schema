@@ -224,7 +224,7 @@
       }
     },
     "color_scheme_group": {
-      "required": ["min", "max", "step"],
+      "required": ["definition"],
       "type": "object",
       "properties": {
         "definition": {

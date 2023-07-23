@@ -8,10 +8,16 @@
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
   {
-    "name": "xxx",
+    "name": "test",
     "settings": [
       {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      },
+      {
         "type": "color_scheme_group",
+        "label": "watehek",
         "id": "foo",
         "definition": [
           {
@@ -28,6 +34,16 @@
         "role": {
 
         }
+      }
+    ]
+  },
+  {
+    "name": "colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
       }
     ]
   }
