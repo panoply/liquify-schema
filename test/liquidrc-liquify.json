@@ -48,8 +48,7 @@
       "forceAttribute": false,
       "forceIndent": false,
       "forceLeadAttribute": false,
-      "lineBreakOperator": "before",
-      "preserveAttributes": false,
+      "preserveAttribute": false,
       "preserveText": true,
       "quoteConvert": "double",
       "selfCloseSpace": false
