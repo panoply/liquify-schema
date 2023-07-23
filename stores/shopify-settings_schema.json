@@ -9,8 +9,7 @@
         "theme_name",
         "theme_author",
         "theme_version",
-        "theme_documentation_url",
-        "theme_support_email"
+        "theme_documentation_url"
       ],
       "defaultSnippets": [
         {
