@@ -349,7 +349,7 @@
         "role": {
           "type": "object",
           "additionalProperties": true,
-          "markdownDescription": "./descriptions/sections/properties/color_scheme_group:role.md"
+          "markdownDescription": "./descriptions/sections/properties/color_scheme_group.md"
         }
       }
     },
