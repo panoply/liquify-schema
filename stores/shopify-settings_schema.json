@@ -51,6 +51,19 @@
         }
       }
     },
+    "settings_group": {
+      "type": "object",
+      "required": ["name", "settings"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "settings": {
+          "$ref": "#/definitions/settings"
+        }
+      }
+    },
     "content": {
       "required": ["content"],
       "type": "object",
@@ -233,7 +246,7 @@
             "type": "object",
             "defaultSnippets": [
               {
-                "label": "Header",
+                "label": "header",
                 "description": "./descriptions/sections/input/header.md",
                 "body": {
                   "type": "header",
@@ -242,7 +255,7 @@
                 }
               },
               {
-                "label": "Color",
+                "label": "color",
                 "description": "./descriptions/sections/input/color.md",
                 "body": {
                   "id": "$1",
@@ -251,7 +264,7 @@
                 }
               },
               {
-                "label": "Color Background",
+                "label": "color_background",
                 "description": "./descriptions/sections/input/color_background.md",
                 "body": {
                   "id": "$1",
@@ -440,11 +453,12 @@
             }
           },
           {
-            "label": "color scheme group",
+            "label": "color_scheme_group",
             "markdownDescription": "./descriptions/sections/input/color_scheme_group.md",
             "body": {
               "type": "color_scheme_group",
               "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
               "definition": [],
               "role": {}
             }
@@ -457,6 +471,71 @@
             "description": "Name of the type of setting.",
             "oneOf": [
               {
+                "enum": ["article"],
+                "title": "Article",
+                "markdownDescription": "./descriptions/sections/input/article.md"
+              },
+              {
+                "enum": ["blog"],
+                "title": "Blog",
+                "markdownDescription": "./descriptions/sections/input/blog.md"
+              },
+              {
+                "enum": ["checkbox"],
+                "title": "Checkbox",
+                "markdownDescription": "./descriptions/sections/input/checkbox.md"
+              },
+              {
+                "enum": ["collection_list"],
+                "title": "Collection List",
+                "markdownDescription": "./descriptions/sections/input/collection_list.md"
+              },
+              {
+                "enum": ["color_background"],
+                "title": "Color Background",
+                "markdownDescription": "./descriptions/sections/input/color_background.md"
+              },
+              {
+                "enum": ["color_scheme_group"],
+                "title": "Color Scheme Group",
+                "markdownDescription": "./descriptions/sections/input/color_scheme_group.md"
+              },
+              {
+                "enum": ["color"],
+                "title": "Color",
+                "markdownDescription": "./descriptions/sections/input/color.md"
+              },
+              {
+                "enum": ["font_picker"],
+                "title": "Font Picker",
+                "markdownDescription": "./descriptions/sections/input/font_picker.md"
+              },
+              {
+                "enum": ["image_picker"],
+                "title": "Image Picker",
+                "markdownDescription": "./descriptions/sections/input/image_picker.md"
+              },
+              {
+                "enum": ["number"],
+                "title": "Number",
+                "markdownDescription": "./descriptions/sections/input/number.md"
+              },
+              {
+                "enum": ["radio"],
+                "title": "Radio Button",
+                "markdownDescription": "./descriptions/sections/input/radio.md"
+              },
+              {
+                "enum": ["range"],
+                "title": "Range",
+                "markdownDescription": "./descriptions/sections/input/range.md"
+              },
+              {
+                "enum": ["select"],
+                "title": "Selection drop-down",
+                "markdownDescription": "./descriptions/sections/input/select.md"
+              },
+              {
                 "enum": ["text"],
                 "title": "Single-line text fields",
                 "markdownDescription": "./descriptions/sections/input/text.md"
@@ -465,41 +544,6 @@
                 "enum": ["textarea"],
                 "title": "Multi-line text areas",
                 "markdownDescription": "./descriptions/sections/input/textarea.md"
-              },
-              {
-                "enum": ["image_picker"],
-                "title": "Image Picker",
-                "markdownDescription": "./descriptions/sections/input/image_picker.md"
-              },
-              {
-                "enum": ["radio"],
-                "title": "Radio Button",
-                "markdownDescription": "./descriptions/sections/input/radio.md"
-              },
-              {
-                "enum": ["select"],
-                "title": "Selection drop-down",
-                "markdownDescription": "./descriptions/sections/input/select.md"
-              },
-              {
-                "enum": ["checkbox"],
-                "title": "Checkbox",
-                "markdownDescription": "./descriptions/sections/input/checkbox.md"
-              },
-              {
-                "enum": ["number"],
-                "title": "Number",
-                "markdownDescription": "./descriptions/sections/input/number.md"
-              },
-              {
-                "enum": ["range"],
-                "title": "Range",
-                "markdownDescription": "./descriptions/sections/input/range.md"
-              },
-              {
-                "enum": ["color_scheme_group"],
-                "title": "Color Picker",
-                "markdownDescription": "./descriptions/sections/input/color_scheme_group.md"
               }
             ]
           }
@@ -654,16 +698,10 @@
       "$ref": "#/definitions/theme"
     },
     {
-      "type": "object",
-      "required": ["name"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "settings": {
-          "$ref": "#/definitions/settings"
-        }
-      }
+      "$ref": "#/definitions/settings_group"
     }
-  ]
+  ],
+  "additionalItems": {
+    "$ref": "#/definitions/settings_group"
+  }
 }

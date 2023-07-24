@@ -8,7 +8,7 @@
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
   {
-    "name": "test",
+    "name": "first-settings-item-test",
     "settings": [
       {
         "type": "color",
@@ -16,29 +16,14 @@
         "label": "color test"
       },
       {
-        "type": "color_scheme_group",
-        "label": "watehek",
-        "id": "foo",
-        "definition": [
-          {
-            "type": "header",
-            "content": "",
-            "info": ""
-          },
-          {
-            "type": "header",
-            "content": "",
-            "info"
-          }
-        ],
-        "role": {
-
-        }
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
       }
     ]
   },
   {
-    "name": "colors",
+    "name": "second-settings-item-test",
     "settings": [
       {
         "type": "color",
@@ -46,5 +31,9 @@
         "label": "color test"
       }
     ]
+  },
+  {
+    "name": "wrong-item-test",
+    "theme_name": "Themekit template theme"
   }
 ]
