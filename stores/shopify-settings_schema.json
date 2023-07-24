@@ -4,6 +4,13 @@
   "definitions": {
     "theme": {
       "type": "object",
+      "required": [
+        "name",
+        "theme_name",
+        "theme_author",
+        "theme_version",
+        "theme_documentation_url"
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -34,13 +41,6 @@
           "description": "An email address that merchants can contact for support for the theme."
         }
       },
-      "required": [
-        "name",
-        "theme_name",
-        "theme_author",
-        "theme_version",
-        "theme_documentation_url"
-      ],
       "anyOf": [
         {
           "required": ["theme_support_url"]
@@ -67,7 +67,6 @@
     "settings_group": {
       "type": "object",
       "required": ["name", "settings"],
-      "additionalProperties": false,
       "properties": {
         "name": {
           "type": "string"
@@ -75,11 +74,12 @@
         "settings": {
           "$ref": "#/definitions/settings"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "content": {
-      "required": ["content"],
       "type": "object",
+      "required": ["content"],
       "properties": {
         "content": {
           "type": ["string"],
@@ -119,6 +119,7 @@
       }
     },
     "select": {
+      "type": "object",
       "required": ["options"],
       "properties": {
         "options": {
@@ -177,8 +178,8 @@
       }
     },
     "range": {
-      "required": ["min", "max", "step"],
       "type": "object",
+      "required": ["min", "max", "step"],
       "properties": {
         "step": {
           "type": "number",
@@ -210,8 +211,8 @@
       }
     },
     "radio": {
-      "required": ["options"],
       "type": "object",
+      "required": ["options"],
       "properties": {
         "options": {
           "type": "array",
@@ -250,8 +251,8 @@
       }
     },
     "color_scheme_group": {
-      "required": ["definition"],
       "type": "object",
+      "required": ["definition"],
       "properties": {
         "definition": {
           "type": "array",
