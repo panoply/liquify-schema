@@ -98,7 +98,7 @@
             "force",
             "force-multiline"
           ],
-          "default": "none",
+          "default": "preserve",
           "markdownDescription": "./descriptions/format/liquid/delimiterPlacement.md"
         },
         "commentIndent": {
@@ -286,17 +286,17 @@
         },
         "ignoreJS": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "markdownDescription": "./descriptions/format/markup/ignoreJS.md"
         },
         "ignoreJSON": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "markdownDescription": "./descriptions/format/markup/ignoreJSON.md"
         },
         "ignoreCSS": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "markdownDescription": "./descriptions/format/markup/ignoreCSS.md"
         },
         "preserveText": {

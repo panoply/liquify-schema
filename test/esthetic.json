@@ -1,5 +1,5 @@
 {
-  "$schema": "../package/Æsthetic.json",
+  "$schema": "../package/esthetic.json",
   "wrap": 0,
   "crlf": false,
   "endNewLine": false,
