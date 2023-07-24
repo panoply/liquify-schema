@@ -176,15 +176,19 @@
     "liquid.format.preserveComment": {
       "deprecationMessage": "./descriptions/vscode/deprecated/format.preserveComment.md"
     },
-    "liquid.format.ignore": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "liquid.format.rules": {
       "type": "object",
       "properties": {
+        "ignore": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/format/ignore.md",
+          "items": {
+            "type": "string"
+          }
+        },
+        "endNewLine": {
+          "deprecationMessage": "./descriptions/format/deprecated/endNewLine.md"
+        },
         "endNewline": {
           "injectObject": "./esthetic.json#endNewline"
         },
