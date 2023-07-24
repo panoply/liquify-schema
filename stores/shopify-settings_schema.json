@@ -4,12 +4,50 @@
   "definitions": {
     "theme": {
       "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The value of this attribute must be theme_info."
+        },
+        "theme_name": {
+          "type": "string",
+          "description": "The name of the theme."
+        },
+        "theme_author": {
+          "type": "string",
+          "description": "The author of the theme."
+        },
+        "theme_version": {
+          "type": "string",
+          "description": "The version number of the theme, eg: 1.0.0."
+        },
+        "theme_documentation_url": {
+          "type": "string",
+          "description": "A URL where merchants can find documentation for the theme."
+        },
+        "theme_support_url": {
+          "type": "string",
+          "description": "A URL where merchants can find support for the theme."
+        },
+        "theme_support_email": {
+          "type": "string",
+          "description": "An email address that merchants can contact for support for the theme."
+        }
+      },
       "required": [
         "name",
         "theme_name",
         "theme_author",
         "theme_version",
         "theme_documentation_url"
+      ],
+      "anyOf": [
+        {
+          "required": ["theme_support_url"]
+        },
+        {
+          "required": ["theme_support_email"]
+        }
       ],
       "defaultSnippets": [
         {
@@ -21,35 +59,10 @@
             "theme_author": "$3",
             "theme_version": "$4",
             "theme_documentation_url": "$5",
-            "theme_support_email": "$6"
+            "theme_support_url": "$6"
           }
         }
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "theme_name": {
-          "type": "string",
-          "description": "Name of this Theme"
-        },
-        "theme_author": {
-          "type": "string",
-          "description": "The author of this theme"
-        },
-        "theme_version": {
-          "type": "string",
-          "description": "Theme version number, eg: 1.0.0"
-        },
-        "theme_documentation_url": {
-          "type": "string",
-          "description": "Documentation URL associated with this theme (if applicable)"
-        },
-        "theme_support_email": {
-          "type": "string",
-          "description": "The contact theme support email address"
-        }
-      }
+      ]
     },
     "settings_group": {
       "type": "object",
