@@ -6,6 +6,7 @@ NEW SETTINGS AS OF v4^
 
 {
   "format": {
+    "ignore": [],
     "wrap": 0,
     "liquid": {},
     "markup: {},
