@@ -27,6 +27,7 @@
   "liquid.completion.schema": true,
   "liquid.completion.sections": true,
   "liquid.completion.tags": true,
+  "liquid.completion.variables": true,
   // HOVERS
   "liquid.hover.filters": true,
   "liquid.hover.schema": true,

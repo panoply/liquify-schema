@@ -107,6 +107,11 @@
       "default": true,
       "markdownDescription": "./descriptions/vscode/completion/schema.md"
     },
+    "liquid.completion.variables": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/variables.md"
+    },
     "liquid.validate.schema": {
       "type": "boolean",
       "default": true,

@@ -93,7 +93,10 @@
       "noLeadZero": false,
       "quoteConvert": "double",
       "sortProperties": false,
-      "sortSelectors": false
+      "sortSelectors": false,
+      "atRuleSpace": false,
+      "commentIndent": false,
+      "preserveComment": false
     },
     // SCRIPT FORMATTING
     "script": {
@@ -116,7 +119,10 @@
       "quoteConvert": "single",
       "ternaryLine": false,
       "variableList": false,
-      "vertical": false
+      "vertical": false,
+      "commentIndent": false,
+      "commentNewline": false,
+      "preserveComment": false
     }
   }
 }
