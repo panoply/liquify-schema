@@ -360,7 +360,7 @@
         "required": ["type"],
         "defaultSnippets": [
           {
-            "label": "Text",
+            "label": "text",
             "markdownDescription": "./descriptions/sections/input/text.md",
             "body": {
               "type": "text",
@@ -370,7 +370,7 @@
             }
           },
           {
-            "label": "Textarea",
+            "label": "textarea",
             "markdownDescription": "./descriptions/sections/input/textarea.md",
             "body": {
               "type": "text",
@@ -380,7 +380,7 @@
             }
           },
           {
-            "label": "Number",
+            "label": "number",
             "markdownDescription": "./descriptions/sections/input/number.md",
             "body": {
               "type": "number",
@@ -391,7 +391,7 @@
             }
           },
           {
-            "label": "Checkbox",
+            "label": "checkbox",
             "markdownDescription": "./descriptions/sections/input/checkbox.md",
             "body": {
               "type": "checkbox",
@@ -402,7 +402,7 @@
             }
           },
           {
-            "label": "Select",
+            "label": "select",
             "markdownDescription": "./descriptions/sections/input/select.md",
             "body": {
               "type": "select",
@@ -414,7 +414,7 @@
             }
           },
           {
-            "label": "Radio",
+            "label": "radio",
             "markdownDescription": "./descriptions/sections/input/radio.md",
             "body": {
               "type": "radio",
@@ -426,7 +426,7 @@
             }
           },
           {
-            "label": "Range",
+            "label": "range",
             "markdownDescription": "./descriptions/sections/input/range.md",
             "body": {
               "type": "range",
@@ -440,7 +440,7 @@
             }
           },
           {
-            "label": "Color Scheme Group",
+            "label": "color scheme group",
             "markdownDescription": "./descriptions/sections/input/color_scheme_group.md",
             "body": {
               "type": "color_scheme_group",
