@@ -693,6 +693,7 @@
     }
   },
   "type": "array",
+  "minItems": 2,
   "items": [
     {
       "$ref": "#/definitions/theme"
