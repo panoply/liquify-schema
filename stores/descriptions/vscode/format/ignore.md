@@ -9,6 +9,20 @@ You can also leverage inline ignore comments. Place a Æsthetic ignore comment a
 
 ```html
 
-<!-- @Æsthetic-ignore -->
+<!-- esthetic-ignore -->
+
+```
+
+**Ignoring Regions**
+
+Æsthetic also supports inline ignore comment regions. Wrap the code you wish to exclude from formatting as follows:
+
+```html
+
+<!-- esthetic-ignore-start -->
+
+  CODE TO EXCLUDE
+
+<!-- esthetic-ignore-end -->
 
 ```
