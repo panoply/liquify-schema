@@ -4,6 +4,7 @@
   "liquid.engine": "shopify",
   // CONFIG FILE BASE URL
   "liquid.config.baseUrl": "",
+  "liquid.config.method": "liquidrc",
   // SETTINGS TARGET
   "liquid.settings.target": "user",
   // FILES
@@ -46,44 +47,65 @@
   // FORMATTING
   "liquid.format.ignore": [],
   "liquid.format.rules": {
+    // NEW RULES
+    "ignore": [],
     // GLOBALS
     "wrap": 0,
+    "wrapFraction": 0,
+    "preset": "default",
     "crlf": false,
-    "useTabs": false,
-    "endNewLine": false,
+    "endNewline": false,
+    "indentChar": " ",
     "indentSize": 2,
     "preserveLine": 3,
+    // DEPRECATED OR UPDATED RULES
+    "endNewLine": false,
     // LIQUID FORMATTING
     "liquid": {
       "commentIndent": false,
       "commentNewline": false,
+      "forceArgument": 0,
+      "forceFilter": 0,
+      "indentAttribute": false,
+      "preserveInternal": false,
       "delimiterTrims": "preserve",
+      "dedentTagList": [],
+      "delimiterPlacement": "preserve",
       "ignoreTagList": [],
       "lineBreakSeparator": "before",
       "normalizeSpacing": true,
       "preserveComment": false,
       "quoteConvert": "single",
+      // DEPRECATED LIQUID RULES
       "valueForce": "intent"
     },
     // MARKUP FORMATTING
     "markup": {
       "attributeCasing": "preserve",
       "attributeSort": false,
-      "attributeSortList": [],
       "commentIndent": false,
+      "delimiterTerminus": "inline",
+      "ignoreCSS": false,
+      "ignoreJS": true,
+      "ignoreJSON": false,
+      "lineBreakValue": "preserve",
+      "preserveAttribute": false,
+      "selfCloseSVG": false,
+      "stripAttributeLines": false,
       "commentNewline": false,
-      "correct": false,
       "forceAttribute": false,
       "forceIndent": false,
-      "forceLeadAttribute": false,
-      "ignoreScripts": false,
-      "ignoreStyles": false,
       "preserveComment": false,
-      "preserveAttributes": false,
       "preserveText": true,
       "quoteConvert": "double",
       "selfCloseSpace": false,
       // DEPRECATED LIQUID RULES
+      "forceLeadAttribute": false,
+      "preserveAttributes": false,
+      "ignoreScripts": false,
+      "ignoreStyles": false,
+      "correct": false,
+      "attributeSortList": [],
       "delimiterTrims": "preserve",
       "lineBreakSeparator": "default",
       "normalizeSpacing": true,
@@ -95,7 +117,7 @@
       "braceAllman": true,
       "bracePadding": true,
       "objectIndent": "indent",
-      "objectSort": false
+      "objectSort": false,
     },
     // STYLE FORMATTING
     "style": {
@@ -105,11 +127,17 @@
       "noLeadZero": false,
       "quoteConvert": "double",
       "sortProperties": false,
-      "sortSelectors": false
+      "sortSelectors": false,
+      "atRuleSpace": false,
+      "commentIndent": false,
+      "preserveComment": false
     },
     // SCRIPT FORMATTING
     "script": {
       "arrayFormat": "indent",
+      "commentIndent": false,
+      "commentNewline": false,
+      "preserveComment": false,
       "braceAllman": false,
       "braceNewline": false,
       "bracePadding": false,

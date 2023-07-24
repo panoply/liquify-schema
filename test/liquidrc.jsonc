@@ -1,9 +1,12 @@
 {
   "$schema": "../package/liquidrc.json",
   // ENGINE
-  "engine": "11ty",
+  "engine": "shopify",
   "files": {
-    "layouts": []
+    "locales": "",
+    "sections": [],
+    "settings": "",
+    "snippets": []
   },
   // FILES
   // NOT ALLOWED
