@@ -6,6 +6,6 @@
   "additionalProperties": true,
   "propertyNames": {
     "pattern": "(?:[a-z_$]|[0-9][a-z_$])[a-z0-9_$]+",
-    "description": "Locales should be written in lowercase, and only be alphanumeric. No spaces and use underscore separators, eg: foo_bar. "
+    "description": "Locales should be written in lowercase, and only be alphanumeric. No spaces and use underscore separators, eg: foo_bar"
   }
 }
