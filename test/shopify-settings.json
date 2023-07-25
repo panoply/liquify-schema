@@ -8,7 +8,7 @@
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
   {
-    "name": "first-settings-item-test",
+    "name": "FIRST ITEM TEST - SETTINGS",
     "settings": [
       {
         "type": "color",
@@ -23,7 +23,7 @@
     ]
   },
   {
-    "name": "second-settings-item-test",
+    "name": "SECOND ITEM TEST - SETTINGS",
     "settings": [
       {
         "type": "color",
@@ -33,17 +33,65 @@
     ]
   },
   {
-    "name": "wrong-item-test",
+    "name": "WRONG ITEM TEST",
     "theme_name": "Themekit template theme"
   },
   {
-    "name": "all-settings-item-test",
+    "name": "WRONG ITEM TEST - SETTINGS",
     "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_scheme_group_test",
+        "label": "Color Scheme Group Test"
+      },
+      {
+        "type": "color_scheme_group",
+        "id": "color_scheme_group_test",
+        "label": "Color Scheme Group Test",
+        "definition": [],
+        "role": {
+          "background": {
+            "gradient": "test"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": "ITEM TEST - ALL SETTINGS ",
+    "settings": [
+      {
+        "type": "article",
+        "id": "article_test",
+        "label": "Article Test"
+      },
+      {
+        "type": "blog",
+        "id": "blog_test",
+        "label": "Blog Test"
+      },
       {
         "type": "checkbox",
         "id": "checkbox_test",
         "label": "Checkbox Test",
         "default": true
+      },
+      {
+        "type": "collection_list",
+        "id": "collection_list_test",
+        "label": "Collection List Test",
+        "limit": 5
+      },
+      {
+        "type": "collection",
+        "id": "collection_test",
+        "label": "Collection Test"
+      },
+      {
+        "type": "color_background",
+        "id": "color_background_test",
+        "label": "Color Background Test",
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
@@ -54,8 +102,70 @@
         "type": "color_scheme_group",
         "id": "color_scheme_group_test",
         "label": "Color Scheme Group Test",
-        "definition": [],
-        "role": {}
+        "definition": [
+          {
+            "type": "color",
+            "id": "background_test",
+            "label": "Background"
+          },
+          {
+            "type": "color",
+            "id": "text_test",
+            "label": "Text"
+          },
+          {
+            "type": "color",
+            "id": "primary_button_test",
+            "label": "Primary Button"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_test",
+            "label": "Secondary Button"
+          },
+          {
+            "type": "color",
+            "id": "primary_button_border_test",
+            "label": "Primary Button Border"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_border_test",
+            "label": "Secondary Button Border"
+          },
+          {
+            "type": "color",
+            "id": "on_primary_button_test",
+            "label": "On Primary Button"
+          },
+          {
+            "type": "color",
+            "id": "on_secondary_button_test",
+            "label": "On Secondary Button"
+          },
+          {
+            "type": "color",
+            "id": "links_test",
+            "label": "Links"
+          },
+          {
+            "type": "color",
+            "id": "icons_test",
+            "label": "Icons"
+          }
+        ],
+        "role": {
+          "background": "background_test",
+          "text": "text_test",
+          "primary_button": "primary_button_test",
+          "secondary_button": "secondary_button_test",
+          "primary_button_border": "primary_button_border_test",
+          "secondary_button_border": "secondary_button_border_test",
+          "on_primary_button": "on_primary_button_test",
+          "on_secondary_button": "on_secondary_button_test",
+          "links": "links_test",
+          "icons": "icons_test"
+        }
       },
       {
         "type": "number",
