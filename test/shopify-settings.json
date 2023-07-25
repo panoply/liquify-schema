@@ -35,5 +35,71 @@
   {
     "name": "wrong-item-test",
     "theme_name": "Themekit template theme"
+  },
+  {
+    "name": "all-settings-item-test",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "checkbox_test",
+        "label": "Checkbox Test",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      },
+      {
+        "type": "color_scheme_group",
+        "id": "color_scheme_group_test",
+        "label": "Color Scheme Group Test",
+        "definition": [],
+        "role": {}
+      },
+      {
+        "type": "number",
+        "id": "number_test",
+        "label": "Number Test",
+        "default": 1
+      },
+      {
+        "type": "radio",
+        "id": "radio_test",
+        "label": "Radio Test",
+        "default": "",
+        "options": [
+          
+        ]
+      },
+      {
+        "type": "range",
+        "id": "range_test",
+        "label": "Range Test",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "default": 1
+      },
+      {
+        "type": "select",
+        "id": "select_test",
+        "label": "Select Test",
+        "default": "",
+        "options": [
+          
+        ]
+      },
+      {
+        "type": "text",
+        "id": "text_test",
+        "label": "Text Test"
+      },
+      {
+        "type": "textarea",
+        "id": "textarea_test",
+        "label": "Textarea Test"
+      }
+    ]
   }
 ]
