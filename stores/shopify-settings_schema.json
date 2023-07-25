@@ -285,8 +285,7 @@
                 "description": "./descriptions/sections/input/header.md",
                 "body": {
                   "type": "header",
-                  "content": "$1",
-                  "info": "$2"
+                  "content": "$1"
                 }
               },
               {
@@ -470,7 +469,7 @@
               "type": "article",
               "id": "$2",
               "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
-              "info": "$5"
+              "info": "$4"
             }
           },
           {
@@ -480,7 +479,7 @@
               "type": "blog",
               "id": "$2",
               "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
-              "info": "$5"
+              "info": "$4"
             }
           },
           {
@@ -502,7 +501,7 @@
               "id": "$1",
               "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
               "limit": "^$3",
-              "info": "$5"
+              "info": "$4"
             }
           },
           {
@@ -512,7 +511,7 @@
               "type": "collection",
               "id": "$1",
               "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "info": "$5"
+              "info": "$3"
             }
           },
           {
@@ -523,7 +522,7 @@
               "id": "$1",
               "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
               "default": "$3",
-              "info": "$5"
+              "info": "$4"
             }
           },
           {
@@ -535,7 +534,88 @@
               "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
               "definition": [],
               "role": {},
-              "info": "$5"
+              "info": "$3"
+            }
+          },
+          {
+            "label": "color_scheme",
+            "markdownDescription": "./descriptions/sections/input/color_scheme.md",
+            "body": {
+              "type": "color_scheme",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "font_picker",
+            "markdownDescription": "./descriptions/sections/input/font_picker.md",
+            "body": {
+              "type": "font_picker",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "header",
+            "markdownDescription": "./descriptions/sections/input/header.md",
+            "body": {
+              "type": "header",
+              "content": "$1"
+            }
+          },
+          {
+            "label": "html",
+            "markdownDescription": "./descriptions/sections/input/html.md",
+            "body": {
+              "type": "html",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "${3|placeholder,info|}": "$4"
+            }
+          },
+          {
+            "label": "image_picker",
+            "markdownDescription": "./descriptions/sections/input/image_picker.md",
+            "body": {
+              "type": "image_picker",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "inline_richtext",
+            "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
+            "body": {
+              "type": "inline_richtext",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "link_list",
+            "markdownDescription": "./descriptions/sections/input/link_list.md",
+            "body": {
+              "type": "link_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "liquid",
+            "markdownDescription": "./descriptions/sections/input/liquid.md",
+            "body": {
+              "type": "liquid",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "${4|placeholder,info|}": "$5"
             }
           },
           {
@@ -547,6 +627,45 @@
               "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
               "default": "^$3",
               "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "page",
+            "markdownDescription": "./descriptions/sections/input/page.md",
+            "body": {
+              "type": "page",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "paragraph",
+            "markdownDescription": "./descriptions/sections/input/paragraph.md",
+            "body": {
+              "type": "paragraph",
+              "content": "$1"
+            }
+          },
+          {
+            "label": "product_list",
+            "markdownDescription": "./descriptions/sections/input/product_list.md",
+            "body": {
+              "type": "product_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "limit": "^$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "product",
+            "markdownDescription": "./descriptions/sections/input/product.md",
+            "body": {
+              "type": "product",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
             }
           },
           {
@@ -573,6 +692,17 @@
               "step": "^$5",
               "unit": "$6",
               "default": "^$7"
+            }
+          },
+          {
+            "label": "richtext",
+            "markdownDescription": "./descriptions/sections/input/richtext.md",
+            "body": {
+              "type": "richtext",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "<p>$3</p>",
+              "${4|placeholder,info|}": "$5"
             }
           },
           {
@@ -605,6 +735,37 @@
               "id": "$2",
               "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
               "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "url",
+            "markdownDescription": "./descriptions/sections/input/url.md",
+            "body": {
+              "type": "url",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "video_url",
+            "markdownDescription": "./descriptions/sections/input/video_url.md",
+            "body": {
+              "type": "video_url",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "accept": [],
+              "info": "$4"
+            }
+          },
+          {
+            "label": "video",
+            "markdownDescription": "./descriptions/sections/input/video.md",
+            "body": {
+              "type": "video",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
             }
           }
         ],
@@ -650,6 +811,11 @@
                 "markdownDescription": "./descriptions/sections/input/color_scheme_group.md"
               },
               {
+                "enum": ["color_scheme"],
+                "title": "Color Scheme",
+                "markdownDescription": "./descriptions/sections/input/color_scheme.md"
+              },
+              {
                 "enum": ["color"],
                 "title": "Color",
                 "markdownDescription": "./descriptions/sections/input/color.md"
@@ -660,14 +826,59 @@
                 "markdownDescription": "./descriptions/sections/input/font_picker.md"
               },
               {
+                "enum": ["header"],
+                "title": "Header",
+                "markdownDescription": "./descriptions/sections/input/header.md"
+              },
+              {
+                "enum": ["html"],
+                "title": "HTML",
+                "markdownDescription": "./descriptions/sections/input/html.md"
+              },
+              {
                 "enum": ["image_picker"],
                 "title": "Image Picker",
                 "markdownDescription": "./descriptions/sections/input/image_picker.md"
               },
               {
+                "enum": ["inline_richtext"],
+                "title": "Inline Richtext",
+                "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
+              },
+              {
+                "enum": ["link_list"],
+                "title": "Link List",
+                "markdownDescription": "./descriptions/sections/input/link_list.md"
+              },
+              {
+                "enum": ["liquid"],
+                "title": "Liquid",
+                "markdownDescription": "./descriptions/sections/input/liquid.md"
+              },
+              {
                 "enum": ["number"],
                 "title": "Number",
                 "markdownDescription": "./descriptions/sections/input/number.md"
+              },
+              {
+                "enum": ["page"],
+                "title": "Page",
+                "markdownDescription": "./descriptions/sections/input/page.md"
+              },
+              {
+                "enum": ["paragraph"],
+                "title": "Paragraph",
+                "markdownDescription": "./descriptions/sections/input/paragraph.md"
+              },
+              {
+                "enum": ["product_list"],
+                "title": "Product List",
+                "markdownDescription": "./descriptions/sections/input/product_list.md"
+              },
+              {
+                "enum": ["product"],
+                "title": "Product",
+                "markdownDescription": "./descriptions/sections/input/product.md"
               },
               {
                 "enum": ["radio"],
@@ -678,6 +889,11 @@
                 "enum": ["range"],
                 "title": "Range",
                 "markdownDescription": "./descriptions/sections/input/range.md"
+              },
+              {
+                "enum": ["richtext"],
+                "title": "Richtext",
+                "markdownDescription": "./descriptions/sections/input/richtext.md"
               },
               {
                 "enum": ["select"],
@@ -693,6 +909,21 @@
                 "enum": ["textarea"],
                 "title": "Multi-line text areas",
                 "markdownDescription": "./descriptions/sections/input/textarea.md"
+              },
+              {
+                "enum": ["url"],
+                "title": "URL (Link)",
+                "markdownDescription": "./descriptions/sections/input/url.md"
+              },
+              {
+                "enum": ["video_url"],
+                "title": "Video URL (Video Link)",
+                "markdownDescription": "./descriptions/sections/input/video_url.md"
+              },
+              {
+                "enum": ["video"],
+                "title": "Video",
+                "markdownDescription": "./descriptions/sections/input/video.md"
               }
             ]
           }

@@ -54,6 +54,12 @@
             "gradient": "test"
           }
         }
+      },
+      {
+        "type": "video_url",
+        "id": "video_url_test",
+        "label": "Video Url Test",
+        "accept": []
       }
     ]
   },
@@ -92,11 +98,6 @@
         "id": "color_background_test",
         "label": "Color Background Test",
         "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "id": "color_test",
-        "label": "color test"
       },
       {
         "type": "color_scheme_group",
@@ -168,6 +169,76 @@
         }
       },
       {
+        "type": "color_scheme",
+        "id": "color_scheme_test",
+        "label": "Color Scheme Test"
+      },
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_picker_test",
+        "label": "Font Picker Test"
+      },
+      {
+        "type": "header",
+        "content": "Header test",
+        "info": "test test for header"
+      },
+      {
+        "type": "html",
+        "id": "html_test",
+        "label": "Html Test",
+        "placeholder": "type your html test"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_picker_test",
+        "label": "Image Picker Test"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "inline_richtext_test",
+        "label": "Inline Richtext Test",
+        "default": "inline rich text <p>test</p>",
+        "placeholder": "test"
+      },
+      {
+        "type": "link_list",
+        "id": "link_list_test",
+        "label": "Link List Test"
+      },
+      {
+        "type": "liquid",
+        "id": "liquid_test",
+        "label": "Liquid Test",
+        "default": "{% assign test = 'test' %}",
+        "placeholder": "add some liquid code"
+      },
+      {
+        "type": "page",
+        "id": "page_test",
+        "label": "Page Test"
+      },
+      {
+        "type": "paragraph",
+        "content": "paragraph test"
+      },
+      {
+        "type": "product_list",
+        "id": "product_list_test",
+        "label": "Product List Test",
+        "limit": 4
+      },
+      {
+        "type": "product",
+        "id": "product_test",
+        "label": "Product Test"
+      },
+      {
         "type": "number",
         "id": "number_test",
         "label": "Number Test",
@@ -192,6 +263,13 @@
         "default": 1
       },
       {
+        "type": "richtext",
+        "id": "richtext_test",
+        "label": "Richtext Test",
+        "default": "<p>Test</p>",
+        "placeholder": "testint richtext"
+      },
+      {
         "type": "select",
         "id": "select_test",
         "label": "Select Test",
@@ -209,6 +287,22 @@
         "type": "textarea",
         "id": "textarea_test",
         "label": "Textarea Test"
+      },
+      {
+        "type": "url",
+        "id": "url_test",
+        "label": "Url Test"
+      },
+      {
+        "type": "video_url",
+        "id": "video_url_test",
+        "label": "Video Url Test",
+        "accept": []
+      },
+      {
+        "type": "video",
+        "id": "video_test",
+        "label": "Video Test"
       }
     ]
   }

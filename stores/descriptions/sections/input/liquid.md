@@ -1,4 +1,4 @@
-A setting of type `liquid` outputs a multi-line text field that accepts HTML and [limited](https://shopify.dev/themes/architecture/settings/input-settings#limitations) Liquid markup. You can use these fields to capture custom blocks of HTML and Liquid content, such as a product-specific message. Merchants can also use a liquid setting to add the code needed to integrate certain types of [apps](https://shopify.dev/apps/online-store) into your theme.
+A setting of type `liquid` outputs a multi-line text field that accepts HTML and **[limited](https://shopify.dev/themes/architecture/settings/input-settings#limitations)** Liquid markup. You can use these fields to capture custom blocks of HTML and Liquid content, such as a product-specific message. Merchants can also use a liquid setting to add the code needed to integrate certain types of [apps](https://shopify.dev/apps/online-store) into your theme.
 
 When accessing the value of a `liquid` type setting, data is returned as one of the following:
 

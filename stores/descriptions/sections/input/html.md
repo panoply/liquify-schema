@@ -5,11 +5,9 @@ You can use these fields to capture custom blocks of HTML content, such as a vid
 The following HTML tags will be automatically removed:
 
 ```html
-
 <html>
 <head>
 <body>
-
 ```
 
 When accessing the value of an `html` type setting, data is returned as one of the following:
