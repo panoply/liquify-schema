@@ -25,7 +25,6 @@ The `default` attribute isn't required. However, if it's used, then only `<p>` o
 The following HTML tags are also supported inside the parent `<p>` tag:
 
 ```html
-
 - <p>
 - <br>
 - <strong>
@@ -35,7 +34,6 @@ The following HTML tags are also supported inside the parent `<p>` tag:
 - <u>
 - <span>
 - <a>
-
 ```
 
 > **CAUTION**

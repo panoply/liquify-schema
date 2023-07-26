@@ -5,30 +5,304 @@
     "theme_version": "1.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://github.com/Shopify/themekit",
-    "theme_support_url": "https://github.com/Shopify/themekit/issues",
-    "theme_support_email": "hello@foo.com"
+    "theme_support_url": "https://github.com/Shopify/themekit/issues"
   },
   {
-    "name": "xxx",
+    "name": "FIRST ITEM TEST - SETTINGS",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      },
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      }
+    ]
+  },
+  {
+    "name": "SECOND ITEM TEST - SETTINGS",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      }
+    ]
+  },
+  {
+    "name": "WRONG ITEM TEST",
+    "theme_name": "Themekit template theme"
+  },
+  {
+    "name": "WRONG ITEM TEST - SETTINGS",
     "settings": [
       {
         "type": "color_scheme_group",
-        "id": "foo",
+        "id": "color_scheme_group_test",
+        "label": "Color Scheme Group Test"
+      },
+      {
+        "type": "color_scheme_group",
+        "id": "color_scheme_group_test",
+        "label": "Color Scheme Group Test",
+        "definition": [],
+        "role": {
+          "background": {
+            "gradient": "test"
+          }
+        }
+      },
+      {
+        "type": "video_url",
+        "id": "video_url_test",
+        "label": "Video Url Test",
+        "accept": []
+      }
+    ]
+  },
+  {
+    "name": "ITEM TEST - ALL SETTINGS ",
+    "settings": [
+      {
+        "type": "article",
+        "id": "article_test",
+        "label": "Article Test"
+      },
+      {
+        "type": "blog",
+        "id": "blog_test",
+        "label": "Blog Test"
+      },
+      {
+        "type": "checkbox",
+        "id": "checkbox_test",
+        "label": "Checkbox Test",
+        "default": true
+      },
+      {
+        "type": "collection_list",
+        "id": "collection_list_test",
+        "label": "Collection List Test",
+        "limit": 5
+      },
+      {
+        "type": "collection",
+        "id": "collection_test",
+        "label": "Collection Test"
+      },
+      {
+        "type": "color_background",
+        "id": "color_background_test",
+        "label": "Color Background Test",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color_scheme_group",
+        "id": "color_scheme_group_test",
+        "label": "Color Scheme Group Test",
         "definition": [
           {
-            "type": "header",
-            "content": "",
-            "info": ""
+            "type": "color",
+            "id": "background_test",
+            "label": "Background"
           },
           {
-            "type": "header",
-            "content": "",
-            "info"
+            "type": "color",
+            "id": "text_test",
+            "label": "Text"
+          },
+          {
+            "type": "color",
+            "id": "primary_button_test",
+            "label": "Primary Button"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_test",
+            "label": "Secondary Button"
+          },
+          {
+            "type": "color",
+            "id": "primary_button_border_test",
+            "label": "Primary Button Border"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_border_test",
+            "label": "Secondary Button Border"
+          },
+          {
+            "type": "color",
+            "id": "on_primary_button_test",
+            "label": "On Primary Button"
+          },
+          {
+            "type": "color",
+            "id": "on_secondary_button_test",
+            "label": "On Secondary Button"
+          },
+          {
+            "type": "color",
+            "id": "links_test",
+            "label": "Links"
+          },
+          {
+            "type": "color",
+            "id": "icons_test",
+            "label": "Icons"
           }
         ],
         "role": {
-
+          "background": "background_test",
+          "text": "text_test",
+          "primary_button": "primary_button_test",
+          "secondary_button": "secondary_button_test",
+          "primary_button_border": "primary_button_border_test",
+          "secondary_button_border": "secondary_button_border_test",
+          "on_primary_button": "on_primary_button_test",
+          "on_secondary_button": "on_secondary_button_test",
+          "links": "links_test",
+          "icons": "icons_test"
         }
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme_test",
+        "label": "Color Scheme Test"
+      },
+      {
+        "type": "color",
+        "id": "color_test",
+        "label": "color test"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_picker_test",
+        "label": "Font Picker Test"
+      },
+      {
+        "type": "header",
+        "content": "Header test",
+        "info": "test test for header"
+      },
+      {
+        "type": "html",
+        "id": "html_test",
+        "label": "Html Test",
+        "placeholder": "type your html test"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_picker_test",
+        "label": "Image Picker Test"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "inline_richtext_test",
+        "label": "Inline Richtext Test",
+        "default": "inline rich text <p>test</p>",
+        "placeholder": "test"
+      },
+      {
+        "type": "link_list",
+        "id": "link_list_test",
+        "label": "Link List Test"
+      },
+      {
+        "type": "liquid",
+        "id": "liquid_test",
+        "label": "Liquid Test",
+        "default": "{% assign test = 'test' %}",
+        "placeholder": "add some liquid code"
+      },
+      {
+        "type": "page",
+        "id": "page_test",
+        "label": "Page Test"
+      },
+      {
+        "type": "paragraph",
+        "content": "paragraph test"
+      },
+      {
+        "type": "product_list",
+        "id": "product_list_test",
+        "label": "Product List Test",
+        "limit": 4
+      },
+      {
+        "type": "product",
+        "id": "product_test",
+        "label": "Product Test"
+      },
+      {
+        "type": "number",
+        "id": "number_test",
+        "label": "Number Test",
+        "default": 1
+      },
+      {
+        "type": "radio",
+        "id": "radio_test",
+        "label": "Radio Test",
+        "default": "",
+        "options": [
+          
+        ]
+      },
+      {
+        "type": "range",
+        "id": "range_test",
+        "label": "Range Test",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "default": 1
+      },
+      {
+        "type": "richtext",
+        "id": "richtext_test",
+        "label": "Richtext Test",
+        "default": "<p>Test</p>",
+        "placeholder": "testint richtext"
+      },
+      {
+        "type": "select",
+        "id": "select_test",
+        "label": "Select Test",
+        "default": "",
+        "options": [
+          
+        ]
+      },
+      {
+        "type": "text",
+        "id": "text_test",
+        "label": "Text Test"
+      },
+      {
+        "type": "textarea",
+        "id": "textarea_test",
+        "label": "Textarea Test"
+      },
+      {
+        "type": "url",
+        "id": "url_test",
+        "label": "Url Test"
+      },
+      {
+        "type": "video_url",
+        "id": "video_url_test",
+        "label": "Video Url Test",
+        "accept": []
+      },
+      {
+        "type": "video",
+        "id": "video_test",
+        "label": "Video Test"
       }
     ]
   }
