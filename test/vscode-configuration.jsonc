@@ -1,5 +1,4 @@
 {
-  "$schema": "../package/vscode/configuration.json",
   // ENGINE
   "liquid.engine": "shopify",
   // CONFIG FILE BASE URL

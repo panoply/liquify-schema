@@ -1,4 +1,5 @@
 {
-  "$schema": "./../cdn/shopify/locales.json",
-  "data": {}
+  "foo": {
+    "foo bar": "ddd"
+  }
 }

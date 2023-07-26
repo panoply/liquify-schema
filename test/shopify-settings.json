@@ -249,9 +249,7 @@
         "id": "radio_test",
         "label": "Radio Test",
         "default": "",
-        "options": [
-          
-        ]
+        "options": []
       },
       {
         "type": "range",
@@ -274,10 +272,9 @@
         "id": "select_test",
         "label": "Select Test",
         "default": "",
-        "options": [
-          
-        ]
+        "options": []
       },
+
       {
         "type": "text",
         "id": "text_test",
