@@ -17,6 +17,42 @@
         "shopify-settings.json"
       ],
       "url": "/package/shopify/settings_schema.json"
+    },
+    {
+      "fileMatch": [
+        "shopify-sections.json"
+      ],
+      "url": "./package/shopify/sections.json"
+    },
+    {
+      "fileMatch": [
+        "shopify-section-groups.json"
+      ],
+      "url": "./package/shopify/section-groups.json"
+    },
+    {
+      "fileMatch": [
+        "shopify-locales.json"
+      ],
+      "url": "./package/shopify/locales.json"
+    },
+    {
+      "fileMatch": [
+        "shopify-templates.json"
+      ],
+      "url": "./package/shopify/templates.json"
+    },
+    {
+      "fileMatch": [
+        "shopify-data.json"
+      ],
+      "url": "./package/shopify/settings_data.json"
+    },
+    {
+      "fileMatch": [
+        "vscode-configuration.jsonc"
+      ],
+      "url": "/package/vscode/configuration.json"
     }
   ]
 }
