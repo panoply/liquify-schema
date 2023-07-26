@@ -1,0 +1,10 @@
+{
+  "$schema": "../package",
+  "engine": "",
+  "updated": "",
+  "filters": {},
+  "objects": {},
+  "tags": {
+    "test": {}
+  }
+}
