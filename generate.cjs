@@ -97,6 +97,8 @@ function mapContent () {
     const items = [
       'esthetic.json',
       'liquidrc.json',
+      'shopify-input-settings-snippets.json',
+      'shopify-input-settings.json',
       'shopify-sections.json',
       'shopify-section-groups.json',
       'shopify-locales.json',

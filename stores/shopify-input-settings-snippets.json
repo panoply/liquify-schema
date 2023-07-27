@@ -1,0 +1,317 @@
+{
+  "title": "JSON Schema for Shopify Settings Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  
+  "definitions": {
+    "allSnippets": {
+      "defaultSnippets": [
+        { 
+          "label": "article",
+          "markdownDescription": "./descriptions/sections/input/article.md",
+          "body": {
+            "type": "article",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "blog",
+          "markdownDescription": "./descriptions/sections/input/blog.md",
+          "body": {
+            "type": "blog",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "checkbox",
+          "markdownDescription": "./descriptions/sections/input/checkbox.md",
+          "body": {
+            "type": "checkbox",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "^${3|true,false|}",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "collection_list",
+          "markdownDescription": "./descriptions/sections/input/collection_list.md",
+          "body": {
+            "type": "collection_list",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "limit": "^$3",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "collection",
+          "markdownDescription": "./descriptions/sections/input/collection.md",
+          "body": {
+            "type": "collection",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "color_background",
+          "markdownDescription": "./descriptions/sections/input/color_background.md",
+          "body": {
+            "type": "color_background",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "color_scheme_group",
+          "markdownDescription": "./descriptions/sections/input/color_scheme_group.md",
+          "body": {
+            "type": "color_scheme_group",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "definition": [],
+            "role": {},
+            "info": "$3"
+          }
+        },
+        {
+          "label": "color_scheme",
+          "markdownDescription": "./descriptions/sections/input/color_scheme.md",
+          "body": {
+            "type": "color_scheme",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "font_picker",
+          "markdownDescription": "./descriptions/sections/input/font_picker.md",
+          "body": {
+            "type": "font_picker",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "header",
+          "markdownDescription": "./descriptions/sections/input/header.md",
+          "body": {
+            "type": "header",
+            "content": "$1"
+          }
+        },
+        {
+          "label": "html",
+          "markdownDescription": "./descriptions/sections/input/html.md",
+          "body": {
+            "type": "html",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "${3|placeholder,info|}": "$4"
+          }
+        },
+        {
+          "label": "image_picker",
+          "markdownDescription": "./descriptions/sections/input/image_picker.md",
+          "body": {
+            "type": "image_picker",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "inline_richtext",
+          "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
+          "body": {
+            "type": "inline_richtext",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "${4|placeholder,info|}": "$5"
+          }
+        },
+        {
+          "label": "link_list",
+          "markdownDescription": "./descriptions/sections/input/link_list.md",
+          "body": {
+            "type": "link_list",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "liquid",
+          "markdownDescription": "./descriptions/sections/input/liquid.md",
+          "body": {
+            "type": "liquid",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "${4|placeholder,info|}": "$5"
+          }
+        },
+        {
+          "label": "number",
+          "markdownDescription": "./descriptions/sections/input/number.md",
+          "body": {
+            "type": "number",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "^$3",
+            "${4|placeholder,info|}": "$5"
+          }
+        },
+        {
+          "label": "page",
+          "markdownDescription": "./descriptions/sections/input/page.md",
+          "body": {
+            "type": "page",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "paragraph",
+          "markdownDescription": "./descriptions/sections/input/paragraph.md",
+          "body": {
+            "type": "paragraph",
+            "content": "$1"
+          }
+        },
+        {
+          "label": "product_list",
+          "markdownDescription": "./descriptions/sections/input/product_list.md",
+          "body": {
+            "type": "product_list",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "limit": "^$3",
+            "info": "$4"
+          }
+        },
+        {
+          "label": "product",
+          "markdownDescription": "./descriptions/sections/input/product.md",
+          "body": {
+            "type": "product",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "radio",
+          "markdownDescription": "./descriptions/sections/input/radio.md",
+          "body": {
+            "type": "radio",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$4",
+            "info": "$5",
+            "options": ["^$3"]
+          }
+        },
+        {
+          "label": "range",
+          "markdownDescription": "./descriptions/sections/input/range.md",
+          "body": {
+            "type": "range",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "min": "^$3",
+            "max": "^$4",
+            "step": "^$5",
+            "unit": "$6",
+            "default": "^$7"
+          }
+        },
+        {
+          "label": "richtext",
+          "markdownDescription": "./descriptions/sections/input/richtext.md",
+          "body": {
+            "type": "richtext",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "<p>$3</p>",
+            "${4|placeholder,info|}": "$5"
+          }
+        },
+        {
+          "label": "select",
+          "markdownDescription": "./descriptions/sections/input/select.md",
+          "body": {
+            "type": "select",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$4",
+            "info": "$5",
+            "options": ["^$3"]
+          }
+        },
+        {
+          "label": "text",
+          "markdownDescription": "./descriptions/sections/input/text.md",
+          "body": {
+            "type": "text",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "${4|default,placeholder,info|}": "$5"
+          }
+        },
+        {
+          "label": "textarea",
+          "markdownDescription": "./descriptions/sections/input/textarea.md",
+          "body": {
+            "type": "textarea",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "${4|default,placeholder,info|}": "$5"
+          }
+        },
+        {
+          "label": "url",
+          "markdownDescription": "./descriptions/sections/input/url.md",
+          "body": {
+            "type": "url",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        },
+        {
+          "label": "video_url",
+          "markdownDescription": "./descriptions/sections/input/video_url.md",
+          "body": {
+            "type": "video_url",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "accept": [],
+            "info": "$4"
+          }
+        },
+        {
+          "label": "video",
+          "markdownDescription": "./descriptions/sections/input/video.md",
+          "body": {
+            "type": "video",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -68,16 +68,18 @@
     "settings": [
       {
         "type": "article",
-        "id": "article_test",
-        "label": "Article Test"
+        "id": "asdasd",
+        "label": "asdasd",
+        "info": "asdadas"
       },
       {
         "type": "blog",
         "id": "blog_test",
-        "label": "Blog Test"
+        "label": "Blog Test",
+        "info": "asdasd"
       },
       {
-        "type": "checkbox",
+        "type": "range",
         "id": "checkbox_test",
         "label": "Checkbox Test",
         "default": true
@@ -249,9 +251,7 @@
         "id": "radio_test",
         "label": "Radio Test",
         "default": "",
-        "options": [
-          
-        ]
+        "options": []
       },
       {
         "type": "range",
@@ -274,9 +274,7 @@
         "id": "select_test",
         "label": "Select Test",
         "default": "",
-        "options": [
-          
-        ]
+        "options": []
       },
       {
         "type": "text",
