@@ -42,34 +42,38 @@
       {
         "type": "article",
         "id": "id with spaces",
-        "info": "wrong FIELDS TEST"
-      },
-      {
-        "type": "article",
-        "info": "missing REQUIREDS TEST"
+        "default": false,
+        "info": "missing REQUIREDS TEST, id with spaces and default is not allowed"
       },
       {
         "type": "blog",
-        "info": "missing REQUIREDS TEST"
+        "default": false,
+        "info": "missing REQUIREDS TEST and default is not allowed"
       },
       {
         "type": "checkbox",
-        "info": "missing REQUIREDS TEST"
+        "default": "asd",
+        "info": "missing REQUIREDS TEST and wrong default type"
       },
       {
         "type": "collection_list",
+        "limit": false,
         "info": "missing REQUIREDS TEST"
       },
       {
         "type": "collection",
-        "info": "missing REQUIREDS TEST"
+        "default": false,
+        "info": "missing REQUIREDS TEST and default is not allowed"
       },
       {
         "type": "color_background",
-        "info": "missing REQUIREDS TEST"
+        "default": true,
+        "info": "missing REQUIREDS TEST and wrong default type"
       },
       {
         "type": "color_scheme_group",
+        "definition": [],
+        "role": {},
         "info": "missing REQUIREDS TEST"
       },
       {
