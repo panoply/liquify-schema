@@ -7,30 +7,26 @@
         "id": {
           "type": "string",
           "pattern": "^[^\\s]*$",
-
+          "minLength": 1,
           "description": "The unique identifier for the setting, which is used to access the setting value.",
           "markdownDescription": "./descriptions/sections/standard/id.md"
         },
         "label": {
-          "type": "string",
+          "$ref": "#/definitions/string_or_string_per_locale",
+          "minLength": 1,
           "description": "The label for the setting, which will show in the theme editor.",
           "markdownDescription": "./descriptions/sections/standard/label.md"
         },
         "default": {
+          "minLength": 1,
           "description": "The default value for the setting.",
           "markdownDescription": "./descriptions/sections/standard/default.md"
         },
         "placeholder": {
+          "$ref": "#/definitions/string_or_string_per_locale",
+          "minLength": 1,
           "description": "A placeholder value that is shown in the field when it's empty, this will not return anything. (for a default value, use `default`).",
-          "markdownDescription": "./descriptions/sections/standard/placeholder.md",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/languages"
-            }
-          ]
+          "markdownDescription": "./descriptions/sections/standard/placeholder.md"
         },
         "limit": {
           "type": "number",
@@ -78,7 +74,8 @@
           ]
         },
         "info": {
-          "type": "string",
+          "$ref": "#/definitions/string_or_string_per_locale",
+          "minLength": 1,
           "description": "An option for informational text about the setting.",
           "markdownDescription": "./descriptions/sections/standard/info.md"
         }
@@ -107,7 +104,17 @@
         }
       }
     },
-    "languages": {
+    "string_or_string_per_locale": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/definitions/string_per_locale"
+        }
+      ]
+    },
+    "string_per_locale": {
       "type": "object",
       "description": "Locales",
       "properties": {
@@ -479,9 +486,11 @@
             "required": ["solid"],
             "properties": {
               "solid": {
+                "minLength": 1,
                 "type": "string"
               },
               "gradient": {
+                "minLength": 1,
                 "type": "string"
               }
             }
@@ -512,108 +521,41 @@
                 "minItems": 1,
                 "items": {
                   "type": "object",
-                  "defaultSnippets": [
+                  "allOf": [
                     {
-                      "label": "header",
-                      "description": "./descriptions/sections/input/header.md",
-                      "body": {
-                        "type": "header",
-                        "content": "$1"
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "header",
+                            "color",
+                            "color_background"
+                          ]
+                        }
                       }
                     },
                     {
-                      "label": "color",
-                      "description": "./descriptions/sections/input/color.md",
-                      "body": {
-                        "type": "color",
-                        "id": "$1",
-                        "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-                        "info": "$3"
-                      }
-                    },
-                    {
-                      "label": "color_background",
-                      "description": "./descriptions/sections/input/color_background.md",
-                      "body": {
-                        "type": "color_background",
-                        "id": "$1",
-                        "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-                        "info": "$3"
-                      }
-                    }
-                  ],
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "title": "Type",
-                      "description": "Name of the type of setting.",
-                      "oneOf": [
+                      "anyOf": [
                         {
-                          "enum": ["header"],
-                          "markdownDescription": "./descriptions/sections/input/header.md"
+                          "$ref": "#/definitions/header"
                         },
                         {
-                          "enum": ["color"],
-                          "title": "Multi-line text areas",
-                          "markdownDescription": "./descriptions/sections/input/color.md"
+                          "$ref": "#/definitions/color"
                         },
                         {
-                          "enum": ["color_background"],
-                          "title": "Image Picker",
-                          "markdownDescription": "./descriptions/sections/input/color_background.md"
+                          "$ref": "#/definitions/color_background"
                         }
                       ]
+                    },
+                    {
+                      "$ref": "./input-settings-snippets.json#/definitions/header"
+                    },
+                    {
+                      "$ref": "./input-settings-snippets.json#/definitions/color"
+                    },
+                    {
+                      "$ref": "./input-settings-snippets.json#/definitions/color_background"
                     }
-                  },
-                  "if": {
-                    "required": ["type"],
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "enum": [
-                          "color",
-                          "color_background"
-                        ]
-                      }
-                    }
-                  },
-                  "then": {
-                    "required": ["id", "label"],
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "default": "",
-                        "markdownDescription": "./descriptions/sections/standard/id.md"
-                      },
-                      "label": {
-                        "markdownDescription": "./descriptions/sections/standard/label.md",
-                        "default": "",
-                        "oneOf": [
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      },
-                      "default": {
-                        "type": [
-                          "string",
-                          "number",
-                          "boolean"
-                        ],
-                        "default": "",
-                        "markdownDescription": "./descriptions/sections/standard/default.md"
-                      },
-                      "info": {
-                        "markdownDescription": "./descriptions/sections/standard/info.md",
-                        "default": "",
-                        "oneOf": [
-                          {
-                            "type": "string"
-                          }
-                        ]
-                      }
-                    }
-                  }
+                  ]
                 }
               },
               "role": {
@@ -632,42 +574,52 @@
                 ],
                 "properties": {
                   "background": {
+                    "minLength": 1,
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.background.md",
                     "$ref": "#/definitions/color_scheme_group/definitions/role_object_or_string"
                   },
                   "text": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.background.md"
                   },
                   "primary_button": {
+                    "minLength": 1,
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.primary_button.md",
                     "$ref": "#/definitions/color_scheme_group/definitions/role_object_or_string"
                   },
                   "secondary_button": {
+                    "minLength": 1,
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.secondary_button.md",
                     "$ref": "#/definitions/color_scheme_group/definitions/role_object_or_string"
                   },
                   "primary_button_border": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.primary_button_border.md"
                   },
                   "secondary_button_border": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.secondary_button_border.md"
                   },
                   "on_primary_button": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.on_primary_button.md"
                   },
                   "on_secondary_button": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.on_secondary_button.md"
                   },
                   "links": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.links.md"
                   },
                   "icons": {
+                    "minLength": 1,
                     "type": "string",
                     "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.icons.md"
                   }

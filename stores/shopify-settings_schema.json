@@ -81,7 +81,7 @@
       "type": "array",
       "markdownDescription": "./descriptions/sections/settings/settings.md",
       "items": {
-        "$ref": "./input-settings-snippets.json#/definitions/allSnippets",
+        "$ref": "./input-settings-snippets.json#/definitions/all_snippets",
         "anyOf": [
           {
             "$ref": "./input-settings.json#/definitions/general"

@@ -67,14 +67,47 @@
       },
       {
         "type": "color_background",
-        "default": true,
+        "default": "",
         "info": "missing REQUIREDS TEST and wrong default type"
       },
       {
         "type": "color_scheme_group",
-        "definition": [],
-        "role": {},
-        "info": "missing REQUIREDS TEST"
+        "definition": [
+          {
+            "type": "font_picker",
+            "content": ""
+          },
+          {
+            "type": "color_background",
+            "id": "",
+            "label": ""
+          },
+          {
+            "type": "header",
+            "content": ""
+          },
+          {
+            "type": "color",
+            "id": "",
+            "label": "",
+            "info": ""
+          }
+        ],
+        "role": {
+          "background": {
+            "gradient": ""
+          },
+          "on_primary_button": "",
+          "on_secondary_button": "",
+          "primary_button": "",
+          "primary_button_border": "",
+          "secondary_button": false,
+          "secondary_button_border": 1234,
+          "links": "",
+          "text": "",
+          "icons": ""
+        },
+        "info": "missing REQUIREDS TEST and wrong definition&role properties"
       },
       {
         "type": "color_scheme",
