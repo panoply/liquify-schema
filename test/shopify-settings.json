@@ -40,26 +40,129 @@
     "name": "WRONG ITEM TEST - SETTINGS",
     "settings": [
       {
-        "type": "color_scheme_group",
-        "id": "color_scheme_group_test",
-        "label": "Color Scheme Group Test"
+        "type": "article",
+        "id": "id with spaces",
+        "info": "wrong FIELDS TEST"
+      },
+      {
+        "type": "article",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "blog",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "checkbox",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "collection_list",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "collection",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "color_background",
+        "info": "missing REQUIREDS TEST"
       },
       {
         "type": "color_scheme_group",
-        "id": "color_scheme_group_test",
-        "label": "Color Scheme Group Test",
-        "definition": [],
-        "role": {
-          "background": {
-            "gradient": "test"
-          }
-        }
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "color_scheme",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "color",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "font_picker",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "header",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "html",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "image_picker",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "inline_richtext",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "link_list",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "liquid",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "page",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "paragraph",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "product_list",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "product",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "number",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "radio",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "range",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "richtext",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "select",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "text",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "textarea",
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "url",
+        "info": "missing REQUIREDS TEST"
       },
       {
         "type": "video_url",
-        "id": "video_url_test",
-        "label": "Video Url Test",
-        "accept": []
+        "info": "missing REQUIREDS TEST"
+      },
+      {
+        "type": "video",
+        "info": "missing REQUIREDS TEST"
       }
     ]
   },
@@ -79,7 +182,7 @@
         "info": "asdasd"
       },
       {
-        "type": "range",
+        "type": "checkbox",
         "id": "checkbox_test",
         "label": "Checkbox Test",
         "default": true

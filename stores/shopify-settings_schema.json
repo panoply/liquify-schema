@@ -462,12 +462,99 @@
         "$ref": "./input-settings-snippets.json#/definitions/allSnippets",
         "anyOf": [
           {
+            "$ref": "./input-settings.json#/definitions/general"
+          },
+          {
             "$ref": "./input-settings.json#/definitions/article"
           },
           {
             "$ref": "./input-settings.json#/definitions/blog"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/checkbox"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/collection_list"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/collection"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/color_background"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/color_scheme_group"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/color_scheme"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/color"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/header"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/html"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/image_picker"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/font_picker"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/inline_richtext"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/link_list"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/liquid"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/number"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/page"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/paragraph"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/product_list"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/product"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/radio"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/range"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/richtext"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/select"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/text"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/textarea"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/url"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/video_url"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/video"
           }
-        ]  
+        ]
       }
     }
   },

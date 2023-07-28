@@ -18,5 +18,6 @@
       ],
       "url": "/package/shopify/settings_schema.json"
     }
-  ]
+  ],
+  "editor.formatOnSave": true
 }
