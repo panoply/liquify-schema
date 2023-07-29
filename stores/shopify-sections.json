@@ -402,9 +402,9 @@
       "required": ["accepts"],
       "type": "object",
       "properties": {
-        "accepts": {
+        "accept": {
           "type": "array",
-          "title": "Accepts",
+          "title": "Accept",
           "uniqueItems": true,
           "additionalItems": false,
           "description": "Takes an array of accepted video providers. Valid values are youtube, vimeo, or both",

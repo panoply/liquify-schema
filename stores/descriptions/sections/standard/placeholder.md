@@ -1,4 +1,4 @@
-A placeholder value that is shown in the field when it's empty, this will not return anything. (for a default value, use `default`).
+A placeholder value that is shown in the field when it's empty, this will not return anything. (for a default value that will return, use `default` instead of `placeholder`).
 
 
 #

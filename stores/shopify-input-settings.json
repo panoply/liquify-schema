@@ -13,6 +13,7 @@
         },
         "label": {
           "$ref": "#/definitions/string_or_string_per_locale",
+          "default": "",
           "minLength": 1,
           "description": "The label for the setting, which will show in the theme editor.",
           "markdownDescription": "./descriptions/sections/standard/label.md"
@@ -24,6 +25,7 @@
         },
         "placeholder": {
           "$ref": "#/definitions/string_or_string_per_locale",
+          "default": "",
           "minLength": 1,
           "description": "A placeholder value that is shown in the field when it's empty, this will not return anything. (for a default value, use `default`).",
           "markdownDescription": "./descriptions/sections/standard/placeholder.md"
@@ -33,6 +35,69 @@
           "title": "Limit",
           "description": "The maximum number of items that the merchant can select. The default limit, and the maximum limit you can set, is 50.",
           "maximum": 50
+        },
+        "content": {
+          "type": "string",
+          "title": "Content",
+          "description": "The setting content, which will show in the theme editor."
+        },
+        "options": {
+          "definitions": {
+            "value": {
+              "title": "Value",
+              "description": "Returned value when selected.",
+              "type": ["string", "number", "boolean"]
+            },
+            "label": {
+              "title": "Label",
+              "description": "Label shown to the user.",
+              "type": "string"
+            },
+            "group": {
+              "title": "Group",
+              "description": "An optional property you can add to each option to create groups in the drop-down seen by the user.",
+              "type": "string"
+            }
+          },
+          "type": "array",
+          "title": "Options",
+          "minItems": 2,
+          "description": "Takes an array of objects with value/label definitions",
+          "items": {
+            "required": ["value", "label"],
+            "type": "object",
+            "title": "Option",
+            "properties": {
+              "value": {
+                "$ref": "#/definitions/general/definitions/options/definitions/value"
+              },
+              "label": {
+                "$ref": "#/definitions/general/definitions/options/definitions/label"
+              }
+            }
+          }
+        },
+        "options_with_group": {
+          "type": "array",
+          "title": "Options",
+          "minItems": 2,
+          "description": "Takes an array of objects with value/label definitions",
+          "items": {
+            "required": ["value", "label"],
+            "type": "object",
+            "title": "Option",
+            "properties": {
+              "value": {
+                "$ref": "#/definitions/general/definitions/options/definitions/value"
+              },
+              "label": {
+                "$ref": "#/definitions/general/definitions/options/definitions/label"
+              },
+              "group": {
+                "$ref": "#/definitions/general/definitions/options/definitions/group"
+              }
+            }
+          }
         }
       },
       "required": ["type"],
@@ -75,6 +140,7 @@
         },
         "info": {
           "$ref": "#/definitions/string_or_string_per_locale",
+          "default": "",
           "minLength": 1,
           "description": "An option for informational text about the setting.",
           "markdownDescription": "./descriptions/sections/standard/info.md"
@@ -90,7 +156,7 @@
         }
       },
       "then": {
-        "required": ["type"]
+        "required": ["type", "content"]
       },
       "else": {
         "required": ["id", "type", "label"],
@@ -517,6 +583,8 @@
                 "markdownDescription": "./descriptions/sections/input/color_scheme_group.md"
               },
               "definition": {
+                "title": "Definition",
+                "description": "Array containing all of the color options within the Color Scheme Group, this will be displayed to the user.",
                 "type": "array",
                 "minItems": 1,
                 "items": {
@@ -650,6 +718,10 @@
               "type": {
                 "title": "Color Scheme",
                 "markdownDescription": "./descriptions/sections/input/color_scheme.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
               }
             }
           }
@@ -674,6 +746,10 @@
               "type": {
                 "title": "Color",
                 "markdownDescription": "./descriptions/sections/input/color.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
               }
             }
           }
@@ -692,12 +768,18 @@
             }
           },
           "then": {
+            "required": ["default"],
             "title": "Font Picker",
             "markdownDescription": "./descriptions/sections/input/font_picker.md",
             "properties": {
               "type": {
                 "title": "Font Picker",
                 "markdownDescription": "./descriptions/sections/input/font_picker.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string",
+                "markdownDescription": "./descriptions/sections/properties/font_picker.default.md"
               }
             }
           }
@@ -722,6 +804,9 @@
               "type": {
                 "title": "Header",
                 "markdownDescription": "./descriptions/sections/input/header.md"
+              },
+              "content": {
+                "$ref": "#/definitions/general/definitions/content"
               }
             }
           }
@@ -746,6 +831,13 @@
               "type": {
                 "title": "HTML",
                 "markdownDescription": "./descriptions/sections/input/html.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -770,7 +862,8 @@
               "type": {
                 "title": "Image Picker",
                 "markdownDescription": "./descriptions/sections/input/image_picker.md"
-              }
+              },
+              "default": false
             }
           }
         }
@@ -794,6 +887,13 @@
               "type": {
                 "title": "Inline Richtext",
                 "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -818,6 +918,10 @@
               "type": {
                 "title": "Link List",
                 "markdownDescription": "./descriptions/sections/input/link_list.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "enum": ["main-menu", "footer"]
               }
             }
           }
@@ -842,6 +946,13 @@
               "type": {
                 "title": "Liquid",
                 "markdownDescription": "./descriptions/sections/input/liquid.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -866,6 +977,13 @@
               "type": {
                 "title": "Number",
                 "markdownDescription": "./descriptions/sections/input/number.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "number"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -890,7 +1008,8 @@
               "type": {
                 "title": "Page",
                 "markdownDescription": "./descriptions/sections/input/page.md"
-              }
+              },
+              "default": false
             }
           }
         }
@@ -938,6 +1057,9 @@
               "type": {
                 "title": "Product List",
                 "markdownDescription": "./descriptions/sections/input/product_list.md"
+              },
+              "limit": {
+                "$ref": "#/definitions/general/definitions/limit"
               }
             }
           }
@@ -962,7 +1084,8 @@
               "type": {
                 "title": "Product",
                 "markdownDescription": "./descriptions/sections/input/product.md"
-              }
+              },
+              "default": false
             }
           }
         }
@@ -980,12 +1103,20 @@
             }
           },
           "then": {
+            "required": ["options"],
             "title": "Radio",
             "markdownDescription": "./descriptions/sections/input/radio.md",
             "properties": {
               "type": {
                 "title": "Radio",
                 "markdownDescription": "./descriptions/sections/input/radio.md"
+              },
+              "options": {
+                "$ref": "#/definitions/general/definitions/options"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
               }
             }
           }
@@ -1004,12 +1135,40 @@
             }
           },
           "then": {
+            "required": ["min", "max", "step"],
             "title": "Range",
             "markdownDescription": "./descriptions/sections/input/range.md",
             "properties": {
               "type": {
                 "title": "Range",
                 "markdownDescription": "./descriptions/sections/input/range.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "number"
+              },
+              "min": {
+                "type": "number",
+                "title": "Min",
+                "description": "The minimum value of the input."
+              },
+              "max": {
+                "type": "number",
+                "title": "Max",
+                "description": "The maximum value of the input."
+              },
+              "step": {
+                "type": "number",
+                "title": "Step",
+                "minimum": 0.1,
+                "default": 1,
+                "description": "The increment size between steps of the slider."
+              },
+              "unit": {
+                "title": "Unit",
+                "description": "The unit for the input. For example, you can set px for a font-size slider.",
+                "default": "",
+                "type": "string"
               }
             }
           }
@@ -1034,6 +1193,14 @@
               "type": {
                 "title": "Richtext",
                 "markdownDescription": "./descriptions/sections/input/richtext.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string",
+                "pattern": "(<p>(.*?)</p>|<ul>(.*?)</ul>)"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -1052,12 +1219,20 @@
             }
           },
           "then": {
+            "required": ["options"],
             "title": "Select",
             "markdownDescription": "./descriptions/sections/input/select.md",
             "properties": {
               "type": {
                 "title": "Select",
                 "markdownDescription": "./descriptions/sections/input/select.md"
+              },
+              "options": {
+                "$ref": "#/definitions/general/definitions/options_with_group"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
               }
             }
           }
@@ -1082,6 +1257,13 @@
               "type": {
                 "title": "Text",
                 "markdownDescription": "./descriptions/sections/input/text.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -1106,6 +1288,13 @@
               "type": {
                 "title": "Textarea",
                 "markdownDescription": "./descriptions/sections/input/textarea.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "type": "string"
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -1130,6 +1319,11 @@
               "type": {
                 "title": "URL (Link)",
                 "markdownDescription": "./descriptions/sections/input/url.md"
+              },
+              "default": {
+                "$ref": "#/definitions/general/definitions/default",
+                "default": "/collections",
+                "enum": ["/collections", "/collections/all"]
               }
             }
           }
@@ -1148,12 +1342,27 @@
             }
           },
           "then": {
+            "required": ["accept"],
             "title": "Video URL (Video Link)",
             "markdownDescription": "./descriptions/sections/input/video_url.md",
             "properties": {
               "type": {
                 "title": "Video URL (Video Link)",
                 "markdownDescription": "./descriptions/sections/input/video_url.md"
+              },
+              "accept": {
+                "type": "array",
+                "title": "Accept",
+                "uniqueItems": true,
+                "additionalItems": false,
+                "description": "Takes an array of accepted video providers. Valid values are youtube, vimeo, or both",
+                "items": {
+                  "type": "string",
+                  "enum": ["youtube", "vimeo"]
+                }
+              },
+              "placeholder": {
+                "$ref": "#/definitions/general/definitions/placeholder"
               }
             }
           }
@@ -1178,7 +1387,8 @@
               "type": {
                 "title": "Video",
                 "markdownDescription": "./descriptions/sections/input/video.md"
-              }
+              },
+              "default": false
             }
           }
         }
