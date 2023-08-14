@@ -40,26 +40,227 @@
     "name": "WRONG ITEM TEST - SETTINGS",
     "settings": [
       {
-        "type": "color_scheme_group",
-        "id": "color_scheme_group_test",
-        "label": "Color Scheme Group Test"
+        "type": "article",
+        "id": "id with spaces",
+        "default": false,
+        "info": "missing REQUIREDS TEST, id with spaces and default is not allowed"
+      },
+      {
+        "type": "blog",
+        "default": false,
+        "info": "missing REQUIREDS TEST and default is not allowed"
+      },
+      {
+        "type": "checkbox",
+        "default": "asd",
+        "info": "missing REQUIREDS TEST and wrong default type (must be boolean)"
+      },
+      {
+        "type": "collection_list",
+        "limit": false,
+        "info": "missing REQUIREDS TEST and wrong limit type (must be number)"
+      },
+      {
+        "type": "collection",
+        "default": false,
+        "info": "missing REQUIREDS TEST and default is not allowed"
+      },
+      {
+        "type": "color_background",
+        "default": "",
+        "info": "missing REQUIREDS TEST and wrong default type (must be string.length > 0)"
       },
       {
         "type": "color_scheme_group",
-        "id": "color_scheme_group_test",
-        "label": "Color Scheme Group Test",
-        "definition": [],
+        "definition": [
+          {
+            "type": "font_picker",
+            "content": ""
+          },
+          {
+            "type": "color_background",
+            "id": "",
+            "label": ""
+          },
+          {
+            "type": "header",
+            "content": ""
+          },
+          {
+            "type": "color",
+            "id": "",
+            "label": "",
+            "info": ""
+          }
+        ],
         "role": {
           "background": {
-            "gradient": "test"
+            "gradient": ""
+          },
+          "on_primary_button": "",
+          "on_secondary_button": "",
+          "primary_button": "",
+          "primary_button_border": "",
+          "secondary_button": false,
+          "secondary_button_border": 1234,
+          "links": "",
+          "text": "",
+          "icons": ""
+        },
+        "info": "missing REQUIREDS TEST and wrong definition&role properties"
+      },
+      {
+        "type": "color_scheme",
+        "default": 12,
+        "info": "missing REQUIREDS TEST and wrong default type (must be string)"
+      },
+      {
+        "type": "color",
+        "default": false,
+        "info": "missing REQUIREDS TEST and wrong default type (must be string)"
+      },
+      {
+        "type": "font_picker",
+        "id": "spacess asds",
+        "info": "missing REQUIREDS TEST and wrong id"
+      },
+      {
+        "type": "header",
+        "info": "missing REQUIREDS TEST, missing content"
+      },
+      {
+        "type": "html",
+        "default": 15465,
+        "info": "missing REQUIREDS TEST and wrong default type (must be string)"
+      },
+      {
+        "type": "image_picker",
+        "default": "adasda",
+        "info": "missing REQUIREDS TEST and default is not allowed"
+      },
+      {
+        "type": "inline_richtext",
+        "default": 5454,
+        "info": "missing REQUIREDS TEST and wrong default type (must be text)"
+      },
+      {
+        "type": "link_list",
+        "default": "random-menu",
+        "info": "missing REQUIREDS TEST and wrong default string (must be an enum)"
+      },
+      {
+        "type": "liquid",
+        "default": "",
+        "info": "missing REQUIREDS TEST and wrong default (empty string)"
+      },
+      {
+        "type": "number",
+        "default": "string",
+        "info": "missing REQUIREDS TEST and wrong default type (must be number)"
+      },
+      {
+        "type": "page",
+        "default": "hey",
+        "info": "missing REQUIREDS TEST and default is not allowed"
+      },
+      {
+        "type": "paragraph",
+        "info": "missing REQUIREDS TEST, missing content"
+      },
+      {
+        "type": "product_list",
+        "limit": "32",
+        "info": "missing REQUIREDS TEST and wrong limit type (must be number)"
+      },
+      {
+        "type": "product",
+        "default": "no",
+        "info": "missing REQUIREDS TEST and default is not allowed"
+      },
+      {
+        "type": "radio",
+        "options": [
+          {
+            "label": 45
           }
-        }
+        ],
+        "info": "missing REQUIREDS TEST and wrong options"
+      },
+      {
+        "type": "range",
+        "default": "nope",
+        "max": false,
+        "info": "missing REQUIREDS TEST, wrong default type (must be number)"
+      },
+      {
+        "type": "richtext",
+        "default": "hey",
+        "info": "missing REQUIREDS TEST and wrong default type (must be a string pattern = (<p>(.*?)</p>|<ul>(.*?)</ul>))"
+      },
+      {
+        "type": "select",
+        "options": [
+          {
+            "value": 2
+          }
+        ],
+        "info": "missing REQUIREDS TEST and wrong options"
+      },
+      {
+        "type": "text",
+        "default": 54,
+        "placeholder": false,
+        "info": "missing REQUIREDS TEST default type (must be string)"
+      },
+      {
+        "type": "textarea",
+        "default": 54,
+        "placeholder": false,
+        "info": "missing REQUIREDS TEST default type (must be string)"
+      },
+      {
+        "type": "url",
+        "default": "www.google.com",
+        "info": "missing REQUIREDS TEST and wrong default string (must be an enum)"
       },
       {
         "type": "video_url",
-        "id": "video_url_test",
-        "label": "Video Url Test",
-        "accept": []
+        "accept": ["netflix"],
+        "info": "missing REQUIREDS TEST, wrong accept prop (must be an enum)"
+      },
+      {
+        "type": "video",
+        "default": "www.youtube.com/video",
+        "info": "missing REQUIREDS TEST and default is not allowed"
+      }
+    ]
+  },
+  {
+    "name": "ITEM TEST - KNOWN BUGS ",
+    "settings": [
+      {
+        "type": "header",
+        "content": "⬇️ This has the bug of - if you fill up everything correctly, it will no match the type, if you have an error in either Id, Label or Info, it will match it"
+      },
+      {
+        "type": "color_scheme_group",
+        "id": "REMOVE-ONLY-THE-VALUE-OF-THIS-SETTING-TO-RECREATE-THE-BUG",
+        "label": "REMOVE ONLY THE VALUE OF THIS SETTING TO RECREATE THE BUG",
+        "definition": [],
+        "role": {},
+        "info": "REMOVE ONLY THE VALUE OF THIS SETTING TO RECREATE THE BUG"
+      },
+      {
+        "type": "header",
+        "content": "⬇️ This has the bug of - if you fill up everything correctly, it will no match the type, if you have an error in either Id, Label or Info, it will match it"
+      },
+      {
+        "type": "radio",
+        "id": "REMOVE-ONLY-THE-VALUE-OF-THIS-SETTING-TO-RECREATE-THE-BUG",
+        "label": "REMOVE ONLY THE VALUE OF THIS SETTING TO RECREATE THE BUG",
+        "default": "",
+        "info": "REMOVE ONLY THE VALUE OF THIS SETTING TO RECREATE THE BUG",
+        "options": []
       }
     ]
   },
@@ -68,13 +269,15 @@
     "settings": [
       {
         "type": "article",
-        "id": "article_test",
-        "label": "Article Test"
+        "id": "asdasd",
+        "label": "asdasd",
+        "info": "asdadas"
       },
       {
         "type": "blog",
         "id": "blog_test",
-        "label": "Blog Test"
+        "label": "Blog Test",
+        "info": "asdasd"
       },
       {
         "type": "checkbox",
@@ -103,6 +306,7 @@
         "type": "color_scheme_group",
         "id": "color_scheme_group_test",
         "label": "Color Scheme Group Test",
+        "info": "Color Scheme Group Test",
         "definition": [
           {
             "type": "color",
@@ -208,7 +412,8 @@
       },
       {
         "type": "link_list",
-        "id": "link_list_test",
+        "id": "asdasd",
+        "default": "footer",
         "label": "Link List Test"
       },
       {
@@ -242,14 +447,25 @@
         "type": "number",
         "id": "number_test",
         "label": "Number Test",
-        "default": 1
+        "default": 1,
+        "placeholder": "number test"
       },
       {
         "type": "radio",
         "id": "radio_test",
+        "info": "asd",
+        "default": "default",
         "label": "Radio Test",
-        "default": "",
-        "options": []
+        "options": [
+          {
+            "label": "default",
+            "value": "default"
+          },
+          {
+            "label": "test",
+            "value": "test"
+          }
+        ]
       },
       {
         "type": "range",
@@ -258,7 +474,9 @@
         "min": 1,
         "max": 100,
         "step": 1,
-        "default": 1
+        "unit": "px",
+        "default": 1,
+        "info": "range test"
       },
       {
         "type": "richtext",
@@ -271,8 +489,19 @@
         "type": "select",
         "id": "select_test",
         "label": "Select Test",
-        "default": "",
-        "options": []
+        "default": "asdasd",
+        "options": [
+          {
+            "label": "default",
+            "value": "default",
+            "group": "default"
+          },
+          {
+            "label": "test",
+            "value": "test",
+            "group": "test"
+          }
+        ]
       },
 
       {
@@ -294,7 +523,7 @@
         "type": "video_url",
         "id": "video_url_test",
         "label": "Video Url Test",
-        "accept": []
+        "accept": ["vimeo", "youtube"]
       },
       {
         "type": "video",

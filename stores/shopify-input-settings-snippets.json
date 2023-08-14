@@ -1,0 +1,537 @@
+{
+  "title": "JSON Schema for Shopify Settings Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "definitions": {
+    "all_snippets": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/article"
+        },
+        {
+          "$ref": "#/definitions/blog"
+        },
+        {
+          "$ref": "#/definitions/checkbox"
+        },
+        {
+          "$ref": "#/definitions/collection_list"
+        },
+        {
+          "$ref": "#/definitions/collection"
+        },
+        {
+          "$ref": "#/definitions/color_background"
+        },
+        {
+          "$ref": "#/definitions/color_scheme_group"
+        },
+        {
+          "$ref": "#/definitions/color_scheme"
+        },
+        {
+          "$ref": "#/definitions/color"
+        },
+        {
+          "$ref": "#/definitions/header"
+        },
+        {
+          "$ref": "#/definitions/html"
+        },
+        {
+          "$ref": "#/definitions/image_picker"
+        },
+        {
+          "$ref": "#/definitions/font_picker"
+        },
+        {
+          "$ref": "#/definitions/inline_richtext"
+        },
+        {
+          "$ref": "#/definitions/link_list"
+        },
+        {
+          "$ref": "#/definitions/liquid"
+        },
+        {
+          "$ref": "#/definitions/number"
+        },
+        {
+          "$ref": "#/definitions/page"
+        },
+        {
+          "$ref": "#/definitions/paragraph"
+        },
+        {
+          "$ref": "#/definitions/product_list"
+        },
+        {
+          "$ref": "#/definitions/product"
+        },
+        {
+          "$ref": "#/definitions/radio"
+        },
+        {
+          "$ref": "#/definitions/range"
+        },
+        {
+          "$ref": "#/definitions/richtext"
+        },
+        {
+          "$ref": "#/definitions/select"
+        },
+        {
+          "$ref": "#/definitions/text"
+        },
+        {
+          "$ref": "#/definitions/textarea"
+        },
+        {
+          "$ref": "#/definitions/url"
+        },
+        {
+          "$ref": "#/definitions/video_url"
+        },
+        {
+          "$ref": "#/definitions/video"
+        }
+      ]
+    },
+    "article": {
+      "defaultSnippets": [
+        {
+          "label": "article",
+          "markdownDescription": "./descriptions/sections/input/article.md",
+          "body": {
+            "type": "article",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "blog": {
+      "defaultSnippets": [
+        {
+          "label": "blog",
+          "markdownDescription": "./descriptions/sections/input/blog.md",
+          "body": {
+            "type": "blog",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "checkbox": {
+      "defaultSnippets": [
+        {
+          "label": "checkbox",
+          "markdownDescription": "./descriptions/sections/input/checkbox.md",
+          "body": {
+            "type": "checkbox",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "^${3|true,false|}",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "collection_list": {
+      "defaultSnippets": [
+        {
+          "label": "collection_list",
+          "markdownDescription": "./descriptions/sections/input/collection_list.md",
+          "body": {
+            "type": "collection_list",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "limit": "^$3",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "collection": {
+      "defaultSnippets": [
+        {
+          "label": "collection",
+          "markdownDescription": "./descriptions/sections/input/collection.md",
+          "body": {
+            "type": "collection",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "color_background": {
+      "defaultSnippets": [
+        {
+          "label": "color_background",
+          "markdownDescription": "./descriptions/sections/input/color_background.md",
+          "body": {
+            "type": "color_background",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "color_scheme_group": {
+      "defaultSnippets": [
+        {
+          "label": "color_scheme_group",
+          "markdownDescription": "./descriptions/sections/input/color_scheme_group.md",
+          "body": {
+            "type": "color_scheme_group",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "definition": [],
+            "role": {},
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "color_scheme": {
+      "defaultSnippets": [
+        {
+          "label": "color_scheme",
+          "markdownDescription": "./descriptions/sections/input/color_scheme.md",
+          "body": {
+            "type": "color_scheme",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "color": {
+      "defaultSnippets": [
+        {
+          "label": "color",
+          "markdownDescription": "./descriptions/sections/input/color.md",
+          "body": {
+            "type": "color",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "header": {
+      "defaultSnippets": [
+        {
+          "label": "header",
+          "markdownDescription": "./descriptions/sections/input/header.md",
+          "body": {
+            "type": "header",
+            "content": "$1"
+          }
+        }
+      ]
+    },
+    "html": {
+      "defaultSnippets": [
+        {
+          "label": "html",
+          "markdownDescription": "./descriptions/sections/input/html.md",
+          "body": {
+            "type": "html",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "${3|placeholder,info|}": "$4"
+          }
+        }
+      ]
+    },
+    "image_picker": {
+      "defaultSnippets": [
+        {
+          "label": "image_picker",
+          "markdownDescription": "./descriptions/sections/input/image_picker.md",
+          "body": {
+            "type": "image_picker",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "font_picker": {
+      "defaultSnippets": [
+        {
+          "label": "font_picker",
+          "markdownDescription": "./descriptions/sections/input/font_picker.md",
+          "body": {
+            "type": "font_picker",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "inline_richtext": {
+      "defaultSnippets": [
+        {
+          "label": "inline_richtext",
+          "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
+          "body": {
+            "type": "inline_richtext",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "${4|placeholder,info|}": "$5"
+          }
+        }
+      ]
+    },
+    "link_list": {
+      "defaultSnippets": [
+        {
+          "label": "link_list",
+          "markdownDescription": "./descriptions/sections/input/link_list.md",
+          "body": {
+            "type": "link_list",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "liquid": {
+      "defaultSnippets": [
+        {
+          "label": "liquid",
+          "markdownDescription": "./descriptions/sections/input/liquid.md",
+          "body": {
+            "type": "liquid",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$3",
+            "${4|placeholder,info|}": "$5"
+          }
+        }
+      ]
+    },
+    "number": {
+      "defaultSnippets": [
+        {
+          "label": "number",
+          "markdownDescription": "./descriptions/sections/input/number.md",
+          "body": {
+            "type": "number",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "^$3",
+            "${4|placeholder,info|}": "$5"
+          }
+        }
+      ]
+    },
+    "page": {
+      "defaultSnippets": [
+        {
+          "label": "page",
+          "markdownDescription": "./descriptions/sections/input/page.md",
+          "body": {
+            "type": "page",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "paragraph": {
+      "defaultSnippets": [
+        {
+          "label": "paragraph",
+          "markdownDescription": "./descriptions/sections/input/paragraph.md",
+          "body": {
+            "type": "paragraph",
+            "content": "$1"
+          }
+        }
+      ]
+    },
+    "product_list": {
+      "defaultSnippets": [
+        {
+          "label": "product_list",
+          "markdownDescription": "./descriptions/sections/input/product_list.md",
+          "body": {
+            "type": "product_list",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "limit": "^$3",
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "product": {
+      "defaultSnippets": [
+        {
+          "label": "product",
+          "markdownDescription": "./descriptions/sections/input/product.md",
+          "body": {
+            "type": "product",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "radio": {
+      "defaultSnippets": [
+        {
+          "label": "radio",
+          "markdownDescription": "./descriptions/sections/input/radio.md",
+          "body": {
+            "type": "radio",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$4",
+            "info": "$5",
+            "options": ["^$3"]
+          }
+        }
+      ]
+    },
+    "range": {
+      "defaultSnippets": [
+        {
+          "label": "range",
+          "markdownDescription": "./descriptions/sections/input/range.md",
+          "body": {
+            "type": "range",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "min": "^$3",
+            "max": "^$4",
+            "step": "^$5",
+            "unit": "$6",
+            "default": "^$7"
+          }
+        }
+      ]
+    },
+    "richtext": {
+      "defaultSnippets": [
+        {
+          "label": "richtext",
+          "markdownDescription": "./descriptions/sections/input/richtext.md",
+          "body": {
+            "type": "richtext",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "<p>$3</p>",
+            "${4|placeholder,info|}": "$5"
+          }
+        }
+      ]
+    },
+    "select": {
+      "defaultSnippets": [
+        {
+          "label": "select",
+          "markdownDescription": "./descriptions/sections/input/select.md",
+          "body": {
+            "type": "select",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "default": "$4",
+            "info": "$5",
+            "options": ["^$3"]
+          }
+        }
+      ]
+    },
+    "text": {
+      "defaultSnippets": [
+        {
+          "label": "text",
+          "markdownDescription": "./descriptions/sections/input/text.md",
+          "body": {
+            "type": "text",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "${4|default,placeholder,info|}": "$5"
+          }
+        }
+      ]
+    },
+    "textarea": {
+      "defaultSnippets": [
+        {
+          "label": "textarea",
+          "markdownDescription": "./descriptions/sections/input/textarea.md",
+          "body": {
+            "type": "textarea",
+            "id": "$2",
+            "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+            "${4|default,placeholder,info|}": "$5"
+          }
+        }
+      ]
+    },
+    "url": {
+      "defaultSnippets": [
+        {
+          "label": "url",
+          "markdownDescription": "./descriptions/sections/input/url.md",
+          "body": {
+            "type": "url",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    },
+    "video_url": {
+      "defaultSnippets": [
+        {
+          "label": "video_url",
+          "markdownDescription": "./descriptions/sections/input/video_url.md",
+          "body": {
+            "type": "video_url",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "accept": [],
+            "info": "$4"
+          }
+        }
+      ]
+    },
+    "video": {
+      "defaultSnippets": [
+        {
+          "label": "video",
+          "markdownDescription": "./descriptions/sections/input/video.md",
+          "body": {
+            "type": "video",
+            "id": "$1",
+            "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+            "info": "$3"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -205,35 +205,6 @@
         }
       }
     },
-    "content": {
-      "required": ["content"],
-      "type": "object",
-      "properties": {
-        "content": {
-          "type": ["string", "object"],
-          "title": "Content",
-          "description": "Textual content for the header title."
-        }
-      }
-    },
-    "placeholder": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "title": "Placeholder",
-          "description": "A placeholder value",
-          "default": "",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/languages"
-            }
-          ]
-        }
-      }
-    },
     "limit": {
       "type": "object",
       "properties": {
@@ -245,813 +216,108 @@
         }
       }
     },
-    "select": {
-      "required": ["options"],
-      "properties": {
-        "options": {
-          "type": "array",
-          "title": "Select Options",
-          "description": "Takes an array of value/label definitions for each option in the drop-down",
-          "items": {
-            "type": "object",
-            "required": ["value", "label"],
-            "additionalProperties": false,
-            "defaultSnippets": [
-              {
-                "label": "Options",
-                "description": "Takes an array of value/label definitions for each option in the drop-down.",
-                "body": {
-                  "value": "$1",
-                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-                }
-              },
-              {
-                "label": "Options with group",
-                "description": "Takes an array of value/label definitions for each option in the drop-down with an optional attribute you can add to each option to create option groups in the drop-down",
-                "body": {
-                  "value": "$1",
-                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-                  "group": "$3"
-                }
-              }
-            ],
-            "properties": {
-              "value": {
-                "type": "string",
-                "description": "The value of the select options. This will be used as the output"
-              },
-              "label": {
-                "title": "Label",
-                "description": "A label to render to the theme editor",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/languages"
-                  }
-                ]
-              },
-              "group": {
-                "title": "Group",
-                "description": "An optional attribute you can add to each option to create option groups in the drop-down.",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/languages"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "range": {
-      "required": ["min", "max", "step"],
-      "type": "object",
-      "properties": {
-        "step": {
-          "type": "number",
-          "title": "Step",
-          "minimum": 0.1,
-          "default": 1,
-          "description": "The step refers to the step count for the slider values. For example, if you set the step to 5, then the range slider will count by fives. By default, the step is set to 1."
-        },
-        "min": {
-          "type": "number",
-          "title": "Min",
-          "description": "The minimum number of steps"
-        },
-        "max": {
-          "type": "number",
-          "title": "Max",
-          "description": "The maximum number of steps"
-        },
-        "unit": {
-          "title": "Unit",
-          "description": "The unit of measure label. For example, you could use sec for seconds, or px for pixels.",
-          "default": "",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/languages"
-            }
-          ]
-        }
-      }
-    },
-    "radio": {
-      "required": ["options"],
-      "type": "object",
-      "properties": {
-        "options": {
-          "type": "array",
-          "title": "Radio Options",
-          "description": "Takes an array of value/label definitions",
-          "items": {
-            "type": "object",
-            "required": ["value", "label"],
-            "additionalProperties": false,
-            "defaultSnippets": [
-              {
-                "label": "Radio Options",
-                "description": "Value and label definitions",
-                "body": {
-                  "value": "$1",
-                  "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3"
-                }
-              }
-            ],
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "label": {
-                "title": "Label",
-                "description": "Radio Label",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/languages"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "color": {
-      "type": "object",
-      "format": "color",
-      "properties": {
-        "default": {
-          "type": "string",
-          "format": "color"
-        }
-      }
-    },
-    "video_url": {
-      "required": ["accepts"],
-      "type": "object",
-      "properties": {
-        "accepts": {
-          "type": "array",
-          "title": "Accepts",
-          "uniqueItems": true,
-          "additionalItems": false,
-          "description": "Takes an array of accepted video providers. Valid values are youtube, vimeo, or both",
-          "items": {
-            "type": "string",
-            "enum": ["youtube", "vimeo"]
-          }
-        },
-        "placeholder": {
-          "$ref": "#/definitions/languages"
-        }
-      }
-    },
     "settings": {
       "type": "array",
       "markdownDescription": "./descriptions/sections/settings/settings.md",
       "items": {
-        "type": "object",
-        "required": ["type"],
-        "defaultSnippets": [
+        "$ref": "./input-settings-snippets.json#/definitions/all_snippets",
+        "anyOf": [
           {
-            "label": "Text",
-            "markdownDescription": "./descriptions/sections/input/text.md",
-            "body": {
-              "type": "text",
-              "id": "$2",
-              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
-              "${4|default,placeholder,info|}": "$5"
-            }
+            "$ref": "./input-settings.json#/definitions/general"
           },
           {
-            "label": "Textarea",
-            "markdownDescription": "./descriptions/sections/input/textarea.md",
-            "body": {
-              "type": "text",
-              "id": "$2",
-              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
-              "${4|default,placeholder,info|}": "$5"
-            }
+            "$ref": "./input-settings.json#/definitions/article"
           },
           {
-            "label": "Number",
-            "markdownDescription": "./descriptions/sections/input/number.md",
-            "body": {
-              "type": "number",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "^$3",
-              "${4|placeholder,info|}": "$5"
-            }
+            "$ref": "./input-settings.json#/definitions/blog"
           },
           {
-            "label": "Checkbox",
-            "markdownDescription": "./descriptions/sections/input/checkbox.md",
-            "body": {
-              "type": "checkbox",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "^${3|true,false|}",
-              "info": "$4"
-            }
+            "$ref": "./input-settings.json#/definitions/checkbox"
           },
           {
-            "label": "Select",
-            "markdownDescription": "./descriptions/sections/input/select.md",
-            "body": {
-              "type": "select",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$4",
-              "info": "$5",
-              "options": ["^$3"]
-            }
+            "$ref": "./input-settings.json#/definitions/collection_list"
           },
           {
-            "label": "Radio",
-            "markdownDescription": "./descriptions/sections/input/radio.md",
-            "body": {
-              "type": "radio",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$4",
-              "info": "$5",
-              "options": ["^$3"]
-            }
+            "$ref": "./input-settings.json#/definitions/collection"
           },
           {
-            "label": "Range",
-            "markdownDescription": "./descriptions/sections/input/range.md",
-            "body": {
-              "type": "range",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "min": "^$3",
-              "max": "^$4",
-              "step": "^$5",
-              "unit": "$6",
-              "default": "^$7"
-            }
+            "$ref": "./input-settings.json#/definitions/color_background"
           },
           {
-            "label": "Article",
-            "markdownDescription": "./descriptions/sections/input/article.md",
-            "body": {
-              "type": "article",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/color_scheme"
           },
           {
-            "label": "Blog",
-            "markdownDescription": "./descriptions/sections/input/blog.md",
-            "body": {
-              "type": "blog",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/color"
           },
           {
-            "label": "Collection",
-            "markdownDescription": "./descriptions/sections/input/collection.md",
-            "body": {
-              "type": "collection",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/header"
           },
           {
-            "label": "Collection List",
-            "markdownDescription": "./descriptions/sections/input/collection_list.md",
-            "body": {
-              "type": "collection_list",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "limit": "^$3"
-            }
+            "$ref": "./input-settings.json#/definitions/html"
           },
           {
-            "label": "Color",
-            "markdownDescription": "./descriptions/sections/input/color.md",
-            "body": {
-              "type": "color",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$3"
-            }
+            "$ref": "./input-settings.json#/definitions/image_picker"
           },
           {
-            "label": "Color Scheme",
-            "markdownDescription": "./descriptions/sections/input/color_scheme.md",
-            "body": {
-              "type": "color_scheme",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$3"
-            }
+            "$ref": "./input-settings.json#/definitions/font_picker"
           },
           {
-            "label": "Color Background",
-            "markdownDescription": "./descriptions/sections/input/color_background.md",
-            "body": {
-              "type": "color_background",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$3"
-            }
+            "$ref": "./input-settings.json#/definitions/inline_richtext"
           },
           {
-            "label": "Font Picker",
-            "markdownDescription": "./descriptions/sections/input/font_picker.md",
-            "body": {
-              "type": "font_picker",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$3"
-            }
+            "$ref": "./input-settings.json#/definitions/link_list"
           },
           {
-            "label": "HTML",
-            "markdownDescription": "./descriptions/sections/input/html.md",
-            "body": {
-              "type": "html",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "default": "$3"
-            }
+            "$ref": "./input-settings.json#/definitions/liquid"
           },
           {
-            "label": "Image Picker",
-            "markdownDescription": "./descriptions/sections/input/image_picker.md",
-            "body": {
-              "type": "image_picker",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/number"
           },
           {
-            "label": "Inline Richtext",
-            "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
-            "body": {
-              "type": "inline_richtext",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/page"
           },
           {
-            "label": "Link List",
-            "markdownDescription": "./descriptions/sections/input/link_list.md",
-            "body": {
-              "type": "link_list",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/paragraph"
           },
           {
-            "label": "Liquid",
-            "markdownDescription": "./descriptions/sections/input/liquid.md",
-            "body": {
-              "type": "liquid",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/product_list"
           },
           {
-            "label": "Page",
-            "markdownDescription": "./descriptions/sections/input/page.md",
-            "body": {
-              "type": "page",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/product"
           },
           {
-            "label": "Product",
-            "markdownDescription": "./descriptions/sections/input/product.md",
-            "body": {
-              "type": "product",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/radio"
           },
           {
-            "label": "Product List",
-            "markdownDescription": "./descriptions/sections/input/product_list.md",
-            "body": {
-              "type": "product_list",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "limit": "^$3"
-            }
+            "$ref": "./input-settings.json#/definitions/range"
           },
           {
-            "label": "Richtext",
-            "markdownDescription": "./descriptions/sections/input/richtext.md",
-            "body": {
-              "type": "richtext",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/richtext"
           },
           {
-            "label": "URL",
-            "markdownDescription": "./descriptions/sections/input/url.md",
-            "body": {
-              "type": "url",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/select"
           },
           {
-            "label": "Video",
-            "markdownDescription": "./descriptions/sections/input/video.md",
-            "body": {
-              "type": "video",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-            }
+            "$ref": "./input-settings.json#/definitions/text"
           },
           {
-            "label": "Video URL",
-            "markdownDescription": "./descriptions/sections/input/video_url.md",
-            "body": {
-              "type": "video_url",
-              "id": "$1",
-              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-              "accepts": ["^3"]
-            }
+            "$ref": "./input-settings.json#/definitions/textarea"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/url"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/video_url"
+          },
+          {
+            "$ref": "./input-settings.json#/definitions/video"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "title": "Type",
-            "markdownDescription": "./descriptions/sections/settings/type.md",
-            "oneOf": [
-              {
-                "enum": ["text"],
-                "title": "Single-line text fields",
-                "markdownDescription": "./descriptions/sections/input/text.md"
-              },
-              {
-                "enum": ["textarea"],
-                "title": "Multi-line text areas",
-                "markdownDescription": "./descriptions/sections/input/textarea.md"
-              },
-              {
-                "enum": ["image_picker"],
-                "title": "Image Picker",
-                "markdownDescription": "./descriptions/sections/input/image_picker.md"
-              },
-              {
-                "enum": ["radio"],
-                "title": "Radio Button",
-                "markdownDescription": "./descriptions/sections/input/radio.md"
-              },
-              {
-                "enum": ["select"],
-                "title": "Selection drop-down",
-                "markdownDescription": "./descriptions/sections/input/select.md"
-              },
-              {
-                "enum": ["checkbox"],
-                "title": "Checkbox",
-                "markdownDescription": "./descriptions/sections/input/checkbox.md"
-              },
-              {
-                "enum": ["number"],
-                "title": "Number",
-                "markdownDescription": "./descriptions/sections/input/number.md"
-              },
-              {
-                "enum": ["range"],
-                "title": "Range",
-                "markdownDescription": "./descriptions/sections/input/range.md"
-              },
-              {
-                "enum": ["color"],
-                "title": "Color Picker",
-                "markdownDescription": "./descriptions/sections/input/color.md"
-              },
-              {
-                "enum": ["color_scheme"],
-                "title": "Color Scheme",
-                "markdownDescription": "./descriptions/sections/input/color_scheme.md"
-              },
-              {
-                "enum": ["color_background"],
-                "title": "Color Background",
-                "markdownDescription": "./descriptions/sections/input/color_background.md"
-              },
-              {
-                "enum": ["font_picker"],
-                "title": "Font Picker",
-                "markdownDescription": "./descriptions/sections/input/font_picker.md"
-              },
-              {
-                "enum": ["collection"],
-                "title": "Collections drop-down",
-                "markdownDescription": "./descriptions/sections/input/collection.md"
-              },
-              {
-                "enum": ["collection_list"],
-                "title": "Collection List",
-                "markdownDescription": "./descriptions/sections/input/collection_list.md"
-              },
-              {
-                "enum": ["product"],
-                "title": "Products drop-down",
-                "markdownDescription": "./descriptions/sections/input/product.md"
-              },
-              {
-                "enum": ["product_list"],
-                "title": "Products drop-down",
-                "markdownDescription": "./descriptions/sections/input/product_list.md"
-              },
-              {
-                "enum": ["blog"],
-                "title": "Blogs drop-down",
-                "markdownDescription": "./descriptions/sections/input/blog.md"
-              },
-              {
-                "enum": ["page"],
-                "title": "Pages drop-down",
-                "markdownDescription": "./descriptions/sections/input/page.md"
-              },
-              {
-                "enum": ["link_list"],
-                "title": "Link lists drop-down",
-                "markdownDescription": "./descriptions/sections/input/link_list.md"
-              },
-              {
-                "enum": ["url"],
-                "title": "URL",
-                "markdownDescription": "./descriptions/sections/input/url.md"
-              },
-              {
-                "enum": ["richtext"],
-                "title": "RichText",
-                "markdownDescription": "./descriptions/sections/input/richtext.md"
-              },
-              {
-                "enum": ["inline_richtext"],
-                "title": "Inline RichText",
-                "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
-              },
-              {
-                "enum": ["html"],
-                "title": "HTML",
-                "markdownDescription": "./descriptions/sections/input/html.md"
-              },
-              {
-                "enum": ["article"],
-                "title": "Article",
-                "markdownDescription": "./descriptions/sections/input/article.md"
-              },
-              {
-                "enum": ["header"],
-                "title": "Header",
-                "markdownDescription": "./descriptions/sections/input/header.md"
-              },
-              {
-                "enum": ["paragraph"],
-                "title": "Paragraph",
-                "markdownDescription": "./descriptions/sections/input/paragraph.md"
-              },
-              {
-                "enum": ["liquid"],
-                "title": "Liquid",
-                "markdownDescription": "./descriptions/sections/input/liquid.md"
-              },
-              {
-                "enum": ["video"],
-                "title": "Video",
-                "markdownDescription": "./descriptions/sections/input/video.md"
-              },
-              {
-                "enum": ["video_url"],
-                "title": "Video URL",
-                "markdownDescription": "./descriptions/sections/input/video_url.md"
-              }
-            ]
-          }
-        },
-        "if": {
-          "required": ["type"],
-          "type": "object",
+        "not": {
           "properties": {
             "type": {
-              "enum": [
-                "text",
-                "textarea",
-                "image_picker",
-                "radio",
-                "select",
-                "checkbox",
-                "number",
-                "range",
-                "color",
-                "color_background",
-                "color_scheme",
-                "font_picker",
-                "collection",
-                "collection_list",
-                "product",
-                "product_list",
-                "blog",
-                "page",
-                "link_list",
-                "url",
-                "richtext",
-                "inline_richtext",
-                "html",
-                "article",
-                "liquid",
-                "video",
-                "video_url"
-              ]
+              "const": "color_scheme_group"
             }
-          }
-        },
-        "then": {
-          "required": ["id", "label"],
-          "properties": {
-            "id": {
-              "type": "string",
-              "default": "",
-              "markdownDescription": "./descriptions/sections/standard/id.md"
-            },
-            "label": {
-              "markdownDescription": "./descriptions/sections/standard/label.md",
-              "default": "",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/definitions/languages"
-                }
-              ]
-            },
-            "default": {
-              "type": ["string", "number", "boolean"],
-              "default": "",
-              "markdownDescription": "./descriptions/sections/standard/default.md"
-            },
-            "info": {
-              "markdownDescription": "./descriptions/sections/standard/info.md",
-              "default": "",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/definitions/languages"
-                }
-              ]
-            }
-          },
-          "allOf": [
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "const": "range"
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/range"
-              }
-            },
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "const": [
-                      "color",
-                      "color_scheme",
-                      "color_background"
-                    ]
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/color"
-              }
-            },
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "const": "select"
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/select"
-              }
-            },
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "const": "radio"
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/radio"
-              }
-            },
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "collection_list",
-                      "product_list"
-                    ]
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/limit"
-              }
-            },
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "text",
-                      "textarea",
-                      "html",
-                      "number"
-                    ]
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/placeholder"
-              }
-            },
-            {
-              "if": {
-                "required": ["type"],
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "const": "video_url"
-                  }
-                }
-              },
-              "then": {
-                "$ref": "#/definitions/video_url"
-              }
-            }
-          ]
-        },
-        "else": {
-          "if": {
-            "required": ["type"],
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": ["header", "paragraph"]
-              }
-            }
-          },
-          "then": {
-            "allOf": [
-              {
-                "$ref": "#/definitions/content"
-              }
-            ]
           }
         }
       }
@@ -1085,7 +351,7 @@
         "properties": {
           "name": {
             "title": "Block Name",
-            "description": "The block name which is used as the merchants label",
+            "description": "The block name, which will show as the block title in the theme editor.",
             "oneOf": [
               {
                 "type": "string"
@@ -1098,7 +364,7 @@
           "type": {
             "type": "string",
             "title": "Block Type",
-            "description": "A block's type may be any value set by the theme developer."
+            "description": "The block type. This is a free-form string that you can use as an identifier. You can access this value through the type attribute of the block object."
           },
           "limit": {
             "type": "number",

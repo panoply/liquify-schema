@@ -1,0 +1,1088 @@
+{
+  "title": "JSON Schema for Shopify Settings Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "theme": {
+      "type": "object",
+      "required": [
+        "name",
+        "theme_name",
+        "theme_author",
+        "theme_version",
+        "theme_documentation_url"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The value of this attribute must be theme_info."
+        },
+        "theme_name": {
+          "type": "string",
+          "description": "The name of the theme."
+        },
+        "theme_author": {
+          "type": "string",
+          "description": "The author of the theme."
+        },
+        "theme_version": {
+          "type": "string",
+          "description": "The version number of the theme, eg: 1.0.0."
+        },
+        "theme_documentation_url": {
+          "type": "string",
+          "description": "A URL where merchants can find documentation for the theme."
+        },
+        "theme_support_url": {
+          "type": "string",
+          "description": "A URL where merchants can find support for the theme."
+        },
+        "theme_support_email": {
+          "type": "string",
+          "description": "An email address that merchants can contact for support for the theme."
+        }
+      },
+      "anyOf": [
+        {
+          "required": ["theme_support_url"]
+        },
+        {
+          "required": ["theme_support_email"]
+        }
+      ],
+      "defaultSnippets": [
+        {
+          "label": "Theme settings",
+          "description": "Required theme settings",
+          "body": {
+            "name": "$1",
+            "theme_name": "$2",
+            "theme_author": "$3",
+            "theme_version": "$4",
+            "theme_documentation_url": "$5",
+            "theme_support_url": "$6"
+          }
+        }
+      ]
+    },
+    "settings_group": {
+      "type": "object",
+      "required": ["name", "settings"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "settings": {
+          "$ref": "#/definitions/settings"
+        }
+      },
+      "additionalProperties": false
+    },
+    "content": {
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "content": {
+          "type": ["string"],
+          "title": "Content",
+          "description": "Textual content for the header title."
+        },
+        "info": {
+          "title": "Info",
+          "description": "Addition Information"
+        }
+      }
+    },
+    "placeholder": {
+      "type": "object",
+      "properties": {
+        "placeholder": {
+          "title": "Placeholder",
+          "description": "A placeholder value",
+          "default": "",
+          "oneOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "limit": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "title": "Limit",
+          "description": "The maximum number of items that the merchant can select. The default limit, and the maximum limit you can set, is 50.",
+          "maximum": 50
+        }
+      }
+    },
+    "select": {
+      "type": "object",
+      "required": ["options"],
+      "properties": {
+        "options": {
+          "type": "array",
+          "title": "Select Options",
+          "description": "Takes an array of value/label definitions for each option in the drop-down",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "additionalProperties": false,
+            "defaultSnippets": [
+              {
+                "label": "Options",
+                "description": "Takes an array of value/label definitions for each option in the drop-down.",
+                "body": {
+                  "value": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+                }
+              },
+              {
+                "label": "Options with group",
+                "description": "Takes an array of value/label definitions for each option in the drop-down with an optional attribute you can add to each option to create option groups in the drop-down",
+                "body": {
+                  "value": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "group": "$3"
+                }
+              }
+            ],
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The value of the select options. This will be used as the output"
+              },
+              "label": {
+                "title": "Label",
+                "description": "A label to render to the theme editor",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "group": {
+                "title": "Group",
+                "description": "An optional attribute you can add to each option to create option groups in the drop-down.",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "required": ["min", "max", "step"],
+      "properties": {
+        "step": {
+          "type": "number",
+          "title": "Step",
+          "minimum": 0.1,
+          "default": 1,
+          "description": "The step refers to the step count for the slider values. For example, if you set the step to 5, then the range slider will count by fives. By default, the step is set to 1."
+        },
+        "min": {
+          "type": "number",
+          "title": "Min",
+          "description": "The minimum number of steps"
+        },
+        "max": {
+          "type": "number",
+          "title": "Max",
+          "description": "The maximum number of steps"
+        },
+        "unit": {
+          "title": "Unit",
+          "description": "The unit of measure label. For example, you could use sec for seconds, or px for pixels.",
+          "default": "",
+          "oneOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "radio": {
+      "type": "object",
+      "required": ["options"],
+      "properties": {
+        "options": {
+          "type": "array",
+          "title": "Radio Options",
+          "description": "Takes an array of value/label definitions",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "additionalProperties": false,
+            "defaultSnippets": [
+              {
+                "label": "Radio Options",
+                "description": "Value and label definitions",
+                "body": {
+                  "value": "$1",
+                  "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3"
+                }
+              }
+            ],
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "label": {
+                "title": "Label",
+                "description": "Radio Label",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "color_scheme_group": {
+      "type": "object",
+      "definitions": {
+        "role_object_or_string": {
+          "type": ["string", "object"],
+          "if": {
+            "type": "object"
+          },
+          "then": {
+            "minProperties": 1,
+            "required": ["solid"],
+            "properties": {
+              "solid": {
+                "type": "string"
+              },
+              "gradient": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": ["definition", "role"],
+      "properties": {
+        "definition": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "defaultSnippets": [
+              {
+                "label": "header",
+                "description": "./descriptions/sections/input/header.md",
+                "body": {
+                  "type": "header",
+                  "content": "$1"
+                }
+              },
+              {
+                "label": "color",
+                "description": "./descriptions/sections/input/color.md",
+                "body": {
+                  "type": "color",
+                  "id": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "info": "$3"
+                }
+              },
+              {
+                "label": "color_background",
+                "description": "./descriptions/sections/input/color_background.md",
+                "body": {
+                  "type": "color_background",
+                  "id": "$1",
+                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+                  "info": "$3"
+                }
+              }
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "Name of the type of setting.",
+                "oneOf": [
+                  {
+                    "enum": ["header"],
+                    "markdownDescription": "./descriptions/sections/input/header.md"
+                  },
+                  {
+                    "enum": ["color"],
+                    "title": "Multi-line text areas",
+                    "markdownDescription": "./descriptions/sections/input/color.md"
+                  },
+                  {
+                    "enum": ["color_background"],
+                    "title": "Image Picker",
+                    "markdownDescription": "./descriptions/sections/input/color_background.md"
+                  }
+                ]
+              }
+            },
+            "if": {
+              "required": ["type"],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": ["color", "color_background"]
+                }
+              }
+            },
+            "then": {
+              "required": ["id", "label"],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "default": "",
+                  "markdownDescription": "./descriptions/sections/standard/id.md"
+                },
+                "label": {
+                  "markdownDescription": "./descriptions/sections/standard/label.md",
+                  "default": "",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "default": {
+                  "type": ["string", "number", "boolean"],
+                  "default": "",
+                  "markdownDescription": "./descriptions/sections/standard/default.md"
+                },
+                "info": {
+                  "markdownDescription": "./descriptions/sections/standard/info.md",
+                  "default": "",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            },
+            "else": {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": ["header"]
+                  }
+                }
+              },
+              "then": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/content"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "role": {
+          "type": "object",
+          "required": [
+            "background",
+            "text",
+            "primary_button",
+            "secondary_button",
+            "primary_button_border",
+            "secondary_button_border",
+            "on_primary_button",
+            "on_secondary_button",
+            "links",
+            "icons"
+          ],
+          "properties": {
+            "background": {
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.background.md",
+              "$ref": "#/definitions/color_scheme_group/definitions/role_object_or_string"
+            },
+            "text": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.background.md"
+            },
+            "primary_button": {
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.primary_button.md",
+              "$ref": "#/definitions/color_scheme_group/definitions/role_object_or_string"
+            },
+            "secondary_button": {
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.secondary_button.md",
+              "$ref": "#/definitions/color_scheme_group/definitions/role_object_or_string"
+            },
+            "primary_button_border": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.primary_button_border.md"
+            },
+            "secondary_button_border": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.secondary_button_border.md"
+            },
+            "on_primary_button": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.on_primary_button.md"
+            },
+            "on_secondary_button": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.on_secondary_button.md"
+            },
+            "links": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.links.md"
+            },
+            "icons": {
+              "type": "string",
+              "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.icons.md"
+            }
+          },
+          "additionalProperties": false,
+          "markdownDescription": "./descriptions/sections/properties/color_scheme_group.role.md"
+        }
+      }
+    },
+    "settings": {
+      "type": "array",
+      "markdownDescription": "./descriptions/sections/settings/settings.md",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "defaultSnippets": [
+          {
+            "label": "article",
+            "markdownDescription": "./descriptions/sections/input/article.md",
+            "body": {
+              "type": "article",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "blog",
+            "markdownDescription": "./descriptions/sections/input/blog.md",
+            "body": {
+              "type": "blog",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "checkbox",
+            "markdownDescription": "./descriptions/sections/input/checkbox.md",
+            "body": {
+              "type": "checkbox",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "^${3|true,false|}",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "collection_list",
+            "markdownDescription": "./descriptions/sections/input/collection_list.md",
+            "body": {
+              "type": "collection_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "limit": "^$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "collection",
+            "markdownDescription": "./descriptions/sections/input/collection.md",
+            "body": {
+              "type": "collection",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "color_background",
+            "markdownDescription": "./descriptions/sections/input/color_background.md",
+            "body": {
+              "type": "color_background",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "color_scheme_group",
+            "markdownDescription": "./descriptions/sections/input/color_scheme_group.md",
+            "body": {
+              "type": "color_scheme_group",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "definition": [],
+              "role": {},
+              "info": "$3"
+            }
+          },
+          {
+            "label": "color_scheme",
+            "markdownDescription": "./descriptions/sections/input/color_scheme.md",
+            "body": {
+              "type": "color_scheme",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "font_picker",
+            "markdownDescription": "./descriptions/sections/input/font_picker.md",
+            "body": {
+              "type": "font_picker",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "header",
+            "markdownDescription": "./descriptions/sections/input/header.md",
+            "body": {
+              "type": "header",
+              "content": "$1"
+            }
+          },
+          {
+            "label": "html",
+            "markdownDescription": "./descriptions/sections/input/html.md",
+            "body": {
+              "type": "html",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "${3|placeholder,info|}": "$4"
+            }
+          },
+          {
+            "label": "image_picker",
+            "markdownDescription": "./descriptions/sections/input/image_picker.md",
+            "body": {
+              "type": "image_picker",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "inline_richtext",
+            "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
+            "body": {
+              "type": "inline_richtext",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "link_list",
+            "markdownDescription": "./descriptions/sections/input/link_list.md",
+            "body": {
+              "type": "link_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "liquid",
+            "markdownDescription": "./descriptions/sections/input/liquid.md",
+            "body": {
+              "type": "liquid",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$3",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "number",
+            "markdownDescription": "./descriptions/sections/input/number.md",
+            "body": {
+              "type": "number",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "^$3",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "page",
+            "markdownDescription": "./descriptions/sections/input/page.md",
+            "body": {
+              "type": "page",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "paragraph",
+            "markdownDescription": "./descriptions/sections/input/paragraph.md",
+            "body": {
+              "type": "paragraph",
+              "content": "$1"
+            }
+          },
+          {
+            "label": "product_list",
+            "markdownDescription": "./descriptions/sections/input/product_list.md",
+            "body": {
+              "type": "product_list",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "limit": "^$3",
+              "info": "$4"
+            }
+          },
+          {
+            "label": "product",
+            "markdownDescription": "./descriptions/sections/input/product.md",
+            "body": {
+              "type": "product",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "radio",
+            "markdownDescription": "./descriptions/sections/input/radio.md",
+            "body": {
+              "type": "radio",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$4",
+              "info": "$5",
+              "options": ["^$3"]
+            }
+          },
+          {
+            "label": "range",
+            "markdownDescription": "./descriptions/sections/input/range.md",
+            "body": {
+              "type": "range",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "min": "^$3",
+              "max": "^$4",
+              "step": "^$5",
+              "unit": "$6",
+              "default": "^$7"
+            }
+          },
+          {
+            "label": "richtext",
+            "markdownDescription": "./descriptions/sections/input/richtext.md",
+            "body": {
+              "type": "richtext",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "<p>$3</p>",
+              "${4|placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "select",
+            "markdownDescription": "./descriptions/sections/input/select.md",
+            "body": {
+              "type": "select",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "default": "$4",
+              "info": "$5",
+              "options": ["^$3"]
+            }
+          },
+          {
+            "label": "text",
+            "markdownDescription": "./descriptions/sections/input/text.md",
+            "body": {
+              "type": "text",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "textarea",
+            "markdownDescription": "./descriptions/sections/input/textarea.md",
+            "body": {
+              "type": "textarea",
+              "id": "$2",
+              "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+              "${4|default,placeholder,info|}": "$5"
+            }
+          },
+          {
+            "label": "url",
+            "markdownDescription": "./descriptions/sections/input/url.md",
+            "body": {
+              "type": "url",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          },
+          {
+            "label": "video_url",
+            "markdownDescription": "./descriptions/sections/input/video_url.md",
+            "body": {
+              "type": "video_url",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "accept": [],
+              "info": "$4"
+            }
+          },
+          {
+            "label": "video",
+            "markdownDescription": "./descriptions/sections/input/video.md",
+            "body": {
+              "type": "video",
+              "id": "$1",
+              "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+              "info": "$3"
+            }
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Name of the type of setting.",
+            "oneOf": [
+              {
+                "enum": ["article"],
+                "title": "Article",
+                "markdownDescription": "./descriptions/sections/input/article.md"
+              },
+              {
+                "enum": ["blog"],
+                "title": "Blog",
+                "markdownDescription": "./descriptions/sections/input/blog.md"
+              },
+              {
+                "enum": ["checkbox"],
+                "title": "Checkbox",
+                "markdownDescription": "./descriptions/sections/input/checkbox.md"
+              },
+              {
+                "enum": ["collection_list"],
+                "title": "Collection List",
+                "markdownDescription": "./descriptions/sections/input/collection_list.md"
+              },
+              {
+                "enum": ["collection"],
+                "title": "Collection",
+                "markdownDescription": "./descriptions/sections/input/collection.md"
+              },
+              {
+                "enum": ["color_background"],
+                "title": "Color Background",
+                "markdownDescription": "./descriptions/sections/input/color_background.md"
+              },
+              {
+                "enum": ["color_scheme_group"],
+                "title": "Color Scheme Group",
+                "markdownDescription": "./descriptions/sections/input/color_scheme_group.md"
+              },
+              {
+                "enum": ["color_scheme"],
+                "title": "Color Scheme",
+                "markdownDescription": "./descriptions/sections/input/color_scheme.md"
+              },
+              {
+                "enum": ["color"],
+                "title": "Color",
+                "markdownDescription": "./descriptions/sections/input/color.md"
+              },
+              {
+                "enum": ["font_picker"],
+                "title": "Font Picker",
+                "markdownDescription": "./descriptions/sections/input/font_picker.md"
+              },
+              {
+                "enum": ["header"],
+                "title": "Header",
+                "markdownDescription": "./descriptions/sections/input/header.md"
+              },
+              {
+                "enum": ["html"],
+                "title": "HTML",
+                "markdownDescription": "./descriptions/sections/input/html.md"
+              },
+              {
+                "enum": ["image_picker"],
+                "title": "Image Picker",
+                "markdownDescription": "./descriptions/sections/input/image_picker.md"
+              },
+              {
+                "enum": ["inline_richtext"],
+                "title": "Inline Richtext",
+                "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
+              },
+              {
+                "enum": ["link_list"],
+                "title": "Link List",
+                "markdownDescription": "./descriptions/sections/input/link_list.md"
+              },
+              {
+                "enum": ["liquid"],
+                "title": "Liquid",
+                "markdownDescription": "./descriptions/sections/input/liquid.md"
+              },
+              {
+                "enum": ["number"],
+                "title": "Number",
+                "markdownDescription": "./descriptions/sections/input/number.md"
+              },
+              {
+                "enum": ["page"],
+                "title": "Page",
+                "markdownDescription": "./descriptions/sections/input/page.md"
+              },
+              {
+                "enum": ["paragraph"],
+                "title": "Paragraph",
+                "markdownDescription": "./descriptions/sections/input/paragraph.md"
+              },
+              {
+                "enum": ["product_list"],
+                "title": "Product List",
+                "markdownDescription": "./descriptions/sections/input/product_list.md"
+              },
+              {
+                "enum": ["product"],
+                "title": "Product",
+                "markdownDescription": "./descriptions/sections/input/product.md"
+              },
+              {
+                "enum": ["radio"],
+                "title": "Radio Button",
+                "markdownDescription": "./descriptions/sections/input/radio.md"
+              },
+              {
+                "enum": ["range"],
+                "title": "Range",
+                "markdownDescription": "./descriptions/sections/input/range.md"
+              },
+              {
+                "enum": ["richtext"],
+                "title": "Richtext",
+                "markdownDescription": "./descriptions/sections/input/richtext.md"
+              },
+              {
+                "enum": ["select"],
+                "title": "Selection drop-down",
+                "markdownDescription": "./descriptions/sections/input/select.md"
+              },
+              {
+                "enum": ["text"],
+                "title": "Single-line text fields",
+                "markdownDescription": "./descriptions/sections/input/text.md"
+              },
+              {
+                "enum": ["textarea"],
+                "title": "Multi-line text areas",
+                "markdownDescription": "./descriptions/sections/input/textarea.md"
+              },
+              {
+                "enum": ["url"],
+                "title": "URL (Link)",
+                "markdownDescription": "./descriptions/sections/input/url.md"
+              },
+              {
+                "enum": ["video_url"],
+                "title": "Video URL (Video Link)",
+                "markdownDescription": "./descriptions/sections/input/video_url.md"
+              },
+              {
+                "enum": ["video"],
+                "title": "Video",
+                "markdownDescription": "./descriptions/sections/input/video.md"
+              }
+            ]
+          }
+        },
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": [
+                "text",
+                "textarea",
+                "radio",
+                "select",
+                "checkbox",
+                "number",
+                "range",
+                "color_scheme_group"
+              ]
+            }
+          }
+        },
+        "then": {
+          "required": ["id", "label"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "default": "",
+              "markdownDescription": "./descriptions/sections/standard/id.md"
+            },
+            "label": {
+              "markdownDescription": "./descriptions/sections/standard/label.md",
+              "default": "",
+              "oneOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "default": {
+              "type": ["string", "number", "boolean"],
+              "default": "",
+              "markdownDescription": "./descriptions/sections/standard/default.md"
+            },
+            "info": {
+              "markdownDescription": "./descriptions/sections/standard/info.md",
+              "default": "",
+              "oneOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "range"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "color_scheme_group"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/color_scheme_group"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "select"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/select"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "radio"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/radio"
+              }
+            },
+            {
+              "if": {
+                "required": ["type"],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": ["text", "textarea"]
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/definitions/placeholder"
+              }
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "required": ["type"],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": ["header", "paragraph"]
+              }
+            }
+          },
+          "then": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/content"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "type": "array",
+  "minItems": 2,
+  "items": [
+    {
+      "$ref": "#/definitions/theme"
+    },
+    {
+      "$ref": "#/definitions/settings_group"
+    }
+  ],
+  "additionalItems": {
+    "$ref": "#/definitions/settings_group"
+  }
+}
