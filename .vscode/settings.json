@@ -28,7 +28,14 @@
       "fileMatch": [
         "syncify-sections.json"
       ],
-      "url": "./package/syncify/schema.json"
+      "url": "./package/syncify/shared-sections.json"
+    },
+    {
+      "fileMatch": [
+        "syncify-env-object.json",
+        "syncify-env-array.json"
+      ],
+      "url": "./package/syncify/env.json"
     },
     {
       "fileMatch": [
@@ -63,6 +70,15 @@
   ],
   "editor.formatOnSave": true,
   "highlight.regexes": {
+    "(?<=\")(\\$description)(?=\")": {
+      "regexFlags": "g",
+      "filterLanguageRegex": "json",
+      "decorations": [
+        {
+          "color": "#e44172"
+        }
+      ]
+    },
     "(?<=\")(injectObject|injectProperties|injectDefinitions)(?=\")": {
       "regexFlags": "g",
       "filterLanguageRegex": "json",

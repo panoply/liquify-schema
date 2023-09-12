@@ -1,7 +1,39 @@
 {
-  "title": "Shopify Section Groups ~ Sections Everywhere",
+  "title": "Syncify Shared Sections",
   "$schema": "http://json-schema.org/draft-07/schema",
   "definitions": {
+    "description": {
+      "markdownDescription": "./descriptions/syncify/sections/description.md",
+      "type": ["string", "array", "object"],
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "object",
+          "markdownDescription": "./descriptions/syncify/sections/keys.md",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
     "languages": {
       "type": "object",
       "markdownDescription": "Locales",
@@ -456,6 +488,7 @@
         "defaultSnippets": [
           {
             "label": "Block",
+            "markdownDescription": "./descriptions/sections/settings/blocks.md",
             "body": {
               "name": "$1",
               "type": "$2",
@@ -464,6 +497,7 @@
           },
           {
             "label": "Block with Limit",
+            "markdownDescription": "./descriptions/sections/settings/blocks.md",
             "body": {
               "name": "$1",
               "type": "$2",
@@ -503,6 +537,8 @@
       }
     },
     "settings": {
+      "type": "object",
+      "required": ["type"],
       "defaultSnippets": [
         {
           "label": "Text",
@@ -1182,33 +1218,31 @@
   "type": "object",
   "properties": {
     "$schema": {
-      "markdownDescription": "./descriptions/syncify/schema.md",
+      "markdownDescription": "./descriptions/syncify/sections/schema.md",
       "type": "string"
+    },
+    "$description": {
+      "$ref": "#/definitions/description"
     }
+  },
+  "propertyNames": {
+    "pattern": "^([$@A-Za-z0-9_]+)$"
   },
   "additionalProperties": {
     "type": ["object", "array"],
-    "required": ["type"],
-    "markdownDescription": "./descriptions/syncify/refs.md",
+    "markdownDescription": "./descriptions/syncify/sections/refs.md",
     "oneOf": [
       {
-        "required": ["type"],
-        "type": "object",
         "$ref": "#/definitions/settings"
       },
       {
         "type": "array",
         "items": {
-          "type": "object",
           "$ref": "#/definitions/settings"
         }
       },
       {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "$ref": "#/definitions/blocks"
-        }
+        "$ref": "#/definitions/blocks"
       }
     ]
   }

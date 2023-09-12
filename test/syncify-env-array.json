@@ -1,0 +1,11 @@
+[
+  {
+    "token": "",
+    "domain": "your-store.myshopify.com"
+  },
+  {
+    "domain": "your-store.myshopify.com",
+    "key": "",
+    "secret": ""
+  }
+]

@@ -1,19 +1,53 @@
 {
-  "foo": {
+  "$description": {
+    "foo": [
+      "Some description to render internally when using the VSCode Liquid Extension.",
+      "Supports **Markdown** syntaxes, you can provide a [link](#) etc etc"
+    ]
+  },
+  "foo": [
+    {
+      "type": "image_picker",
+      "id": "something",
+      "label": "Something"
+    }
+  ],
+  "email": {
+    "type": "text",
+    "id": "placeholder",
+    "label": "Placeholder",
+    "info": "The placeholder (label) value",
+    "default": "Email Address"
+  },
+  "hello": {
     "type": "article",
     "id": "",
     "label": ""
   },
-  "bar": {
-    "type": "image_picker",
-    "id": "something",
-    "label": "Something"
+  "s_": {
+    "type": "text",
+    "id": "",
+    "label": "",
+    "default": ""
   },
-  "baz": [
+  "dropdown": [
     {
-      "type": "article",
-      "id": "",
-      "label": ""
+      "type": "header",
+      "content": "Option Dropdown",
+      "info": "A list of options to select from"
+    },
+    {
+      "type": "textarea",
+      "id": "items",
+      "label": "items",
+      "default": "Item 1\nItem 2\nItem 3\netc etc",
+      "info": "Separate each item to render on newline"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Name",
+      "info": "Defines the name of the dropdown."
     }
   ]
 }

@@ -1,0 +1,1 @@
+The `.myshopify.com` store domain name.
