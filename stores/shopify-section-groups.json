@@ -93,7 +93,7 @@
   "type": "object",
   "additionalProperties": false,
   "required": ["type", "name", "sections", "order"],
-  "description": "A section group is a JSON data file that stores a list of sections and app blocks to be rendered, and their associated settings. Merchants can add sections to the section group, as well as remove and reorder them, in the theme editor.",
+  "markdownDescription": "./descriptions/section-groups/snippet/group.md",
   "defaultSnippets": [
     {
       "label": "Section Group",

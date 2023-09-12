@@ -4,6 +4,10 @@
   "max_blocks": 3,
   "settings": [
     {
+      "type": "range",
+      ""
+    },
+    {
       "type": "select",
       "id": "logo_position",
       "options": [
@@ -125,7 +129,7 @@
     },
     {
       "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
+      "content": "t:sections.header.settings.mobile_layout.content",
     },
     {
       "type": "select",
@@ -180,6 +184,21 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
+    },
+    {
+      "type": "paragraph",
+      "content": {
+        "cy": ""
+      }
+    },
+    {
+      "type": "header",
+      "content": "",
+      "info": ""
+    },
+    {
+      "type": "collection_list",
+      "limit": 0
     }
   ],
   "blocks": [
@@ -219,6 +238,6 @@
           "label": "t:sections.header.settings.menu.label"
         }
       ]
-    }
+    },
   ]
 }

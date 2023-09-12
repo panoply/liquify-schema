@@ -1,10 +1,21 @@
-`role.text` Renders the background color of the preview.
+Renders the background color of the preview.
 
-`Type` Set to `string`.
+**Role**
 
-`Required?` Yes
+`role.text`
 
-`Gradient?` No
+
+**Type**
+
+Set to `string`.
+
+**Required?**
+
+Yes
+
+**Gradient?**
+
+No
 
 
 #

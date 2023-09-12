@@ -45,6 +45,31 @@ JSON Schema used for providing intellisense features in `.liquidrc`, `.liquidrc.
 
 JSON Schema used for providing intellisense features for `.esthetic` files but also on the `format` property in the `.liquidrc` file. The stores are also used for on the package.json `esthetic` field and vscode workspace settings via the `liquid.format.*` property.
 
+### [Syncify](https://unpkg.com/@liquify/schema/syncify.json)
+
+- [`https://unpkg.com/@liquify/schema/syncify.json`](https://unpkg.com/@liquify/schema/syncify.json)
+- [`https://unpkg.com/@syncify/schema/package.json`](https://unpkg.com/@syncify/schema/sections.json)
+
+JSON Schema used for providing intellisense features in `package.json` files via the `syncify` key property. This store is available within the [`@syncify/schema`](https://github.com/panoply/syncify/packages/schema) module.
+
+**NOT YET AVAILABLE**
+
+### [Syncify ENV](https://unpkg.com/@liquify/schema/syncify/env.json)
+
+- [`https://unpkg.com/@liquify/schema/syncify/env.json`](https://unpkg.com/@liquify/schema/syncify/env.json)
+- [`https://unpkg.com/@syncify/schema/env.json`](https://unpkg.com/@syncify/schema/env.json)
+
+JSON Schema used for providing intellisense features in `.env.syncify` and `.env.syncify.json` files. This store is available within the [`@syncify/schema`](https://github.com/panoply/syncify/packages/schema) module.
+
+### [Syncify Shared Sections](https://unpkg.com/@liquify/schema/syncify/shared-sections.json)
+
+- [`https://unpkg.com/@liquify/schema/syncify/shared-sections.json`](https://unpkg.com/@liquify/schema/syncify/shared-sections.json)
+- [`https://unpkg.com/@syncify/schema/sections.json`](https://unpkg.com/@syncify/schema/sections.json)
+
+JSON Schema used for providing intellisense features in [Syncify](https://github.com/panoply/syncify) Shared Section files. This store is available within the [`@syncify/schema`](https://github.com/panoply/syncify/packages/schema) module.
+
+**LICENSE IS IMPOSED ~ USAGE REQUIRES PERMISSION**
+
 ### [Shopify Templates](https://unpkg.com/@liquify/schema/shopify/templates.json)
 
 - [`https://unpkg.com/@liquify/schema/shopify/settings_schema.json`](https://unpkg.com/@liquify/schema/shopify/templates.json)

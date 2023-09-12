@@ -1,10 +1,20 @@
-`role.background` Renders the background color of the preview.
+Renders the background color of the preview.
 
-`Type` It can be a `string` or an `object`. While `object`, its two only properties are `solid` (required) and `gradient` (non-required). If `gradient` is set. It will be shown in the preview instead of `solid`.
+**Role**
 
-`Required?` Yes
+`role.background`
 
-`Gradient?` Optional
+**Type**
+
+It can be a `string` or an `object`. While `object`, its two only properties are `solid` (required) and `gradient` (non-required). If `gradient` is set. It will be shown in the preview instead of `solid`.
+
+**Required?**
+
+Yes
+
+**Gradient?**
+
+Optional
 
 
 #

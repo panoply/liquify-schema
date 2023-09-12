@@ -13,7 +13,7 @@
     "presets": {
       "type": "object",
       "additionalProperties": true,
-      "description": "Presets which belong the theme"
+      "description": "Presets which belong to the theme"
     }
   }
 }

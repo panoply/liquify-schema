@@ -252,6 +252,17 @@
           "default": false,
           "markdownDescription": "./descriptions/format/markup/commentIndent.md"
         },
+        "commentDelimiters": {
+          "enum": [
+            "preserve",
+            "inline",
+            "inline-align",
+            "force",
+            "consistent"
+          ],
+          "default": "preserve",
+          "markdownDescription": "./descriptions/format/markup/commentDelimiters.md"
+        },
         "commentNewline": {
           "type": "boolean",
           "default": false,
@@ -351,7 +362,7 @@
     },
     "script": {
       "type": "object",
-      "markdownDescription": "Beautification rules for the following _script_ languages:\n\n- **JavaScript**\n- **TypeScript**\n\n Options provided here will also be applied to following markup embedded language blocks.",
+      "markdownDescription": "**!! USE WITH CAUTION !!**\n\n_Æsthetic script language formatting is not yet stable, use with caution_\n\n---\n\nBeautification rules for the following _script_ languages:\n\n- **JavaScript**\n- **TypeScript**\n\n Options provided here will also be applied to following markup embedded language blocks.",
       "properties": {
         "braceAllman": {
           "type": "boolean",

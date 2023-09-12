@@ -3,9 +3,7 @@ const { readFileSync, writeFileSync, existsSync, mkdirSync } = require('node:fs'
 
 const cwd = process.cwd();
 
-if (!existsSync(join(cwd, 'package'))) {
-  mkdirSync(join(cwd, 'package'));
-}
+if (!existsSync(join(cwd, 'package'))) mkdirSync(join(cwd, 'package'));
 
 /**
  * The working directory
@@ -84,6 +82,57 @@ function importMarkdown (json) {
   return json;
 }
 
+function getShared () {
+
+  /**
+   * Store model which will hold the parsed values
+   */
+  const store = {};
+
+  /**
+   * These are internal references used for injections.
+   * The `from` property value **MUST** be indentical to
+   * the strings provided here, this includes the `./` prefix.
+   */
+  const shared = [
+    './shared/shopify/languages.json',
+    './shared/shopify/input-snippets.json',
+    './shared/shopify/input-settings.json'
+  ];
+
+  try {
+
+    for (const file of shared) {
+
+      const uri = join(stores, file);
+
+      /**
+       * The contents of the JSON file
+       */
+      let json = readFileSync(uri, { encoding: 'utf8' });
+
+      /**
+       * Populated the files markdown
+       */
+      json = importMarkdown(json);
+
+      /**
+       * Minification of JSON
+       */
+      store[file] = JSON.parse(json);
+
+    }
+
+  } catch (e) {
+
+    console.error(e);
+
+  }
+
+  return store;
+
+}
+
 /**
  * Traverse each JSON store file and apply injections
  */
@@ -91,14 +140,15 @@ function mapContent () {
 
   try {
 
+    // const shared = getShared();
+
     /**
      * Ensure we are only traversing JSON files.
      */
     const items = [
       'esthetic.json',
       'liquidrc.json',
-      'shopify-input-settings-snippets.json',
-      'shopify-input-settings.json',
+      'syncify.json',
       'shopify-sections.json',
       'shopify-section-groups.json',
       'shopify-locales.json',
@@ -108,7 +158,9 @@ function mapContent () {
       'specifications.json',
       'vscode-configuration.json',
       'theme-docs-objects.json',
-      'theme-docs-filters.json'
+      'theme-docs-filters.json',
+      'syncify-env.json',
+      'syncify-shared-sections.json'
     ];
 
     /* -------------------------------------------- */
@@ -126,6 +178,59 @@ function mapContent () {
        * The contents of the JSON file
        */
       let json = readFileSync(uri, { encoding: 'utf8' });
+
+      /**
+       * Parse the recently read file - this where we will inject definitions
+       */
+      // const parsed = JSON.parse(json);
+
+      /**
+       * The inject definitions is a global property, we simply need reference for injection
+       */
+      // if ('injectDefinitions' in parsed) {
+
+      //   if (Array.isArray(parsed.injectDefinitions)) {
+
+      //     for (const { from, refs } of parsed.injectDefinitions) {
+
+      //       if (!('definitions' in parsed)) parsed.definitions = {};
+
+      //       if (from in shared) {
+
+      //         console.log('Injecting Definitions from: ' + from);
+
+      //         for (const ref of refs) {
+      //           parsed.definitions[ref] = shared[from][ref];
+      //         }
+
+      //         delete parsed.injectDefinitions;
+
+      //       } else {
+      //         return console.error('Shared injection was not found. Ensure the shared[] values match');
+      //       }
+
+      //     }
+      //   } else if (typeof parsed.injectDefinitions === 'string') {
+
+      //     if (parsed.injectDefinitions in shared) {
+
+      //       if (!('definitions' in parsed)) parsed.definitions = {};
+
+      //       for (const ref in shared[parsed.injectDefinitions]) {
+      //         parsed.definitions[ref] = shared[parsed.injectDefinitions][ref];
+      //       }
+
+      //       delete parsed.injectDefinitions;
+
+      //     } else {
+      //       return console.error('Shared injection was not found. Ensure the shared[] values match');
+      //     }
+
+      //   }
+
+      //   json = JSON.stringify(parsed, null, 2);
+
+      // }
 
       /**
        * Lets test for the existence of object injections.
@@ -189,6 +294,8 @@ function mapContent () {
       if (injectProperties.test(json)) {
 
         const from = json.match(injectProperties);
+
+        console.log(from);
 
         if (from !== null) {
 

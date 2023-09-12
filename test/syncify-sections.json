@@ -1,0 +1,19 @@
+{
+  "foo": {
+    "type": "article",
+    "id": "",
+    "label": ""
+  },
+  "bar": {
+    "type": "image_picker",
+    "id": "something",
+    "label": "Something"
+  },
+  "baz": [
+    {
+      "type": "article",
+      "id": "",
+      "label": ""
+    }
+  ]
+}

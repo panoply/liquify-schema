@@ -2,237 +2,48 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "shopify-section-schema",
   "version": 1.1,
+  "injectDefinitions": [
+    {
+      "from": "./shared/shopify/input-settings.json",
+      "refs": [
+        "general",
+        "article",
+        "blog",
+        "checkbox",
+        "collection_list",
+        "collection",
+        "color_background",
+        "color_scheme",
+        "color",
+        "header",
+        "html",
+        "image_picker",
+        "font_picker",
+        "inline_richtext",
+        "link_list",
+        "liquid",
+        "number",
+        "page",
+        "paragraph",
+        "product_list",
+        "product",
+        "radio",
+        "range",
+        "richtext",
+        "select",
+        "text",
+        "textarea",
+        "url",
+        "video_url",
+        "video"
+      ]
+    }
+  ],
   "definitions": {
     "languages": {
       "type": "object",
       "description": "Locales",
-      "properties": {
-        "af": {
-          "type": "string",
-          "description": "Afrikaans (Afrikaans)"
-        },
-        "ar": {
-          "type": "string",
-          "description": "Arabic (العربية)"
-        },
-        "az": {
-          "type": "string",
-          "description": "Azerbaijani (Azərbaycanlı)"
-        },
-        "be": {
-          "type": "string",
-          "description": "Belarusian (беларуская)"
-        },
-        "bg": {
-          "type": "string",
-          "description": "Bulgarian (български)"
-        },
-        "bs": {
-          "type": "string",
-          "description": "Bosnian (bosanski/босански)"
-        },
-        "cs": {
-          "type": "string",
-          "description": "Czech (čeština)"
-        },
-        "cy": {
-          "type": "string",
-          "description": "Welsh (Cymraeg)"
-        },
-        "da": {
-          "type": "string",
-          "description": "Danish (dansk)"
-        },
-        "de": {
-          "type": "string",
-          "description": "German (Deutsch)"
-        },
-        "el": {
-          "type": "string",
-          "description": "Greek (ελληνικά)"
-        },
-        "en": {
-          "type": "string",
-          "description": "English"
-        },
-        "es": {
-          "type": "string",
-          "description": "Spanish (español)"
-        },
-        "et": {
-          "type": "string",
-          "description": "Estonian (eesti)"
-        },
-        "fa": {
-          "type": "string",
-          "description": "Persian (فارسى)"
-        },
-        "fi": {
-          "type": "string",
-          "description": "Finnish (suomi)"
-        },
-        "fr": {
-          "type": "string",
-          "description": "French (français)"
-        },
-        "fy": {
-          "type": "string",
-          "description": "Frisian (Frysk)"
-        },
-        "he": {
-          "type": "string",
-          "description": "Hebrew (עברית)"
-        },
-        "hr": {
-          "type": "string",
-          "description": "Croatian (hrvatski)"
-        },
-        "hi": {
-          "type": "string",
-          "description": "Hindi (हिंदी)"
-        },
-        "hu": {
-          "type": "string",
-          "description": "Hungarian (magyar)"
-        },
-        "id": {
-          "type": "string",
-          "description": "Indonesian (Bahasa Indonesia)"
-        },
-        "is": {
-          "type": "string",
-          "description": "Icelandic (íslenska)"
-        },
-        "lv": {
-          "type": "string",
-          "description": "Latvian (latviešu)"
-        },
-        "nl": {
-          "type": "string",
-          "description": "Dutch (Nederlands)"
-        },
-        "no": {
-          "type": "string",
-          "description": "Norwegian (norsk)"
-        },
-        "it": {
-          "type": "string",
-          "description": "Italian (italiano)"
-        },
-        "ja": {
-          "type": "string",
-          "description": "Japanese (日本語)"
-        },
-        "ko": {
-          "type": "string",
-          "description": "Korean (한국어/韓國語)"
-        },
-        "lb": {
-          "type": "string",
-          "description": "Luxembourgish (Lëtzebuergesch)"
-        },
-        "lt": {
-          "type": "string",
-          "description": "Lithuanian (lietuvių)"
-        },
-        "mk": {
-          "type": "string",
-          "description": "Macedonian (македонски јазик)"
-        },
-        "pa": {
-          "type": "string",
-          "description": "Punjabi (ਪੰਜਾਬੀ)"
-        },
-        "pl": {
-          "type": "string",
-          "description": "Polish (polski)"
-        },
-        "pt": {
-          "type": "string",
-          "description": "Portuguese (Português)"
-        },
-        "ro": {
-          "type": "string",
-          "description": "Romanian (română)"
-        },
-        "ru": {
-          "type": "string",
-          "description": "Russian (русский)"
-        },
-        "si": {
-          "type": "string",
-          "description": "Sinhala (සිංහල)"
-        },
-        "sl": {
-          "type": "string",
-          "description": "Albanian (shqipe)"
-        },
-        "sk": {
-          "type": "string",
-          "description": "Slovak (slovenčina)"
-        },
-        "sq": {
-          "type": "string",
-          "description": "Slovenian (slovenski)"
-        },
-        "sv": {
-          "type": "string",
-          "description": "Swedish (svenska)"
-        },
-        "ta": {
-          "type": "string",
-          "description": "Tamil (தமிழ்)"
-        },
-        "th": {
-          "type": "string",
-          "description": "Thai (ไทย)"
-        },
-        "tr": {
-          "type": "string",
-          "description": "Turkish (Türkçe)"
-        },
-        "zh": {
-          "type": "string",
-          "description": "Chinese (中文)"
-        },
-        "uk": {
-          "type": "string",
-          "description": "Ukrainian (українська)"
-        },
-        "vi": {
-          "type": "string",
-          "description": "Vietnamese (Tiếng Việt/㗂越)"
-        }
-      }
-    },
-    "content": {
-      "required": ["content"],
-      "type": "object",
-      "properties": {
-        "content": {
-          "type": ["string", "object"],
-          "title": "Content",
-          "description": "Textual content for the header title."
-        }
-      }
-    },
-    "placeholder": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "title": "Placeholder",
-          "description": "A placeholder value",
-          "default": "",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/languages"
-            }
-          ]
-        }
-      }
+      "injectProperties": "./shared/shopify/languages.json"
     },
     "limit": {
       "type": "object",
@@ -242,179 +53,6 @@
           "title": "Limit",
           "description": "The maximum number of items that the merchant can select. The default limit, and the maximum limit you can set, is 50.",
           "maximum": 50
-        }
-      }
-    },
-    "select": {
-      "required": ["options"],
-      "properties": {
-        "options": {
-          "type": "array",
-          "title": "Select Options",
-          "description": "Takes an array of value/label definitions for each option in the drop-down",
-          "items": {
-            "type": "object",
-            "required": ["value", "label"],
-            "additionalProperties": false,
-            "defaultSnippets": [
-              {
-                "label": "Options",
-                "description": "Takes an array of value/label definitions for each option in the drop-down.",
-                "body": {
-                  "value": "$1",
-                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
-                }
-              },
-              {
-                "label": "Options with group",
-                "description": "Takes an array of value/label definitions for each option in the drop-down with an optional attribute you can add to each option to create option groups in the drop-down",
-                "body": {
-                  "value": "$1",
-                  "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-                  "group": "$3"
-                }
-              }
-            ],
-            "properties": {
-              "value": {
-                "type": "string",
-                "description": "The value of the select options. This will be used as the output"
-              },
-              "label": {
-                "title": "Label",
-                "description": "A label to render to the theme editor",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/languages"
-                  }
-                ]
-              },
-              "group": {
-                "title": "Group",
-                "description": "An optional attribute you can add to each option to create option groups in the drop-down.",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/languages"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "range": {
-      "required": ["min", "max", "step"],
-      "type": "object",
-      "properties": {
-        "step": {
-          "type": "number",
-          "title": "Step",
-          "minimum": 0.1,
-          "default": 1,
-          "description": "The step refers to the step count for the slider values. For example, if you set the step to 5, then the range slider will count by fives. By default, the step is set to 1."
-        },
-        "min": {
-          "type": "number",
-          "title": "Min",
-          "description": "The minimum number of steps"
-        },
-        "max": {
-          "type": "number",
-          "title": "Max",
-          "description": "The maximum number of steps"
-        },
-        "unit": {
-          "title": "Unit",
-          "description": "The unit of measure label. For example, you could use sec for seconds, or px for pixels.",
-          "default": "",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/languages"
-            }
-          ]
-        }
-      }
-    },
-    "radio": {
-      "required": ["options"],
-      "type": "object",
-      "properties": {
-        "options": {
-          "type": "array",
-          "title": "Radio Options",
-          "description": "Takes an array of value/label definitions",
-          "items": {
-            "type": "object",
-            "required": ["value", "label"],
-            "additionalProperties": false,
-            "defaultSnippets": [
-              {
-                "label": "Radio Options",
-                "description": "Value and label definitions",
-                "body": {
-                  "value": "$1",
-                  "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3"
-                }
-              }
-            ],
-            "properties": {
-              "value": {
-                "type": "string"
-              },
-              "label": {
-                "title": "Label",
-                "description": "Radio Label",
-                "oneOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/definitions/languages"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "color": {
-      "type": "object",
-      "format": "color",
-      "properties": {
-        "default": {
-          "type": "string",
-          "format": "color"
-        }
-      }
-    },
-    "video_url": {
-      "required": ["accepts"],
-      "type": "object",
-      "properties": {
-        "accept": {
-          "type": "array",
-          "title": "Accept",
-          "uniqueItems": true,
-          "additionalItems": false,
-          "description": "Takes an array of accepted video providers. Valid values are youtube, vimeo, or both",
-          "items": {
-            "type": "string",
-            "enum": ["youtube", "vimeo"]
-          }
-        },
-        "placeholder": {
-          "$ref": "#/definitions/languages"
         }
       }
     },
@@ -1085,7 +723,7 @@
         "properties": {
           "name": {
             "title": "Block Name",
-            "description": "The block name which is used as the merchants label",
+            "description": "The block name, which will show as the block title in the theme editor.",
             "oneOf": [
               {
                 "type": "string"
@@ -1098,7 +736,7 @@
           "type": {
             "type": "string",
             "title": "Block Type",
-            "description": "A block's type may be any value set by the theme developer."
+            "description": "The block type. This is a free-form string that you can use as an identifier. You can access this value through the type attribute of the block object."
           },
           "limit": {
             "type": "number",
@@ -1211,204 +849,7 @@
       "type": "object",
       "title": "Locales",
       "markdownDescription": "./descriptions/sections/settings/locales.md",
-      "properties": {
-        "af": {
-          "type": "object",
-          "description": "Afrikaans (Afrikaans)"
-        },
-        "ar": {
-          "type": "object",
-          "description": "Arabic (العربية)"
-        },
-        "az": {
-          "type": "object",
-          "description": "Azerbaijani (Azərbaycan­lı)"
-        },
-        "be": {
-          "type": "object",
-          "description": "Belarusian (беларуская)"
-        },
-        "bg": {
-          "type": "object",
-          "description": "Bulgarian (български)"
-        },
-        "bs": {
-          "type": "object",
-          "description": "Bosnian (bosanski/босански)"
-        },
-        "cs": {
-          "type": "object",
-          "description": "Czech (čeština)"
-        },
-        "cy": {
-          "type": "object",
-          "description": "Welsh (Cymraeg)"
-        },
-        "da": {
-          "type": "object",
-          "description": "Danish (dansk)"
-        },
-        "de": {
-          "type": "object",
-          "description": "German (Deutsch)"
-        },
-        "el": {
-          "type": "object",
-          "description": "Greek (ελληνικά)"
-        },
-        "en": {
-          "type": "object",
-          "description": "English"
-        },
-        "es": {
-          "type": "object",
-          "description": "Spanish (español)"
-        },
-        "et": {
-          "type": "object",
-          "description": "Estonian (eesti)"
-        },
-        "fa": {
-          "type": "object",
-          "description": "Persian (فارسى)"
-        },
-        "fi": {
-          "type": "object",
-          "description": "Finnish (suomi)"
-        },
-        "fr": {
-          "type": "object",
-          "description": "French (français)"
-        },
-        "fy": {
-          "type": "object",
-          "description": "Frisian (Frysk)"
-        },
-        "he": {
-          "type": "object",
-          "description": "Hebrew (עברית)"
-        },
-        "hr": {
-          "type": "object",
-          "description": "Croatian (hrvatski)"
-        },
-        "hi": {
-          "type": "object",
-          "description": "Hindi (हिंदी)"
-        },
-        "hu": {
-          "type": "object",
-          "description": "Hungarian (magyar)"
-        },
-        "id": {
-          "type": "object",
-          "description": "Indonesian (Bahasa Indonesia)"
-        },
-        "is": {
-          "type": "object",
-          "description": "Icelandic (íslenska)"
-        },
-        "lv": {
-          "type": "object",
-          "description": "Latvian (latviešu)"
-        },
-        "nl": {
-          "type": "object",
-          "description": "Dutch (Nederlands)"
-        },
-        "no": {
-          "type": "object",
-          "description": "Norwegian (norsk)"
-        },
-        "it": {
-          "type": "object",
-          "description": "Italian (italiano)"
-        },
-        "ja": {
-          "type": "object",
-          "description": "Japanese (日本語)"
-        },
-        "ko": {
-          "type": "object",
-          "description": "Korean (한국어/韓國語)"
-        },
-        "lb": {
-          "type": "object",
-          "description": "Luxembourgish (Lëtzebuergesch)"
-        },
-        "lt": {
-          "type": "object",
-          "description": "Lithuanian (lietuvių)"
-        },
-        "mk": {
-          "type": "object",
-          "description": "Macedonian (македонски јазик)"
-        },
-        "pa": {
-          "type": "object",
-          "description": "Punjabi (ਪੰਜਾਬੀ)"
-        },
-        "pl": {
-          "type": "object",
-          "description": "Polish (polski)"
-        },
-        "pt": {
-          "type": "object",
-          "description": "Portuguese (Português)"
-        },
-        "ro": {
-          "type": "object",
-          "description": "Romanian (română)"
-        },
-        "ru": {
-          "type": "object",
-          "description": "Russian (русский)"
-        },
-        "si": {
-          "type": "object",
-          "description": "Sinhala (සිංහල)"
-        },
-        "sl": {
-          "type": "object",
-          "description": "Albanian (shqipe)"
-        },
-        "sk": {
-          "type": "object",
-          "description": "Slovak (slovenčina)"
-        },
-        "sq": {
-          "type": "object",
-          "description": "Slovenian (slovenski)"
-        },
-        "sv": {
-          "type": "object",
-          "description": "Swedish (svenska)"
-        },
-        "ta": {
-          "type": "object",
-          "description": "Tamil (தமிழ்)"
-        },
-        "th": {
-          "type": "object",
-          "description": "Thai (ไทย)"
-        },
-        "tr": {
-          "type": "object",
-          "description": "Turkish (Türkçe)"
-        },
-        "zh": {
-          "type": "object",
-          "description": "Chinese (中文)"
-        },
-        "uk": {
-          "type": "object",
-          "description": "Ukrainian (українська)"
-        },
-        "vi": {
-          "type": "object",
-          "description": "Vietnamese (Tiếng Việt/㗂越)"
-        }
-      }
+      "injectProperties": "./shared/shopify/languages.json"
     },
     "tag": {
       "title": "Tag",

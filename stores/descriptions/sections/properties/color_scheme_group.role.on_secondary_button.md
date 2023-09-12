@@ -1,10 +1,20 @@
-`role.on_secondary_button` Is not used in the preview.
+Is not used in the preview.
 
-`Type` Set to `string`.
+**Role**
 
-`Required?` Yes
+`role.on_secondary_button`
 
-`Gradient?` No
+**Type**
+
+Set to `string`.
+
+**Required?**
+
+Yes
+
+**Gradient?**
+
+No
 
 
 #

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "title": "Liquid Language Settings",
-  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of a `esthetic` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
+  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of an `esthetic` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
   "type": "object",
   "properties": {
     "liquid.engine": {
@@ -9,6 +9,16 @@
       "default": "shopify",
       "enum": ["standard", "shopify", "11ty", "jekyll"],
       "markdownDescription": "./descriptions/vscode/engine.md"
+    },
+    "liquid.config.baseDir": {
+      "type": "string",
+      "markdownDescription": "./descriptions/vscode/config/baseDir.md"
+    },
+    "liquid.config.method": {
+      "type": "string",
+      "default": "liquidrc",
+      "markdownDescription": "./descriptions/vscode/config/method.md",
+      "enum": ["liquidrc", "workspace"]
     },
     "liquid.files.shopify": {
       "type": "object",
@@ -132,15 +142,61 @@
       "default": true,
       "markdownDescription": "./descriptions/vscode/hover/schema.md"
     },
-    "liquid.config.baseUrl": {
-      "type": "string",
-      "markdownDescription": "./descriptions/vscode/config/baseUrl.md"
+    "liquid.format.validate": {
+      "type": "boolean",
+      "markdownDescription": "./descriptions/vscode/format/validate.md",
+      "default": true
     },
-    "liquid.config.method": {
-      "type": "string",
-      "default": "liquidrc",
-      "markdownDescription": "./descriptions/vscode/config/method.md",
-      "enum": ["liquidrc", "workspace"]
+    "liquid.format.rules": {
+      "type": "object",
+      "properties": {
+        "ignore": {
+          "type": "array",
+          "markdownDescription": "./descriptions/vscode/format/ignore.md",
+          "items": {
+            "type": "string"
+          }
+        },
+        "endNewLine": {
+          "deprecationMessage": "./descriptions/format/deprecated/endNewLine.md"
+        },
+        "endNewline": {
+          "injectObject": "./esthetic.json#endNewline"
+        },
+        "wrap": {
+          "injectObject": "./esthetic.json#wrap"
+        },
+        "wrapFraction": {
+          "injectObject": "./esthetic.json#wrapFraction"
+        },
+        "indentSize": {
+          "injectObject": "./esthetic.json#indentSize"
+        },
+        "preserveLine": {
+          "injectObject": "./esthetic.json#preserveLine"
+        },
+        "crlf": {
+          "injectObject": "./esthetic.json#crlf"
+        },
+        "preset": {
+          "injectObject": "./esthetic.json#preset"
+        },
+        "liquid": {
+          "injectObject": "./esthetic.json#liquid"
+        },
+        "markup": {
+          "injectObject": "./esthetic.json#markup"
+        },
+        "script": {
+          "injectObject": "./esthetic.json#script"
+        },
+        "style": {
+          "injectObject": "./esthetic.json#style"
+        },
+        "json": {
+          "injectObject": "./esthetic.json#json"
+        }
+      }
     },
     "liquid.settings.target": {
       "deprecationMessage": "./descriptions/vscode/deprecated/settings.target.md"
@@ -180,60 +236,6 @@
     },
     "liquid.format.preserveComment": {
       "deprecationMessage": "./descriptions/vscode/deprecated/format.preserveComment.md"
-    },
-    "liquid.format.rules": {
-      "type": "object",
-      "properties": {
-        "ignore": {
-          "type": "array",
-          "markdownDescription": "./descriptions/vscode/format/ignore.md",
-          "items": {
-            "type": "string"
-          }
-        },
-        "endNewLine": {
-          "deprecationMessage": "./descriptions/format/deprecated/endNewLine.md"
-        },
-        "endNewline": {
-          "injectObject": "./esthetic.json#endNewline"
-        },
-        "wrap": {
-          "injectObject": "./esthetic.json#wrap"
-        },
-        "wrapFraction": {
-          "injectObject": "./esthetic.json#wrapFraction"
-        },
-        "indentSize": {
-          "injectObject": "./esthetic.json#indentSize"
-        },
-        "indentChar": {
-          "injectObject": "./esthetic.json#indentChar"
-        },
-        "preserveLine": {
-          "injectObject": "./esthetic.json#preserveLine"
-        },
-        "crlf": {
-          "injectObject": "./esthetic.json#crlf"
-        },
-        "preset": {
-          "injectObject": "./esthetic.json#preset"
-        },
-        "liquid": {
-          "injectObject": "./esthetic.json#liquid"
-        },
-        "markup": {
-          "injectObject": "./esthetic.json#markup"
-        },
-        "script": {
-          "injectObject": "./esthetic.json#script"
-        },
-        "style": {
-          "injectObject": "./esthetic.json#style"
-        },
-        "json": {
-          "injectObject": "./esthetic.json#json"
-        }
-      }
     }
   }
 }

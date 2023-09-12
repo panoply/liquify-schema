@@ -1,10 +1,20 @@
-`role.secondary_button_border` Render the 2nd pill's border in the preview.
+Render the 2nd pill's border in the preview.
 
-`Type` Set to `string`.
+**Role**
 
-`Required?` Yes
+`role.secondary_button_border`
 
-`Gradient?` No
+**Type**
+
+Set to `string`.
+
+**Required?**
+
+Yes
+
+**Gradient?**
+
+No
 
 
 #

@@ -26,6 +26,12 @@
     },
     {
       "fileMatch": [
+        "syncify-sections.json"
+      ],
+      "url": "./package/syncify/schema.json"
+    },
+    {
+      "fileMatch": [
         "shopify-section-groups.json"
       ],
       "url": "./package/shopify/section-groups.json"
@@ -55,5 +61,37 @@
       "url": "/package/vscode/configuration.json"
     }
   ],
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "highlight.regexes": {
+    "(?<=\")(injectObject|injectProperties|injectDefinitions)(?=\")": {
+      "regexFlags": "g",
+      "filterLanguageRegex": "json",
+      "decorations": [
+        {
+          "color": "#e44172"
+        }
+      ]
+    },
+    "(?<=\"(?:injectObject|injectProperties|injectDefinitions)\":\\s\")(.*?)(#\\w+)?(?=\")": {
+      "regexFlags": "g",
+      "filterLanguageRegex": "json",
+      "decorations": [
+        {
+          "color": "#d7914a"
+        },
+        {
+          "color": "#d82e61"
+        }
+      ]
+    },
+    "(?<=\")(\\.\/descriptions\/.*?)(?=\")": {
+      "regexFlags": "g",
+      "filterLanguageRegex": "json",
+      "decorations": [
+        {
+          "color": "#d7914a"
+        }
+      ]
+    }
+  }
 }

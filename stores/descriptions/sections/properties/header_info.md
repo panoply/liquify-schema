@@ -1,4 +1,4 @@
-A setting of type `header` outputs a header element to help you better organize your input settings.
+In addition to the standard attributes of a sidebar setting, `header` type can accept informational text.
 
 #
 
