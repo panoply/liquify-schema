@@ -880,75 +880,82 @@
     }
   },
   "properties": {
-    "stores": {
-      "description": "List of Shopify stores to connect",
-      "oneOf": [
-        {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/stores"
-          }
-        },
-        {
-          "type": "object",
-          "$ref": "#/definitions/stores"
-        }
-      ]
-    },
-    "config": {
-      "markdownDescription": "./descriptions/syncify/pkg-json/config.md",
+    "syncify": {
       "type": "object",
+      "markdownDescription": "Syncify CLI - Configuration",
+      "required": ["stores"],
       "properties": {
-        "input": {
-          "type": "string",
-          "default": "source",
-          "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
-          "markdownDescription": "./descriptions/syncify/options/input.md"
+        "stores": {
+          "markdownDescription": "List of Shopify stores to connect. Optionally provide this directly within your `syncify.config` file. If you are using Syncify publishing, then this where you will need to provide store references.",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/stores"
+              }
+            },
+            {
+              "type": "object",
+              "$ref": "#/definitions/stores"
+            }
+          ]
         },
-        "output": {
-          "type": "string",
-          "default": "theme",
-          "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
-          "markdownDescription": "./descriptions/syncify/options/output.md"
-        },
-        "import": {
-          "type": "string",
-          "default": "import",
-          "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
-          "markdownDescription": "./descriptions/syncify/options/import.md"
-        },
-        "export": {
-          "type": "string",
-          "default": "export",
-          "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
-          "markdownDescription": "./descriptions/syncify/options/export.md"
-        },
-        "publish": {
-          "$ref": "#/definitions/publish"
-        },
-        "paths": {
-          "$ref": "#/definitions/paths"
-        },
-        "spawn": {
-          "$ref": "#/definitions/spawn"
-        },
-        "log": {
-          "$ref": "#/definitions/log"
-        },
-        "hot": {
-          "$ref": "#/definitions/hot"
-        },
-        "views": {
-          "$ref": "#/definitions/views"
-        },
-        "terser": {
-          "$ref": "#/definitions/terser"
-        },
-        "transforms": {
-          "$ref": "#/definitions/transforms"
-        },
-        "processors": {
-          "$ref": "#/definitions/processors"
+        "config": {
+          "markdownDescription": "./descriptions/syncify/pkg-json/config.md",
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string",
+              "default": "source",
+              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
+              "markdownDescription": "./descriptions/syncify/options/input.md"
+            },
+            "output": {
+              "type": "string",
+              "default": "theme",
+              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
+              "markdownDescription": "./descriptions/syncify/options/output.md"
+            },
+            "import": {
+              "type": "string",
+              "default": "import",
+              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
+              "markdownDescription": "./descriptions/syncify/options/import.md"
+            },
+            "export": {
+              "type": "string",
+              "default": "export",
+              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
+              "markdownDescription": "./descriptions/syncify/options/export.md"
+            },
+            "publish": {
+              "$ref": "#/definitions/publish"
+            },
+            "paths": {
+              "$ref": "#/definitions/paths"
+            },
+            "spawn": {
+              "$ref": "#/definitions/spawn"
+            },
+            "log": {
+              "$ref": "#/definitions/log"
+            },
+            "hot": {
+              "$ref": "#/definitions/hot"
+            },
+            "views": {
+              "$ref": "#/definitions/views"
+            },
+            "terser": {
+              "$ref": "#/definitions/terser"
+            },
+            "transforms": {
+              "$ref": "#/definitions/transforms"
+            },
+            "processors": {
+              "$ref": "#/definitions/processors"
+            }
+          }
         }
       }
     }
