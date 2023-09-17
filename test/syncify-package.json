@@ -1,0 +1,11 @@
+{
+  "stores": [
+    {
+      "domain": "xxx",
+      "themes": {
+        "dev": 12345678910
+      }
+    }
+  ],
+  "configuration": {}
+}

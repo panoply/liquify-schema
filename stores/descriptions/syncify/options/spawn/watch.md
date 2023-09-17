@@ -1,0 +1,1 @@
+Supply the script commands you wish to spawn in watch mode. The `key` value will be used as the group reference in the CLI logs.

@@ -1,0 +1,1 @@
+Whether the pulled page content should be written as HTML or have the HTML converted to Markdown.

@@ -1,0 +1,1 @@
+Paths to files to be published to theme `locales` directory. These are the translation files used by your store.

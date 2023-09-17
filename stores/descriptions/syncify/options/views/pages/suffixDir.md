@@ -1,0 +1,1 @@
+Whether pages contained in sub-directories should use their directory name as the `template_suffix` when publishing to stores

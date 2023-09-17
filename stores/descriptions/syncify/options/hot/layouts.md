@@ -1,0 +1,1 @@
+A string list of Liquid template layout names used in your theme which should have the hot snippet injected.

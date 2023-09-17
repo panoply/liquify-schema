@@ -1,0 +1,1 @@
+The directory path to global shop metafields. Syncify provides a elegant approach to metafield synchronization using a `directory > file` based structure.

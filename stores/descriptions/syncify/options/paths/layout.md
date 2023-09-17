@@ -1,0 +1,1 @@
+Paths to files to be published to the theme `layout` directory. These are Liquid template files.

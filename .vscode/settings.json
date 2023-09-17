@@ -39,6 +39,12 @@
     },
     {
       "fileMatch": [
+        "syncify-package.json",
+      ],
+      "url": "./package/syncify.json"
+    },
+    {
+      "fileMatch": [
         "shopify-section-groups.json"
       ],
       "url": "./package/shopify/section-groups.json"

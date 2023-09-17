@@ -1,0 +1,1 @@
+The directory path to redirect file, defaults to `redirects.yml`

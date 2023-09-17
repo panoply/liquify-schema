@@ -1,0 +1,1 @@
+Paths to `.json` shared schema files. Syncify supports external schema that can be reused in sections.

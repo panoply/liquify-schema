@@ -923,6 +923,12 @@
           "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
           "markdownDescription": "./descriptions/syncify/options/export.md"
         },
+        "config": {
+          "type": "string",
+          "default": ".",
+          "pattern": "^(\\.|[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,})$",
+          "markdownDescription": "./descriptions/syncify/options/config.md"
+        },
         "publish": {
           "$ref": "#/definitions/publish"
         },

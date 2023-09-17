@@ -1,0 +1,3 @@
+The directory path to Markdown (`.md`) or HTML (`.html`) files. Shopify does not support Liquid code in Page body content. Syncify supports page body html content synchronization using frontmatter attribution.
+
+**Please note** Page html content cannot contain or reference Liquid objects and/or tags, Shopify will omit or escape them if they are found present. Syncify will validate the contents of your markdown pages are warn you when Liquid syntax is encountered.

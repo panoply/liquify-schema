@@ -1,0 +1,1 @@
+Whether or not to clear the screen between changes.

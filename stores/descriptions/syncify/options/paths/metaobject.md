@@ -1,0 +1,1 @@
+Paths to files to be published to theme `templates/metaobject` directory.

@@ -1,0 +1,1 @@
+Paths to files to be published to the theme `config` directory. These are typically the `settings_schema.json` and `settings_data.json` files.

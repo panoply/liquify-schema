@@ -1,0 +1,1 @@
+Paths to files to be published to the theme `snippets` directory. These are Liquid template files.

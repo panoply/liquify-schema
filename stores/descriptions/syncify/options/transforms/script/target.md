@@ -1,0 +1,1 @@
+This sets the target environment for the generated JavaScript. It tells esbuild to transform JavaScript syntax which is too new for these environments into older JavaScript syntax that works in this environment/s.

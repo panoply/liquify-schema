@@ -52,8 +52,6 @@ JSON Schema used for providing intellisense features for `.esthetic` files but a
 
 JSON Schema used for providing intellisense features in `package.json` files via the `syncify` key property. This store is available within the [`@syncify/schema`](https://github.com/panoply/syncify/packages/schema) module.
 
-**NOT YET AVAILABLE**
-
 ### [Syncify ENV](https://unpkg.com/@liquify/schema/syncify/env.json)
 
 - [`https://unpkg.com/@liquify/schema/syncify/env.json`](https://unpkg.com/@liquify/schema/syncify/env.json)

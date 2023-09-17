@@ -1,0 +1,1 @@
+The format to be generated. Because we are targeting browser environments, Syncify does not allow for CJS (commonjs) bundles to be produced.

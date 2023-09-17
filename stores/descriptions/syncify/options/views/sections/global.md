@@ -1,0 +1,1 @@
+Global entries will skip prefixing when a sub-directory structure is detected.

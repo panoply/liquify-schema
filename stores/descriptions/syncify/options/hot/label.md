@@ -1,0 +1,1 @@
+Whether or not Syncify hot reloads UI labels should render.

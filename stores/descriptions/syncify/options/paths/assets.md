@@ -1,0 +1,1 @@
+Paths to files to be published to theme `assets` directory. Accepts a glob (anymatch) pattern
