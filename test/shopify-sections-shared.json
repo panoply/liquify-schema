@@ -1,0 +1,21 @@
+{
+  "settings": [
+    {
+      "$ref": "foo.two"
+    },
+    {
+      "type": "article"
+    }
+  ],
+  "blocks": [
+    {
+      "type": ""
+    },
+    {
+      "name": ""
+    },
+    {
+      "$ref": "bar.one"
+    }
+  ]
+}

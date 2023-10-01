@@ -1,0 +1,242 @@
+{
+  "title": "Syncify Shared Section Schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+
+  "definitions": {
+    "description": {
+      "markdownDescription": "./descriptions/syncify/sections/description.md",
+      "type": ["string", "array"],
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "languages": {
+      "injectShared": "./shared/shopify-section-languages.json"
+    },
+    "content": {
+      "injectObject": "./shopify-sections.json#content"
+    },
+    "header": {
+      "injectObject": "./shopify-sections.json#header"
+    },
+    "placeholder": {
+      "injectObject": "./shopify-sections.json#placeholder"
+    },
+    "limit": {
+      "injectObject": "./shopify-sections.json#limit"
+    },
+    "select": {
+      "injectObject": "./shopify-sections.json#select"
+    },
+    "range": {
+      "injectObject": "./shopify-sections.json#range"
+    },
+    "radio": {
+      "injectObject": "./shopify-sections.json#radio"
+    },
+    "color": {
+      "injectObject": "./shopify-sections.json#color"
+    },
+    "video_url": {
+      "injectObject": "./shopify-sections.json#video_url"
+    },
+    "blocks": {
+      "title": "Blocks",
+      "markdownDescription": "./descriptions/sections/settings/blocks.md",
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "$description": {
+          "$ref": "#/definitions/description"
+        },
+        "name": {
+          "injectObject": "./shopify-sections.json#block_name"
+        },
+        "type": {
+          "injectObject": "./shopify-sections.json#block_type"
+        },
+        "limit": {
+          "injectObject": "./shopify-sections.json#block_limit"
+        },
+        "settings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/settings"
+          }
+        }
+      }
+    },
+    "settings": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "$description": {
+          "$ref": "#/definitions/description"
+        },
+        "type": {
+          "type": "string",
+          "injectShared": "./shared/shopify-section-settings.json#type"
+        }
+      },
+      "if": {
+        "injectShared": "./shared/shopify-section-settings.json#if"
+      },
+      "then": {
+        "injectShared": "./shared/shopify-section-settings.json#then"
+      },
+      "else": {
+        "injectShared": "./shared/shopify-section-settings.json#else"
+      }
+    }
+  },
+  "propertyNames": {
+    "pattern": "^([$@A-Za-z0-9_]+)$"
+  },
+  "additionalProperties": {
+    "type": ["object", "array"],
+    "markdownDescription": "./descriptions/syncify/sections/refs.md",
+    "defaultSnippets": [
+      {
+        "label": "Setting Singleton",
+        "markdownDescription": "./descriptions/syncify/sections/setting-singleton.md",
+        "body": {
+          "type": "^$1"
+        }
+      },
+      {
+        "label": "Setting Group",
+        "markdownDescription": "./descriptions/syncify/sections/setting-group.md",
+        "body": {
+          "${1|$description|}": "^${2|[\"\"],\"\"|}",
+          "settings": [
+            {
+              "type": "^$3"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Setting Spread",
+        "markdownDescription": "./descriptions/syncify/sections/setting-spread.md",
+        "body": [
+          {
+            "type": "^$1"
+          }
+        ]
+      },
+      {
+        "label": "Block Singleton",
+        "markdownDescription": "./descriptions/syncify/sections/block-singleton.md",
+        "body": {
+          "name": "$1",
+          "type": "$2",
+          "settings": ["^$3"]
+        }
+      },
+      {
+        "label": "Block Spread",
+        "markdownDescription": "./descriptions/syncify/sections/block-spread.md",
+        "body": [
+          {
+            "name": "$1",
+            "type": "$2",
+            "settings": ["^$3"]
+          }
+        ]
+      }
+    ],
+    "anyOf": [
+      {
+        "type": "array",
+        "items": {
+          "allOf": [
+            {
+              "markdownDescription": "./descriptions/syncify/sections/block-spread.md",
+              "$ref": "#/definitions/blocks",
+              "defaultSnippets": [
+                {
+                  "label": "Block",
+                  "markdownDescription": "./descriptions/sections/settings/blocks.md",
+                  "body": {
+                    "name": "$1",
+                    "type": "$2",
+                    "settings": ["^$3"]
+                  }
+                },
+                {
+                  "label": "Block with Limit",
+                  "markdownDescription": "./descriptions/sections/settings/blocks.md",
+                  "body": {
+                    "name": "$1",
+                    "type": "$2",
+                    "limit": "^$3",
+                    "settings": ["^$4"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "array",
+        "items": {
+          "allOf": [
+            {
+              "markdownDescription": "./descriptions/syncify/sections/setting-spread.md",
+              "$ref": "#/definitions/settings",
+              "defaultSnippets": [
+                {
+                  "injectShared": "./shared/shopify-setting-snippets.json"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object",
+            "markdownDescription": "./descriptions/syncify/sections/setting-group.md",
+            "properties": {
+              "$description": {
+                "$ref": "#/definitions/description"
+              },
+              "settings": {
+                "items": {
+                  "$ref": "#/definitions/settings",
+                  "defaultSnippets": [
+                    {
+                      "injectShared": "./shared/shopify-setting-snippets.json"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "markdownDescription": "./descriptions/syncify/sections/setting-singleton.md",
+            "type": "object",
+            "$ref": "#/definitions/settings"
+          },
+          {
+            "markdownDescription": "./descriptions/syncify/sections/block-singleton.md",
+            "type": "object",
+            "$ref": "#/definitions/blocks"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+By default, a merchant can add the same block to a section multiple times. If required, you can set a limit for a block so that it can only be added up to a certain number of times.

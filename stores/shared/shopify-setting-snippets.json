@@ -1,0 +1,287 @@
+[
+  {
+    "label": "Text",
+    "markdownDescription": "./descriptions/sections/input/text.md",
+    "body": {
+      "type": "text",
+      "id": "$2",
+      "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+      "${4|default,placeholder,info|}": "$5"
+    }
+  },
+  {
+    "label": "Textarea",
+    "markdownDescription": "./descriptions/sections/input/textarea.md",
+    "body": {
+      "type": "text",
+      "id": "$2",
+      "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+      "${4|default,placeholder,info|}": "$5"
+    }
+  },
+  {
+    "label": "Number",
+    "markdownDescription": "./descriptions/sections/input/number.md",
+    "body": {
+      "type": "number",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "^$3",
+      "${4|placeholder,info|}": "$5"
+    }
+  },
+  {
+    "label": "Checkbox",
+    "markdownDescription": "./descriptions/sections/input/checkbox.md",
+    "body": {
+      "type": "checkbox",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "^${3|true,false|}",
+      "info": "$4"
+    }
+  },
+  {
+    "label": "Select",
+    "markdownDescription": "./descriptions/sections/input/select.md",
+    "body": {
+      "type": "select",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$4",
+      "info": "$5",
+      "options": ["^$3"]
+    }
+  },
+  {
+    "label": "Radio",
+    "markdownDescription": "./descriptions/sections/input/radio.md",
+    "body": {
+      "type": "radio",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$4",
+      "info": "$5",
+      "options": ["^$3"]
+    }
+  },
+  {
+    "label": "Range",
+    "markdownDescription": "./descriptions/sections/input/range.md",
+    "body": {
+      "type": "range",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "min": "^$3",
+      "max": "^$4",
+      "step": "^$5",
+      "unit": "$6",
+      "default": "^$7"
+    }
+  },
+  {
+    "label": "Header",
+    "markdownDescription": "./descriptions/sections/input/header.md",
+    "body": {
+      "type": "header",
+      "content": "$1",
+      "${2:info}": "$3"
+    }
+  },
+  {
+    "label": "Paragraph",
+    "markdownDescription": "./descriptions/sections/input/paragraph.md",
+    "body": {
+      "type": "paragraph",
+      "content": "$1"
+    }
+  },
+  {
+    "label": "Article",
+    "markdownDescription": "./descriptions/sections/input/article.md",
+    "body": {
+      "type": "article",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Blog",
+    "markdownDescription": "./descriptions/sections/input/blog.md",
+    "body": {
+      "type": "blog",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Collection",
+    "markdownDescription": "./descriptions/sections/input/collection.md",
+    "body": {
+      "type": "collection",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Collection List",
+    "markdownDescription": "./descriptions/sections/input/collection_list.md",
+    "body": {
+      "type": "collection_list",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "limit": "^$3"
+    }
+  },
+  {
+    "label": "Color",
+    "markdownDescription": "./descriptions/sections/input/color.md",
+    "body": {
+      "type": "color",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$3"
+    }
+  },
+  {
+    "label": "Color Scheme",
+    "markdownDescription": "./descriptions/sections/input/color_scheme.md",
+    "body": {
+      "type": "color_scheme",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$3"
+    }
+  },
+  {
+    "label": "Color Background",
+    "markdownDescription": "./descriptions/sections/input/color_background.md",
+    "body": {
+      "type": "color_background",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$3"
+    }
+  },
+  {
+    "label": "Font Picker",
+    "markdownDescription": "./descriptions/sections/input/font_picker.md",
+    "body": {
+      "type": "font_picker",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$3"
+    }
+  },
+  {
+    "label": "HTML",
+    "markdownDescription": "./descriptions/sections/input/html.md",
+    "body": {
+      "type": "html",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "default": "$3"
+    }
+  },
+  {
+    "label": "Image Picker",
+    "markdownDescription": "./descriptions/sections/input/image_picker.md",
+    "body": {
+      "type": "image_picker",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Inline Richtext",
+    "markdownDescription": "./descriptions/sections/input/inline_richtext.md",
+    "body": {
+      "type": "inline_richtext",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Link List",
+    "markdownDescription": "./descriptions/sections/input/link_list.md",
+    "body": {
+      "type": "link_list",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Liquid",
+    "markdownDescription": "./descriptions/sections/input/liquid.md",
+    "body": {
+      "type": "liquid",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Page",
+    "markdownDescription": "./descriptions/sections/input/page.md",
+    "body": {
+      "type": "page",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Product",
+    "markdownDescription": "./descriptions/sections/input/product.md",
+    "body": {
+      "type": "product",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Product List",
+    "markdownDescription": "./descriptions/sections/input/product_list.md",
+    "body": {
+      "type": "product_list",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "limit": "^$3"
+    }
+  },
+  {
+    "label": "Richtext",
+    "markdownDescription": "./descriptions/sections/input/richtext.md",
+    "body": {
+      "type": "richtext",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "URL",
+    "markdownDescription": "./descriptions/sections/input/url.md",
+    "body": {
+      "type": "url",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Video",
+    "markdownDescription": "./descriptions/sections/input/video.md",
+    "body": {
+      "type": "video",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2"
+    }
+  },
+  {
+    "label": "Video URL",
+    "markdownDescription": "./descriptions/sections/input/video_url.md",
+    "body": {
+      "type": "video_url",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "accepts": ["^3"]
+    }
+  }
+]

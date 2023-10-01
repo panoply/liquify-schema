@@ -1,5 +1,40 @@
 {
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/next": true
+  },
   "json.schemas": [
+    {
+      "fileMatch": [
+        "./stores/shared/shopify-setting-snippets.json"
+      ],
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Use Uppercase as starting letter, e.g: \"Text\" not \"text\""
+            },
+            "markdownDescription": {
+              "type": "string"
+            },
+            "body": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    /* -------------------------------------------- */
+    /* THEME DOCS                                   */
+    /* -------------------------------------------- */
     {
       "fileMatch": [
         "theme-docs-objects.json"
@@ -12,23 +47,38 @@
       ],
       "url": "./stores/theme_docs-filters.json"
     },
+    /* -------------------------------------------- */
+    /* SHOPIFY SETTINGS SCHEMA                      */
+    /* -------------------------------------------- */
     {
       "fileMatch": [
         "shopify-settings.json"
       ],
       "url": "/package/shopify/settings_schema.json"
     },
+    /* -------------------------------------------- */
+    /* SHOPIFY SECTIONS                             */
+    /* -------------------------------------------- */
     {
       "fileMatch": [
-        "shopify-sections.json"
+        "shopify-sections.json",
       ],
       "url": "./package/shopify/sections.json"
     },
     {
       "fileMatch": [
+        "shopify-sections-shared.json",
+      ],
+      "url": "./stores/shopify-section-shared.json"
+    },
+    /* -------------------------------------------- */
+    /* SYNCIFY                                      */
+    /* -------------------------------------------- */
+    {
+      "fileMatch": [
         "syncify-sections.json"
       ],
-      "url": "./package/syncify/shared-sections.json"
+      "url": "./package/syncify/shared-schema.json"
     },
     {
       "fileMatch": [
@@ -41,8 +91,11 @@
       "fileMatch": [
         "syncify-package.json",
       ],
-      "url": "./package/syncify.json"
+      "url": "./package/syncify/package-json.json"
     },
+    /* -------------------------------------------- */
+    /* SHOPIFY SECTION GROUPS                       */
+    /* -------------------------------------------- */
     {
       "fileMatch": [
         "shopify-section-groups.json"
@@ -67,6 +120,9 @@
       ],
       "url": "./package/shopify/settings_data.json"
     },
+    /* -------------------------------------------- */
+    /* VSCODE CONFIG                                */
+    /* -------------------------------------------- */
     {
       "fileMatch": [
         "vscode-configuration.jsonc"
@@ -85,7 +141,7 @@
         }
       ]
     },
-    "(?<=\")(injectObject|injectProperties|injectDefinitions)(?=\")": {
+    "(?<=\")(injectObject|injectProperties|injectShared)(?=\")": {
       "regexFlags": "g",
       "filterLanguageRegex": "json",
       "decorations": [
@@ -94,7 +150,7 @@
         }
       ]
     },
-    "(?<=\"(?:injectObject|injectProperties|injectDefinitions)\":\\s\")(.*?)(#\\w+)?(?=\")": {
+    "(?<=\"(?:injectObject|injectProperties|injectShared)\":\\s\")(.*?)(#\\w+)?(?=\")": {
       "regexFlags": "g",
       "filterLanguageRegex": "json",
       "decorations": [

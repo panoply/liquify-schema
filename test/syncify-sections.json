@@ -1,36 +1,9 @@
 {
-  "$description": {
-    "foo": [
-      "Some description to render internally when using the VSCode Liquid Extension.",
-      "Supports **Markdown** syntaxes, you can provide a [link](#) etc etc"
-    ]
-  },
-  "foo": [
-    {
-      "type": "image_picker",
-      "id": "something",
-      "label": "Something"
-    }
-  ],
-  "email": {
-    "type": "text",
-    "id": "placeholder",
-    "label": "Placeholder",
-    "info": "The placeholder (label) value",
-    "default": "Email Address"
-  },
-  "hello": {
-    "type": "article",
-    "id": "",
-    "label": ""
-  },
-  "s_": {
-    "type": "text",
-    "id": "",
-    "label": "",
-    "default": ""
-  },
-  "dropdown": [
+  //-----------------------------------------------------
+  //
+  // SETTINGS SPREAD EXAMPLE
+  //
+  "settings_spread": [
     {
       "type": "header",
       "content": "Option Dropdown",
@@ -49,5 +22,97 @@
       "label": "Name",
       "info": "Defines the name of the dropdown."
     }
-  ]
+  ],
+  "foo": {
+    "$description": [
+      ""
+    ],
+    "settings": [
+      {
+        "type": "article",
+        "id": "xx",
+        "label": ""
+      }
+    ]
+  },
+  //-----------------------------------------------------
+  //
+  // SETTINGS SINGLETON EXAMPLE
+  //
+  "email": {
+    "$description": "Description can be passed for editor",
+    "type": "text",
+    "id": "placeholder",
+    "label": "Placeholder",
+    "info": "The placeholder (label) value",
+    "default": "Email Address"
+  },
+  //-----------------------------------------------------
+  //
+  // BLOCK SINGLETON EXAMPLE
+  //
+  "block_singleton": {
+    "$description": "Description can be passed for editor",
+    "name": "",
+    "type": "",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Option Dropdown",
+        "info": "A list of options to select from"
+      },
+      {
+        "type": "textarea",
+        "id": "items",
+        "label": "items",
+        "default": "Item 1\nItem 2\nItem 3\netc etc",
+        "info": "Separate each item to render on newline"
+      }
+    ]
+  },
+  //-----------------------------------------------------
+  //
+  // BLOCK COLLECTION EXAMPLE
+  //
+  "block_collection": [
+    {
+      "$description": "Description can be passed for editor",
+      "name": "foo",
+      "type": "bar",
+      "settings": [
+        {
+          "type": "article",
+          "id": "something",
+          "label": "Something"
+        }
+      ]
+    },
+    {
+      "$description": "Description can be passed for editor",
+      "name": "bar",
+      "type": "baz",
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg",
+          "label": "Bg",
+          "default": "background"
+        }
+      ]
+    }
+  ],
+  //-----------------------------------------------------
+  //
+  // SETTINGS COLLECTION EXAMPLE
+  //
+  "settings_collection": {
+    "$description": "Setting collections allow descriptions to be imposed",
+    "settings": [
+      {
+        "type": "article",
+        "id": "",
+        "label": ""
+      }
+    ]
+  }
 }

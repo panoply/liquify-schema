@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "title": "Liquid Language Settings",
-  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will check for the presence of an `esthetic` field in `package.json` files. When neither are detected the extension will use the `.vscode/settings.json` file or alternatively your global user settings.",
+  "markdownDescription": "The Liquid extension will look for a `.liquidrc` or `.liquidrc.json` in the root of your project. When no such files exists it will use the `.vscode/settings.json` file or alternatively your global user settings.",
   "type": "object",
   "properties": {
     "liquid.engine": {
@@ -23,7 +23,7 @@
     "liquid.files.shopify": {
       "type": "object",
       "additionalProperties": false,
-      "markdownDescription": "[11ty](https://shopify.dev) file references.",
+      "markdownDescription": "[Shopify](https://shopify.dev) file references.",
       "properties": {
         "locales": {
           "type": "string",
@@ -44,6 +44,14 @@
         "sections": {
           "type": ["array", "string"],
           "markdownDescription": "./descriptions/vscode/files/shopify/sections.md",
+          "items": {
+            "uniqueItems": true,
+            "type": "string"
+          }
+        },
+        "schema": {
+          "type": ["array", "string"],
+          "markdownDescription": "./descriptions/vscode/files/shopify/schema.md",
           "items": {
             "uniqueItems": true,
             "type": "string"

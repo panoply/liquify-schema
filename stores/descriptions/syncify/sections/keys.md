@@ -6,18 +6,8 @@ Internal descriptions for each exposed option available in this shared schema. P
 
 {
    "$schema": "https://unpkg.com/@syncify/schema/sections.json",
-   "$description": {
-      "foo": [
-         "This is an internal description for the \"foo\" setting and will",
-         "be shown in completions and hovers when using the VSCode Liquid extension"
-      ],
-      "bar": [
-         "This is an internal description for the \"bar\" setting and will",
-         "be shown in completions and hovers when using the VSCode Liquid extension"
-      ]
-   },
    "foo": [],
-   "bar": []
+   "bar": {}
 }
 
 ```

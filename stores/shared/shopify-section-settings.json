@@ -1,0 +1,387 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "title": "Type",
+      "markdownDescription": "./descriptions/sections/settings/type.md",
+      "oneOf": [
+        {
+          "enum": ["text"],
+          "title": "Single-line text fields",
+          "markdownDescription": "./descriptions/sections/input/text.md"
+        },
+        {
+          "enum": ["textarea"],
+          "title": "Multi-line text areas",
+          "markdownDescription": "./descriptions/sections/input/textarea.md"
+        },
+        {
+          "enum": ["image_picker"],
+          "title": "Image Picker",
+          "markdownDescription": "./descriptions/sections/input/image_picker.md"
+        },
+        {
+          "enum": ["radio"],
+          "title": "Radio Button",
+          "markdownDescription": "./descriptions/sections/input/radio.md"
+        },
+        {
+          "enum": ["select"],
+          "title": "Selection drop-down",
+          "markdownDescription": "./descriptions/sections/input/select.md"
+        },
+        {
+          "enum": ["checkbox"],
+          "title": "Checkbox",
+          "markdownDescription": "./descriptions/sections/input/checkbox.md"
+        },
+        {
+          "enum": ["number"],
+          "title": "Number",
+          "markdownDescription": "./descriptions/sections/input/number.md"
+        },
+        {
+          "enum": ["range"],
+          "title": "Range",
+          "markdownDescription": "./descriptions/sections/input/range.md"
+        },
+        {
+          "enum": ["color"],
+          "title": "Color Picker",
+          "markdownDescription": "./descriptions/sections/input/color.md"
+        },
+        {
+          "enum": ["color_scheme"],
+          "title": "Color Scheme",
+          "markdownDescription": "./descriptions/sections/input/color_scheme.md"
+        },
+        {
+          "enum": ["color_background"],
+          "title": "Color Background",
+          "markdownDescription": "./descriptions/sections/input/color_background.md"
+        },
+        {
+          "enum": ["font_picker"],
+          "title": "Font Picker",
+          "markdownDescription": "./descriptions/sections/input/font_picker.md"
+        },
+        {
+          "enum": ["collection"],
+          "title": "Collections drop-down",
+          "markdownDescription": "./descriptions/sections/input/collection.md"
+        },
+        {
+          "enum": ["collection_list"],
+          "title": "Collection List",
+          "markdownDescription": "./descriptions/sections/input/collection_list.md"
+        },
+        {
+          "enum": ["product"],
+          "title": "Products drop-down",
+          "markdownDescription": "./descriptions/sections/input/product.md"
+        },
+        {
+          "enum": ["product_list"],
+          "title": "Products drop-down",
+          "markdownDescription": "./descriptions/sections/input/product_list.md"
+        },
+        {
+          "enum": ["blog"],
+          "title": "Blogs drop-down",
+          "markdownDescription": "./descriptions/sections/input/blog.md"
+        },
+        {
+          "enum": ["page"],
+          "title": "Pages drop-down",
+          "markdownDescription": "./descriptions/sections/input/page.md"
+        },
+        {
+          "enum": ["link_list"],
+          "title": "Link lists drop-down",
+          "markdownDescription": "./descriptions/sections/input/link_list.md"
+        },
+        {
+          "enum": ["url"],
+          "title": "URL",
+          "markdownDescription": "./descriptions/sections/input/url.md"
+        },
+        {
+          "enum": ["richtext"],
+          "title": "RichText",
+          "markdownDescription": "./descriptions/sections/input/richtext.md"
+        },
+        {
+          "enum": ["inline_richtext"],
+          "title": "Inline RichText",
+          "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
+        },
+        {
+          "enum": ["html"],
+          "title": "HTML",
+          "markdownDescription": "./descriptions/sections/input/html.md"
+        },
+        {
+          "enum": ["article"],
+          "title": "Article",
+          "markdownDescription": "./descriptions/sections/input/article.md"
+        },
+        {
+          "enum": ["header"],
+          "title": "Header",
+          "markdownDescription": "./descriptions/sections/input/header.md"
+        },
+        {
+          "enum": ["paragraph"],
+          "title": "Paragraph",
+          "markdownDescription": "./descriptions/sections/input/paragraph.md"
+        },
+        {
+          "enum": ["liquid"],
+          "title": "Liquid",
+          "markdownDescription": "./descriptions/sections/input/liquid.md"
+        },
+        {
+          "enum": ["video"],
+          "title": "Video",
+          "markdownDescription": "./descriptions/sections/input/video.md"
+        },
+        {
+          "enum": ["video_url"],
+          "title": "Video URL",
+          "markdownDescription": "./descriptions/sections/input/video_url.md"
+        }
+      ]
+    }
+  },
+  "if": {
+    "required": ["type"],
+    "type": "object",
+    "properties": {
+      "type": {
+        "enum": [
+          "text",
+          "textarea",
+          "image_picker",
+          "radio",
+          "select",
+          "checkbox",
+          "number",
+          "range",
+          "color",
+          "color_background",
+          "color_scheme",
+          "font_picker",
+          "collection",
+          "collection_list",
+          "product",
+          "product_list",
+          "blog",
+          "page",
+          "link_list",
+          "url",
+          "richtext",
+          "inline_richtext",
+          "html",
+          "article",
+          "liquid",
+          "video",
+          "video_url"
+        ]
+      }
+    }
+  },
+  "then": {
+    "required": ["id", "label"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "default": "",
+        "markdownDescription": "./descriptions/sections/standard/id.md"
+      },
+      "label": {
+        "markdownDescription": "./descriptions/sections/standard/label.md",
+        "default": "",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/definitions/languages"
+          }
+        ]
+      },
+      "default": {
+        "type": ["string", "number", "boolean"],
+        "default": "",
+        "markdownDescription": "./descriptions/sections/standard/default.md"
+      },
+      "info": {
+        "markdownDescription": "./descriptions/sections/standard/info.md",
+        "default": "",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/definitions/languages"
+          }
+        ]
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "range"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/range"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": [
+                "color",
+                "color_scheme",
+                "color_background"
+              ]
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/color"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "select"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/select"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "radio"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/radio"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": ["collection_list", "product_list"]
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/limit"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": ["text", "textarea", "html", "number"]
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/placeholder"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "video_url"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/video_url"
+        }
+      }
+    ]
+  },
+  "else": {
+    "if": {
+      "required": ["type"],
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": ["header", "paragraph"]
+        }
+      }
+    },
+    "then": {
+      "allOf": [
+        {
+          "if": {
+            "required": ["type"],
+            "type": "object",
+            "properties": {
+              "type": {
+                "markdownDescription": "./descriptions/sections/properties/header_type.md",
+                "const": "header"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/definitions/header"
+          }
+        },
+        {
+          "if": {
+            "required": ["type"],
+            "type": "object",
+            "properties": {
+              "type": {
+                "markdownDescription": "./descriptions/sections/properties/paragraph_type.md",
+                "const": "paragraph"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/definitions/content"
+          }
+        }
+      ]
+    },
+    "else": {
+      "required": [],
+      "$comment": "Shared Section Schema $ref (references) will be inserted here"
+    }
+  }
+}

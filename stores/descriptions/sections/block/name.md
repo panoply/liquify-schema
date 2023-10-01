@@ -1,0 +1,1 @@
+The block name which is used as the merchants label

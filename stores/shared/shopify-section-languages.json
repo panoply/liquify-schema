@@ -1,0 +1,203 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "markdownDescription": "Locales",
+  "properties": {
+    "af": {
+      "type": "string",
+      "markdownDescription": "Afrikaans (Afrikaans)"
+    },
+    "ar": {
+      "type": "string",
+      "markdownDescription": "Arabic (العربية)"
+    },
+    "az": {
+      "type": "string",
+      "markdownDescription": "Azerbaijani (Azərbaycanlı)"
+    },
+    "be": {
+      "type": "string",
+      "markdownDescription": "Belarusian (беларуская)"
+    },
+    "bg": {
+      "type": "string",
+      "markdownDescription": "Bulgarian (български)"
+    },
+    "bs": {
+      "type": "string",
+      "markdownDescription": "Bosnian (bosanski/босански)"
+    },
+    "cs": {
+      "type": "string",
+      "markdownDescription": "Czech (čeština)"
+    },
+    "cy": {
+      "type": "string",
+      "markdownDescription": "Welsh (Cymraeg)"
+    },
+    "da": {
+      "type": "string",
+      "markdownDescription": "Danish (dansk)"
+    },
+    "de": {
+      "type": "string",
+      "markdownDescription": "German (Deutsch)"
+    },
+    "el": {
+      "type": "string",
+      "markdownDescription": "Greek (ελληνικά)"
+    },
+    "en": {
+      "type": "string",
+      "markdownDescription": "English"
+    },
+    "es": {
+      "type": "string",
+      "markdownDescription": "Spanish (español)"
+    },
+    "et": {
+      "type": "string",
+      "markdownDescription": "Estonian (eesti)"
+    },
+    "fa": {
+      "type": "string",
+      "markdownDescription": "Persian (فارسى)"
+    },
+    "fi": {
+      "type": "string",
+      "markdownDescription": "Finnish (suomi)"
+    },
+    "fr": {
+      "type": "string",
+      "markdownDescription": "French (français)"
+    },
+    "fy": {
+      "type": "string",
+      "markdownDescription": "Frisian (Frysk)"
+    },
+    "he": {
+      "type": "string",
+      "markdownDescription": "Hebrew (עברית)"
+    },
+    "hr": {
+      "type": "string",
+      "markdownDescription": "Croatian (hrvatski)"
+    },
+    "hi": {
+      "type": "string",
+      "markdownDescription": "Hindi (हिंदी)"
+    },
+    "hu": {
+      "type": "string",
+      "markdownDescription": "Hungarian (magyar)"
+    },
+    "id": {
+      "type": "string",
+      "markdownDescription": "Indonesian (Bahasa Indonesia)"
+    },
+    "is": {
+      "type": "string",
+      "markdownDescription": "Icelandic (íslenska)"
+    },
+    "lv": {
+      "type": "string",
+      "markdownDescription": "Latvian (latviešu)"
+    },
+    "nl": {
+      "type": "string",
+      "markdownDescription": "Dutch (Nederlands)"
+    },
+    "no": {
+      "type": "string",
+      "markdownDescription": "Norwegian (norsk)"
+    },
+    "it": {
+      "type": "string",
+      "markdownDescription": "Italian (italiano)"
+    },
+    "ja": {
+      "type": "string",
+      "markdownDescription": "Japanese (日本語)"
+    },
+    "ko": {
+      "type": "string",
+      "markdownDescription": "Korean (한국어/韓國語)"
+    },
+    "lb": {
+      "type": "string",
+      "markdownDescription": "Luxembourgish (Lëtzebuergesch)"
+    },
+    "lt": {
+      "type": "string",
+      "markdownDescription": "Lithuanian (lietuvių)"
+    },
+    "mk": {
+      "type": "string",
+      "markdownDescription": "Macedonian (македонски јазик)"
+    },
+    "pa": {
+      "type": "string",
+      "markdownDescription": "Punjabi (ਪੰਜਾਬੀ)"
+    },
+    "pl": {
+      "type": "string",
+      "markdownDescription": "Polish (polski)"
+    },
+    "pt": {
+      "type": "string",
+      "markdownDescription": "Portuguese (Português)"
+    },
+    "ro": {
+      "type": "string",
+      "markdownDescription": "Romanian (română)"
+    },
+    "ru": {
+      "type": "string",
+      "markdownDescription": "Russian (русский)"
+    },
+    "si": {
+      "type": "string",
+      "markdownDescription": "Sinhala (සිංහල)"
+    },
+    "sl": {
+      "type": "string",
+      "markdownDescription": "Albanian (shqipe)"
+    },
+    "sk": {
+      "type": "string",
+      "markdownDescription": "Slovak (slovenčina)"
+    },
+    "sq": {
+      "type": "string",
+      "markdownDescription": "Slovenian (slovenski)"
+    },
+    "sv": {
+      "type": "string",
+      "markdownDescription": "Swedish (svenska)"
+    },
+    "ta": {
+      "type": "string",
+      "markdownDescription": "Tamil (தமிழ்)"
+    },
+    "th": {
+      "type": "string",
+      "markdownDescription": "Thai (ไทย)"
+    },
+    "tr": {
+      "type": "string",
+      "markdownDescription": "Turkish (Türkçe)"
+    },
+    "zh": {
+      "type": "string",
+      "markdownDescription": "Chinese (中文)"
+    },
+    "uk": {
+      "type": "string",
+      "markdownDescription": "Ukrainian (українська)"
+    },
+    "vi": {
+      "type": "string",
+      "markdownDescription": "Vietnamese (Tiếng Việt/㗂越)"
+    }
+  }
+}

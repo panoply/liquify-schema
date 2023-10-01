@@ -4,6 +4,7 @@
   "description": "This file is used to control settings for the vscode-liquid extension.",
   "type": "object",
   "additionalProperties": true,
+  "$ref": "#/definitions/engine",
   "definitions": {
     "engine": {
       "type": "object",
@@ -145,6 +146,14 @@
                       "uniqueItems": true,
                       "type": "string"
                     }
+                  },
+                  "schema": {
+                    "type": ["array", "string"],
+                    "markdownDescription": "./descriptions/vscode/files/shopify/schema.md",
+                    "items": {
+                      "uniqueItems": true,
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -199,6 +208,5 @@
         }
       ]
     }
-  },
-  "$ref": "#/definitions/engine"
+  }
 }

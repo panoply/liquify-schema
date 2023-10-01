@@ -1,7 +1,44 @@
-const { join } = require('node:path');
-const { readFileSync, writeFileSync, existsSync, mkdirSync } = require('node:fs');
-
+const { join, basename } = require('node:path');
+const { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } = require('node:fs');
 const cwd = process.cwd();
+
+/**
+ * Ensure we are only traversing JSON files.
+ * These must be passed in order of injection dependants
+ */
+const FILES = [
+
+  // ÆSTHETIC
+  'esthetic.json',
+
+  // LIQUIDRC
+  'liquidrc.json',
+
+  // SHOPIFY SPECIFICS
+  'shopify-sections.json',
+  'shopify-section-groups.json',
+  'shopify-locales.json',
+  'shopify-settings_data.json',
+  'shopify-templates.json',
+  'shopify-settings_schema.json',
+
+  // FUTURE SHIT
+  'specifications.json',
+
+  // VSCODE CONFIG
+  'vscode-configuration.json',
+
+  // THEME DOCS
+  'theme-docs-objects.json',
+  'theme-docs-filters.json',
+
+  // SYNCIFY
+
+  'syncify.json',
+  'syncify-env.json',
+  'syncify-package-json.json',
+  'syncify-shared-schema.json'
+];
 
 if (!existsSync(join(cwd, 'package'))) mkdirSync(join(cwd, 'package'));
 
@@ -26,6 +63,15 @@ const captureInjectObjects = /(?<=:\s)\{\s*"injectObject":\s"\.\/.*"\s*}/g;
 const injectObjects = /(?<="injectObject":\s)"\.\/.*"/;
 
 /**
+ * Obtains JSON Objects from another file
+ */
+const injectShared = /(?<="injectShared":\s)"\.\/.*"/g;
+
+/**
+ * Capture Object Injection
+ */
+const captureInjectShared = /\{\s*"injectShared":\s"\.\/.*"\s*}|\s*"injectShared":\s"\.\/.*"/g;
+/**
  * Obtains JSON from another file
  */
 const injectProperties = /(?<="injectProperties":\s)"\.\/.*"/g;
@@ -42,8 +88,11 @@ const replace = /(?<=")injectProperties(?=")/g;
  */
 function readMarkdownFile (file) {
 
-  const read = readFileSync(join(stores, file), { encoding: 'utf8' });
+  const normalizeUrl = file.replace(/([/.]+)(?=\.\/[a-z])/, '');
+  const read = readFileSync(join(stores, normalizeUrl), { encoding: 'utf8' });
   const stringify = JSON.stringify(read, 0).trim();
+
+  // console.log('\n\n' + file + '\n\n', stringify);
 
   return stringify;
 
@@ -84,32 +133,25 @@ function importMarkdown (json) {
 
 function getShared () {
 
+  const sharedDir = join(stores, 'shared');
+  /**
+   * The files within shared directory
+   */
+  const shared = readdirSync(sharedDir).map(uri => join(sharedDir, uri));
+
   /**
    * Store model which will hold the parsed values
    */
   const store = {};
 
-  /**
-   * These are internal references used for injections.
-   * The `from` property value **MUST** be indentical to
-   * the strings provided here, this includes the `./` prefix.
-   */
-  const shared = [
-    './shared/shopify/languages.json',
-    './shared/shopify/input-snippets.json',
-    './shared/shopify/input-settings.json'
-  ];
-
   try {
 
     for (const file of shared) {
 
-      const uri = join(stores, file);
-
       /**
        * The contents of the JSON file
        */
-      let json = readFileSync(uri, { encoding: 'utf8' });
+      let json = readFileSync(file, { encoding: 'utf8' });
 
       /**
        * Populated the files markdown
@@ -119,7 +161,9 @@ function getShared () {
       /**
        * Minification of JSON
        */
-      store[file] = JSON.parse(json);
+      store[basename(file)] = JSON.parse(json);
+
+      if ('$schema' in store[basename(file)]) delete store[basename(file)].$schema;
 
     }
 
@@ -138,99 +182,147 @@ function getShared () {
  */
 function mapContent () {
 
-  try {
+  const shared = getShared();
 
-    // const shared = getShared();
+  /* -------------------------------------------- */
+  /* LOOP THROUGH FILES                           */
+  /* -------------------------------------------- */
+
+  for (const file of FILES) {
 
     /**
-     * Ensure we are only traversing JSON files.
+     * The full URI file path location of this file.
      */
-    const items = [
-      'esthetic.json',
-      'liquidrc.json',
-      'syncify.json',
-      'shopify-sections.json',
-      'shopify-section-groups.json',
-      'shopify-locales.json',
-      'shopify-settings_data.json',
-      'shopify-templates.json',
-      'shopify-settings_schema.json',
-      'specifications.json',
-      'vscode-configuration.json',
-      'theme-docs-objects.json',
-      'theme-docs-filters.json',
-      'syncify-env.json',
-      'syncify-shared-sections.json'
-    ];
+    const uri = join(stores, file);
 
-    /* -------------------------------------------- */
-    /* LOOP THROUGH FILES                           */
-    /* -------------------------------------------- */
-
-    for (const file of items) {
-
-      /**
-       * The full URI file path location of this file.
-       */
-      const uri = join(stores, file);
-
+    try {
       /**
        * The contents of the JSON file
        */
       let json = readFileSync(uri, { encoding: 'utf8' });
 
-      /**
-       * Parse the recently read file - this where we will inject definitions
-       */
-      // const parsed = JSON.parse(json);
+      if (injectShared.test(json)) {
 
-      /**
-       * The inject definitions is a global property, we simply need reference for injection
-       */
-      // if ('injectDefinitions' in parsed) {
+        const from = json.match(captureInjectShared);
 
-      //   if (Array.isArray(parsed.injectDefinitions)) {
+        if (from !== null) {
 
-      //     for (const { from, refs } of parsed.injectDefinitions) {
+          for (const content of from) {
 
-      //       if (!('definitions' in parsed)) parsed.definitions = {};
+            /**
+             * Get the `injectShared` property value
+             */
+            const getProp = content.match(injectShared);
 
-      //       if (from in shared) {
+            /**
+             * Extract the injection file name path, slice out quotations
+             */
+            let fileName = basename(getProp[0].slice(1, -1));
 
-      //         console.log('Injecting Definitions from: ' + from);
+            /**
+             * Extract the property to inject on
+             */
+            let onProp;
 
-      //         for (const ref of refs) {
-      //           parsed.definitions[ref] = shared[from][ref];
-      //         }
+            /**
+             * Check for a hash # value for injections which point to a
+             * specific reference within an external file.
+             */
+            const hashidx = fileName.indexOf('#');
 
-      //         delete parsed.injectDefinitions;
+            if (hashidx > -1) {
 
-      //       } else {
-      //         return console.error('Shared injection was not found. Ensure the shared[] values match');
-      //       }
+              /**
+               * Extract the property to inject on
+               */
+              onProp = fileName.slice(hashidx + 1);
+              fileName = fileName.slice(0, hashidx);
 
-      //     }
-      //   } else if (typeof parsed.injectDefinitions === 'string') {
+            }
 
-      //     if (parsed.injectDefinitions in shared) {
+            if (fileName in shared) {
 
-      //       if (!('definitions' in parsed)) parsed.definitions = {};
+              /**
+               * The shared entry to inject
+               */
+              let sharedObj = shared[fileName];
 
-      //       for (const ref in shared[parsed.injectDefinitions]) {
-      //         parsed.definitions[ref] = shared[parsed.injectDefinitions][ref];
-      //       }
+              if (typeof onProp === 'string') {
 
-      //       delete parsed.injectDefinitions;
+                if ('properties' in shared[fileName]) {
 
-      //     } else {
-      //       return console.error('Shared injection was not found. Ensure the shared[] values match');
-      //     }
+                  if (onProp in shared[fileName].properties) {
 
-      //   }
+                    console.log(`SHARED INJECT IN PROPERTIES: ${file} > ${fileName} > ${onProp}`);
+                    sharedObj = shared[fileName].properties[onProp];
 
-      //   json = JSON.stringify(parsed, null, 2);
+                  } else if (onProp in shared[fileName]) {
 
-      // }
+                    console.log(`SHARED INJECT IN OBJECT: ${file} > ${fileName} > ${onProp}`);
+                    sharedObj = shared[fileName][onProp];
+
+                  } else {
+
+                    throw new Error('Cannot find property key to inject ' + onProp);
+                  }
+
+                } else if (onProp in shared[fileName]) {
+
+                  console.log(`SHARED INJECT IN OBJECT: ${file} > ${fileName} > ${onProp}`);
+
+                  sharedObj = shared[fileName][onProp];
+
+                } else {
+
+                  throw new Error('No property in shared schema injection ' + onProp);
+                }
+              } else {
+
+                console.log(`SHARED INJECT: ${file} > ${fileName}`);
+
+              }
+              /**
+               * We have an object
+               * {
+               *   "injectShared": "./xxx/file.json"
+               * }
+               */
+              if (content.trim()[0] === '{') {
+                if (Array.isArray(shared[fileName])) {
+                  json = json.replace(content, JSON.stringify(sharedObj, 0).slice(1, -1));
+                } else {
+                  json = json.replace(content, JSON.stringify(sharedObj));
+                }
+              } else {
+
+                /**
+                 * We have a property injection
+                 * {
+                 *   "injectShared": "./xxx/file.json",
+                 *   "anotherProp": ""
+                 * }
+                 */
+
+                if (typeof shared[fileName] === 'object') {
+
+                  json = json.replace(content, JSON.stringify(sharedObj, 0).slice(1, -1));
+
+                } else {
+
+                  throw new Error('Cannot spread non object types on property structure injections');
+                }
+
+              }
+            } else {
+
+              throw new Error('Cannot file shared file at: ' + fileName);
+
+            }
+
+          }
+        }
+
+      }
 
       /**
        * Lets test for the existence of object injections.
@@ -275,10 +367,17 @@ function mapContent () {
             let parseJson = JSON.parse(importMarkdown(readFile));
 
             if (typeof name === 'string') {
-              parseJson = parseJson.properties[name];
+              if ('properties' in parseJson && name in parseJson.properties) {
+                console.log(`INJECT FROM PROPERTIES: ${file} > ${fileName} > ${name}`);
+                parseJson = parseJson.properties[name];
+              } else if ('definitions' in parseJson && name in parseJson.definitions) {
+                console.log(`INJECT FROM DEFINITIONS: ${file} > ${fileName} > ${name}`);
+                parseJson = parseJson.definitions[name];
+              }
             }
 
-            const imported = JSON.parse(importMarkdown(JSON.stringify(parseJson)));
+            const getMarkdown = importMarkdown(JSON.stringify(parseJson));
+            const imported = JSON.parse(getMarkdown);
             const stringify = JSON.stringify(imported);
 
             json = json.replace(content, stringify);
@@ -344,7 +443,7 @@ function mapContent () {
       /**
        * Minification of JSON
        */
-      const minify = JSON.stringify(JSON.parse(json), 0);
+      const minify = JSON.stringify(JSON.parse(json), null, 2);
 
       if (file.startsWith('theme-docs')) {
 
@@ -380,11 +479,11 @@ function mapContent () {
         }
       }
 
+    } catch (e) {
+
+      console.error('File: ' + uri, e);
+
     }
-
-  } catch (e) {
-
-    console.error(e);
 
   }
 

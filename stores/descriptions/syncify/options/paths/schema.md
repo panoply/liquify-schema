@@ -1,1 +1,1 @@
-Paths to `.json` shared schema files. Syncify supports external schema that can be reused in sections.
+Paths to `.json` shared section schema files. Syncify supports external section schemas that can be reused in section `{% schema %}` tags across your theme projects.

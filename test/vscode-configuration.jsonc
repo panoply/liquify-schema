@@ -1,11 +1,15 @@
 {
+  //
   // ENGINE
   "liquid.engine": "shopify",
+  //
   // CONFIG FILE BASE URL
   "liquid.config.baseUrl": "",
   "liquid.config.method": "liquidrc",
+  //
   // SETTINGS TARGET
   "liquid.settings.target": "user",
+  //
   // FILES
   "liquid.files.11ty": {
     "data": [],
@@ -16,8 +20,10 @@
     "locales": "",
     "settings": "",
     "sections": [],
-    "snippets": []
+    "snippets": [],
+    "schema": []
   },
+  //
   // COMPLETIONS
   "liquid.completion.filters": true,
   "liquid.completion.objects": true,
@@ -27,12 +33,16 @@
   "liquid.completion.sections": true,
   "liquid.completion.tags": true,
   "liquid.completion.variables": true,
+  //
   // HOVERS
   "liquid.hover.filters": true,
   "liquid.hover.schema": true,
   "liquid.hover.tags": true,
+  //
   // VALIDATIONS
   "liquid.validate.schema": true,
+  "liquid.format.validate": true,
+  //
   // DEPRECATED
   "liquid.format.commentIndent": false,
   "liquid.format.wrap": 0,
@@ -58,8 +68,10 @@
     "indentChar": " ",
     "indentSize": 2,
     "preserveLine": 3,
+    //
     // DEPRECATED OR UPDATED RULES
     "endNewLine": false,
+    //
     // LIQUID FORMATTING
     "liquid": {
       "commentIndent": false,
@@ -76,9 +88,11 @@
       "normalizeSpacing": true,
       "preserveComment": false,
       "quoteConvert": "single",
+      //
       // DEPRECATED LIQUID RULES
       "valueForce": "intent"
     },
+    //
     // MARKUP FORMATTING
     "markup": {
       "attributeCasing": "preserve",
@@ -99,6 +113,7 @@
       "preserveText": true,
       "quoteConvert": "double",
       "selfCloseSpace": false,
+      //
       // DEPRECATED LIQUID RULES
       "forceLeadAttribute": false,
       "preserveAttributes": false,
@@ -111,6 +126,7 @@
       "normalizeSpacing": true,
       "valueForce": "intent"
     },
+    //
     // JSON FORMATTING
     "json": {
       "arrayFormat": "indent",
@@ -119,6 +135,7 @@
       "objectIndent": "indent",
       "objectSort": false,
     },
+    //
     // STYLE FORMATTING
     "style": {
       "classPadding": false,
@@ -132,6 +149,7 @@
       "commentIndent": false,
       "preserveComment": false
     },
+    //
     // SCRIPT FORMATTING
     "script": {
       "arrayFormat": "indent",

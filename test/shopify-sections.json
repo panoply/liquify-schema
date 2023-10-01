@@ -4,9 +4,9 @@
   "max_blocks": 3,
   "settings": [
     {
-      "type": "range",
-      ""
+      "$ref": "forms.textarea"
     },
+
     {
       "type": "select",
       "id": "logo_position",
@@ -129,7 +129,7 @@
     },
     {
       "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content",
+      "content": "t:sections.header.settings.mobile_layout.content"
     },
     {
       "type": "select",
@@ -238,6 +238,6 @@
           "label": "t:sections.header.settings.menu.label"
         }
       ]
-    },
+    }
   ]
 }

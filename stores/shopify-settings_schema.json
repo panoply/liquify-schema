@@ -69,7 +69,8 @@
       "required": ["name", "settings"],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the setting"
         },
         "settings": {
           "$ref": "#/definitions/settings"

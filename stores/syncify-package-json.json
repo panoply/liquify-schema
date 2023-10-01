@@ -400,7 +400,7 @@
               }
             }
           ],
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/input.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/input.md"
         },
         "watch": {
           "type": "array",
@@ -408,20 +408,20 @@
             "type": "string"
           },
           "default": [],
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/watch.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/watch.md"
         },
         "rename": {
           "type": "string",
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/rename.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/rename.md"
         },
         "snippet": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/snippet.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/snippet.md"
         },
         "tailwind": {
           "type": "boolean",
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/tailwind.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/tailwind.md"
         },
         "postcss": {
           "oneOf": [
@@ -430,12 +430,12 @@
             }
           ],
           "default": true,
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/postcss.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/postcss.md"
         },
         "sass": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "./descriptions/syncify/options/transforms/style/sass.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/sass.md"
         }
       }
     },
@@ -456,7 +456,7 @@
               }
             }
           ],
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/input.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/input.md"
         },
         "target": {
           "type": "array",
@@ -478,7 +478,7 @@
             ]
           },
           "default": "es2016",
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/target.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/target.md"
         },
         "external": {
           "type": "array",
@@ -486,27 +486,27 @@
             "type": "string"
           },
           "default": [],
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/external.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/external.md"
         },
         "rename": {
           "type": "string",
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/rename.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/rename.md"
         },
         "snippet": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/snippet.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/snippet.md"
         },
         "format": {
           "type": "string",
           "default": "esm",
           "enum": ["esm", "iife"],
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/format.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/format.md"
         },
         "sourcemap": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/sourcemap.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/sourcemap.md"
         },
         "watch": {
           "type": "array",
@@ -514,12 +514,12 @@
             "type": "string"
           },
           "default": [],
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/watch.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/watch.md"
         },
         "esbuild": {
           "type": "boolean",
           "default": true,
-          "markdownDescription": "./descriptions/syncify/options/transforms/script/esbuild.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/script/esbuild.md"
         }
       }
     },
@@ -528,7 +528,7 @@
       "required": ["input"],
       "properties": {
         "input": {
-          "markdownDescription": "./descriptions/syncify/options/transforms/svg/input.md",
+          "markdownDescription": "./descriptions/syncify/options/transform/svg/input.md",
           "oneOf": [
             {
               "type": "string"
@@ -543,12 +543,12 @@
         },
         "rename": {
           "type": "string",
-          "markdownDescription": "./descriptions/syncify/options/transforms/svg/rename.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/svg/rename.md"
         },
         "snippet": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/syncify/options/transforms/svg/rename.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/svg/rename.md"
         },
         "format": {
           "oneOf": [
@@ -560,7 +560,7 @@
               "type": "null"
             }
           ],
-          "markdownDescription": "./descriptions/syncify/options/transforms/svg/format.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/svg/format.md"
         }
       }
     },
@@ -592,7 +592,7 @@
       },
       "additionalProperties": false
     },
-    "transforms": {
+    "transform": {
       "type": "object",
       "additionalProperties": false,
       "json": {
@@ -896,7 +896,7 @@
       ]
     },
     "config": {
-      "markdownDescription": "./descriptions/syncify/pkg-json/config.md",
+      "markdownDescription": "./descriptions/syncify/misc/config.md",
       "type": "object",
       "properties": {
         "input": {
@@ -950,8 +950,8 @@
         "terser": {
           "$ref": "#/definitions/terser"
         },
-        "transforms": {
-          "$ref": "#/definitions/transforms"
+        "transform": {
+          "$ref": "#/definitions/transform"
         },
         "processors": {
           "$ref": "#/definitions/processors"

@@ -1,0 +1,1 @@
+A block's type may be any value set by the theme developer.
