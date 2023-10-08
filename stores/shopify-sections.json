@@ -337,6 +337,7 @@
           },
           {
             "label": "Block",
+            "markdownDescription": "./descriptions/sections/settings/blocks.md",
             "body": {
               "name": "$1",
               "type": "$2",
@@ -347,6 +348,7 @@
           },
           {
             "label": "Block with Limit",
+            "markdownDescription": "./descriptions/sections/settings/blocks.md",
             "body": {
               "name": "$1",
               "type": "$2",
