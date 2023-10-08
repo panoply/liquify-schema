@@ -2,11 +2,19 @@
   "title": "Syncify Shared Section Schema",
   "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
-
   "definitions": {
+    "shared_settings": {
+      "$comment": "Shared Section Settings $ref (references) will be inserted here"
+    },
+    "shared_blocks": {
+      "$comment": "Shared Section Blocks $ref (references) will be inserted here"
+    },
     "description": {
       "markdownDescription": "./descriptions/syncify/sections/description.md",
-      "type": ["string", "array"],
+      "type": [
+        "string",
+        "array"
+      ],
       "oneOf": [
         {
           "type": "string"
@@ -53,7 +61,10 @@
       "title": "Blocks",
       "markdownDescription": "./descriptions/sections/settings/blocks.md",
       "type": "object",
-      "required": ["name", "type"],
+      "required": [
+        "name",
+        "type"
+      ],
       "properties": {
         "$description": {
           "$ref": "#/definitions/description"
@@ -77,7 +88,9 @@
     },
     "settings": {
       "type": "object",
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "properties": {
         "$description": {
           "$ref": "#/definitions/description"
@@ -102,7 +115,10 @@
     "pattern": "^([$@A-Za-z0-9_]+)$"
   },
   "additionalProperties": {
-    "type": ["object", "array"],
+    "type": [
+      "object",
+      "array"
+    ],
     "markdownDescription": "./descriptions/syncify/sections/refs.md",
     "defaultSnippets": [
       {
@@ -139,7 +155,9 @@
         "body": {
           "name": "$1",
           "type": "$2",
-          "settings": ["^$3"]
+          "settings": [
+            "^$3"
+          ]
         }
       },
       {
@@ -149,7 +167,9 @@
           {
             "name": "$1",
             "type": "$2",
-            "settings": ["^$3"]
+            "settings": [
+              "^$3"
+            ]
           }
         ]
       }
@@ -169,7 +189,9 @@
                   "body": {
                     "name": "$1",
                     "type": "$2",
-                    "settings": ["^$3"]
+                    "settings": [
+                      "^$3"
+                    ]
                   }
                 },
                 {
@@ -179,7 +201,9 @@
                     "name": "$1",
                     "type": "$2",
                     "limit": "^$3",
-                    "settings": ["^$4"]
+                    "settings": [
+                      "^$4"
+                    ]
                   }
                 }
               ]
