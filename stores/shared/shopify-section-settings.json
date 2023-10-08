@@ -5,150 +5,211 @@
     "type": {
       "type": "string",
       "title": "Type",
+      "required": [
+        "type"
+      ],
       "markdownDescription": "./descriptions/sections/settings/type.md",
       "oneOf": [
         {
-          "enum": ["text"],
+          "enum": [
+            "text"
+          ],
           "title": "Single-line text fields",
           "markdownDescription": "./descriptions/sections/input/text.md"
         },
         {
-          "enum": ["textarea"],
+          "enum": [
+            "textarea"
+          ],
           "title": "Multi-line text areas",
           "markdownDescription": "./descriptions/sections/input/textarea.md"
         },
         {
-          "enum": ["image_picker"],
+          "enum": [
+            "image_picker"
+          ],
           "title": "Image Picker",
           "markdownDescription": "./descriptions/sections/input/image_picker.md"
         },
         {
-          "enum": ["radio"],
+          "enum": [
+            "radio"
+          ],
           "title": "Radio Button",
           "markdownDescription": "./descriptions/sections/input/radio.md"
         },
         {
-          "enum": ["select"],
+          "enum": [
+            "select"
+          ],
           "title": "Selection drop-down",
           "markdownDescription": "./descriptions/sections/input/select.md"
         },
         {
-          "enum": ["checkbox"],
+          "enum": [
+            "checkbox"
+          ],
           "title": "Checkbox",
           "markdownDescription": "./descriptions/sections/input/checkbox.md"
         },
         {
-          "enum": ["number"],
+          "enum": [
+            "number"
+          ],
           "title": "Number",
           "markdownDescription": "./descriptions/sections/input/number.md"
         },
         {
-          "enum": ["range"],
+          "enum": [
+            "range"
+          ],
           "title": "Range",
           "markdownDescription": "./descriptions/sections/input/range.md"
         },
         {
-          "enum": ["color"],
+          "enum": [
+            "color"
+          ],
           "title": "Color Picker",
           "markdownDescription": "./descriptions/sections/input/color.md"
         },
         {
-          "enum": ["color_scheme"],
+          "enum": [
+            "color_scheme"
+          ],
           "title": "Color Scheme",
           "markdownDescription": "./descriptions/sections/input/color_scheme.md"
         },
         {
-          "enum": ["color_background"],
+          "enum": [
+            "color_background"
+          ],
           "title": "Color Background",
           "markdownDescription": "./descriptions/sections/input/color_background.md"
         },
         {
-          "enum": ["font_picker"],
+          "enum": [
+            "font_picker"
+          ],
           "title": "Font Picker",
           "markdownDescription": "./descriptions/sections/input/font_picker.md"
         },
         {
-          "enum": ["collection"],
+          "enum": [
+            "collection"
+          ],
           "title": "Collections drop-down",
           "markdownDescription": "./descriptions/sections/input/collection.md"
         },
         {
-          "enum": ["collection_list"],
+          "enum": [
+            "collection_list"
+          ],
           "title": "Collection List",
           "markdownDescription": "./descriptions/sections/input/collection_list.md"
         },
         {
-          "enum": ["product"],
+          "enum": [
+            "product"
+          ],
           "title": "Products drop-down",
           "markdownDescription": "./descriptions/sections/input/product.md"
         },
         {
-          "enum": ["product_list"],
+          "enum": [
+            "product_list"
+          ],
           "title": "Products drop-down",
           "markdownDescription": "./descriptions/sections/input/product_list.md"
         },
         {
-          "enum": ["blog"],
+          "enum": [
+            "blog"
+          ],
           "title": "Blogs drop-down",
           "markdownDescription": "./descriptions/sections/input/blog.md"
         },
         {
-          "enum": ["page"],
+          "enum": [
+            "page"
+          ],
           "title": "Pages drop-down",
           "markdownDescription": "./descriptions/sections/input/page.md"
         },
         {
-          "enum": ["link_list"],
+          "enum": [
+            "link_list"
+          ],
           "title": "Link lists drop-down",
           "markdownDescription": "./descriptions/sections/input/link_list.md"
         },
         {
-          "enum": ["url"],
+          "enum": [
+            "url"
+          ],
           "title": "URL",
           "markdownDescription": "./descriptions/sections/input/url.md"
         },
         {
-          "enum": ["richtext"],
+          "enum": [
+            "richtext"
+          ],
           "title": "RichText",
           "markdownDescription": "./descriptions/sections/input/richtext.md"
         },
         {
-          "enum": ["inline_richtext"],
+          "enum": [
+            "inline_richtext"
+          ],
           "title": "Inline RichText",
           "markdownDescription": "./descriptions/sections/input/inline_richtext.md"
         },
         {
-          "enum": ["html"],
+          "enum": [
+            "html"
+          ],
           "title": "HTML",
           "markdownDescription": "./descriptions/sections/input/html.md"
         },
         {
-          "enum": ["article"],
+          "enum": [
+            "article"
+          ],
           "title": "Article",
           "markdownDescription": "./descriptions/sections/input/article.md"
         },
         {
-          "enum": ["header"],
+          "enum": [
+            "header"
+          ],
           "title": "Header",
           "markdownDescription": "./descriptions/sections/input/header.md"
         },
         {
-          "enum": ["paragraph"],
+          "enum": [
+            "paragraph"
+          ],
           "title": "Paragraph",
           "markdownDescription": "./descriptions/sections/input/paragraph.md"
         },
         {
-          "enum": ["liquid"],
+          "enum": [
+            "liquid"
+          ],
           "title": "Liquid",
           "markdownDescription": "./descriptions/sections/input/liquid.md"
         },
         {
-          "enum": ["video"],
+          "enum": [
+            "video"
+          ],
           "title": "Video",
           "markdownDescription": "./descriptions/sections/input/video.md"
         },
         {
-          "enum": ["video_url"],
+          "enum": [
+            "video_url"
+          ],
           "title": "Video URL",
           "markdownDescription": "./descriptions/sections/input/video_url.md"
         }
@@ -156,7 +217,9 @@
     }
   },
   "if": {
-    "required": ["type"],
+    "required": [
+      "type"
+    ],
     "type": "object",
     "properties": {
       "type": {
@@ -193,7 +256,10 @@
     }
   },
   "then": {
-    "required": ["id", "label"],
+    "required": [
+      "id",
+      "label"
+    ],
     "properties": {
       "id": {
         "type": "string",
@@ -213,7 +279,11 @@
         ]
       },
       "default": {
-        "type": ["string", "number", "boolean"],
+        "type": [
+          "string",
+          "number",
+          "boolean"
+        ],
         "default": "",
         "markdownDescription": "./descriptions/sections/standard/default.md"
       },
@@ -233,7 +303,9 @@
     "allOf": [
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
@@ -247,7 +319,9 @@
       },
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
@@ -265,7 +339,9 @@
       },
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
@@ -279,7 +355,9 @@
       },
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
@@ -293,11 +371,16 @@
       },
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
-              "enum": ["collection_list", "product_list"]
+              "enum": [
+                "collection_list",
+                "product_list"
+              ]
             }
           }
         },
@@ -307,11 +390,18 @@
       },
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
-              "enum": ["text", "textarea", "html", "number"]
+              "enum": [
+                "text",
+                "textarea",
+                "html",
+                "number"
+              ]
             }
           }
         },
@@ -321,7 +411,9 @@
       },
       {
         "if": {
-          "required": ["type"],
+          "required": [
+            "type"
+          ],
           "type": "object",
           "properties": {
             "type": {
@@ -337,11 +429,16 @@
   },
   "else": {
     "if": {
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "type": "object",
       "properties": {
         "type": {
-          "enum": ["header", "paragraph"]
+          "enum": [
+            "header",
+            "paragraph"
+          ]
         }
       }
     },
@@ -349,7 +446,9 @@
       "allOf": [
         {
           "if": {
-            "required": ["type"],
+            "required": [
+              "type"
+            ],
             "type": "object",
             "properties": {
               "type": {
@@ -364,7 +463,9 @@
         },
         {
           "if": {
-            "required": ["type"],
+            "required": [
+              "type"
+            ],
             "type": "object",
             "properties": {
               "type": {
@@ -381,7 +482,8 @@
     },
     "else": {
       "required": [],
-      "$comment": "Shared Section Schema $ref (references) will be inserted here"
+      "$comment": "Shared Section Schema $ref (references) will be inserted here",
+      "$ref": "#/definitions/shared_settings"
     }
   }
 }

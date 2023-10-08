@@ -4,9 +4,8 @@
   "max_blocks": 3,
   "settings": [
     {
-      "$ref": "forms.textarea"
+      "$ref": "bar.two"
     },
-
     {
       "type": "select",
       "id": "logo_position",
@@ -202,6 +201,7 @@
     }
   ],
   "blocks": [
+    {},
     {
       "name": "foo",
       "type": "bar",
