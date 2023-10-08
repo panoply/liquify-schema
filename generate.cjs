@@ -2,6 +2,8 @@ const { join, basename } = require('node:path');
 const { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } = require('node:fs');
 const cwd = process.cwd();
 
+const MINIFY = 0;
+
 /**
  * Ensure we are only traversing JSON files.
  * These must be passed in order of injection dependants
@@ -443,7 +445,7 @@ function mapContent () {
       /**
        * Minification of JSON
        */
-      const minify = JSON.stringify(JSON.parse(json), null, 2);
+      const minify = JSON.stringify(JSON.parse(json), null, MINIFY);
 
       if (file.startsWith('theme-docs')) {
 
