@@ -1,11 +1,71 @@
 {
-  "stores": [
-    {
-      "domain": "xxx",
-      "themes": {
-        "dev": 12345678910
+  "syncify": {
+    "stores": [
+      {
+        "domain": "xxx",
+        "themes": {
+          "dev": 12345678910
+        }
+      }
+    ],
+    "config": {
+      "paths": {
+        "assets": "assets/**/*",
+        "config": "config/*.json",
+        "locales": "locales/*.json",
+        "layout": "layout/*.liquid",
+        "snippets": "snippets/**/*.liquid",
+        "schema": "schema/*.json",
+        "sections": "sections/**/*.liquid",
+        "templates": "templates/*",
+        "customers": "customers/*",
+        "metaobject": "metaobject/*",
+        "metafields": "metafields/**/*.json",
+        "pages": "pages/**/*",
+        "redirects": "redirects.yaml"
+      },
+      "views": {
+        "sections": {
+          "prefixDir": false,
+          "separator": "-",
+          "global": []
+        },
+        "snippets": {
+          "prefixDir": false,
+          "separator": "-",
+          "global": []
+        },
+        "pages": {
+          "importLanguage": "markdown",
+          "suffixDir": false,
+          "author": "",
+          "global": []
+        }
+      },
+      "hot": {
+        "label": "visible",
+        "inject": true,
+        "server": 3000,
+        "socket": 8089,
+        "method": "hot",
+        "strategy": "hydrate",
+        "scroll": "preserved",
+        "layouts": [
+          "theme.liquid"
+        ]
+      },
+      "log": {
+        "stats": true,
+        "warnings": true,
+        "silent": false,
+        "clear": true
+      },
+      "publish": {
+        "tunnelPort": 80,
+        "publishRole": "unpublished",
+        "bindVersion": true,
+        "themeLimit": 3
       }
     }
-  ],
-  "configuration": {}
+  }
 }

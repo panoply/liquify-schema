@@ -1,4 +1,7 @@
 {
+  "d": {
+    "foo bar": "foo"
+  },
   "foo": {
     "foo bar": "ddd"
   }

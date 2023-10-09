@@ -13,6 +13,9 @@ const FILES = [
   // ÆSTHETIC
   'esthetic.json',
 
+  // ÆSTHETIC
+  'esthetic-package-json.json',
+
   // LIQUIDRC
   'liquidrc.json',
 

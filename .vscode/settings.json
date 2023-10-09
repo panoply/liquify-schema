@@ -33,6 +33,21 @@
       }
     },
     /* -------------------------------------------- */
+    /* ÆSTHETIC                                     */
+    /* -------------------------------------------- */
+    {
+      "fileMatch": [
+        "esthetic-config.json"
+      ],
+      "url": "./package/esthetic.json"
+    },
+    {
+      "fileMatch": [
+        "esthetic-package.json"
+      ],
+      "url": "./package/esthetic/package-json.json"
+    },
+    /* -------------------------------------------- */
     /* THEME DOCS                                   */
     /* -------------------------------------------- */
     {
@@ -52,9 +67,18 @@
     /* -------------------------------------------- */
     {
       "fileMatch": [
-        "shopify-settings.json"
+        "shopify-settings-schema.json"
       ],
       "url": "/package/shopify/settings_schema.json"
+    },
+    /* -------------------------------------------- */
+    /* SHOPIFY LOCALES                               */
+    /* -------------------------------------------- */
+    {
+      "fileMatch": [
+        "shopify-locale-file.json"
+      ],
+      "url": "/package/shopify/locales.json"
     },
     /* -------------------------------------------- */
     /* SHOPIFY SECTIONS                             */

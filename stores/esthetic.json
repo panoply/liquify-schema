@@ -11,6 +11,11 @@
       "default": 0,
       "markdownDescription": "./descriptions/format/global/wrapFraction.md"
     },
+    "correct": {
+      "type": "boolean",
+      "default": false,
+      "markdownDescription": "./descriptions/format/global/correct.md"
+    },
     "language": {
       "enum": [
         "auto",
@@ -130,7 +135,9 @@
             "additionalItems": true,
             "uniqueItems": true,
             "not": {
-              "enum": ["comment"]
+              "enum": [
+                "comment"
+              ]
             },
             "enum": [
               "form",
@@ -160,7 +167,9 @@
             "additionalItems": true,
             "uniqueItems": true,
             "not": {
-              "enum": ["comment"]
+              "enum": [
+                "comment"
+              ]
             },
             "enum": [
               "form",
@@ -190,7 +199,10 @@
           "default": "after",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/lineBreakSeparator.md",
-          "enum": ["before", "after"]
+          "enum": [
+            "before",
+            "after"
+          ]
         },
         "normalizeSpacing": {
           "default": true,
@@ -211,7 +223,11 @@
           "default": "none",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/quoteConvert.md",
-          "enum": ["none", "double", "single"]
+          "enum": [
+            "none",
+            "double",
+            "single"
+          ]
         }
       }
     },
@@ -232,7 +248,10 @@
           ]
         },
         "attributeSort": {
-          "type": ["boolean", "array"],
+          "type": [
+            "boolean",
+            "array"
+          ],
           "default": false,
           "oneOf": [
             {
@@ -269,7 +288,11 @@
           "markdownDescription": "./descriptions/format/markup/commentNewline.md"
         },
         "delimiterTerminus": {
-          "enum": ["inline", "force", "adapt"],
+          "enum": [
+            "inline",
+            "force",
+            "adapt"
+          ],
           "default": "inline",
           "markdownDescription": "./descriptions/format/markup/delimiterTerminus.md"
         },
@@ -279,7 +302,10 @@
           "markdownDescription": "./descriptions/format/markup/forceIndent.md"
         },
         "forceAttribute": {
-          "type": ["boolean", "number"],
+          "type": [
+            "boolean",
+            "number"
+          ],
           "default": false,
           "markdownDescription": "./descriptions/format/markup/forceAttribute.md"
         },
@@ -344,7 +370,11 @@
           "default": "none",
           "type": "string",
           "markdownDescription": "./descriptions/format/markup/quoteConvert.md",
-          "enum": ["none", "double", "single"]
+          "enum": [
+            "none",
+            "double",
+            "single"
+          ]
         },
         "delimiterTrims": {
           "deprecationMessage": "./descriptions/format/deprecated/liquid.md"
@@ -409,20 +439,32 @@
           "default": "none",
           "title": "Trailing Comma",
           "markdownDescription": "If there should be a trailing comma in arrays and objects",
-          "enum": ["none", "never", "always"]
+          "enum": [
+            "none",
+            "never",
+            "always"
+          ]
         },
         "arrayFormat": {
           "type": "string",
           "default": "default",
           "markdownDescription": "**_ARRAY FORMAT_**\n\n_Determines if all array indexes should be indented, never indented, or left to the default. The `default` option will leave array indexes intact and not apply any formatting._\n\n---\n#### `inline`&nbsp;&nbsp;&nbsp;👎\nEnsure all array indexes appear on a single line\n```json\n\n{\n  \"object\": [1,2,3,4]\n}\n\n```\n---\n#### `indent`&nbsp;&nbsp;&nbsp;👍\nAlways indent each index of an array\n\n```json\n\n{\n  \"object\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}\n\n```",
-          "enum": ["default", "indent", "inline"]
+          "enum": [
+            "default",
+            "indent",
+            "inline"
+          ]
         },
         "objectIndent": {
           "type": "string",
           "default": "default",
           "title": "Formatting Arrays",
           "markdownDescription": "Determines if all object keys should be indented, never indented, or left to the default",
-          "enum": ["default", "indent", "inline"]
+          "enum": [
+            "default",
+            "indent",
+            "inline"
+          ]
         },
         "functionNameSpace": {
           "type": "boolean",
@@ -468,7 +510,11 @@
           "title": "Convert Quotes",
           "markdownDescription": "If the quotes of script strings or document attributes should be converted to single quotes or double quotes",
           "type": "string",
-          "enum": ["double", "single", "none"]
+          "enum": [
+            "double",
+            "single",
+            "none"
+          ]
         },
         "functionSpace": {
           "type": "boolean",
@@ -498,7 +544,7 @@
     "style": {
       "type": "object",
       "additionalProperties": false,
-      "markdownDescription": "Beautification rules for the following _style_ languages:\n\n- **CSS**\n- **SCSS**\n- **\n- **SASS**\n- **LESS**\n\n. Options provided here will also be applied to the following markup embedded language blocks.",
+      "markdownDescription": "Beautification rules for the following _style_ languages:\n\n- **CSS**\n- **SCSS**\n- **SASS**\n- **LESS**\n\n. Options provided here will also be applied to the following markup embedded language blocks.",
       "properties": {
         "atRuleSpace": {
           "type": "boolean",
@@ -549,7 +595,11 @@
           "default": "none",
           "markdownDescription": "./descriptions/format/style/quoteConvert.md",
           "type": "string",
-          "enum": ["none", "double", "single"]
+          "enum": [
+            "none",
+            "double",
+            "single"
+          ]
         }
       }
     },
@@ -562,7 +612,11 @@
           "type": "string",
           "default": "default",
           "markdownDescription": "./descriptions/format/json/arrayFormat.md",
-          "enum": ["default", "indent", "inline"]
+          "enum": [
+            "default",
+            "indent",
+            "inline"
+          ]
         },
         "braceAllman": {
           "type": "boolean",
@@ -578,7 +632,11 @@
           "type": "string",
           "default": "default",
           "markdownDescription": "./descriptions/format/json/objectIndent.md",
-          "enum": ["default", "indent", "inline"]
+          "enum": [
+            "default",
+            "indent",
+            "inline"
+          ]
         },
         "objectSort": {
           "type": "boolean",
