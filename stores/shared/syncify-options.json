@@ -558,9 +558,9 @@
           "additionalProperties": false,
           "markdownDescription": "./descriptions/syncify/options/views/pages.md",
           "properties": {
-            "importLanguage": {
+            "language": {
               "type": "string",
-              "markdownDescription": "./descriptions/syncify/options/views/pages/importLanguage.md",
+              "markdownDescription": "./descriptions/syncify/options/views/pages/language.md",
               "oneOf": [
                 {
                   "enum": [
@@ -913,24 +913,24 @@
         "indent": {
           "type": "number",
           "default": 2,
-          "markdownDescription": "The indentation level.\n\nDefault: 2"
+          "markdownDescription": "The indentation level.\n\nDefault: `2`"
         },
         "useTab": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Whether to use '\\t' indentation characters.\n\nDefault: false"
+          "markdownDescription": "Whether to use `\t` indentation characters.\n\nDefault: `false`"
         },
         "crlf": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "If line termination should be Windows (CRLF) format. Unix (LF) format is the default.\n\nDefault: false"
+          "markdownDescription": "If line termination should be Windows (CRLF) format. Unix (LF) format is the default.\n\nDefault: `false`"
         },
         "exclude": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "markdownDescription": "An optional string list of paths/filenames to exclude from processing, i.e., pass through.\n\nDefault: false"
+          "markdownDescription": "An optional string list of paths/filenames to exclude from processing, i.e., pass through.\n\nDefault: `false`"
         }
       },
       "additionalProperties": false
@@ -939,47 +939,53 @@
       "type": "object",
       "markdownDescription": "./descriptions/syncify/options/transform.md",
       "additionalProperties": false,
-      "json": {
-        "$ref": "#/definitions/json"
-      },
-      "script": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/script"
-          },
-          {
-            "type": "array",
-            "items": {
+      "properties": {
+        "json": {
+          "markdownDescription": "./descriptions/syncify/options/transform/json.md",
+          "$ref": "#/definitions/json"
+        },
+        "script": {
+          "markdownDescription": "./descriptions/syncify/options/transform/script.md",
+          "oneOf": [
+            {
               "$ref": "#/definitions/script"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/script"
+              }
             }
-          }
-        ]
-      },
-      "style": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/style"
-          },
-          {
-            "type": "array",
-            "items": {
+          ]
+        },
+        "style": {
+          "markdownDescription": "./descriptions/syncify/options/transform/style.md",
+          "oneOf": [
+            {
               "$ref": "#/definitions/style"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/style"
+              }
             }
-          }
-        ]
-      },
-      "svg": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/svg"
-          },
-          {
-            "type": "array",
-            "items": {
+          ]
+        },
+        "svg": {
+          "markdownDescription": "./descriptions/syncify/options/transform/svg.md",
+          "oneOf": [
+            {
               "$ref": "#/definitions/svg"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/svg"
+              }
             }
-          }
-        ]
+          ]
+        }
       }
     },
     "terser": {

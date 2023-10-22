@@ -1,4 +1,4 @@
 Preserve the inner contents of Liquid block comments.
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/liquid/preserveComment/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/liquid/preserveComment/)

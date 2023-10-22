@@ -2,4 +2,4 @@ Controls how much indentation padding should be applied to beautification. This 
 
 Avoid using this rule, it is highly unlikely you'll require it within your project.
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/global/indentLevel/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/global/indentLevel/)

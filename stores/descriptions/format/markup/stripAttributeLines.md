@@ -3,4 +3,4 @@ Whether or not newlines contained within tag attributes or preserved. This rule 
 This rule wil only take effect when `forceAttribute` is enabled (ie: `true`) or the `forceAttribute` limit has been exceeded as per the provided value. In addition to `forceAttribute`, the global `preserveLine` rule value is used to determine the amount of lines allowed.
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/markup/stripAttributeLines/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/markup/stripAttributeLines/)

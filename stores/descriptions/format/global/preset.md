@@ -24,4 +24,4 @@ A preset ruleset style guide to use. This will assign rules according to a set o
 
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/global/preset/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/global/preset/)

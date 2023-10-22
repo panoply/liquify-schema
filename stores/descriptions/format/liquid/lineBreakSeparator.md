@@ -10,4 +10,4 @@ This is a Liquid specific formatting rule which will default to `after` when no 
 - after
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/liquid/lineBreakSeparator/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/liquid/lineBreakSeparator/)

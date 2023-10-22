@@ -24,6 +24,12 @@
         "pages": "pages/**/*",
         "redirects": "redirects.yaml"
       },
+      "publish": {
+        "tunnelPort": 80,
+        "publishRole": "unpublished",
+        "bindVersion": true,
+        "themeLimit": 3
+      },
       "views": {
         "sections": {
           "prefixDir": false,
@@ -36,7 +42,7 @@
           "global": []
         },
         "pages": {
-          "importLanguage": "markdown",
+          "language": "markdown",
           "suffixDir": false,
           "author": "",
           "global": []
@@ -60,12 +66,7 @@
         "silent": false,
         "clear": true
       },
-      "publish": {
-        "tunnelPort": 80,
-        "publishRole": "unpublished",
-        "bindVersion": true,
-        "themeLimit": 3
-      }
+      "transform": {}
     }
   }
 }

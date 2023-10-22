@@ -10,4 +10,4 @@ This rule defaults to using `preserve` which will leave attribute names and valu
 - lowercase-value
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/markup/attributeCasing/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/markup/attributeCasing/)

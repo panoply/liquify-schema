@@ -19,5 +19,5 @@ This is a Liquid specific formatting rule which defaults to using `preserve` whe
 - multiline
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/liquid/delimiterTrims/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/liquid/delimiterTrims/)
 

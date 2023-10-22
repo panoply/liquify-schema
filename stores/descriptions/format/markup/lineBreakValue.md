@@ -9,4 +9,4 @@ Attribute value handling applied when values span multiple lines.
 - force-align
 - force-indent
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/markup/lineBreakValue/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/markup/lineBreakValue/)

@@ -1,5 +1,5 @@
 Applies single indentation to containing content of HTML comments.
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/markup/commentIndent/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/markup/commentIndent/)
 

@@ -1,4 +1,4 @@
 Insert a single whitespace character between `@`prefixed rule types.
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/global/wrapFraction/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/global/wrapFraction/)

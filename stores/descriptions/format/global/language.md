@@ -14,5 +14,5 @@ The name of the language provided. This option can be omitted when using Æsthet
 - [TSX](https://www.typescriptlang.org/docs/handbook/jsx.html)
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/global/language/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/global/language/)
 

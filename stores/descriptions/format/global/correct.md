@@ -7,4 +7,4 @@ Enabling this rule is not going to produce miracles and for the most part will h
 > This rule is still experimental and will be both improved and refined in future versions.
 
 
-[Æsthetic Documentation](https://æsthetic.dev/rules/global/correct/)
+[Æsthetic Documentation](https://aesthetic.js.org/rules/global/correct/)
