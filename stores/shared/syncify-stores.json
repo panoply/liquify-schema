@@ -1,22 +1,43 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "type": "object",
-  "required": ["domain", "themes"],
-  "additionalProperties": false,
-  "properties": {
-    "domain": {
-      "markdownDescription": "./../descriptions/syncify/stores/domain.md",
-      "type": "string",
-      "pattern": "^[a-zA-Z0-9_-]+$"
-    },
-    "themes": {
-      "markdownDescription": "./../descriptions/syncify/stores/themes.md",
+  "oneOf": [
+    {
       "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "patternProperties": {
+          "[a-z]+": {
+            "type": "number"
+          }
+        }
+      },
       "propertyNames": {
-        "type": "number",
-        "pattern": "^[@:a-z0-9_$-]{1,15}$",
-        "markdownDescription": "./../descriptions/syncify/stores/targets.md"
+        "pattern": "[a-z0-9-]+|[a-z0-9-]+\\.myshopify\\.com"
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "domain",
+        "themes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "markdownDescription": "./../descriptions/syncify/stores/domain.md",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]+$"
+        },
+        "themes": {
+          "markdownDescription": "./../descriptions/syncify/stores/themes.md",
+          "type": "object",
+          "propertyNames": {
+            "type": "number",
+            "pattern": "^[@:a-z0-9_$-]{1,15}$",
+            "markdownDescription": "./../descriptions/syncify/stores/targets.md"
+          }
+        }
       }
     }
-  }
+  ]
 }

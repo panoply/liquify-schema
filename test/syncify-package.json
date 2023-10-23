@@ -1,13 +1,11 @@
 {
   "syncify": {
-    "stores": [
-      {
-        "domain": "xxx",
-        "themes": {
-          "dev": 12345678910
-        }
+    "stores": {
+      "domain": "my-store",
+      "themes": {
+        "dev": 12345678910
       }
-    ],
+    },
     "config": {
       "paths": {
         "assets": "assets/**/*",
@@ -66,7 +64,15 @@
         "silent": false,
         "clear": true
       },
-      "transform": {}
+      "transform": {
+        "style": {
+          "input": "",
+          "sass": {}
+        },
+        "svg": {
+          "assets/foo.": ""
+        }
+      }
     }
   }
 }

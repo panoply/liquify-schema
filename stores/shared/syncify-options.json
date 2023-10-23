@@ -358,69 +358,87 @@
       }
     },
     "stores": {
-      "type": [
-        "object",
-        "array"
-      ],
       "oneOf": [
         {
           "type": "object",
-          "required": [
-            "domain",
-            "themes"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "domain": {
-              "markdownDescription": "./descriptions/syncify/stores/domain.md",
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$"
-            },
-            "themes": {
-              "markdownDescription": "./descriptions/syncify/stores/themes.md",
-              "examples": [
-                {
-                  "dev": 12345678910
-                }
-              ],
-              "type": "object",
-              "propertyNames": {
-                "pattern": "^[a-z0-9_$-]{1,15}$",
-                "markdownDescription": "./descriptions/syncify/stores/targets.md"
+          "additionalProperties": {
+            "type": "object",
+            "patternProperties": {
+              "[a-z]+": {
+                "type": "number"
               }
             }
+          },
+          "propertyNames": {
+            "pattern": "[a-z0-9-]+|[a-z0-9-]+\\.myshopify\\.com"
           }
         },
         {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "domain",
-              "themes"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "domain": {
-                "markdownDescription": "./descriptions/syncify/stores/domain.md",
-                "type": "string",
-                "pattern": "^[a-zA-Z0-9_-]+$"
-              },
-              "themes": {
-                "markdownDescription": "./descriptions/syncify/stores/themes.md",
-                "examples": [
-                  {
-                    "dev": 12345678910
+          "type": [
+            "object",
+            "array"
+          ],
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "domain",
+                "themes"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "domain": {
+                  "markdownDescription": "./descriptions/syncify/stores/domain.md",
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9_-]+$"
+                },
+                "themes": {
+                  "markdownDescription": "./descriptions/syncify/stores/themes.md",
+                  "examples": [
+                    {
+                      "dev": 12345678910
+                    }
+                  ],
+                  "type": "object",
+                  "propertyNames": {
+                    "pattern": "^[a-z0-9_$-]{1,15}$",
+                    "markdownDescription": "./descriptions/syncify/stores/targets.md"
                   }
-                ],
+                }
+              }
+            },
+            {
+              "type": "array",
+              "items": {
                 "type": "object",
-                "propertyNames": {
-                  "pattern": "^[a-z0-9_$-]{1,15}$",
-                  "markdownDescription": "./descriptions/syncify/stores/targets.md"
+                "required": [
+                  "domain",
+                  "themes"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "domain": {
+                    "markdownDescription": "./descriptions/syncify/stores/domain.md",
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_-]+$"
+                  },
+                  "themes": {
+                    "markdownDescription": "./descriptions/syncify/stores/themes.md",
+                    "examples": [
+                      {
+                        "dev": 12345678910
+                      }
+                    ],
+                    "type": "object",
+                    "propertyNames": {
+                      "pattern": "^[a-z0-9_$-]{1,15}$",
+                      "markdownDescription": "./descriptions/syncify/stores/targets.md"
+                    }
+                  }
                 }
               }
             }
-          }
+          ]
         }
       ]
     },
@@ -766,9 +784,50 @@
           "markdownDescription": "./descriptions/syncify/options/transform/style/postcss.md"
         },
         "sass": {
-          "type": "boolean",
-          "default": true,
-          "markdownDescription": "./descriptions/syncify/options/transform/style/sass.md"
+          "markdownDescription": "./descriptions/syncify/options/transform/style/sass.md",
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "include": {
+                  "type": "array",
+                  "default": [],
+                  "markdownDescription": "A list of paths to include, ie: node_modules.",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "style": {
+                  "type": "string",
+                  "markdownDescription": "The style compiled CSS should be output.",
+                  "default": "compressed",
+                  "enum": [
+                    "compressed",
+                    "expanded"
+                  ]
+                },
+                "warnings": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Whether or not to print warnings to CLI - Warnings will require an stdin invocation to view in Syncify, which logs will instruct upon.. Setting this to `false` will hide warnings all together."
+                },
+                "sourcemaps": {
+                  "type": "boolean",
+                  "markdownDescription": "Whether or not to generate sourcemaps. Syncify will write sourcemaps within `node_modules/.syncify` and handle processing for you. Setting this to `false` will effectively disable sourcemap generation, generally not preferred as Syncify is pre-configured to reason about with sourcemaps on your behalf.",
+                  "default": true
+                },
+                "quietDeps": {
+                  "type": "boolean",
+                  "default": false,
+                  "markdownDescription": "This option is passed to SASS Dart compile instance. If this option is set to `true`, Sass won’t print warnings that are caused by dependencies. A `dependency` is defined as any file that’s loaded through external sources."
+                }
+              }
+            }
+          ]
         }
       }
     },
@@ -946,7 +1005,32 @@
         },
         "script": {
           "markdownDescription": "./descriptions/syncify/options/transform/script.md",
+          "type": "object",
+          "propertyNames": {
+            "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+            "markdownDescription": "./descriptions/syncify/options/transform/script/input-pattern.md"
+          },
           "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/script"
+                  }
+                ]
+              }
+            },
             {
               "$ref": "#/definitions/script"
             },
@@ -962,6 +1046,30 @@
           "markdownDescription": "./descriptions/syncify/options/transform/style.md",
           "oneOf": [
             {
+              "type": "object",
+              "propertyNames": {
+                "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+                "markdownDescription": "./descriptions/syncify/options/transform/style/input-pattern.md"
+              },
+              "additionalProperties": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/style"
+                  }
+                ]
+              }
+            },
+            {
               "$ref": "#/definitions/style"
             },
             {
@@ -975,6 +1083,29 @@
         "svg": {
           "markdownDescription": "./descriptions/syncify/options/transform/svg.md",
           "oneOf": [
+            {
+              "type": "object",
+              "propertyNames": {
+                "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+                "markdownDescription": "./descriptions/syncify/options/transform/svg/input-pattern.md"
+              },
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/svg"
+                  }
+                ]
+              }
+            },
             {
               "$ref": "#/definitions/svg"
             },
