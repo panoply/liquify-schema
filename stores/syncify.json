@@ -1,61 +1,47 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "syncify",
   "version": 1.1,
   "injectShared": "./shared/syncify-options.json",
-  "type": "object",
-  "markdownDescription": "Syncify CLI - Configuration",
-  "required": [
-    "stores"
-  ],
+  "markdownDescription": "./descriptions/syncify/misc/config.md",
   "properties": {
-    "stores": {
-      "$ref": "#/definitions/stores"
+    "input": {
+      "$ref": "#/definitions/input"
     },
-    "config": {
-      "markdownDescription": "./descriptions/syncify/misc/config.md",
-      "type": "object",
-      "properties": {
-        "input": {
-          "$ref": "#/definitions/input"
-        },
-        "output": {
-          "$ref": "#/definitions/output"
-        },
-        "import": {
-          "$ref": "#/definitions/import"
-        },
-        "export": {
-          "$ref": "#/definitions/export"
-        },
-        "publish": {
-          "$ref": "#/definitions/publish"
-        },
-        "paths": {
-          "$ref": "#/definitions/paths"
-        },
-        "spawn": {
-          "$ref": "#/definitions/spawn"
-        },
-        "log": {
-          "$ref": "#/definitions/log"
-        },
-        "hot": {
-          "$ref": "#/definitions/hot"
-        },
-        "views": {
-          "$ref": "#/definitions/views"
-        },
-        "terser": {
-          "$ref": "#/definitions/terser"
-        },
-        "transform": {
-          "$ref": "#/definitions/transform"
-        },
-        "processors": {
-          "$ref": "#/definitions/processors"
-        }
-      }
+    "output": {
+      "$ref": "#/definitions/output"
+    },
+    "import": {
+      "$ref": "#/definitions/import"
+    },
+    "export": {
+      "$ref": "#/definitions/export"
+    },
+    "publish": {
+      "$ref": "#/definitions/publish"
+    },
+    "paths": {
+      "$ref": "#/definitions/paths"
+    },
+    "spawn": {
+      "$ref": "#/definitions/spawn"
+    },
+    "log": {
+      "$ref": "#/definitions/log"
+    },
+    "hot": {
+      "$ref": "#/definitions/hot"
+    },
+    "views": {
+      "$ref": "#/definitions/views"
+    },
+    "terser": {
+      "$ref": "#/definitions/terser"
+    },
+    "transform": {
+      "$ref": "#/definitions/transform"
+    },
+    "processors": {
+      "$ref": "#/definitions/processors"
     }
   }
 }

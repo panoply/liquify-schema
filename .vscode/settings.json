@@ -117,6 +117,12 @@
       ],
       "url": "./package/syncify/package-json.json"
     },
+    {
+      "fileMatch": [
+        "syncify.config.json",
+      ],
+      "url": "./package/syncify.json"
+    },
     /* -------------------------------------------- */
     /* SHOPIFY SECTION GROUPS                       */
     /* -------------------------------------------- */

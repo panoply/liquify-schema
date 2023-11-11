@@ -1005,16 +1005,14 @@
         },
         "script": {
           "markdownDescription": "./descriptions/syncify/options/transform/script.md",
-          "type": "object",
-          "propertyNames": {
-            "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
-            "markdownDescription": "./descriptions/syncify/options/transform/script/input-pattern.md"
-          },
           "oneOf": [
             {
               "type": "object",
+              "propertyNames": {
+                "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+                "markdownDescription": "./descriptions/syncify/options/transform/script/input-pattern.md"
+              },
               "additionalProperties": {
-                "type": "object",
                 "oneOf": [
                   {
                     "type": "array",
@@ -1052,7 +1050,6 @@
                 "markdownDescription": "./descriptions/syncify/options/transform/style/input-pattern.md"
               },
               "additionalProperties": {
-                "type": "object",
                 "oneOf": [
                   {
                     "type": "array",

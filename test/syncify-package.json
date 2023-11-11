@@ -65,13 +65,15 @@
         "clear": true
       },
       "transform": {
-        "style": {
-          "input": "",
-          "sass": {}
+        "script": {
+          "assets/[file]": "assets/scripts/*.js"
         },
-        "svg": {
-          "assets/foo.": ""
+        "style": {
+          "assets/[file]": "assets/styles/*.css"
         }
+      },
+      "svg": {
+        "assets/foo.": ""
       }
     }
   }
