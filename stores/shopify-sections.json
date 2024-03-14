@@ -751,6 +751,20 @@
         "section"
       ]
     },
+    "text_alignment": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string",
+          "default": "left",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ]
+        }
+      }
+    },
     "enabled_on": {
       "title": "Enabled On",
       "markdownDescription": "./descriptions/sections/settings/enabled_on.md",
