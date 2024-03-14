@@ -166,6 +166,13 @@
         },
         {
           "enum": [
+            "text_alignment"
+          ],
+          "title": "Text Alignment",
+          "markdownDescription": "./descriptions/sections/input/text_alignment.md"
+        },
+        {
+          "enum": [
             "html"
           ],
           "title": "HTML",
@@ -246,6 +253,7 @@
           "url",
           "richtext",
           "inline_richtext",
+          "text_alignment",
           "html",
           "article",
           "liquid",
@@ -264,6 +272,7 @@
       "id": {
         "type": "string",
         "default": "",
+        "minLength": 1,
         "markdownDescription": "./descriptions/sections/standard/id.md"
       },
       "label": {
@@ -284,7 +293,6 @@
           "number",
           "boolean"
         ],
-        "default": "",
         "markdownDescription": "./descriptions/sections/standard/default.md"
       },
       "info": {
@@ -351,6 +359,22 @@
         },
         "then": {
           "$ref": "#/definitions/select"
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "type"
+          ],
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "text_alignment"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/text_alignment"
         }
       },
       {

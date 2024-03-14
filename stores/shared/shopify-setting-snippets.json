@@ -20,6 +20,16 @@
     }
   },
   {
+    "label": "Text Alignment",
+    "markdownDescription": "./descriptions/sections/input/text_alignment.md",
+    "body": {
+      "type": "text_alignment",
+      "id": "$2",
+      "label": "${2/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$3",
+      "default": "${4|left,center,right|}"
+    }
+  },
+  {
     "label": "Number",
     "markdownDescription": "./descriptions/sections/input/number.md",
     "body": {
@@ -50,7 +60,9 @@
       "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
       "default": "$4",
       "info": "$5",
-      "options": ["^$3"]
+      "options": [
+        "^$3"
+      ]
     }
   },
   {
@@ -62,7 +74,9 @@
       "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
       "default": "$4",
       "info": "$5",
-      "options": ["^$3"]
+      "options": [
+        "^$3"
+      ]
     }
   },
   {
@@ -281,7 +295,9 @@
       "type": "video_url",
       "id": "$1",
       "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-      "accepts": ["^3"]
+      "accepts": [
+        "^3"
+      ]
     }
   }
 ]
