@@ -1,0 +1,6 @@
+{
+  "engine": "shopify",
+  "filters": {
+    "foo": {}
+  }
+}

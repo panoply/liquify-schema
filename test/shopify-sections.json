@@ -7,6 +7,24 @@
       "$ref": "bar.two"
     },
     {
+      "type": "text_alignment",
+      "id": "foo bar",
+      "label": "Foo bar",
+      "default": "center"
+    },
+    {
+      "type": "text_alignment",
+      "id": "",
+      "label": "",
+      "default": "left"
+    },
+    {
+      "type": "text_alignment",
+      "id": "",
+      "label": "",
+      "default": "left"
+    },
+    {
       "type": "select",
       "id": "logo_position",
       "options": [
@@ -30,6 +48,12 @@
       "default": "middle-left",
       "label": "t:sections.header.settings.logo_position.label",
       "info": "t:sections.header.settings.logo_help.content"
+    },
+    {
+      "type": "text",
+      "id": "",
+      "label": "",
+      "default": ""
     },
     {
       "type": "link_list",
