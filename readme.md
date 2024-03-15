@@ -5,7 +5,7 @@ This module contains [JSON Schema Stores](https://json-schema.org/) which are us
 **The [sections](#shopify-sections) schema store that was written for the Shopify Liquid variation is not MIT. Please ask permission before using, borrowing logic and/or adapting it into your projects. Unless you have consent, you cannot implement the structures.**
 
 > **Note**&nbsp;
-> This only applies to the section schema store - all other schemas are MIT.
+> This only applies to the section schema store - All other schemas are MIT.
 
 ### Why?
 
@@ -105,7 +105,7 @@ JSON Schema used for the data references available in the [theme-liquid-docs](ht
 
 # Licensed Stores
 
-Below is the list od license imposed schema stores available in this module. Licensed schemas are MIT usage for individuals and developers but Shopify employees do not have permission to leverage, use, borrow or even view those schemas. You are not paid to copy or redistribute work that you did not create for you financial benefit or for you to score points at your job. Either write your own or contact me for usage.
+Below is the list of license imposed schema stores available. Licensed schemas are MIT usage for individuals and developers but **Shopify Employees** do not have permission to leverage, use, borrow or even view these schemas. You are not paid to copy or redistribute work that you did not create for your financial benefit or so you to score points at your job. Either write your own or contact me for usage.
 
 ### [Shopify Templates](https://unpkg.com/@liquify/schema/shopify/templates.json)
 
