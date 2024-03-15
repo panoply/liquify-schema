@@ -1,6 +1,6 @@
 {
   "name": "@liquify/schema",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "private": false,
   "license": "SEE LICENSE IN LICENSE.txt",
   "description": "JSON Schema stores used in Liquify",

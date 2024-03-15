@@ -105,7 +105,7 @@ JSON Schema used for the data references available in the [theme-liquid-docs](ht
 
 # Licensed Stores
 
-Below is the list of license imposed schema stores available. Licensed schemas are MIT usage for individuals and developers but **Shopify Employees** do not have permission to leverage, use, borrow or even view these schemas. You are not paid to copy or redistribute work that you did not create for your financial benefit or so you to score points at your job. Either write your own or contact me for usage.
+Below is the list of license imposed schema stores available. Licensed schemas are MIT usage for individuals and developers but **Shopify Employees do not have permission** to leverage, use, borrow or even view these schemas. You are not paid to copy or redistribute work that you did not create for your financial benefit or so you can score points at your job. Either write your own or contact me for usage.
 
 ### [Shopify Templates](https://unpkg.com/@liquify/schema/shopify/templates.json)
 
