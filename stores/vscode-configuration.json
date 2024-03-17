@@ -7,7 +7,11 @@
     "liquid.engine": {
       "type": "string",
       "default": "shopify",
-      "enum": ["standard", "shopify", "11ty", "jekyll"],
+      "enum": [
+        "standard",
+        "shopify",
+        "11ty"
+      ],
       "markdownDescription": "./descriptions/vscode/engine.md"
     },
     "liquid.config.baseDir": {
@@ -18,7 +22,10 @@
       "type": "string",
       "default": "liquidrc",
       "markdownDescription": "./descriptions/vscode/config/method.md",
-      "enum": ["liquidrc", "workspace"]
+      "enum": [
+        "liquidrc",
+        "workspace"
+      ]
     },
     "liquid.files.shopify": {
       "type": "object",
@@ -42,7 +49,10 @@
           }
         },
         "sections": {
-          "type": ["array", "string"],
+          "type": [
+            "array",
+            "string"
+          ],
           "markdownDescription": "./descriptions/vscode/files/shopify/sections.md",
           "items": {
             "uniqueItems": true,
@@ -50,7 +60,10 @@
           }
         },
         "schema": {
-          "type": ["array", "string"],
+          "type": [
+            "array",
+            "string"
+          ],
           "markdownDescription": "./descriptions/vscode/files/shopify/schema.md",
           "items": {
             "uniqueItems": true,
@@ -75,14 +88,6 @@
         "includes": {
           "type": "array",
           "markdownDescription": "./descriptions/vscode/files/11ty/includes.md",
-          "items": {
-            "uniqueItems": true,
-            "type": "string"
-          }
-        },
-        "layouts": {
-          "type": "array",
-          "markdownDescription": "./descriptions/vscode/files/11ty/layouts.md",
           "items": {
             "uniqueItems": true,
             "type": "string"
@@ -129,6 +134,11 @@
       "type": "boolean",
       "default": true,
       "markdownDescription": "./descriptions/vscode/completion/variables.md"
+    },
+    "liquid.completion.frontmatter": {
+      "type": "boolean",
+      "default": true,
+      "markdownDescription": "./descriptions/vscode/completion/frontmatter.md"
     },
     "liquid.validate.schema": {
       "type": "boolean",

@@ -13,8 +13,7 @@
   // FILES
   "liquid.files.11ty": {
     "data": [],
-    "includes": [],
-    "layouts": []
+    "includes": []
   },
   "liquid.files.shopify": {
     "locales": "",
@@ -33,6 +32,7 @@
   "liquid.completion.sections": true,
   "liquid.completion.tags": true,
   "liquid.completion.variables": true,
+  "liquid.completion.frontmatter": true,
   //
   // HOVERS
   "liquid.hover.filters": true,
