@@ -12,7 +12,11 @@
         "engine": {
           "type": "string",
           "default": "shopify",
-          "enum": ["standard", "shopify", "11ty", "jekyll"],
+          "enum": [
+            "standard",
+            "shopify",
+            "11ty"
+          ],
           "markdownDescription": "./descriptions/vscode/engine.md"
         },
         "files": {
@@ -23,7 +27,9 @@
           "additionalProperties": false,
           "properties": {
             "ignore": {
-              "type": ["array"],
+              "type": [
+                "array"
+              ],
               "markdownDescription": "./descriptions/vscode/format/ignore.md",
               "items": {
                 "uniqueItems": true,
@@ -108,7 +114,9 @@
       "allOf": [
         {
           "if": {
-            "required": ["engine"],
+            "required": [
+              "engine"
+            ],
             "type": "object",
             "properties": {
               "engine": {
@@ -140,7 +148,10 @@
                     }
                   },
                   "sections": {
-                    "type": ["array", "string"],
+                    "type": [
+                      "array",
+                      "string"
+                    ],
                     "markdownDescription": "./descriptions/vscode/files/shopify/sections.md",
                     "items": {
                       "uniqueItems": true,
@@ -148,7 +159,10 @@
                     }
                   },
                   "schema": {
-                    "type": ["array", "string"],
+                    "type": [
+                      "array",
+                      "string"
+                    ],
                     "markdownDescription": "./descriptions/vscode/files/shopify/schema.md",
                     "items": {
                       "uniqueItems": true,
@@ -162,7 +176,9 @@
         },
         {
           "if": {
-            "required": ["engine"],
+            "required": [
+              "engine"
+            ],
             "type": "object",
             "properties": {
               "engine": {
@@ -188,14 +204,6 @@
                   "includes": {
                     "type": "array",
                     "markdownDescription": "./descriptions/vscode/files/11ty/includes.md",
-                    "items": {
-                      "uniqueItems": true,
-                      "type": "string"
-                    }
-                  },
-                  "layouts": {
-                    "type": "array",
-                    "markdownDescription": "./descriptions/vscode/files/11ty/layouts.md",
                     "items": {
                       "uniqueItems": true,
                       "type": "string"
