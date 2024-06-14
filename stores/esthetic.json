@@ -11,11 +11,6 @@
       "default": 0,
       "markdownDescription": "./descriptions/format/global/wrapFraction.md"
     },
-    "correct": {
-      "type": "boolean",
-      "default": false,
-      "markdownDescription": "./descriptions/format/global/correct.md"
-    },
     "language": {
       "enum": [
         "auto",
@@ -81,6 +76,11 @@
       "additionalProperties": false,
       "markdownDescription": "Beautification rules applied to **Liquid**",
       "properties": {
+        "argumentLineBreak": {
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "./descriptions/format/liquid/argumentLineBreak.md"
+        },
         "delimiterTrims": {
           "type": "string",
           "enum": [
@@ -111,20 +111,15 @@
           "default": false,
           "markdownDescription": "./descriptions/format/liquid/commentIndent.md"
         },
-        "commentNewline": {
+        "commentPreserve": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/liquid/commentNewline.md"
+          "markdownDescription": "./descriptions/format/liquid/commentPreserve.md"
         },
-        "forceArgument": {
+        "filterLineBreak": {
           "type": "number",
           "default": 0,
-          "markdownDescription": "./descriptions/format/liquid/forceArgument.md"
-        },
-        "forceFilter": {
-          "type": "number",
-          "default": 0,
-          "markdownDescription": "./descriptions/format/liquid/forceFilter.md"
+          "markdownDescription": "./descriptions/format/liquid/filterLineBreak.md"
         },
         "dedentTagList": {
           "type": "array",
@@ -135,9 +130,7 @@
             "additionalItems": true,
             "uniqueItems": true,
             "not": {
-              "enum": [
-                "comment"
-              ]
+              "enum": ["comment"]
             },
             "enum": [
               "form",
@@ -167,9 +160,7 @@
             "additionalItems": true,
             "uniqueItems": true,
             "not": {
-              "enum": [
-                "comment"
-              ]
+              "enum": ["comment"]
             },
             "enum": [
               "form",
@@ -199,20 +190,12 @@
           "default": "after",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/lineBreakSeparator.md",
-          "enum": [
-            "before",
-            "after"
-          ]
+          "enum": ["before", "after"]
         },
-        "normalizeSpacing": {
+        "equipoiseSpacing": {
           "default": true,
           "type": "boolean",
-          "markdownDescription": "./descriptions/format/liquid/normalizeSpacing.md"
-        },
-        "preserveComment": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "./descriptions/format/liquid/preserveComment.md"
+          "markdownDescription": "./descriptions/format/liquid/equipoiseSpacing.md"
         },
         "preserveInternal": {
           "type": "boolean",
@@ -223,11 +206,23 @@
           "default": "none",
           "type": "string",
           "markdownDescription": "./descriptions/format/liquid/quoteConvert.md",
-          "enum": [
-            "none",
-            "double",
-            "single"
-          ]
+          "enum": ["none", "double", "single"]
+        },
+
+        "commentNewline": {
+          "deprecationMessage": "./descriptions/format/deprecated/liquid/commentNewline.md"
+        },
+        "forceArgument": {
+          "deprecationMessage": "./descriptions/format/deprecated/liquid/forceArgument.md"
+        },
+        "forceFilter": {
+          "deprecationMessage": "./descriptions/format/deprecated/liquid/forceFilter.md"
+        },
+        "preserveComment": {
+          "deprecationMessage": "./descriptions/format/deprecated/liquid/preserveComment.md"
+        },
+        "normalizeSpacing": {
+          "deprecationMessage": "./descriptions/format/deprecated/liquid/normalizeSpacing.md"
         }
       }
     },
@@ -247,11 +242,18 @@
             "lowercase-value"
           ]
         },
+        "attributeLineBreak": {
+          "type": ["boolean", "number"],
+          "default": false,
+          "markdownDescription": "./descriptions/format/markup/attributeLineBreak.md"
+        },
+        "attributePreserve": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "./descriptions/format/markup/attributePreserve.md"
+        },
         "attributeSort": {
-          "type": [
-            "boolean",
-            "array"
-          ],
+          "type": ["boolean", "array"],
           "default": false,
           "oneOf": [
             {
@@ -271,7 +273,7 @@
           "default": false,
           "markdownDescription": "./descriptions/format/markup/commentIndent.md"
         },
-        "commentDelimiters": {
+        "commentDelimiter": {
           "enum": [
             "preserve",
             "inline",
@@ -280,19 +282,15 @@
             "consistent"
           ],
           "default": "preserve",
-          "markdownDescription": "./descriptions/format/markup/commentDelimiters.md"
+          "markdownDescription": "./descriptions/format/markup/commentDelimiter.md"
         },
-        "commentNewline": {
+        "commentPreserve": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/markup/commentNewline.md"
+          "markdownDescription": "./descriptions/format/markup/commentPreserve.md"
         },
         "delimiterTerminus": {
-          "enum": [
-            "inline",
-            "force",
-            "adapt"
-          ],
+          "enum": ["inline", "force", "adapt"],
           "default": "inline",
           "markdownDescription": "./descriptions/format/markup/delimiterTerminus.md"
         },
@@ -300,26 +298,6 @@
           "type": "boolean",
           "default": false,
           "markdownDescription": "./descriptions/format/markup/forceIndent.md"
-        },
-        "forceAttribute": {
-          "type": [
-            "boolean",
-            "number"
-          ],
-          "default": false,
-          "markdownDescription": "./descriptions/format/markup/forceAttribute.md"
-        },
-        "lineBreakValue": {
-          "enum": [
-            "preserve",
-            "align",
-            "indent",
-            "force-preserve",
-            "force-align",
-            "force-indent"
-          ],
-          "default": "preserve",
-          "markdownDescription": "./descriptions/format/markup/lineBreakValue.md"
         },
         "ignoreJS": {
           "type": "boolean",
@@ -356,37 +334,52 @@
           "default": false,
           "markdownDescription": "./descriptions/format/markup/stripAttributeLines.md"
         },
-        "preserveComment": {
+        "stripTextWrapLines": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "./descriptions/format/markup/preserveComment.md"
-        },
-        "preserveAttribute": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "./descriptions/format/markup/preserveAttribute.md"
+          "markdownDescription": "./descriptions/format/markup/stripTextWrapLines.md"
         },
         "quoteConvert": {
           "default": "none",
           "type": "string",
           "markdownDescription": "./descriptions/format/markup/quoteConvert.md",
+          "enum": ["none", "double", "single"]
+        },
+        "valueLineBreak": {
           "enum": [
-            "none",
-            "double",
-            "single"
-          ]
+            "preserve",
+            "inline",
+            "force-align",
+            "force-indent"
+          ],
+          "default": "preserve",
+          "markdownDescription": "./descriptions/format/markup/valueLineBreak.md"
         },
-        "delimiterTrims": {
-          "deprecationMessage": "./descriptions/format/deprecated/liquid.md"
+        "valueSpacing": {
+          "enum": [
+            "preserve",
+            "equipoise",
+            "wrap",
+            "wrap-fraction"
+          ],
+          "default": "preserve",
+          "markdownDescription": "./descriptions/format/markup/valueSpacing.md"
         },
-        "lineBreakSeparator": {
-          "deprecationMessage": "./descriptions/format/deprecated/liquid.md"
+
+        "commentNewline": {
+          "deprecationMessage": "./descriptions/format/deprecated/markup/commentNewline.md"
         },
-        "normalizeSpacing": {
-          "deprecationMessage": "./descriptions/format/deprecated/liquid.md"
+        "commentDelimiters": {
+          "deprecationMessage": "./descriptions/format/deprecated/markup/commentDelimiters.md"
         },
-        "valueForce": {
-          "deprecationMessage": "./descriptions/format/deprecated/liquid.md"
+        "forceAttribute": {
+          "deprecationMessage": "./descriptions/format/deprecated/markup/forceAttribute.md"
+        },
+        "preserveComment": {
+          "deprecationMessage": "./descriptions/format/deprecated/markup/preserveComment.md"
+        },
+        "preserveAttribute": {
+          "deprecationMessage": "./descriptions/format/deprecated/markup/preserveAttribute.md"
         }
       }
     },
@@ -439,32 +432,20 @@
           "default": "none",
           "title": "Trailing Comma",
           "markdownDescription": "If there should be a trailing comma in arrays and objects",
-          "enum": [
-            "none",
-            "never",
-            "always"
-          ]
+          "enum": ["none", "never", "always"]
         },
         "arrayFormat": {
           "type": "string",
           "default": "default",
           "markdownDescription": "**_ARRAY FORMAT_**\n\n_Determines if all array indexes should be indented, never indented, or left to the default. The `default` option will leave array indexes intact and not apply any formatting._\n\n---\n#### `inline`&nbsp;&nbsp;&nbsp;👎\nEnsure all array indexes appear on a single line\n```json\n\n{\n  \"object\": [1,2,3,4]\n}\n\n```\n---\n#### `indent`&nbsp;&nbsp;&nbsp;👍\nAlways indent each index of an array\n\n```json\n\n{\n  \"object\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}\n\n```",
-          "enum": [
-            "default",
-            "indent",
-            "inline"
-          ]
+          "enum": ["default", "indent", "inline"]
         },
         "objectIndent": {
           "type": "string",
           "default": "default",
           "title": "Formatting Arrays",
           "markdownDescription": "Determines if all object keys should be indented, never indented, or left to the default",
-          "enum": [
-            "default",
-            "indent",
-            "inline"
-          ]
+          "enum": ["default", "indent", "inline"]
         },
         "functionNameSpace": {
           "type": "boolean",
@@ -510,11 +491,7 @@
           "title": "Convert Quotes",
           "markdownDescription": "If the quotes of script strings or document attributes should be converted to single quotes or double quotes",
           "type": "string",
-          "enum": [
-            "double",
-            "single",
-            "none"
-          ]
+          "enum": ["double", "single", "none"]
         },
         "functionSpace": {
           "type": "boolean",
@@ -595,11 +572,7 @@
           "default": "none",
           "markdownDescription": "./descriptions/format/style/quoteConvert.md",
           "type": "string",
-          "enum": [
-            "none",
-            "double",
-            "single"
-          ]
+          "enum": ["none", "double", "single"]
         }
       }
     },
@@ -610,17 +583,13 @@
       "properties": {
         "arrayFormat": {
           "type": "string",
-          "default": "default",
+          "default": "indent",
           "markdownDescription": "./descriptions/format/json/arrayFormat.md",
-          "enum": [
-            "default",
-            "indent",
-            "inline"
-          ]
+          "enum": ["default", "indent", "inline"]
         },
         "braceAllman": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "markdownDescription": "./descriptions/format/json/braceAllman.md"
         },
         "bracePadding": {
@@ -630,13 +599,9 @@
         },
         "objectIndent": {
           "type": "string",
-          "default": "default",
+          "default": "indent",
           "markdownDescription": "./descriptions/format/json/objectIndent.md",
-          "enum": [
-            "default",
-            "indent",
-            "inline"
-          ]
+          "enum": ["default", "indent", "inline"]
         },
         "objectSort": {
           "type": "boolean",
