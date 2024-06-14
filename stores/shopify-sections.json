@@ -12,10 +12,12 @@
     "languages": {
       "injectShared": "./shared/shopify-section-languages.json"
     },
+    "@app": {
+      "title": "App",
+      "markdownDescription": "./descriptions/sections/properties/@app.md"
+    },
     "content": {
-      "required": [
-        "content"
-      ],
+      "required": ["content"],
       "type": "object",
       "properties": {
         "content": {
@@ -33,9 +35,7 @@
       }
     },
     "header": {
-      "required": [
-        "content"
-      ],
+      "required": ["content"],
       "type": "object",
       "properties": {
         "content": {
@@ -86,9 +86,7 @@
       }
     },
     "select": {
-      "required": [
-        "options"
-      ],
+      "required": ["options"],
       "properties": {
         "options": {
           "type": "array",
@@ -96,10 +94,7 @@
           "markdownDescription": "Takes an array of value/label definitions for each option in the drop-down",
           "items": {
             "type": "object",
-            "required": [
-              "value",
-              "label"
-            ],
+            "required": ["value", "label"],
             "additionalProperties": false,
             "defaultSnippets": [
               {
@@ -155,11 +150,7 @@
       }
     },
     "range": {
-      "required": [
-        "min",
-        "max",
-        "step"
-      ],
+      "required": ["min", "max", "step"],
       "type": "object",
       "properties": {
         "step": {
@@ -195,9 +186,7 @@
       }
     },
     "radio": {
-      "required": [
-        "options"
-      ],
+      "required": ["options"],
       "type": "object",
       "properties": {
         "options": {
@@ -206,10 +195,7 @@
           "markdownDescription": "Takes an array of value/label definitions",
           "items": {
             "type": "object",
-            "required": [
-              "value",
-              "label"
-            ],
+            "required": ["value", "label"],
             "additionalProperties": false,
             "defaultSnippets": [
               {
@@ -253,9 +239,7 @@
       }
     },
     "video_url": {
-      "required": [
-        "accepts"
-      ],
+      "required": ["accept"],
       "type": "object",
       "properties": {
         "accept": {
@@ -266,10 +250,7 @@
           "markdownDescription": "Takes an array of accepted video providers. Valid values are youtube, vimeo, or both",
           "items": {
             "type": "string",
-            "enum": [
-              "youtube",
-              "vimeo"
-            ]
+            "enum": ["youtube", "vimeo"]
           }
         },
         "placeholder": {
@@ -341,9 +322,7 @@
             "body": {
               "name": "$1",
               "type": "$2",
-              "settings": [
-                "^$3"
-              ]
+              "settings": ["^$3"]
             }
           },
           {
@@ -353,9 +332,7 @@
               "name": "$1",
               "type": "$2",
               "limit": "^$3",
-              "settings": [
-                "^$4"
-              ]
+              "settings": ["^$4"]
             }
           }
         ],
@@ -368,9 +345,7 @@
           }
         },
         "if": {
-          "required": [
-            "type"
-          ],
+          "required": ["type"],
           "type": "object",
           "properties": {
             "type": {
@@ -380,10 +355,7 @@
         },
         "then": {
           "type": "object",
-          "required": [
-            "type",
-            "name"
-          ],
+          "required": ["type", "name"],
           "properties": {
             "name": {
               "$ref": "#/definitions/block_name"
@@ -398,9 +370,7 @@
         },
         "else": {
           "if": {
-            "required": [
-              "name"
-            ],
+            "required": ["name"],
             "type": "object",
             "properties": {
               "name": {
@@ -410,10 +380,7 @@
           },
           "then": {
             "type": "object",
-            "required": [
-              "type",
-              "name"
-            ],
+            "required": ["type", "name"],
             "properties": {
               "type": {
                 "$ref": "#/definitions/block_type"
@@ -439,17 +406,12 @@
       "markdownDescription": "./descriptions/sections/settings/default.md",
       "items": {
         "type": "object",
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "title": "Name",
             "markdownDescription": "The default name, which will show in the Add section portion of the theme editor.",
-            "type": [
-              "string",
-              "object"
-            ]
+            "type": ["string", "object"]
           },
           "settings": {
             "type": "object",
@@ -472,9 +434,7 @@
       "markdownDescription": "./descriptions/sections/settings/presets.md",
       "items": {
         "type": "object",
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "title": "Name",
@@ -757,11 +717,7 @@
         "default": {
           "type": "string",
           "default": "left",
-          "enum": [
-            "left",
-            "center",
-            "right"
-          ]
+          "enum": ["left", "center", "right"]
         }
       }
     },
@@ -809,11 +765,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "enum": [
-              "header",
-              "footer",
-              "aside"
-            ]
+            "enum": ["header", "footer", "aside"]
           }
         }
       }
@@ -862,12 +814,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "enum": [
-              "*",
-              "header",
-              "footer",
-              "aside"
-            ]
+            "enum": ["*", "header", "footer", "aside"]
           }
         }
       }
@@ -877,9 +824,7 @@
   "title": "Shopify Section Schema",
   "markdownDescription": "Shopify schema store reference for the schema Liquid tag used in Shopify themes.",
   "additionalProperties": false,
-  "required": [
-    "name"
-  ],
+  "required": ["name"],
   "properties": {
     "name": {
       "title": "Name",
