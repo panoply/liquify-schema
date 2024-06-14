@@ -38,53 +38,58 @@
     //
     // LIQUID FORMATTING
     "liquid": {
+      "argumentLineBreak": 0,
       "commentIndent": false,
-      "commentNewline": false,
+      "commentPreserve": false,
       "delimiterTrims": "preserve",
+      "equipoiseSpacing": true,
       "ignoreTagList": [],
       "lineBreakSeparator": "before",
-      "normalizeSpacing": true,
-      "preserveComment": false,
       "quoteConvert": "single",
       "dedentTagList": [],
       "delimiterPlacement": "preserve",
+      "filterLineBreak": 0,
+      "indentAttribute": false,
+      "preserveInternal": false,
+      //
+      // DEPRECATED
+      "commentNewline": false,
       "forceArgument": 0,
       "forceFilter": 0,
-      "indentAttribute": false,
-      "preserveInternal": false
+      "normalizeSpacing": true,
+      "preserveComment": false,
     },
     //
     // MARKUP FORMATTING
     "markup": {
       "attributeCasing": "preserve",
+      "attributeLineBreak": false,
+      "attributePreserve": false,
       "attributeSort": false,
+      "commentDelimiter": "preserve",
+      "commentPreserve": false,
       "commentIndent": false,
-      "commentNewline": false,
-      "forceAttribute": false,
+      "delimiterTerminus": "inline",
       "forceIndent": false,
-      "preserveComment": false,
       "preserveText": true,
       "quoteConvert": "double",
-      "selfCloseSpace": false,
-      "delimiterTerminus": "inline",
       "ignoreCSS": false,
       "ignoreJS": false,
       "ignoreJSON": false,
+      "selfCloseSpace": false,
+      "selfCloseSVG": false,
+      "stripTextWrapLines": false,
+      "stripAttributeLines": false,
+      "valueLineBreak": "preserve",
+      "valueSpacing": "equipoise",
+      //
+      // DEPRECATED
+      //
+      "commentNewline": false,
+      "forceAttribute": false,
       "lineBreakValue": "align",
       "preserveAttribute": false,
-      "selfCloseSVG": false,
-      "stripAttributeLines": false,
-      //
-      // DEPRECATED LIQUID RULES
-      //
-      "delimiterTrims": "preserve",
-      "lineBreakSeparator": "default",
-      "normalizeSpacing": true,
-      "valueForce": "intent",
-      "forceLeadAttribute": false,
-      "ignoreScripts": false,
-      "ignoreStyles": false,
-      "preserveAttributes": false,
+      "preserveComment": false,
     },
     //
     // JSON FORMATTING
@@ -93,7 +98,7 @@
       "braceAllman": true,
       "bracePadding": true,
       "objectIndent": "indent",
-      "objectSort": false,
+      "objectSort": false
     },
     //
     // STYLE FORMATTING

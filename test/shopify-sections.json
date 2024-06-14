@@ -4,7 +4,16 @@
   "max_blocks": 3,
   "settings": [
     {
+      "type": "@app"
+    },
+    {
       "$ref": "bar.two"
+    },
+    {
+      "type": "video_url",
+      "id": "",
+      "label": "",
+      "accept": ["vimeo", "youtube"]
     },
     {
       "type": "text_alignment",
