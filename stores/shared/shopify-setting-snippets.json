@@ -1,5 +1,12 @@
 [
   {
+    "label": "App",
+    "markdownDescription": "./descriptions/sections/properties/@app.md",
+    "body": {
+      "type": "@app"
+    }
+  },
+  {
     "label": "Text",
     "markdownDescription": "./descriptions/sections/input/text.md",
     "body": {
@@ -60,9 +67,7 @@
       "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
       "default": "$4",
       "info": "$5",
-      "options": [
-        "^$3"
-      ]
+      "options": ["^$3"]
     }
   },
   {
@@ -74,9 +79,7 @@
       "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
       "default": "$4",
       "info": "$5",
-      "options": [
-        "^$3"
-      ]
+      "options": ["^$3"]
     }
   },
   {
@@ -295,9 +298,7 @@
       "type": "video_url",
       "id": "$1",
       "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
-      "accepts": [
-        "^3"
-      ]
+      "accept": ["^$3"]
     }
   }
 ]
