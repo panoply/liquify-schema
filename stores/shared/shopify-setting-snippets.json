@@ -237,6 +237,27 @@
     }
   },
   {
+    "label": "Metaobject",
+    "markdownDescription": "./descriptions/sections/input/metaobject.md",
+    "body": {
+      "type": "metaobject",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "metaobject_type": "$3"
+    }
+  },
+  {
+    "label": "Metaobject List",
+    "markdownDescription": "./descriptions/sections/input/metaobject_list.md",
+    "body": {
+      "type": "metaobject",
+      "id": "$1",
+      "label": "${1/([^_]+)(_*)/${1:/capitalize}${2:+ }/g}$2",
+      "metaobject_type": "$3",
+      "limit": "^$4"
+    }
+  },
+  {
     "label": "Page",
     "markdownDescription": "./descriptions/sections/input/page.md",
     "body": {
