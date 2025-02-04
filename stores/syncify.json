@@ -16,8 +16,8 @@
     "export": {
       "$ref": "#/definitions/export"
     },
-    "publish": {
-      "$ref": "#/definitions/publish"
+    "config": {
+      "$ref": "#/definitions/config"
     },
     "paths": {
       "$ref": "#/definitions/paths"
@@ -25,23 +25,20 @@
     "spawn": {
       "$ref": "#/definitions/spawn"
     },
-    "log": {
-      "$ref": "#/definitions/log"
-    },
     "hot": {
       "$ref": "#/definitions/hot"
-    },
-    "views": {
-      "$ref": "#/definitions/views"
-    },
-    "terser": {
-      "$ref": "#/definitions/terser"
     },
     "transform": {
       "$ref": "#/definitions/transform"
     },
+    "processor": {
+      "$ref": "#/definitions/processor"
+    },
+    "views": {
+      "deprecationMessage": "./descriptions/syncify/deprecated/views.md"
+    },
     "processors": {
-      "$ref": "#/definitions/processors"
+      "deprecationMessage": "./descriptions/syncify/deprecated/processors.md"
     }
   }
 }
