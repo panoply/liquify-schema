@@ -1,1 +1,1 @@
-Paths to files to be published to the theme `templates` directory.. These can be either JSON or Liquid template files.
+Paths to files to be published to the theme `templates` directory. These can be either JSON or Liquid template files.

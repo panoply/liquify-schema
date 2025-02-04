@@ -1,1 +1,1 @@
-Whether or not Syncify hot reloads UI labels should render.
+Whether or not the Syncify hot reloads UI label should render.

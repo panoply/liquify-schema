@@ -4,8 +4,8 @@ Provide an object `key` > `value` list of theme maps. The `key` properties repre
 
 ```jsonc
 {
-  "domain": "my-store", // equivalent to my-store.myshopify.com
-  "themes": {
+  // equivalent to my-store.myshopify.com
+  "my-store": {
     "dev": 12345678910, // example of a theme target
   }
 }
