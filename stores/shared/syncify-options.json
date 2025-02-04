@@ -13,6 +13,12 @@
       "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
       "markdownDescription": "./descriptions/syncify/options/output.md"
     },
+    "config": {
+      "type": "string",
+      "default": ".",
+      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[a-zA-Z0-9_-]{1,}){0,}$",
+      "markdownDescription": "./descriptions/syncify/options/config.md"
+    },
     "import": {
       "type": "string",
       "default": "import",
@@ -29,28 +35,11 @@
       "type": "object",
       "additionalProperties": false,
       "markdownDescription": "./descriptions/syncify/options/paths.md",
-      "default": {
-        "assets": "assets/**/*",
-        "config": "config/*.json",
-        "locales": "locales/*.json",
-        "layout": "layout/*.liquid",
-        "snippets": "snippets/**/*.liquid",
-        "schema": "schema/*.json",
-        "sections": "sections/**/*.liquid",
-        "templates": "templates/*",
-        "customers": "customers/*",
-        "metaobject": "metaobject/*",
-        "metafields": "metafields/**/*.json",
-        "pages": "pages/**/*",
-        "redirects": "redirects.yaml"
-      },
+      "default": {},
       "properties": {
         "assets": {
           "markdownDescription": "./descriptions/syncify/options/paths/assets.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -67,10 +56,7 @@
           "default": "assets/**/*"
         },
         "config": {
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -87,12 +73,27 @@
           "markdownDescription": "./descriptions/syncify/options/paths/config.md",
           "default": "config/*.json"
         },
+        "blocks": {
+          "markdownDescription": "./descriptions/syncify/options/paths/blocks.md",
+          "type": ["string", "array"],
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+              }
+            }
+          ],
+          "default": ["blocks/*.liquid"]
+        },
         "locales": {
           "markdownDescription": "./descriptions/syncify/options/paths/locales.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -110,10 +111,7 @@
         },
         "layout": {
           "markdownDescription": "./descriptions/syncify/options/paths/layout.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -129,33 +127,9 @@
           ],
           "default": "layout/*.liquid"
         },
-        "snippets": {
-          "markdownDescription": "./descriptions/syncify/options/paths/snippets.md",
-          "type": [
-            "string",
-            "array"
-          ],
-          "oneOf": [
-            {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
-              }
-            }
-          ],
-          "default": "snippets/**/*.liquid"
-        },
         "schema": {
           "markdownDescription": "./descriptions/syncify/options/paths/schema.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -171,12 +145,10 @@
           ],
           "default": "schema/*.json"
         },
-        "sections": {
-          "markdownDescription": "./descriptions/syncify/options/paths/sections.md",
-          "type": [
-            "string",
-            "array"
-          ],
+        "snippets": {
+          "default": "source/snippets/*.{liquid}",
+          "type": ["string", "array", "object"],
+          "markdownDescription": "./descriptions/syncify/options/paths/snippets.md",
           "oneOf": [
             {
               "type": "string",
@@ -188,19 +160,286 @@
                 "type": "string",
                 "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
               }
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "*": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Uses the filename as per the source, identical behaviour as that of `[name]`."
+                },
+                "[name]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Use the filename as per the source. Passing `[name]` only will result in fallback behaviour, as that of `'*'`."
+                },
+                "[dir]-[name]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix directory name and suffix filename in **kebab-case** format."
+                },
+                "[dir]_[name]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix directory name and suffix filename in **snake_case** format."
+                },
+                "[name]-[dir]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix filename and suffix directory in **kebab-case** format."
+                },
+                "[name]_[dir]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix filename and suffix directory in **snake_case** format."
+                },
+                "[name].[dir]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix filename and suffix directory in **dot** format."
+                }
+              },
+              "additionalProperties": false
             }
-          ],
-          "default": [
-            "sections/**/*.liquid",
-            "sections/**/*.json"
+          ]
+        },
+        "sections": {
+          "default": "source/sections/*.{liquid,json}",
+          "type": ["string", "array", "object"],
+          "markdownDescription": "./descriptions/syncify/options/paths/sections.md",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "*": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Uses the filename as per the source, identical behaviour as that of `[name]`."
+                },
+                "[name]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Use the filename as per the source. Passing `[name]` only will result in fallback behaviour, as that of `'*'`."
+                },
+                "[dir]-[name]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix directory name and suffix filename in **kebab-case** format."
+                },
+                "[dir]_[name]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix directory name and suffix filename in **snake_case** format."
+                },
+                "[name]-[dir]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix filename and suffix directory in **kebab-case** format."
+                },
+                "[name]_[dir]": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,}(\\/[!*a-zA-Z0-9_-]{1,}){1,}([.a-z]{1,})?$"
+                      }
+                    }
+                  ],
+                  "markdownDescription": "Prefix filename and suffix directory in **snake_case** format."
+                }
+              },
+              "additionalProperties": false
+            }
           ]
         },
         "templates": {
           "markdownDescription": "./descriptions/syncify/options/paths/templates.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -221,10 +460,7 @@
         },
         "customers": {
           "markdownDescription": "./descriptions/syncify/options/paths/customers.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -245,10 +481,7 @@
         },
         "metaobject": {
           "markdownDescription": "./descriptions/syncify/options/paths/metaobject.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -266,10 +499,7 @@
         },
         "metafields": {
           "markdownDescription": "./descriptions/syncify/options/paths/metafields.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -287,10 +517,7 @@
         },
         "pages": {
           "markdownDescription": "./descriptions/syncify/options/paths/pages.md",
-          "type": [
-            "string",
-            "array"
-          ],
+          "type": ["string", "array"],
           "oneOf": [
             {
               "type": "string",
@@ -304,10 +531,7 @@
               }
             }
           ],
-          "default": [
-            "pages/**/*.html",
-            "pages/**/*.md"
-          ]
+          "default": ["pages/**/*.html", "pages/**/*.md"]
         },
         "redirects": {
           "markdownDescription": "./descriptions/syncify/options/paths/redirects.md",
@@ -358,274 +582,31 @@
       }
     },
     "stores": {
-      "oneOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "object",
-            "patternProperties": {
-              "[a-z]+": {
-                "type": "number"
-              }
-            }
-          },
-          "propertyNames": {
-            "pattern": "[a-z0-9-]+|[a-z0-9-]+\\.myshopify\\.com"
-          }
-        },
-        {
-          "type": [
-            "object",
-            "array"
-          ],
-          "oneOf": [
-            {
-              "type": "object",
-              "required": [
-                "domain",
-                "themes"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "domain": {
-                  "markdownDescription": "./descriptions/syncify/stores/domain.md",
-                  "type": "string",
-                  "pattern": "^[a-zA-Z0-9_-]+$"
-                },
-                "themes": {
-                  "markdownDescription": "./descriptions/syncify/stores/themes.md",
-                  "examples": [
-                    {
-                      "dev": 12345678910
-                    }
-                  ],
-                  "type": "object",
-                  "propertyNames": {
-                    "pattern": "^[a-z0-9_$-]{1,15}$",
-                    "markdownDescription": "./descriptions/syncify/stores/targets.md"
-                  }
-                }
-              }
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "required": [
-                  "domain",
-                  "themes"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "domain": {
-                    "markdownDescription": "./descriptions/syncify/stores/domain.md",
-                    "type": "string",
-                    "pattern": "^[a-zA-Z0-9_-]+$"
-                  },
-                  "themes": {
-                    "markdownDescription": "./descriptions/syncify/stores/themes.md",
-                    "examples": [
-                      {
-                        "dev": 12345678910
-                      }
-                    ],
-                    "type": "object",
-                    "propertyNames": {
-                      "pattern": "^[a-z0-9_$-]{1,15}$",
-                      "markdownDescription": "./descriptions/syncify/stores/targets.md"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "views": {
       "type": "object",
-      "additionalProperties": false,
-      "markdownDescription": "./descriptions/syncify/options/views.md",
-      "default": {
-        "sections": {
-          "prefixDir": false,
-          "separator": "-",
-          "global": []
-        },
-        "snippets": {
-          "prefixDir": false,
-          "separator": "-",
-          "global": []
-        },
-        "pages": {
-          "importLanguage": "markdown",
-          "suffixDir": false,
-          "author": "",
-          "global": []
+      "markdownDescription": "./descriptions/syncify/stores.md",
+      "additionalProperties": {
+        "type": "object",
+        "patternProperties": {
+          "[a-z]+": {
+            "type": "number",
+            "markdownDescription": "./descriptions/syncify/themes.md"
+          }
         }
       },
-      "properties": {
-        "sections": {
-          "type": "object",
-          "additionalProperties": false,
-          "markdownDescription": "./descriptions/syncify/options/views/sections.md",
-          "properties": {
-            "prefixDir": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "./descriptions/syncify/options/views/sections/prefixDir.md"
-            },
-            "separator": {
-              "type": "string",
-              "default": "-",
-              "markdownDescription": "./descriptions/syncify/options/views/sections/separator.md",
-              "oneOf": [
-                {
-                  "markdownDescription": "dash",
-                  "enum": [
-                    "-"
-                  ]
-                },
-                {
-                  "markdownDescription": "underscore",
-                  "enum": [
-                    "_"
-                  ]
-                },
-                {
-                  "markdownDescription": "colon",
-                  "enum": [
-                    ":"
-                  ]
-                },
-                {
-                  "markdownDescription": "at",
-                  "enum": [
-                    "@"
-                  ]
-                }
-              ]
-            },
-            "global": {
-              "markdownDescription": "./descriptions/syncify/options/views/sections/global.md",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "snippets": {
-          "type": "object",
-          "additionalProperties": false,
-          "markdownDescription": "./descriptions/syncify/options/views/snippets.md",
-          "properties": {
-            "prefixDir": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "./descriptions/syncify/options/views/snippets/prefixDir.md"
-            },
-            "separator": {
-              "type": "string",
-              "default": "-",
-              "markdownDescription": "./descriptions/syncify/options/views/snippets/separator.md",
-              "oneOf": [
-                {
-                  "markdownDescription": "dot",
-                  "enum": [
-                    "."
-                  ]
-                },
-                {
-                  "markdownDescription": "dash",
-                  "enum": [
-                    "-"
-                  ]
-                },
-                {
-                  "markdownDescription": "underscore",
-                  "enum": [
-                    "_"
-                  ]
-                },
-                {
-                  "markdownDescription": "colon",
-                  "enum": [
-                    ":"
-                  ]
-                },
-                {
-                  "markdownDescription": "at",
-                  "enum": [
-                    "@"
-                  ]
-                }
-              ]
-            },
-            "global": {
-              "markdownDescription": "./descriptions/syncify/options/views/snippets/global.md",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "pages": {
-          "type": "object",
-          "additionalProperties": false,
-          "markdownDescription": "./descriptions/syncify/options/views/pages.md",
-          "properties": {
-            "language": {
-              "type": "string",
-              "markdownDescription": "./descriptions/syncify/options/views/pages/language.md",
-              "oneOf": [
-                {
-                  "enum": [
-                    "html"
-                  ]
-                },
-                {
-                  "enum": [
-                    "markdown"
-                  ]
-                }
-              ]
-            },
-            "suffixDir": {
-              "type": "boolean",
-              "markdownDescription": "./descriptions/syncify/options/views/pages/suffixDir.md",
-              "default": false
-            },
-            "author": {
-              "markdownDescription": "./descriptions/syncify/options/views/pages/author.md",
-              "type": "string",
-              "default": ""
-            },
-            "global": {
-              "markdownDescription": "./descriptions/syncify/options/views/pages/global.md",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        }
+      "propertyNames": {
+        "pattern": "[a-z0-9-]+|[a-z0-9-]+\\.myshopify\\.com"
       }
     },
     "hot": {
       "markdownDescription": "./descriptions/syncify/options/hot.md",
       "default": {
-        "label": "visible",
-        "inject": true,
-        "server": 3000,
-        "socket": 8089,
+        "server": 41001,
+        "socket": 51001,
+        "label": true,
+        "eject": true,
         "method": "hot",
-        "strategy": "hydrate",
-        "scroll": "preserved",
-        "layouts": [
-          "theme.liquid"
-        ]
+        "layouts": ["theme.liquid"],
+        "flags": ["--no-preview-bar"]
       },
       "oneOf": [
         {
@@ -633,63 +614,57 @@
           "additionalProperties": false,
           "properties": {
             "label": {
-              "type": "string",
-              "enum": [
-                "visible",
-                "hidden"
-              ],
+              "type": "boolean",
+              "default": true,
               "markdownDescription": "./descriptions/syncify/options/hot/label.md"
             },
-            "inject": {
+            "eject": {
               "type": "boolean",
-              "markdownDescription": "./descriptions/syncify/options/hot/inject.md"
+              "default": true,
+              "markdownDescription": "./descriptions/syncify/options/hot/eject.md"
             },
             "layouts": {
               "type": "array",
               "items": {
                 "type": "string"
               },
-              "default": [
-                "theme.liquid"
-              ],
+              "default": ["theme.liquid"],
               "markdownDescription": "./descriptions/syncify/options/hot/layouts.md"
             },
             "server": {
               "type": "integer",
-              "default": 3000,
+              "default": 41001,
               "markdownDescription": "./descriptions/syncify/options/hot/server.md"
             },
             "socket": {
               "type": "integer",
-              "default": 8089,
+              "default": 51001,
               "markdownDescription": "./descriptions/syncify/options/hot/socket.md"
             },
             "method": {
               "type": "string",
-              "enum": [
-                "hot",
-                "refresh"
-              ],
+              "enum": ["hot", "reload", "refresh"],
               "default": "hot",
               "markdownDescription": "./descriptions/syncify/options/hot/method.md"
             },
-            "strategy": {
-              "type": "string",
-              "enum": [
-                "hydrate",
-                "replace"
-              ],
-              "default": "hydrate",
-              "markdownDescription": "./descriptions/syncify/options/hot/strategy.md"
-            },
-            "scroll": {
-              "type": "string",
-              "enum": [
-                "preserved",
-                "top"
-              ],
-              "default": "preserved",
-              "markdownDescription": "./descriptions/syncify/options/hot/scroll.md"
+            "flags": {
+              "type": "array",
+              "default": ["--no-preview-bar"],
+              "markdownDescription": "./descriptions/syncify/options/hot/flags.md",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "--no-preview-bar",
+                  "--no-web-pixels-manager",
+                  "--no-checkout-preloads",
+                  "--no-shopify-features",
+                  "--no-trekkie",
+                  "--no-perfkit"
+                ]
+              },
+              "uniqueItems": true,
+              "minItems": 0,
+              "maxItems": 6
             }
           }
         },
@@ -699,44 +674,9 @@
         }
       ]
     },
-    "log": {
-      "type": "object",
-      "markdownDescription": "./descriptions/syncify/options/log.md",
-      "additionalProperties": false,
-      "default": {
-        "stats": true,
-        "warnings": true,
-        "silent": false,
-        "clear": true
-      },
-      "properties": {
-        "stats": {
-          "type": "boolean",
-          "default": true,
-          "markdownDescription": "./descriptions/syncify/options/log/stats.md"
-        },
-        "warnings": {
-          "type": "boolean",
-          "default": true,
-          "markdownDescription": "./descriptions/syncify/options/log/stats.md"
-        },
-        "silent": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "./descriptions/syncify/options/log/silent.md"
-        },
-        "clear": {
-          "type": "boolean",
-          "markdownDescription": "./descriptions/syncify/options/log/clear.md",
-          "default": true
-        }
-      }
-    },
     "style": {
       "type": "object",
-      "required": [
-        "input"
-      ],
+      "required": ["input"],
       "additionalProperties": false,
       "properties": {
         "input": {
@@ -805,10 +745,7 @@
                   "type": "string",
                   "markdownDescription": "The style compiled CSS should be output.",
                   "default": "compressed",
-                  "enum": [
-                    "compressed",
-                    "expanded"
-                  ]
+                  "enum": ["compressed", "expanded"]
                 },
                 "warnings": {
                   "type": "boolean",
@@ -833,9 +770,7 @@
     },
     "script": {
       "type": "object",
-      "required": [
-        "input"
-      ],
+      "required": ["input"],
       "additionalProperties": false,
       "properties": {
         "input": {
@@ -894,10 +829,7 @@
         "format": {
           "type": "string",
           "default": "esm",
-          "enum": [
-            "esm",
-            "iife"
-          ],
+          "enum": ["esm", "iife"],
           "markdownDescription": "./descriptions/syncify/options/transform/script/format.md"
         },
         "sourcemap": {
@@ -914,7 +846,7 @@
           "markdownDescription": "./descriptions/syncify/options/transform/script/watch.md"
         },
         "esbuild": {
-          "type": "boolean",
+          "type": ["boolean", "object"],
           "default": true,
           "markdownDescription": "./descriptions/syncify/options/transform/script/esbuild.md"
         }
@@ -922,9 +854,7 @@
     },
     "svg": {
       "type": "object",
-      "required": [
-        "input"
-      ],
+      "required": ["input"],
       "properties": {
         "input": {
           "markdownDescription": "./descriptions/syncify/options/transform/svg/input.md",
@@ -953,10 +883,7 @@
           "oneOf": [
             {
               "type": "string",
-              "enum": [
-                "file",
-                "sprite"
-              ]
+              "enum": ["file", "sprite"]
             },
             {
               "type": "null"
@@ -968,28 +895,160 @@
     },
     "json": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
+        "crlf": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "If line termination should be Windows (CRLF) format. Unix (LF) format is the default."
+        },
         "indent": {
           "type": "number",
           "default": 2,
-          "markdownDescription": "The indentation level.\n\nDefault: `2`"
+          "markdownDescription": "The indentation level"
         },
         "useTab": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "Whether to use `\t` indentation characters.\n\nDefault: `false`"
+          "markdownDescription": "Whether to use tabbed `\\t` identation characters. When `true`, tabs will apply at the division of `2` relative to the `indent` option value."
         },
-        "crlf": {
+        "stripComments": {
           "type": "boolean",
           "default": false,
-          "markdownDescription": "If line termination should be Windows (CRLF) format. Unix (LF) format is the default.\n\nDefault: `false`"
+          "markdownDescription": "Whether or not comments should be stripped or preserved. This effects how Syncify handles both local and remote sources."
+        },
+        "sortObjects": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Whether or not Syncify should apply alpha-numeric sorting to object properties or not. This will apply deep sorting, so all objects within a structure will adhere."
+        },
+        "sortExclude": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "Define a list of property names with object values that should be excluded and skipped from sorting. This option only applies when `sortObjects` is set to `true` and will have no effect if `sortObjects` is not enabled.",
+          "items": {
+            "type": "string"
+          }
         },
         "exclude": {
           "type": "array",
+          "default": [],
+          "markdownDescription": "An optional string list of paths/filenames to exclude from processing, i.e: pass through",
           "items": {
             "type": "string"
-          },
-          "markdownDescription": "An optional string list of paths/filenames to exclude from processing, i.e., pass through.\n\nDefault: `false`"
+          }
+        },
+        "terse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "assets": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify `.json` files writing to `theme/assets`"
+                },
+                "config": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify `settings_schema.json` and `settings_data.json` config files."
+                },
+                "locales": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify `locale` and `.json` files."
+                },
+                "metafields": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify `metafield` and `.json` files."
+                },
+                "metaobject": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify `metaobject` and `.json` files."
+                },
+                "groups": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify section group `.json` files"
+                },
+                "templates": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minify `template` and `.json` files."
+                },
+                "exclude": {
+                  "type": "array",
+                  "default": [],
+                  "markdownDescription": "An optional list of paths/files to exclude from minification.",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    "liquid": {
+      "type": "object",
+      "properties": {
+        "terse": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "stripTrims": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Removes redundant whitespace Liquid dash trims from Liquid tags and objects."
+                },
+                "minifyJS": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minifies inner contents of `<script>` and `{% javascript %}` tags"
+                },
+                "minifyCSS": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minifies inner contents of `<style>`, `{% style %}` and `{% stylesheet %}` tags"
+                },
+                "minifySchema": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Minifies inner contents of `{% schema %}` tags"
+                },
+                "removeComments": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Remove all occurrences of HTML and Liquid comments"
+                },
+                "collapseWhitespace": {
+                  "type": "boolean",
+                  "default": true,
+                  "markdownDescription": "Collapse all whitespace and newlines"
+                },
+                "exclude": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": [],
+                  "markdownDescription": "Excluded files from minification"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
         }
       },
       "additionalProperties": false
@@ -1003,13 +1062,17 @@
           "markdownDescription": "./descriptions/syncify/options/transform/json.md",
           "$ref": "#/definitions/json"
         },
+        "liquid": {
+          "markdownDescription": "./descriptions/syncify/options/transform/liquid.md",
+          "$ref": "#/definitions/liquid"
+        },
         "script": {
           "markdownDescription": "./descriptions/syncify/options/transform/script.md",
           "oneOf": [
             {
               "type": "object",
               "propertyNames": {
-                "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+                "pattern": "(assets|snippets)/[@a-z0-9_$.-[\\]]+",
                 "markdownDescription": "./descriptions/syncify/options/transform/script/input-pattern.md"
               },
               "additionalProperties": {
@@ -1046,7 +1109,7 @@
             {
               "type": "object",
               "propertyNames": {
-                "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+                "pattern": "(assets|snippets)/[@a-z0-9_$.-[\\]]+",
                 "markdownDescription": "./descriptions/syncify/options/transform/style/input-pattern.md"
               },
               "additionalProperties": {
@@ -1083,7 +1146,7 @@
             {
               "type": "object",
               "propertyNames": {
-                "pattern": "(assets|snippets)\/[@a-z0-9_$.-[\\]]+",
+                "pattern": "(assets|snippets)/[@a-z0-9_$.-[\\]]+",
                 "markdownDescription": "./descriptions/syncify/options/transform/svg/input-pattern.md"
               },
               "additionalProperties": {
@@ -1116,217 +1179,7 @@
         }
       }
     },
-    "terser": {
-      "type": [
-        "boolean",
-        "object"
-      ],
-      "markdownDescription": "./descriptions/syncify/options/terser.md",
-      "properties": {
-        "json": {
-          "type": [
-            "boolean",
-            "object"
-          ],
-          "default": true,
-          "properties": {
-            "assets": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify `.json` files writing to `theme/assets`.\n\nDefault: true"
-            },
-            "config": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify `settings_schema.json` and `settings_data.json` config files.\n\nDefault: true"
-            },
-            "locales": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify `locale` and `.json` files.\n\nDefault: true"
-            },
-            "metafields": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify `metafield` and `.json` files.\n\nDefault: true"
-            },
-            "metaobject": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify `metaobject` and `.json` files.\n\nDefault: true"
-            },
-            "groups": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify section group `.json` files.\n\nDefault: true"
-            },
-            "templates": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Minify `template` and `.json` files.\n\nDefault: true"
-            },
-            "exclude": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": [],
-              "markdownDescription": "An optional list of paths/files to exclude from minification.\n\nDefault: []"
-            }
-          }
-        },
-        "script": {
-          "type": [
-            "boolean",
-            "object"
-          ],
-          "default": true,
-          "properties": {
-            "keepNames": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "Whether to keep original variable and function names."
-            },
-            "legalComments": {
-              "type": "string",
-              "enum": [
-                "external",
-                "none",
-                "inline",
-                "eof",
-                "linked"
-              ],
-              "default": "inline",
-              "markdownDescription": "Control the preservation of comments in the minified code. Possible values: 'all', 'some', 'none', 'inline'."
-            },
-            "minifyIdentifiers": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to minify variable and function names."
-            },
-            "minifySyntax": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to minify JavaScript syntax."
-            },
-            "minifyWhitespace": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to minify whitespace."
-            },
-            "mangleQuoted": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to mangle properties in quoted object literals."
-            },
-            "exclude": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": [],
-              "markdownDescription": "An optional list of paths/files to exclude from minification."
-            }
-          }
-        },
-        "liquid": {
-          "type": [
-            "boolean",
-            "object"
-          ],
-          "default": true,
-          "properties": {
-            "removeComments": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to remove comments from the content."
-            },
-            "collapseInner": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "Whether to collapse inner content (e.g: collapse whitespace and line breaks)."
-            },
-            "collapseWhitespace": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to collapse whitespace (e.g: remove extra spaces and line breaks)."
-            },
-            "minifyJavascript": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "Whether to minify JavaScript content."
-            },
-            "minifySchema": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "Whether to minify schema content."
-            },
-            "minifyStyle": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "Whether to minify style content."
-            },
-            "minifyStylesheet": {
-              "type": "boolean",
-              "default": false,
-              "markdownDescription": "Whether to minify stylesheet content."
-            },
-            "stripDashes": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to strip dashes (e.g., remove hyphens)."
-            },
-            "exclude": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": [],
-              "markdownDescription": "An optional list of paths/files to exclude from minification."
-            }
-          }
-        },
-        "markup": {
-          "type": [
-            "boolean",
-            "object"
-          ],
-          "default": true,
-          "properties": {
-            "collapseWhitespace": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to collapse whitespace (e.g: remove extra spaces and line breaks)."
-            },
-            "minifyJS": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to minify JavaScript content."
-            },
-            "minifyCSS": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to minify CSS content."
-            },
-            "removeComments": {
-              "type": "boolean",
-              "default": true,
-              "markdownDescription": "Whether to remove comments from the content."
-            },
-            "exclude": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": [],
-              "markdownDescription": "An optional list of paths/files to exclude from minification."
-            }
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "processors": {
+    "processor": {
       "type": "object",
       "properties": {
         "esbuild": {
@@ -1338,48 +1191,8 @@
         "svgo": {
           "type": "object"
         },
-        "sprite": {
-          "type": "object"
-        },
         "postcss": {
           "type": "array"
-        }
-      }
-    },
-    "publish": {
-      "type": "object",
-      "markdownDescription": "./descriptions/syncify/options/publish.md",
-      "default": {
-        "tunnelPort": 80,
-        "publishRole": "unpublished",
-        "bindVersion": true,
-        "themeLimit": 3
-      },
-      "properties": {
-        "tunnelPort": {
-          "type": "number",
-          "default": 80,
-          "markdownDescription": "The port address to publish on. In most cases, you can leave this to the default, unless port 80 is occupied. Use a different port in such a situation.\n\nDefault: 80"
-        },
-        "publishRole": {
-          "type": "string",
-          "enum": [
-            "main",
-            "unpublished",
-            "development"
-          ],
-          "default": "unpublished",
-          "markdownDescription": "Set the publishment role to use. Defaults to 'unpublished', which means theme publishes will not be made pushed live.\n\n'main': The theme is published. Customers see it when they visit the online store.\n'unpublished': The theme is unpublished. Customers can't see it.\n'development': The theme is used for development. The theme can't be published and is temporary.\n\nDefault: 'unpublished'"
-        },
-        "bindVersion": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "Bind theme version with the `settings_schema.json` version.\n\nDefault: false"
-        },
-        "themeLimit": {
-          "type": "number",
-          "default": 3,
-          "markdownDescription": "Limit the amount of new theme publishments.\n\nDefault: 3"
         }
       }
     }
