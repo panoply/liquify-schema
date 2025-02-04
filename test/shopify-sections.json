@@ -59,6 +59,13 @@
       "info": "t:sections.header.settings.logo_help.content"
     },
     {
+      "type": "metaobject",
+      "id": "hello_world",
+      "label": "Hello World",
+      "metaobject_type": "example",
+      "limit": 50
+    },
+    {
       "type": "text",
       "id": "",
       "label": "",
