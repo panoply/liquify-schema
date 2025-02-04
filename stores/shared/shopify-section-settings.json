@@ -54,6 +54,16 @@
           "markdownDescription": "./descriptions/sections/input/range.md"
         },
         {
+          "enum": ["metaobject"],
+          "title": "Metaobject",
+          "markdownDescription": "./descriptions/sections/input/metaobject.md"
+        },
+        {
+          "enum": ["metaobject_list"],
+          "title": "Metaobject List",
+          "markdownDescription": "./descriptions/sections/input/metaobject_list.md"
+        },
+        {
           "enum": ["color"],
           "title": "Color Picker",
           "markdownDescription": "./descriptions/sections/input/color.md"
@@ -180,6 +190,8 @@
           "checkbox",
           "number",
           "range",
+          "metaobject",
+          "metaobject_list",
           "color",
           "color_background",
           "color_scheme",
@@ -357,6 +369,34 @@
         },
         "then": {
           "$ref": "#/definitions/video_url"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "types": {
+              "const": "metaobject"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/metaobject"
+        }
+      },
+      {
+        "if": {
+          "required": ["type"],
+          "type": "object",
+          "properties": {
+            "types": {
+              "const": "metaobject_list"
+            }
+          }
+        },
+        "then": {
+          "$ref": "#/definitions/metaobject_list"
         }
       }
     ]
