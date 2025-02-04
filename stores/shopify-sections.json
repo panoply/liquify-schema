@@ -228,6 +228,31 @@
         }
       }
     },
+    "metaobject": {
+      "required": ["metaobject_type"],
+      "type": "object",
+      "properties": {
+        "metaobject_type": {
+          "type": "string",
+          "markdownDescription": "The metaobject type allowed by the picker."
+        }
+      }
+    },
+    "metaobject_list": {
+      "required": ["metaobject_type"],
+      "type": "object",
+      "properties": {
+        "metaobject_type": {
+          "type": "string",
+          "markdownDescription": "The metaobject type allowed by the picker."
+        },
+        "limit": {
+          "type": "number",
+          "markdownDescription": "The maximum number of metaobject's that the merchant can select. The default limit, and the maximum limit you can set, is `50`.",
+          "maximum": 50
+        }
+      }
+    },
     "color": {
       "type": "object",
       "format": "color",
